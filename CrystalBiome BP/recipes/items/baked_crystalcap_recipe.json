@@ -1,0 +1,16 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "cb2:baked_crystalcap_recipe"
+		},
+		"tags": [
+			"smoker",
+			"furnace",
+			"campfire",
+			"soul_campfire"
+		],
+		"input": "cb2:crystalcap_item",
+		"output": "cb2:baked_crystalcap_item"
+	}
+}

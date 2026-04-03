@@ -1,0 +1,19 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:green_crystal_gem",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:allow_off_hand": true,
+			"minecraft:projectile": {
+				"projectile_entity": "cb2:crystalshard_proj",
+				"minimum_critical_power": 1
+			},
+			"minecraft:icon": "cb2_green_crystal_gem"
+		}
+	}
+}

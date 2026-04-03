@@ -1,0 +1,49 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature"
+			},
+			"identifier": "cb2:crystal_leafstone"
+		},
+		"components": {
+			"minecraft:tick": {
+				"interval_range": [
+					5,
+					20
+				]
+			},
+			"minecraft:custom_components": [
+				"cb2:crystaloak_particle"
+			],
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystal_leafstone",
+					"render_method": "opaque",
+					"ambient_occlusion": true,
+					"face_dimming": false
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": true,
+			"minecraft:map_color": "#FFFEF6",
+			"minecraft:light_emission": 0,
+			"minecraft:light_dampening": 15,
+			"tag:minecraft:is_axe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.4,
+				"item_specific_speeds": [
+					{
+						"item": "shears",
+						"destroy_speed": 0.04
+					}
+				]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 3
+			}
+		}
+	}
+}

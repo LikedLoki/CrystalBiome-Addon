@@ -1,0 +1,24 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "cb2:desolate_rare_crystal_f"
+		},
+		"places_block": {
+			"name": "cb2:rare_crystal_ore"
+		},
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false,
+		"may_attach_to": {
+			"auto_rotate": false,
+			"top": [
+				"minecraft:air"
+			]
+		},
+		"may_replace": [
+			"cb2:crystal_block",
+			"cb2:green_crystal_block",
+			"cb2:deep_crystal_block"
+		]
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"format_version": "1.10.0",
+	"render_controllers": {
+		"controller.render.crystal_guard": {
+			"arrays": {
+				"textures": {
+					"Array.top": [
+						"Texture.blue",
+						"Texture.red",
+						"Texture.green",
+						"Texture.yellow",
+						"Texture.rare"
+					]
+				}
+			},
+			"geometry": "geometry.default",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"array.top[q.variant]"
+			]
+		}
+	}
+}

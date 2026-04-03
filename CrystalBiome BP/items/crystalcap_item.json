@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:crystalcap_item",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:block_placer": {
+				"block": "cb2:crystalcap",
+				"use_on": [
+					"cb2:fertile_crystal_block",
+					"cb2:crystal_block",
+					"cb2:saline_crystal",
+					"cb2:red_crystal_block",
+					"cb2:green_crystal_block",
+					"cb2:yellow_crystal_block",
+					"cb2:rare_crystal_block",
+					"cb2:flare_crystal_block",
+					"cb2:clear_crystal_block",
+					"cb2:clear_red_crystal_block",
+					"cb2:clear_green_crystal_block",
+					"cb2:clear_yellow_crystal_block"
+				]
+			},
+			"minecraft:icon": "cb2_crystalcap_item"
+		}
+	}
+}

@@ -1,0 +1,139 @@
+{
+	"entity_sounds": {
+		"defaults": {
+			"events": {
+				"test": "record.otherside"
+			},
+			"pitch": [
+				0.75,
+				1
+			],
+			"volume": [
+				1.5,
+				1
+			]
+		},
+		"entities": {
+			"cb2:music": {
+				"events": {
+					"musicc": "record.otherside"
+				}
+			},
+			"cb2:crystal_spike": {
+				"events": {
+					"attack": "crystal_golem_hurt"
+				},
+				"pitch": [
+					0.75,
+					1
+				],
+				"volume": [
+					1.5,
+					1
+				]
+			},
+			"cb2:crystal_king": {
+				"pitch": [
+					0.5,
+					0.75
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "crystal_guard_death"
+				}
+			},
+			"cb2:crystal_guard": {
+				"pitch": [
+					0.75,
+					1
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "crystal_guard_death"
+				}
+			},
+			"cb2:giant_cluster": {
+				"pitch": [
+					0.5,
+					0.75
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "crystal_guard_death"
+				}
+			},
+			"cb2:crystal_minion": {
+				"pitch": [
+					1,
+					1.25
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "crystal_guard_death"
+				}
+			},
+			"cb2:crystal_wander": {
+				"pitch": [
+					0.75,
+					1
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "crystal_guard_death"
+				}
+			},
+			"cb2:crystaling": {
+				"pitch": [
+					1.25,
+					1.5
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "mob.allay.death",
+					"attack": "crystaling_polished"
+				}
+			},
+			"cb2:crystalshard_proj": {},
+			"cb2:frystia": {
+				"volume": 1,
+				"pitch": [
+					0.8,
+					1.2
+				],
+				"events": {
+					"ambient": "mob.frystia.idle",
+					"hurt": "mob.frystia.hit",
+					"death": "mob.frystia.death",
+					"death.to.zombie": "mob.frystia.death",
+					"haggle": "mob.frystia.haggle",
+					"haggle.yes": "mob.frystia.yes",
+					"haggle.no": "mob.frystia.no"
+				}
+			}
+		}
+	}
+}

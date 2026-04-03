@@ -1,0 +1,66 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:template_pool": {
+		"description": {
+			"identifier": "cb2:cblabyrinth_room"
+		},
+		"elements": [
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cblabyrinth_room1"
+				},
+				"weight": 12,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cblabyrinth_room2s"
+				},
+				"weight": 12,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cblabyrinth_room2e"
+				},
+				"weight": 12,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cblabyrinth_room3"
+				},
+				"weight": 12,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cblabyrinth_room4"
+				},
+				"weight": 12,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cblabyrinth_raisle"
+				},
+				"weight": 12,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cblabyrinth_rupper"
+				},
+				"weight": 12,
+				"projection": "terrain_matching"
+			},
+		]
+	}
+}

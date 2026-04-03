@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:cb_worktable_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:red_crystal_shard"
+			},
+			"b": {
+				"item": "cb2:crystal_shard"
+			}
+		},
+		"pattern": [
+			"aa",
+			"bb"
+		],
+		"result": {
+			"item": "cb2:crystal_worktable",
+			"count": 1
+		}
+	}
+}

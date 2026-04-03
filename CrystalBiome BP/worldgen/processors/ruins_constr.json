@@ -1,0 +1,96 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:processor_list": {
+		"description": {
+			"identifier": "cb2:ruins_constr"
+		},
+		"processors": [
+			{
+				"processor_type": "minecraft:rule",
+				"rules": [
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:crystal_bricks",
+							"probability": 0.4
+						},
+						"output_state": "cb2:cracked_crystal_bricks"
+					},
+					
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:crystal_bricks",
+							"probability": 0.1
+						},
+						"output_state": "minecraft:air"
+					},
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:crystal_pillar",
+							"probability": 0.1
+						},
+						"output_state": "minecraft:air"
+					},
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:refined_crystal_block",
+							"probability": 0.1
+						},
+						"output_state": "minecraft:air"
+					},
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:crystal_bricks_stairs",
+							"probability": 0.2
+						},
+						"output_state": "cb2:cracked_crystal_bricks_stairs"
+					},
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:crystal_bricks_stairs",
+							"probability": 0.1
+						},
+						"output_state": "minecraft:air"
+					},
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:red_crystal_bricks",
+							"probability": 0.4
+						},
+						"output_state": "cb2:cracked_red_crystal_bricks"
+					},
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:red_crystal_bricks",
+							"probability": 0.1
+						},
+						"output_state": "minecraft:air"
+					},
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:red_crystal_bricks_stairs",
+							"probability": 0.2
+						},
+						"output_state": "cb2:cracked_red_crystal_bricks_stairs"
+					},
+					{
+						"input_predicate": {
+							"predicate_type": "minecraft:random_block_match",
+							"block": "cb2:red_crystal_bricks_stairs",
+							"probability": 0.1
+						},
+						"output_state": "minecraft:air"
+					}
+				]
+			}
+		]
+	}
+}

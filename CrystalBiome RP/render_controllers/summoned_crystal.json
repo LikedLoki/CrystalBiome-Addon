@@ -1,0 +1,39 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.summoned_crystal": {
+			"geometry": "geometry.default",
+			"part_visibility": [
+				{
+					"*": true
+				}
+			],
+			"materials": [
+				{
+					"*": "material.enchanted"
+				}
+			],
+			"textures": [
+				"texture.enchanted"
+			],
+			"color": {
+				"r": 0.25,
+				"g": 0,
+				"b": 1,
+				"a": 1
+			},
+			"uv_anim": {
+				"offset": [
+					"(q.variant==0)?(math.floor(query.life_time*20)+query.frame_alpha)*-0.02:0",
+					"(q.variant==0)?(math.floor(query.life_time*20)+query.frame_alpha)*0.03:0"
+				],
+				"scale": [
+					1,
+					1
+				]
+			},
+			"light_color_multiplier": 1,
+			"ignore_lighting": true
+		}
+	}
+}

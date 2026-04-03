@@ -1,0 +1,26 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "cb2:cb_worktable_recipe"
+		},
+		"tags": [
+			"crafting_table",
+			"crystal_worktable"
+		],
+		"ingredients": [
+			{
+				"item": "cb2:crystal_shard",
+				"count": 2
+			},
+			{
+				"item": "cb2:red_crystal_shard",
+				"count": 2
+			}
+		],
+		"result": {
+			"item": "cb2:crystal_worktable",
+			"count": 1
+		}
+	}
+}

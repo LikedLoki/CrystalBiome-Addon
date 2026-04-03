@@ -1,0 +1,29 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.crystal_minion.sittable": {
+			"states": {
+				"default": {
+					"animations": [
+						"none"
+					],
+					"transitions": [
+						{
+							"active": "query.is_sitting"
+						}
+					]
+				},
+				"active": {
+					"animations": [
+						"sittable"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_sitting"
+						}
+					]
+				}
+			}
+		}
+	}
+}

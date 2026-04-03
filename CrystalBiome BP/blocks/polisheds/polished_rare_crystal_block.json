@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.40",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "construction"
+			},
+			"identifier": "cb2:polished_rare_crystal_block"
+		},
+		"components": {
+			"tag:cb2:crystal": {},
+			"minecraft:light_emission": 0,
+			"minecraft:light_dampening": 7,
+			"minecraft:map_color": "#31B0CC",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 5
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 5
+			},
+			"minecraft:friction": 0.4
+		}
+	}
+}

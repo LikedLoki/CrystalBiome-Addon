@@ -1,0 +1,23 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:rare_crystal_bricks_slab_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:rare_crystal_bricks"
+			}
+		},
+		"pattern": [
+			"aaa"
+		],
+		"result": {
+			"item": "cb2:rare_crystal_bricks_slab",
+			"count": 6
+		}
+	}
+}

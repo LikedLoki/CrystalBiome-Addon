@@ -1,0 +1,41 @@
+{
+	"format_version": "1.10.0",
+	"render_controllers": {
+		"controller.render.crystaling": {
+			"arrays": {
+				"geometries": {
+					"Array.geo": [
+						"Geometry.default",
+						"Geometry.spike_south",
+						"Geometry.spike_east",
+						"Geometry.spike_west",
+						"Geometry.spike_up"
+					]
+				},
+				"textures": {
+					"Array.top": [
+						"Texture.blue_ling",
+						"Texture.red_ling",
+						"Texture.green_ling",
+						"Texture.yellow_ling",
+						"Texture.polished_blue",
+						"Texture.polished_red",
+						"Texture.polished_green",
+						"Texture.polished_yellow",
+						"Texture.rare_ling",
+						"Texture.polished_rare"
+					]
+				}
+			},
+			"geometry": "array.geo[q.mark_variant]",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"array.top[q.variant]"
+			]
+		}
+	}
+}

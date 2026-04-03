@@ -1,0 +1,46 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:biome": {
+		"description": {
+			"identifier": "cb2:cluster"
+		},
+		"components": {
+			"minecraft:overworld_height": {
+				"noise_type": "lowlands"
+			},
+			"minecraft:surface_builder": {
+				"builder": {
+					"type": "minecraft:overworld",
+					"foundation_material": "cb2:crystal_block",
+					"sea_material": "water",
+					"mid_material": "cb2:deep_crystal_block",
+					"top_material": "cb2:crystal_block",
+					"sea_floor_depth": 0,
+					"sea_floor_material": "cb2:crystal_block"
+				}
+			},
+			"minecraft:climate": {},
+			"minecraft:tags": {
+				"tags": [
+					"crystal",
+					"cluster",
+					"crystal_spikes"
+				]
+			},
+			"minecraft:replace_biomes": {
+				"replacements": [
+					{
+						"amount": 0.2,
+						"dimension": "minecraft:overworld",
+						"noise_frequency_scale": 12,
+						"targets": [
+							"minecraft:plains",
+							"minecraft:forest",
+							"minecraft:birch_forest"
+						]
+					}
+				]
+			}
+		}
+	}
+}

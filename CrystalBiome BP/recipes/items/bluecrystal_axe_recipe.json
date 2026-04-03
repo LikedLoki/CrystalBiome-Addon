@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:bluecrystal_axe_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:crystal_block"
+			},
+			"b": {
+				"item": "cb2:crystal_shard"
+			}
+		},
+		"pattern": [
+			"aa",
+			"ab",
+			" b"
+		],
+		"result": {
+			"item": "cb2:blue_crystal_axe",
+			"count": 1
+		}
+	}
+}

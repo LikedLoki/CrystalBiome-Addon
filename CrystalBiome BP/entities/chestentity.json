@@ -1,0 +1,109 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:entity": {
+		"description": {
+			"properties": {},
+			"identifier": "cb2:chestentity",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"cb2:despawn": {
+				"minecraft:transformation": {
+					"drop_inventory": true
+				},
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:renders_when_invisible": {},
+			"minecraft:spell_effects": {
+				"add_effects": [
+					{
+						"visible": false,
+						"effect": "invisibility",
+						"duration": "infinite"
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"height": 0.5,
+				"width": 0.6
+			},
+			"minecraft:inside_block_notifier": {
+				"block_list": [
+					{
+						"exited_block_event": {
+							"event": "cb2:vanish",
+							"target": "self"
+						},
+						"block": {
+							"name": "cb2:crystal_chest"
+						}
+					},
+					{
+						"exited_block_event": {
+							"event": "cb2:vanish",
+							"target": "self"
+						},
+						"block": {
+							"name": "cb2:red_crystal_chest"
+						}
+					},
+					{
+						"exited_block_event": {
+							"event": "cb2:vanish",
+							"target": "self"
+						},
+						"block": {
+							"name": "cb2:green_crystal_chest"
+						}
+					},
+					{
+						"exited_block_event": {
+							"event": "cb2:vanish",
+							"target": "self"
+						},
+						"block": {
+							"name": "cb2:yellow_crystal_chest"
+						}
+					},
+					{
+						"exited_block_event": {
+							"event": "cb2:vanish",
+							"target": "self"
+						},
+						"block": {
+							"name": "cb2:rare_crystal_chest"
+						}
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage":"no"
+				}
+			},
+			"minecraft:nameable": {
+				"allow_name_tag_renaming": false,
+				"always_show": false
+			},
+			"minecraft:inventory": {
+				"inventory_size": 27,
+				"private": false,
+				"container_type": "container"
+			}
+		},
+		"events": {
+			"cb2:vanish": {
+				"add": {
+					"component_groups": [
+						"cb2:despawn"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.crystal_guards.staff": {
+			"states": {
+				"default": {
+					"animations": [
+						"none"
+					],
+					"transitions": [
+						{
+							"active": "query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_blue')||query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_red')||query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_green')||query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_yellow')||query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_orb')"
+						}
+					],
+					"blend_transition": 0
+				},
+				"active": {
+					"animations": [
+						"set"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_blue')&&!query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_red')&&!query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_green')&&!query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_yellow')&&!query.is_item_name_any('slot.weapon.mainhand',0,'cb2:staff_of_orb')"
+						}
+					],
+					"blend_transition": 0
+				}
+			}
+		}
+	}
+}

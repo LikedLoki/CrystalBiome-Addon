@@ -1,0 +1,11 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "cb2:crystal_orb"
+		},
+		"components": {
+			"tag:cb2:crystal": {}
+		}
+	}
+}

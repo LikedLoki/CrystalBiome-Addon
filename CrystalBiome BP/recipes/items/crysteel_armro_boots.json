@@ -1,0 +1,24 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:crysteel_armro_boots"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:crysteel_ingot"
+			}
+		},
+		"pattern": [
+			"a a",
+			"a a"
+		],
+		"result": {
+			"item": "cb2:crysteel_boots",
+			"count": 1
+		}
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:block": {
+		"description": {
+			"identifier": "cb2:rare_crystal_portal"
+		},
+		"components": {
+			"minecraft:movable": {
+				"movement_type": "immovable",
+				"sticky": "none"
+			},
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 9
+			}
+		}
+	}
+}

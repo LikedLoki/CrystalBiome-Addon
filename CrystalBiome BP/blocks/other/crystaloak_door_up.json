@@ -1,0 +1,373 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:block": {
+		"description": {
+			"states": {
+				"cb2:open": [
+					0,
+					1
+				]
+			},
+			"identifier": "cb2:crystaloak_door_up",
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			}
+		},
+		"components": {
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			},
+			"minecraft:loot": "loot_tables/empty.json",
+			"minecraft:light_emission": 0,
+			"minecraft:light_dampening": 0,
+			"minecraft:material_instances": {
+				"*": {
+					"face_dimming": false,
+					"ambient_occlusion": true,
+					"texture": "cb2_crystaloak_door_up",
+					"render_method": "blend"
+				}
+			},
+			"minecraft:geometry": "geometry.door",
+			"cb2:doorup": {
+				"name": "crystaloak",
+				"open": "open.wooden_door",
+				"close": "close.wooden_door"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					},
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": false,
+							"ambient_occlusion": true,
+							"texture": "cb2_crystaloak_door_up",
+							"render_method": "blend"
+						}
+					},
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					},
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": false,
+							"ambient_occlusion": true,
+							"texture": "cb2_crystaloak_door_up",
+							"render_method": "blend"
+						}
+					},
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-180,
+							0
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					},
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": false,
+							"ambient_occlusion": true,
+							"texture": "cb2_crystaloak_door_up",
+							"render_method": "blend"
+						}
+					},
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					},
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": false,
+							"ambient_occlusion": true,
+							"texture": "cb2_crystaloak_door_up",
+							"render_method": "blend"
+						}
+					},
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							5
+						],
+						"size": [
+							16,
+							16,
+							3
+						]
+					}
+				}
+			}
+		]
+	}
+}

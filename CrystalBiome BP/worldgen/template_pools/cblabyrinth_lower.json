@@ -1,0 +1,17 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:template_pool": {
+		"description": {
+			"identifier": "cb2:cblabyrinth_lower"
+		},
+		"elements": [
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cblabyrinth_rlower"
+				},
+				"projection": "terrain_matching"
+			}
+		]
+	}
+}

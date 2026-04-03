@@ -1,0 +1,11 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:snap_to_surface_feature": {
+		"description": {
+			"identifier": "cb2:crystal_vines_ss"
+		},
+		"feature_to_snap": "cb2:crystal_vines_f",
+		"surface": "ceiling",
+		"vertical_search_range": 20
+	}
+}

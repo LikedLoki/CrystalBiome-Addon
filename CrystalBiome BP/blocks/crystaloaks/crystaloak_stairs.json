@@ -1,0 +1,1252 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "construction",
+				"group": "minecraft:itemGroup.name.stairs"
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:vertical_half"
+					]
+				},
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			},
+			"states": {
+				"cb2:connect_stairs_x": {
+					"values": {
+						"min": 0,
+						"max": 2
+					}
+				},
+				"cb2:connect_stairs_y": {
+					"values": {
+						"min": 0,
+						"max": 15
+					}
+				}
+			},
+			"identifier": "cb2:crystaloak_stairs"
+		},
+		"components": {
+			"tag:minecraft:is_axe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 3
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 0,
+			"minecraft:redstone_conductivity": {
+				"allows_wire_to_step_down": true,
+				"redstone_conductor": false
+			},
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": true,
+			"minecraft:map_color": "#FFFEF6",
+			"minecraft:custom_components": [
+				"cb2:stairs"
+			],
+			"minecraft:item_visual": {
+				"geometry": "geometry.stairs_north_bottom",
+				"material_instances": {
+					"*": {
+						"texture": "cb2_crystaloak_planks",
+						"render_method": "opaque",
+						"face_dimming": false,
+						"ambient_occlusion": true
+					}
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"east"
+								]
+							}
+						]
+					},
+					"tag:stairs_east_bottom": {},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_east_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"west"
+								]
+							}
+						]
+					},
+					"tag:stairs_west_bottom": {},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_west_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"south"
+								]
+							}
+						]
+					},
+					"tag:stairs_south_bottom": {},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_south_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'bottom'",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"north"
+								]
+							}
+						]
+					},
+					"tag:stairs_north_bottom": {},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_north_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"east"
+								]
+							}
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							8,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_east_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"west"
+								]
+							}
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							8,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_west_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"south"
+								]
+							}
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							8,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_south_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('minecraft:vertical_half') == 'top'",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"north"
+								]
+							}
+						]
+					},
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							8,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_north_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 1",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_en_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 2",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_wn_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 3",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_en_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 4",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_wn_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 5",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_es_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 6",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_ws_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 7",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_es_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 8",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_ws_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 9",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_ws_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 10",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_wn_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 11",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_ws_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 12",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_wn_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 13",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_es_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 14",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_en_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 0 && q.block_state('cb2:connect_stairs_y') == 15",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_es_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 0",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_en_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 1",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"east",
+									"north"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_en2_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 2",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"west",
+									"north"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_wn2_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 3",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"east",
+									"north"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_en2_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 4",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"west",
+									"north"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_wn2_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 5",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"east",
+									"south"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_es2_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 6",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"west",
+									"south"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_ws2_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 7",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"east",
+									"south"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_es2_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 8",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"west",
+									"south"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_ws2_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 9",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"west",
+									"south"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_ws2_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 10",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"west",
+									"north"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_wn2_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 11",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"west",
+									"south"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_ws2_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 12",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"west",
+									"north"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_wn2_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 13",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"east",
+									"south"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_es2_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 14",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"down",
+									"east",
+									"north"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_en2_bottom",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 1 && q.block_state('cb2:connect_stairs_y') == 15",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"east",
+									"south"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_es2_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_stairs_x') == 2 && q.block_state('cb2:connect_stairs_y') == 0",
+				"components": {
+					"minecraft:liquid_detection": {
+						"detection_rules": [
+							{
+								"can_contain_liquid": true,
+								"liquid_type": "water",
+								"on_liquid_touches": "blocking",
+								"stops_liquid_flowing_from_direction": [
+									"up",
+									"east",
+									"north"
+								]
+							}
+						]
+					},
+					"minecraft:geometry": "geometry.stairs_en2_top",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			}
+		]
+	}
+}

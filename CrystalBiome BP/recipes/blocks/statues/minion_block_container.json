@@ -1,0 +1,37 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:minion_block_container"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:blue_crystal_statue"
+			},
+			"b": {
+				"item": "cb2:red_crystal_statue"
+			},
+			"c": {
+				"item": "cb2:green_crystal_statue"
+			},
+			"d": {
+				"item": "cb2:yellow_crystal_statue"
+			},
+			"e": {
+				"item": "cb2:crystal_block"
+			}
+		},
+		"pattern": [
+			" a ",
+			"deb",
+			" c "
+		],
+		"result": {
+			"item": "cb2:minion_block_container",
+			"count": 1
+		}
+	}
+}

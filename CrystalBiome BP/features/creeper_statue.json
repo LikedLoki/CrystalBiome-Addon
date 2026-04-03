@@ -1,0 +1,24 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "cb2:creeper_statue"
+		},
+		"structure_name": "mystructure:creeper_statue",
+		"facing_direction": "random",
+		"adjustment_radius": 8,
+		"constraints": {
+			"grounded": {},
+			"block_intersection": {
+				"block_allowlist": [
+					"air",
+					"gravel",
+					"stone",
+					"cb2:crystal_block",
+					"cb2:green_crystal_block",
+					"cb2:deep_crystal_block"
+				]
+			}
+		}
+	}
+}

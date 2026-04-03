@@ -1,0 +1,37 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.crystal_wander.angry": {
+			"loop": true,
+			"animation_length": 0.5,
+			"bones": {
+				"head": {
+					"rotation": [0, 0, 0],
+					"position": [0, -2, 0]
+				},
+				"body_": {
+					"rotation": [25, 0, 0],
+					"position": [0, 0, 6]
+				},
+				"bones": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.5": [0, 360, 0]
+					}
+				}
+			}
+		},
+		"animation.crystal_wander.move": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"position": [0, 0, 0]
+				},
+				"body_": {
+					"rotation": [12.5, 0, 0],
+					"position": [0, 0.5, 3]
+				}
+			}
+		}
+	}
+}

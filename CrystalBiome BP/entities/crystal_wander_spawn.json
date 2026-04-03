@@ -1,0 +1,13 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:entity": {
+		"description": {
+			"is_experimental": false,
+			"is_spawnable": true,
+			"is_summonable": true,
+			"identifier": "cb2:crystal_wander_spawn"
+		},
+		"components": {},
+		"events": {}
+	}
+}

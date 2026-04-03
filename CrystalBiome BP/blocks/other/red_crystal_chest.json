@@ -1,0 +1,174 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items",
+				"group": "minecraft:itemGroup.name.chest"
+			},
+			"states": {
+				"cb2:opend": [
+					false,
+					true
+				],
+				"cb2:open": [
+					0,
+					1,
+					2,
+					3,
+					4
+				]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			},
+			"identifier": "cb2:red_crystal_chest"
+		},
+		"components": {
+			"cb2:newchest": {},
+			"tag:cb2:crystal": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			},
+			"minecraft:item_visual": {
+				"geometry": "geometry.cbchest_item",
+				"material_instances": {
+					"*": {
+						"texture": "cb2_red_crystal_chest",
+						"render_method": "opaque"
+					}
+				}
+			},
+			"minecraft:destruction_particles": {
+				"texture": "cb2_polished\red_crystal_block"
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-7,
+					0,
+					-7
+				],
+				"size": [
+					14,
+					14,
+					14
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-7,
+					0,
+					-7
+				],
+				"size": [
+					14,
+					14,
+					14
+				]
+			},
+			"minecraft:geometry": {
+				"identifier": "geometry.cbchest",
+				"bone_visibility": {
+					"body": true,
+					"cap1": "q.block_state('cb2:open') == 0",
+					"cap2": "q.block_state('cb2:open') == 1",
+					"cap3": "q.block_state('cb2:open') == 2",
+					"cap4": "q.block_state('cb2:open') == 3",
+					"cap5": "q.block_state('cb2:open') == 4"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_red_crystal_chest"
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('cb2:opend')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [
+							-7,
+							0,
+							-7
+						],
+						"size": [
+							14,
+							10,
+							14
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-7,
+							0,
+							-7
+						],
+						"size": [
+							14,
+							10,
+							14
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

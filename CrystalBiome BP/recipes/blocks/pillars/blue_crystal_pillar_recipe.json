@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:blue_crystal_pillar_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:polished_crystal_block"
+			}
+		},
+		"pattern": [
+			"a",
+			"a",
+			"a"
+		],
+		"result": {
+			"item": "cb2:crystal_pillar",
+			"count": 3
+		}
+	}
+}

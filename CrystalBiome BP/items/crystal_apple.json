@@ -1,0 +1,31 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:crystal_apple",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:use_modifiers": {
+				"use_duration": 1.6,
+				"movement_modifier": 0.35
+			},
+			"minecraft:use_animation": "eat",
+			"minecraft:food": {
+				"can_always_eat": true,
+				"nutrition": 4,
+				"saturation_modifier": 4
+			},
+			"cb2:eat_effect": [
+				{
+					"name": "absorption",
+					"duration": 480,
+					"amplifier": 0
+				}
+			],
+			"minecraft:icon": "cb2_crystal_apple"
+		}
+	}
+}

@@ -1,0 +1,87 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:polished_red_crystal_pickaxe",
+			"menu_category": {
+				"category": "equipment",
+				"group": "minecraft:itemGroup.name.pickaxe"
+			}
+		},
+		"components": {
+			"cb2:itemdamage_mine": {
+				"value": 1
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:durability": {
+				"max_durability": 240
+			},
+			"minecraft:icon": "cb2_polished_red_crystal_pickaxe",
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"cb2:polished_red_crystal_block"
+						],
+						"repair_amount": "query.max_durability*0.25"
+					},
+					{
+						"items": [
+							"cb2:polished_red_crystal_pickaxe"
+						],
+						"repair_amount": "context.other->query.remaining_durability+0.12*context.other->query.max_durability"
+					}
+				]
+			},
+			"minecraft:damage": 3,
+			"minecraft:enchantable": {
+				"value": 14,
+				"slot": "pickaxe"
+			},
+			"minecraft:digger": {
+				"use_efficiency": true,
+				"destroy_speeds": [
+					{
+						"block": {
+							"tags": "query.any_tag('stone', 'metal', 'minecraft:stone_tier_destructible')"
+						},
+						"speed": 3
+					},
+					{
+						"block": "minecraft:ice",
+						"speed": 3
+					},
+					{
+						"block": "minecraft:sandstone",
+						"speed": 3
+					},
+					{
+						"block": {
+							"tags": "query.any_tag('cb2:crystal') && !query.any_tag('cb2:rawcrystal')"
+						},
+						"speed": 3
+					},
+					{
+						"block": {
+							"tags": "query.any_tag('cb2:crystal') && query.any_tag('cb2:rawcrystal')"
+						},
+						"speed": 9
+					},
+					{
+						"block": {
+							"tags": "query.any_tag( 'cb2:orbshard' )"
+						},
+						"speed": 12
+					}
+				]
+			},
+			"minecraft:tags": {
+				"tags": [
+					"cb2:crystaling_polished",
+					"minecraft:is_pickaxe"
+				]
+			}
+		}
+	}
+}

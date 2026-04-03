@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:cb_furnace_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:crystal_block"
+			}, 
+			"b": {
+				"item": "cb2:red_crystal_block"
+			}
+		},
+		"pattern": [
+			"aaa",
+			"a a",
+			"bbb"
+		],
+		"result": {
+			"item": "cb2:crystal_furnace",
+			"count": 1
+		}
+	}
+}

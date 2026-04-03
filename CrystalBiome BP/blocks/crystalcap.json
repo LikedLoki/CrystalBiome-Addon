@@ -1,0 +1,79 @@
+{
+	"format_version": "1.21.130",
+	"minecraft:block": {
+		"description": {
+			"identifier": "cb2:crystalcap"
+		},
+		"components": {
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"liquid_type": "water",
+						"can_contain_liquid": true,
+						"on_liquid_touches": "popped"
+					}
+				]
+			},
+			"minecraft:loot": "loot_tables/blocks/crystalcap_item.json",
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": [
+							"up"
+						],
+						"block_filter": [
+							"cb2:fertile_crystal_block",
+							"cb2:crystal_block",
+							"cb2:saline_crystal",
+							"cb2:red_crystal_block",
+							"cb2:green_crystal_block",
+							"cb2:yellow_crystal_block",
+							"cb2:rare_crystal_block",
+							"cb2:flare_crystal_block",
+							"cb2:clear_crystal_block",
+							"cb2:clear_red_crystal_block",
+							"cb2:clear_green_crystal_block",
+							"cb2:clear_yellow_crystal_block"
+						]
+					}
+				]
+			},
+			"cb2:crystalcap_grow": {},
+			"minecraft:selection_box": {
+				"origin": [
+					-5,
+					0,
+					-5
+				],
+				"size": [
+					10,
+					9,
+					10
+				]
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-5,
+					0,
+					-5
+				],
+				"size": [
+					10,
+					9,
+					10
+				]
+			},
+			"minecraft:geometry": "geometry.crystalcap",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystalcap",
+					"render_method": "blend",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 4
+		}
+	}
+}

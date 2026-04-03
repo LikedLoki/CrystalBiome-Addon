@@ -1,0 +1,28 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "cb2:sleep_cluster_fragment",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {},
+		"components": {
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": "no"
+				}
+			},
+			"minecraft:scale": {
+				"value": 2
+			},
+			"minecraft:push_through": {
+				"value": 100
+			},
+			"minecraft:physics": {}
+		},
+		"events": {}
+	}
+}

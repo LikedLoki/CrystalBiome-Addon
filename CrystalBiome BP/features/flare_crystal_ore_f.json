@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:ore_feature": {
+		"description": {
+			"identifier": "cb2:flare_crystal_ore_f"
+		},
+		"count": 12,
+		"discard_chance_on_air_exposure": 1,
+		"replace_rules": [
+			{
+				"places_block": {
+					"name": "cb2:flare_crystal_ore"
+				},
+				"may_replace": [
+					"cb2:deep_crystal_block"
+				]
+			}
+		]
+	}
+}

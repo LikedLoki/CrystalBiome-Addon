@@ -1,0 +1,13 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "cb2:clear_rare_crystal_recipe"
+		},
+		"tags": [
+			"furnace"
+		],
+		"input": "cb2:rare_crystal_block",
+		"output": "cb2:clear_rare_crystal_block"
+	}
+}

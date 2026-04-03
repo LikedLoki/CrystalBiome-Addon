@@ -1,0 +1,117 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"states": {
+				"cb2:loot": {
+					"values": {
+						"min": 0,
+						"max": 1
+					}
+				},
+				"cb2:spawn_c": {
+					"values": {
+						"min": 0,
+						"max": 15
+					}
+				},
+				"cb2:active": [
+					false,
+					true
+				]
+			},
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "cb2:crystal_spawner"
+		},
+		"components": {
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_cbspawner_block",
+					"render_method": "alpha_test"
+				},
+				"up": {
+					"texture": "cb2_crystal_worktable_up",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "cb2_crystal_worktable_up",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					5,
+					5
+				]
+			},
+			"minecraft:custom_components": [
+				"cb2:spawnerdetect",
+				"cb2:spawnerplace"
+			],
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 64
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('cb2:active') == true && q.block_state('cb2:spawn_c') > 1",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							10,
+							10
+						]
+					},
+					"minecraft:light_emission": 15,
+					"minecraft:custom_components": [
+						"cb2:spawnerbattle"
+					]
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:active') == true && q.block_state('cb2:spawn_c') == 1",
+				"components": {
+					"minecraft:tick": {
+						"interval_range": [
+							20,
+							20
+						]
+					},
+					"minecraft:custom_components": [
+						"cb2:spawnerbattleend"
+					],
+					"minecraft:destructible_by_mining": {
+						"seconds_to_destroy": 1
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:active') == true && q.block_state('cb2:spawn_c') == 0",
+				"components": {
+					"minecraft:destructible_by_mining": {
+						"seconds_to_destroy": 0.25
+					},
+					"minecraft:loot": "loot_tables/spawner_midium_loot.json",
+					"minecraft:geometry": "minecraft:geometry.full_block",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_cbspawner_block_end",
+							"render_method": "alpha_test"
+						},
+						"up": {
+							"texture": "cb2_crystal_worktable_up",
+							"render_method": "opaque"
+						},
+						"down": {
+							"texture": "cb2_crystal_worktable_up",
+							"render_method": "opaque"
+						}
+					}
+				}
+			}
+		]
+	}
+}

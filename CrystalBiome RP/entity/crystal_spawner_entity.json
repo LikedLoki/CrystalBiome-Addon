@@ -1,0 +1,30 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:crystal_spawner_entity",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/crystal_spawner_entity"
+			},
+			"geometry": {
+				"default": "geometry.crystal_spawner_entity"
+			},
+			"animations": {
+				"base": "controller.animation.crystal_spawner_entity",
+				"spawn": "animation.crystal_spawner_entity.spawn",
+				"idle": "animation.crystalspawner_entity.ilde"
+			},
+			"scripts": {
+				"animate": [
+					"base"
+				]
+			},
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
+}

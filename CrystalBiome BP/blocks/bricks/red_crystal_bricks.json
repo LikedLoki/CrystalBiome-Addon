@@ -1,0 +1,31 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "construction"
+			},
+			"identifier": "cb2:red_crystal_bricks"
+		},
+		"components": {
+			"tag:cb2:crystal": {},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_red_crystal_bricks"
+				}
+			},
+			"minecraft:light_emission": 0,
+			"minecraft:light_dampening": 15,
+			"minecraft:map_color": "#FFB9B9",
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			},
+			"minecraft:friction": 0.4
+		}
+	}
+}

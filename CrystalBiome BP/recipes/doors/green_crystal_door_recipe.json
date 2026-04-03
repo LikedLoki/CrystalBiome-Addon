@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:green_crystal_door_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:polished_green_crystal_block"
+			}
+		},
+		"pattern": [
+			"aa ",
+			"aa ",
+			"aa "
+		],
+		"result": {
+			"item": "cb2:green_crystal_door_item",
+			"count": 3
+		}
+	}
+}

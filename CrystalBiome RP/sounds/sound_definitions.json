@@ -1,0 +1,40 @@
+{
+	"format_version": "1.14.0",
+	"sound_definitions": {
+		"pig": {
+			"sounds": [
+				"sounds/music/game/records/pigstep_master"
+			]
+		},
+		"crystal_guard_hurt": {
+			"sounds": [
+				"sounds/crystal_guard_hurt"
+			]
+		},
+		"crystal_guard_death": {
+			"sounds": [
+				"sounds/crystal_guard_death"
+			]
+		},
+		"crystaling_polished": {
+			"sounds": [
+				"sounds/polished"
+			]
+		},
+		"cbspawner_detect": {
+			"sounds": [
+				"sounds/crystalspawner_detect"
+			]
+		},
+		"cbspawner_spawn": {
+			"sounds": [
+				"sounds/crystalspawner_spawn"
+			]
+		},
+		"crystal.break": {
+			"sounds": [
+				"sounds/crystal.break"
+			]
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:sleep_cluster_fragment",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/cluster_fragment"
+			},
+			"geometry": {
+				"default": "geometry.sleep_cluster_fragment"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
+}

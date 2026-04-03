@@ -1,0 +1,237 @@
+{
+	"pools": [
+		{
+			"rolls": 3,
+			"entries": [
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "unbreaking",
+									"level": [
+										1,
+										2
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "sharpness",
+									"level": [
+										1,
+										2
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "fire_aspect",
+									"level": [
+										1,
+										1
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "knockback",
+									"level": [
+										1,
+										1
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "efficiency",
+									"level": [
+										1,
+										2
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "fortune",
+									"level": [
+										1,
+										1
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "silk_touch",
+									"level": [
+										1,
+										1
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "protection",
+									"level": [
+										1,
+										2
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "projectile_protection",
+									"level": [
+										1,
+										2
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "power",
+									"level": [
+										1,
+										2
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "flame",
+									"level": [
+										1,
+										1
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "enchanted_book",
+					"functions": [
+						{
+							"function": "specific_enchants",
+							"enchants": [
+								{
+									"id": "punch",
+									"level": [
+										1,
+										1
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

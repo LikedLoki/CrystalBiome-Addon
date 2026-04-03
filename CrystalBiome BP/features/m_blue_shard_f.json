@@ -1,0 +1,31 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "cb2:m_blue_shard_f"
+		},
+		"places_block": {
+			"name": "cb2:blue_crystal_bud",
+			"states": {
+				"minecraft:block_face": "up",
+				"cb2:growshard": 1
+			}
+		},
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false,
+		"may_attach_to": {
+			"auto_rotate": false,
+			"bottom": [
+				"cb2:crystal_block",
+				"cb2:red_crystal_block",
+				"cb2:green_crystal_block"
+			],
+			"top": [
+				"minecraft:air"
+			]
+		},
+		"may_replace": [
+			"minecraft:air"
+		]
+	}
+}

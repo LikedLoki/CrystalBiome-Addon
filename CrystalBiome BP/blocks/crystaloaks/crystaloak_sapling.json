@@ -1,0 +1,48 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"identifier": "cb2:crystaloak_sapling"
+		},
+		"components": {
+			"minecraft:map_color": "#FFFEF6",
+			"minecraft:custom_components": [
+				"cb2:sapling_grow"
+			],
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"allowed_faces": [
+							"up"
+						],
+						"block_filter": [
+							"dirt",
+							"grass_block",
+							"dirt_with_roots",
+							"mud",
+							"cb2:fertile_crystal_block"
+						]
+					}
+				]
+			},
+			"minecraft:collision_box": false,
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:loot": "loot_tables/blocks/crystaloaksapling_item.json",
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": true,
+			"minecraft:light_emission": 4,
+			"minecraft:light_dampening": 0,
+			"minecraft:geometry": "geometry.shard_cross",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystaloak_sapling",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			}
+		}
+	}
+}

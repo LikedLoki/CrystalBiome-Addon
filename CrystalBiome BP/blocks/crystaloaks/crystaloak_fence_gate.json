@@ -1,0 +1,268 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"states": {
+				"cb2:open": [
+					false,
+					true
+				],
+				"cb2:connect_wall": [
+					false,
+					true
+				]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			},
+			"menu_category": {
+				"category": "construction",
+				"group": "minecraft:itemGroup.name.fenceGate"
+			},
+			"identifier": "cb2:crystaloak_fence_gate"
+		},
+		"components": {
+			"tag:cb2:is_fencegate": {},
+			"minecraft:collision_box": {
+				"origin": [
+					-8,
+					0,
+					-2
+				],
+				"size": [
+					16,
+					16,
+					4
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8,
+					0,
+					-2
+				],
+				"size": [
+					16,
+					16,
+					4
+				]
+			},
+			"minecraft:item_visual": {
+				"geometry": "geometry.fence_gate",
+				"material_instances": {
+					"*": {
+						"texture": "cb2_crystaloak_planks",
+						"render_method": "opaque",
+						"face_dimming": false,
+						"ambient_occlusion": true
+					}
+				}
+			},
+			"minecraft:custom_components": [
+				"cb2:fence_gate_toggle",
+				"cb2:fencegate_place",
+				"cb2:fencegate_destroy"
+			],
+			"minecraft:geometry": "geometry.fence_gate",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystaloak_planks",
+					"render_method": "opaque",
+					"face_dimming": false,
+					"ambient_occlusion": true
+				}
+			},
+			"tag:crystal": {},
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 0,
+			"minecraft:map_color": "#FFFEF6",
+			"tag:minecraft:is_axe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 3
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east' || q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == true && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('cb2:connect_wall') == false",
+				"components": {
+					"minecraft:geometry": "geometry.fence_gate_opened",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					},
+					"minecraft:collision_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == true && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('cb2:connect_wall') == false",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					},
+					"minecraft:geometry": "geometry.fence_gate_opened",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					},
+					"minecraft:collision_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == true && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('cb2:connect_wall') == false",
+				"components": {
+					"minecraft:geometry": "geometry.fence_gate_opened",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					},
+					"minecraft:collision_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == true && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('cb2:connect_wall') == false",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					},
+					"minecraft:geometry": "geometry.fence_gate_opened",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					},
+					"minecraft:collision_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:connect_wall') == true",
+				"components": {
+					"minecraft:geometry": "geometry.fence_gate_wall",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == true && q.block_state('minecraft:cardinal_direction') == 'east' && q.block_state('cb2:connect_wall') == true",
+				"components": {
+					"minecraft:geometry": "geometry.fence_gate_wall_opened",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					},
+					"minecraft:collision_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == true && q.block_state('minecraft:cardinal_direction') == 'west' && q.block_state('cb2:connect_wall') == true",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							270,
+							0
+						]
+					},
+					"minecraft:geometry": "geometry.fence_gate_wall_opened",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					},
+					"minecraft:collision_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == true && q.block_state('minecraft:cardinal_direction') == 'south' && q.block_state('cb2:connect_wall') == true",
+				"components": {
+					"minecraft:geometry": "geometry.fence_gate_wall_opened",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					},
+					"minecraft:collision_box": false
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:open') == true && q.block_state('minecraft:cardinal_direction') == 'north' && q.block_state('cb2:connect_wall') == true",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					},
+					"minecraft:geometry": "geometry.fence_gate_wall_opened",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystaloak_planks",
+							"render_method": "opaque",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					},
+					"minecraft:collision_box": false
+				}
+			}
+		]
+	}
+}

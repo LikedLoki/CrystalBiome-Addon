@@ -1,0 +1,269 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.staff_of_orb",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 6,
+				"visible_bounds_offset": [
+					0,
+					2,
+					0
+				]
+			},
+			"bones": [
+				{
+					"name": "staff",
+					"pivot": [
+						0,
+						0,
+						0
+					],
+					"binding": "q.item_slot_to_bone_name(c.item_slot)",
+					"cubes": [
+						{
+							"origin": [
+								-1,
+								0,
+								-1
+							],
+							"size": [
+								2,
+								25,
+								2
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										0,
+										16
+									],
+									"uv_size": [
+										28,
+										4
+									],
+									"uv_rotation": 90
+								},
+								"east": {
+									"uv": [
+										0,
+										16
+									],
+									"uv_size": [
+										28,
+										4
+									],
+									"uv_rotation": 90
+								},
+								"south": {
+									"uv": [
+										0,
+										16
+									],
+									"uv_size": [
+										28,
+										4
+									],
+									"uv_rotation": 90
+								},
+								"west": {
+									"uv": [
+										0,
+										16
+									],
+									"uv_size": [
+										28,
+										4
+									],
+									"uv_rotation": 90
+								},
+								"up": {
+									"uv": [
+										24,
+										3
+									],
+									"uv_size": [
+										2,
+										2
+									]
+								},
+								"down": {
+									"uv": [
+										24,
+										7
+									],
+									"uv_size": [
+										2,
+										-2
+									]
+								}
+							}
+						},
+						{
+							"origin": [
+								-3,
+								24,
+								-3
+							],
+							"size": [
+								6,
+								1,
+								6
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										16,
+										0
+									],
+									"uv_size": [
+										12,
+										1
+									]
+								},
+								"east": {
+									"uv": [
+										16,
+										0
+									],
+									"uv_size": [
+										12,
+										1
+									]
+								},
+								"south": {
+									"uv": [
+										28,
+										0
+									],
+									"uv_size": [
+										-12,
+										1
+									]
+								},
+								"west": {
+									"uv": [
+										28,
+										0
+									],
+									"uv_size": [
+										-12,
+										1
+									]
+								},
+								"up": {
+									"uv": [
+										16,
+										0
+									],
+									"uv_size": [
+										12,
+										12
+									]
+								},
+								"down": {
+									"uv": [
+										16,
+										12
+									],
+									"uv_size": [
+										12,
+										-12
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "orb",
+					"parent": "staff",
+					"pivot": [
+						0,
+						31,
+						0
+					],
+					"cubes": [
+						{
+							"origin": [
+								-4,
+								27,
+								-4
+							],
+							"size": [
+								8,
+								8,
+								8
+							],
+							"uv": {
+								"north": {
+									"uv": [
+										0,
+										0
+									],
+									"uv_size": [
+										16,
+										16
+									]
+								},
+								"east": {
+									"uv": [
+										0,
+										0
+									],
+									"uv_size": [
+										16,
+										16
+									]
+								},
+								"south": {
+									"uv": [
+										0,
+										0
+									],
+									"uv_size": [
+										16,
+										16
+									]
+								},
+								"west": {
+									"uv": [
+										0,
+										0
+									],
+									"uv_size": [
+										16,
+										16
+									]
+								},
+								"up": {
+									"uv": [
+										0,
+										0
+									],
+									"uv_size": [
+										16,
+										16
+									]
+								},
+								"down": {
+									"uv": [
+										0,
+										16
+									],
+									"uv_size": [
+										16,
+										-16
+									]
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

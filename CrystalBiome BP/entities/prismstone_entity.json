@@ -1,0 +1,109 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "cb2:prismstone_entity",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"cb2:bluecrystal": {
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			"cb2:redcrystal": {
+				"minecraft:variant": {
+					"value": 1
+				}
+			},
+			"cb2:greencrystal": {
+				"minecraft:variant": {
+					"value": 2
+				}
+			},
+			"cb2:yellowcrystal": {
+				"minecraft:variant": {
+					"value": 3
+				}
+			},
+			"cb2:vanished": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:scale": {
+				"value": 0.8
+			},
+			"minecraft:collision_box": {
+				"height": 0,
+				"width": 0
+			},
+			"minecraft:inside_block_notifier": {
+				"block_list": [
+					{
+						"exited_block_event": {
+							"event": "cb2:vanish",
+							"target": "self"
+						},
+						"block": {
+							"name": "cb2:prismstone"
+						}
+					}
+				]
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": false
+				}
+			}
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"randomize": [
+					{
+						"weight": 1,
+						"add": {
+							"component_groups": [
+								"cb2:bluecrystal"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"add": {
+							"component_groups": [
+								"cb2:redcrystal"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"add": {
+							"component_groups": [
+								"cb2:greencrystal"
+							]
+						}
+					},
+					{
+						"weight": 1,
+						"add": {
+							"component_groups": [
+								"cb2:yellowcrystal"
+							]
+						}
+					}
+				]
+			},
+			"cb2:vanish": {
+				"add": {
+					"component_groups": [
+						"cb2:vanished"
+					]
+				}
+			}
+		}
+	}
+}

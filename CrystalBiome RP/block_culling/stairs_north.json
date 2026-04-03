@@ -1,0 +1,16 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block_culling_rules": {
+		"description": {
+			"identifier": "cb2:stairs_north"
+		},
+		"rules": [
+			{
+				"geometry_part": {
+					"bone": "south_west_up",
+					"cube": 0
+				}
+			}
+		]
+	}
+}

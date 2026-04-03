@@ -1,0 +1,28 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:crystal_orb",
+			"scripts": {
+				"animate": [
+					"orb_rot"
+				]
+			},
+			"animations": {
+				"orb_rot": "animation.model.orb"
+			},
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/crystal_orb"
+			},
+			"geometry": {
+				"default": "geometry.crystal_orb"
+			},
+			"render_controllers": [
+				"controller.render.crystal_orb"
+			]
+		}
+	}
+}

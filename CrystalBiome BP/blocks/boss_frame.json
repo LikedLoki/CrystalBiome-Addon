@@ -1,0 +1,57 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:block": {
+		"description": {
+			"states": {
+				"cb2:summon": [
+					false,true
+				]
+			},
+			"identifier": "cb2:boss_frame"
+		},
+		"permutations": [
+			{
+				"condition": "!query.block_state('cb2:summon')",
+				"components": {
+					"minecraft:geometry": "minecraft:geometry.cross",
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": false,
+							"ambient_occlusion": true,
+							"render_method": "blend",
+							"texture": "cb2_boss_frame"
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('cb2:summon')",
+				"components": {
+					"minecraft:geometry": "minecraft:geometry.full_block",
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": false,
+							"ambient_occlusion": true,
+							"render_method": "blend",
+							"texture": "cb2_crystal_test"
+						}
+					}
+				}
+			}
+		],
+		"components": {
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 999999999999
+			},
+			"minecraft:geometry": "minecraft:geometry.cross",
+			"minecraft:material_instances": {
+				"*": {
+					"face_dimming": false,
+					"ambient_occlusion": true,
+					"render_method": "blend",
+					"texture": "cb2_boss_frame"
+				}
+			}
+		}
+	}
+}

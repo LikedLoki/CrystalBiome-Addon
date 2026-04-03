@@ -1,0 +1,33 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:saline_crystal_shard",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:block_placer": {
+				"block": "cb2:saline_crystal_bud",
+				"replace_block_item": false,
+				"use_on": [
+					{
+						"name": "cb2:fertile_crystal_block"
+					}
+				]
+			},
+			"minecraft:use_modifiers": {
+				"use_duration": 1.6,
+				"movement_modifier": 0.35
+			},
+			"minecraft:use_animation": "eat",
+			"minecraft:food": {
+				"can_always_eat": false,
+				"nutrition": 1,
+				"saturation_modifier": 2
+			},
+			"minecraft:icon": "cb2_saline_shard"
+		}
+	}
+}

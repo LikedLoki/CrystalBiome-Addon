@@ -1,0 +1,33 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.model.cbspawner_block": {
+			"loop": true,
+			"animation_length": 3,
+			"bones": {
+				"block": {
+					"rotation": {
+						"0.0": {
+							"post": [
+								0,
+								0,
+								0
+							],
+							"lerp_mode": "catmullrom"
+						},
+						"1.5": [
+							360,
+							120,
+							0
+						],
+						"3.0": [
+							360,
+							360,
+							360
+						]
+					}
+				}
+			}
+		}
+	}
+}

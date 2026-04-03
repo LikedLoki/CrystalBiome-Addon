@@ -1,0 +1,1 @@
+execute as @e at @s if entity @s[hasitem={item=cb2:crysteel_helmet,location=slot.armor.head}] if entity @s[hasitem={item=cb2:crysteel_chestplate,location=slot.armor.chest}] if entity @s[hasitem={item=cb2:crysteel_leggings,location=slot.armor.legs}] if entity @s[hasitem={item=cb2:crysteel_boots,location=slot.armor.feet}] run effect @s health_boost 1 4 true

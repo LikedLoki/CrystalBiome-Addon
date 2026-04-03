@@ -1,0 +1,21 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "cb2:minion_block_container"
+		},
+		"components": {
+			"tag:cb2:crystal": {},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_minion_block_container",
+					"render_method": "opaque"
+				}
+			}
+		}
+	}
+}

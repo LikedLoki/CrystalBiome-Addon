@@ -1,0 +1,31 @@
+{
+	"format_version": "1.21.130",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "construction"
+			},
+			"identifier": "cb2:blue_wall_place"
+		},
+		"components": {
+			"tag:cb2:crystal": {},
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_testblock"
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:map_color": "#A5E6FF",
+			"cb2:setblock": "cb2:crystal_bricks_wall",
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			}
+		}
+	}
+}

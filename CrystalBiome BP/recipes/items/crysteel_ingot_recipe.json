@@ -1,0 +1,14 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "cb2:crysteel_ingot_recipe"
+		},
+		"tags": [
+			"blast_furnace",
+			"furnace"
+		],
+		"input": "cb2:crysteel_material",
+		"output": "cb2:crysteel_ingot"
+	}
+}

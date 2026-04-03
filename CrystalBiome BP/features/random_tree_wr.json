@@ -1,0 +1,18 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:weighted_random_feature": {
+		"description": {
+			"identifier": "cb2:random_tree_wr"
+		},
+		"features": [
+			[
+				"cb2:crystaltree_red",
+				6
+			],
+			[
+				"cb2:crystaltree_yellow",
+				4
+			]
+		]
+	}
+}

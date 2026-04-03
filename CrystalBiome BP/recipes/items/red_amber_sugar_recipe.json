@@ -1,0 +1,29 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "cb2:red_amber_sugar_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"ingredients": [
+			{
+				"item": "cb2:red_crystal_block",
+				"count": 1
+			},
+			{
+				"item": "cb2:crystalcap_item",
+				"count": 1
+			},
+			{
+				"item": "cb2:crystal_salt",
+				"count": 1
+			}
+		],
+		"result": {
+			"item": "cb2:red_amber_sugar",
+			"count": 2
+		}
+	}
+}

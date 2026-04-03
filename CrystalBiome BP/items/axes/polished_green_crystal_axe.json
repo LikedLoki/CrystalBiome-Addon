@@ -1,0 +1,75 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:polished_green_crystal_axe",
+			"menu_category": {
+				"category": "equipment",
+				"group": "minecraft:itemGroup.name.axe"
+			}
+		},
+		"components": {
+			"minecraft:custom_components": [
+				"cb2:itemdamage_mine"
+			],
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:durability": {
+				"max_durability": 320
+			},
+			"minecraft:icon": "cb2_polished_green_crystal_axe",
+			"minecraft:damage": 3,
+			"minecraft:enchantable": {
+				"value": 14,
+				"slot": "axe"
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"cb2:polished_green_crystal_block"
+						],
+						"repair_amount": "query.max_durability*0.25"
+					},
+					{
+						"items": [
+							"cb2:polished_green_crystal_axe"
+						],
+						"repair_amount": "context.other->query.remaining_durability+0.12*context.other->query.max_durability"
+					}
+				]
+			},
+			"minecraft:digger": {
+				"use_efficiency": true,
+				"destroy_speeds": [
+					{
+						"block": {
+							"tags": "query.any_tag('wood', 'pumpkin', 'plant')"
+						},
+						"speed": 6
+					},
+					{
+						"block": "minecraft:chest",
+						"speed": 6
+					},
+					{
+						"block": "minecraft:melon_block",
+						"speed": 6
+					},
+					{
+						"block": {
+							"tags": "query.any_tag('cb2:rawcrystal')"
+						},
+						"speed": 4
+					}
+				]
+			},
+			"minecraft:tags": {
+				"tags": [
+					"cb2:minion_equied",
+					"minecraft:is_axe"
+				]
+			}
+		}
+	}
+}

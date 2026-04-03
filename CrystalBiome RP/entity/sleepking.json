@@ -1,0 +1,20 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:sleepking",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/sleepking"
+			},
+			"geometry": {
+				"default": "geometry.sleepking"
+			},
+			"render_controllers": [
+				"controller.render.sleepking"
+			]
+		}
+	}
+}

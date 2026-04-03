@@ -1,0 +1,64 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:template_pool": {
+		"description": {
+			"identifier": "cb2:ruins_constr"
+		},
+		"elements": [
+			{
+				"element": {
+					"processors": "cb2:ruins_constr",
+					"element_type": "minecraft:single_pool_element",
+					"location": "ruins_house1"
+				},
+				"weight": 10,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"processors": "cb2:ruins_constr",
+					"element_type": "minecraft:single_pool_element",
+					"location": "ruins_tower1"
+				},
+				"weight": 5,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"processors": "cb2:ruins_constr",
+					"element_type": "minecraft:single_pool_element",
+					"location": "ruins_house2"
+				},
+				"weight": 10,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"processors": "cb2:ruins_constr",
+					"element_type": "minecraft:single_pool_element",
+					"location": "ruins_tower2"
+				},
+				"weight": 5,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"processors": "cb2:ruins_constr",
+					"element_type": "minecraft:single_pool_element",
+					"location": "ruins_farm1"
+				},
+				"weight": 2,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"processors": "cb2:ruins_constr",
+					"element_type": "minecraft:single_pool_element",
+					"location": "ruins_farm2"
+				},
+				"weight": 2,
+				"projection": "terrain_matching"
+			}
+		]
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:aggregate_feature": {
+		"description": {
+			"identifier": "cb2:saline_crystal_agg"
+		},
+		"early_out": "first_failure",
+		"features": [
+			"cb2:saline_crystal_s",
+			"cb2:saline_crystal_cluster_s"
+		]
+	}
+}

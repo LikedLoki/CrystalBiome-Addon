@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:crystal_hearts_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:crystal_heart_shard"
+			}
+		},
+		"pattern": [
+			"aaa",
+			"aaa",
+			"aaa"
+		],
+		"result": {
+			"item": "cb2:crystal_heart",
+			"count": 1
+		}
+	}
+}

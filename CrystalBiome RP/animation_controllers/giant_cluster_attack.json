@@ -1,0 +1,31 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.giant_cluster.attack": {
+			"states": {
+				"default": {
+					"animations": [
+						"none"
+					],
+					"transitions": [
+						{
+							"active": "query.is_delayed_attacking"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"active": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_delayed_attacking"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

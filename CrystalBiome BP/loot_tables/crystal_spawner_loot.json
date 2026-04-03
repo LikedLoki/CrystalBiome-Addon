@@ -1,0 +1,62 @@
+{
+	"pools": [
+		{
+			"rolls": 2,
+			"entries": [
+				{
+					"weight": 10,
+					"type": "item",
+					"name": "diamond",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"max": 2,
+								"min": 1
+							}
+						}
+					]
+				},
+				{
+					"weight": 20,
+					"type": "item",
+					"name": "iron_ingot",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"max": 4,
+								"min": 1
+							}
+						}
+					]
+				},
+				{
+					"weight": 55,
+					"type": "item",
+					"name": "cb2:rare_crystal",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"max": 6,
+								"min": 1
+							}
+						}
+					]
+				},
+				{
+					"weight": 15,
+					"type": "item",
+					"name": "cb2:crystal_sword",
+					"functions": [
+						{
+							"function": "enchant_randomly",
+							"treasure": true
+						}
+					]
+				}
+			]
+		}
+	]
+}

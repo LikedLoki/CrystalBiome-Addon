@@ -1,0 +1,46 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:template_pool": {
+		"description": {
+			"identifier": "cb2:miniforts_pool"
+		},
+		"elements": [
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cbminifort1",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cbminifort2",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cbminifort3",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cbminifort4",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			}
+		]
+	}
+}

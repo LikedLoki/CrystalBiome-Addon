@@ -1,0 +1,31 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:red_amber_sugar",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:use_modifiers": {
+				"use_duration": 1,
+				"movement_modifier": 0.35
+			},
+			"minecraft:use_animation": "eat",
+			"minecraft:food": {
+				"can_always_eat": true,
+				"nutrition": 1,
+				"saturation_modifier": 1
+			},
+			"cb2:eat_effect": [
+				{
+					"name": "strength",
+					"duration": 240,
+					"amplifier": 0
+				}
+			],
+			"minecraft:icon": "cb2_red_amber_sugar"
+		}
+	}
+}

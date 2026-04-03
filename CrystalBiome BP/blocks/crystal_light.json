@@ -1,0 +1,77 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"states": {
+				"cb2:lit": [
+					false,
+					true
+				]
+			},
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "cb2:crystal_light"
+		},
+		"components": {
+			"tag:cb2:crystal": {},
+			"minecraft:redstone_conductivity": {
+				"allows_wire_to_step_down": true
+			},
+			"minecraft:item_visual": {
+				"geometry": "minecraft:geometry.full_block",
+				"material_instances": {
+					"*": {
+						"texture": "cb2_crystal_light",
+						"render_method": "opaque"
+					}
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystal_light",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:tick": {
+				"interval_range": [
+					1,
+					1
+				]
+			},
+			"minecraft:custom_components": [
+				"cb2:redstone"
+			],
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('cb2:lit') == true",
+				"components": {
+					"minecraft:light_emission": 15,
+					"minecraft:light_dampening": 15,
+					"minecraft:custom_components": [
+						"cb2:redstone",
+						"cb2:light_particle"
+					],
+					"minecraft:tick": {
+						"interval_range": [
+							1,
+							1
+						]
+					},
+					"minecraft:geometry": "minecraft:geometry.full_block",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystal_light_on",
+							"render_method": "opaque"
+						}
+					}
+				}
+			}
+		]
+	}
+}

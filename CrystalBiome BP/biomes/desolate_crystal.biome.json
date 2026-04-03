@@ -1,0 +1,43 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:biome": {
+		"description": {
+			"identifier": "cb2:desolate_crystal"
+		},
+		"components": {
+			"minecraft:overworld_height": {
+				"noise_type": "default_mutated"
+			},
+			"minecraft:surface_builder": {
+				"builder": {
+					"type": "minecraft:overworld",
+					"sea_floor_depth": 7,
+					"sea_floor_material": "cb2:saline_crystal",
+					"foundation_material": "cb2:deep_crystal_block",
+					"mid_material": "cb2:deep_crystal_block",
+					"top_material": "cb2:crystal_block",
+					"sea_material": "minecraft:water"
+				}
+			},
+			"minecraft:climate": {},
+			"minecraft:tags": {
+				"tags": [
+					"crystal",
+					"desolate_crystal"
+				]
+			},
+			"minecraft:replace_biomes": {
+				"replacements": [
+					{
+						"amount": 0.2,
+						"dimension": "minecraft:overworld",
+						"noise_frequency_scale": 0.2,
+						"targets": [
+							"minecraft:plains"
+						]
+					}
+				]
+			}
+		}
+	}
+}

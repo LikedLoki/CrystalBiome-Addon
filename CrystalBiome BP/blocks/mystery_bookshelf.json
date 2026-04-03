@@ -1,0 +1,32 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "construction"
+			},
+			"identifier": "cb2:mystery_bookshelf"
+		},
+		"components": {
+			"minecraft:custom_components": [
+				"cb2:mystery_bookshelf_break"
+			],
+			"minecraft:loot": "loot_tables/blocks/mystery_bookshelf_loot.json",
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_mystery_bookshelf",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "cb2_crystal_worktable_up",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "cb2_crystal_worktable_up",
+					"render_method": "opaque"
+				}
+			}
+		}
+	}
+}

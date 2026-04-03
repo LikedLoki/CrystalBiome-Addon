@@ -1,0 +1,30 @@
+{
+	"format_version": "1.10.0",
+	"render_controllers": {
+		"controller.render.crystal_minion": {
+			"arrays": {
+				"textures": {
+					"Array.top": [
+						"Texture.blue",
+						"Texture.red",
+						"Texture.green",
+						"Texture.yellow",
+						"Texture.breakblue",
+						"Texture.breakred",
+						"Texture.breakgreen",
+						"Texture.breakyellow"
+					]
+				}
+			},
+			"geometry": "geometry.default",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"array.top[q.variant]"
+			]
+		}
+	}
+}

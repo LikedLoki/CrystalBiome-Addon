@@ -1,0 +1,26 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:rare_crystal_plate",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:durability": {
+				"max_durability": 100
+			},
+			"minecraft:icon": "cb2_rare_crystal_plate",
+			"fristia:runCommand_item": {
+				"use": {
+					"command": [
+						"summon zombie",
+						"execute at @s run particle minecraft:knockback_roar_particle"
+					],
+					"delay": [0, 20, 20]
+				}
+			}
+		}
+	}
+}

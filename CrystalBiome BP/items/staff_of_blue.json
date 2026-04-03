@@ -1,0 +1,49 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:staff_of_blue",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"minecraft:tags": {
+				"tags": [
+					"cb2:staff"
+				]
+			},
+			"minecraft:cooldown": {
+				"category": "cb2:staff",
+				"duration": 1
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:hand_equipped": true,
+			"minecraft:icon": "cb2_staff_of_blue_item",
+			"minecraft:projectile": {
+				"minimum_critical_power": 1.25,
+				"projectile_entity": "cb2:crystalshard_proj"
+			},
+			"minecraft:shooter": {
+				"ammunition": [
+					{
+						"item": "cb2:blue_crystal_gem",
+						"use_offhand": true,
+						"search_inventory": true,
+						"use_in_creative": true
+					}
+				]
+			},
+			"minecraft:enchantable": {
+				"slot": "bow",
+				"value": 14
+			},
+			"minecraft:damage": {
+				"value": 2
+			},
+			"minecraft:durability": {
+				"max_durability": 160
+			}
+		}
+	}
+}

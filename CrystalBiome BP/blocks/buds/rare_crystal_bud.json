@@ -1,0 +1,261 @@
+{
+	"format_version": "1.21.130",
+	"minecraft:block": {
+		"description": {
+			"states": {
+				"cb2:growshard": [
+					0,
+					1,
+					2,
+					3
+				]
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:block_face"
+					]
+				}
+			},
+			"menu_category": {
+				"category": "none"
+			},
+			"identifier": "cb2:rare_crystal_bud"
+		},
+		"components": {
+			"cb2:shardgrowth": {},
+			"minecraft:placement_filter": {
+				"conditions": [
+					{
+						"block_filter": [
+							"cb2:crystal_block",
+							"cb2:saline_crystal",
+							"cb2:green_crystal_block",
+							"cb2:yellow_crystal_block",
+							"cb2:rare_crystal_block",
+							"cb2:fertile_crystal_block",
+							"cb2:flare_crystal_block",
+							"cb2:clear_crystal_block",
+							"cb2:clear_red_crystal_block",
+							"cb2:clear_green_crystal_block",
+							"cb2:clear_yellow_crystal_block",
+							"cb2:deep_crystal_block"
+						]
+					}
+				]
+			},
+			"minecraft:replaceable": {},
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"can_contain_liquid": true,
+						"liquid_type": "water",
+						"on_liquid_touches": "popped"
+					}
+				]
+			},
+			"tag:cb2:crystal": {},
+			"minecraft:collision_box": false,
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 2,
+			"minecraft:loot": "loot_tables/blocks/one_crystal_loot_rare.json",
+			"minecraft:map_color": "#F0C92C",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 1
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.4
+			},
+			"minecraft:item_visual": {
+				"geometry": "geometry.shard_cross",
+				"material_instances": {
+					"*": {
+						"face_dimming": false,
+						"ambient_occlusion": false,
+						"texture": "cb2_rare_shard_block",
+						"render_method": "alpha_test"
+					}
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('cb2:growshard') == 0",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-6,
+							0,
+							-6
+						],
+						"size": [
+							12,
+							5,
+							12
+						]
+					},
+					"minecraft:geometry": "geometry.shard_cross",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_rare_shard_small",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('cb2:growshard') == 1",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-6,
+							0,
+							-6
+						],
+						"size": [
+							12,
+							7,
+							12
+						]
+					},
+					"minecraft:geometry": "geometry.shard_cross",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_rare_shard_medium",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('cb2:growshard') == 2",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-6,
+							0,
+							-6
+						],
+						"size": [
+							12,
+							10,
+							12
+						]
+					},
+					"minecraft:geometry": "geometry.shard_cross",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_rare_shard_large",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('cb2:growshard') == 3",
+				"components": {
+					"minecraft:selection_box": {
+						"origin": [
+							-6,
+							0,
+							-6
+						],
+						"size": [
+							12,
+							15,
+							12
+						]
+					},
+					"minecraft:geometry": "geometry.shard_cross",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_rare_shard_block",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false,
+							"face_dimming": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'up'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							180,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:block_face') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							-90,
+							0,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

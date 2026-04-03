@@ -1,0 +1,42 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature"
+			},
+			"identifier": "cb2:green_crystal_block"
+		},
+		"components": {
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": true
+			},
+			"cb2:crystalstep": {
+				"name": "green"
+			},
+			"tag:cb2:crystal": {},
+			"tag:cb2:rawcrystal": {},
+			"minecraft:material_instances": {
+				"*": {
+					"render_method": "opaque",
+					"texture": "cb2_green_crystal_block",
+					"ambient_occlusion": true,
+					"face_dimming": true
+				}
+			},
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 4,
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:loot": "loot_tables/blocks/block_crystal_green.json",
+			"minecraft:map_color": "#83FF87",
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			}
+		}
+	}
+}

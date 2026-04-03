@@ -1,0 +1,31 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "cb2:skycrystal32_tree_s"
+		},
+		"iterations": 2,
+		"project_input_to_floor": true,
+		"coordinate_eval_order": "xyz",
+		"scatter_chance": {
+			"denominator": 1,
+			"numerator": 1
+		},
+		"x": {
+			"distribution": "gaussian",
+			"extent": [
+				0,
+				15
+			]
+		},
+		"z": {
+			"distribution": "gaussian",
+			"extent": [
+				0,
+				15
+			]
+		},
+		"y": 32,
+		"places_feature": "cb2:random_tree_wr"
+	}
+}

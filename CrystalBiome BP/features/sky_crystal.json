@@ -1,0 +1,22 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "cb2:sky_crystal"
+		},
+		"structure_name": "mystructure:skycrystal",
+		"facing_direction": "random",
+		"adjustment_radius": 8,
+		"constraints": {
+			"unburied": {},
+			"block_intersection": {
+				"block_allowlist": [
+					"air",
+					"cb2:crystal_block",
+					"cb2:green_crystal_block",
+					"cb2:deep_crystal_block"
+				]
+			}
+		}
+	}
+}

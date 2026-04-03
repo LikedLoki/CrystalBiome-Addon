@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.test": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"hide": "query.is_delayed_attacking"
+						}
+					]
+				},
+				"hide": {
+					"on_entry": [
+						"/tag @s add cb2is_attack"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_delayed_attacking"
+						}
+					]
+				}
+			}
+		}
+	}
+}

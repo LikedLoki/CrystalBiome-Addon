@@ -1,0 +1,238 @@
+{
+	"format_version": "1.26.0",
+	"minecraft:block": {
+		"description": {
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:facing_direction"
+					]
+				}
+			},
+			"states": {
+				"cb2:lit": [
+					false,
+					true
+				]
+			},
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "cb2:crystal_spotlight"
+		},
+		"components": {
+			"minecraft:redstone_consumer": {
+				"min_power": 0
+			},
+			"minecraft:redstone_conductivity": {},
+			"cb2:spotlight": {},
+			"tag:cb2:crystal": {},
+			"minecraft:item_visual": {
+				"geometry": "minecraft:geometry.full_block",
+				"material_instances": {
+					"up": {
+						"texture": "cb2_crystal_light",
+						"render_method": "opaque"
+					},
+					"*": {
+						"texture": "cb2_crystal_spotlight_side",
+						"render_method": "opaque"
+					}
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"up": {
+					"texture": "cb2_crystal_light",
+					"render_method": "opaque"
+				},
+				"*": {
+					"texture": "cb2_crystal_spotlight_side",
+					"render_method": "opaque"
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('cb2:lit') == true",
+				"components": {
+					"minecraft:geometry": "minecraft:geometry.full_block",
+					"minecraft:material_instances": {
+						"up": {
+							"texture": "cb2_crystal_light_on",
+							"render_method": "opaque"
+						},
+						"*": {
+							"texture": "cb2_crystal_spotlight_side",
+							"render_method": "opaque"
+						}
+					},
+					"minecraft:tick": {
+						"interval_range": [
+							1,
+							1
+						],
+						"looping": true
+					},
+					"minecraft:transformation": {
+						"rotation": [
+							180,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'up' && q.block_state('cb2:lit') == false",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							180,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'down' && q.block_state('cb2:lit') == false",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'east' && q.block_state('cb2:lit') == false",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							90
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'west' && q.block_state('cb2:lit') == false",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							-90
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'north' && q.block_state('cb2:lit') == false",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'south' && q.block_state('cb2:lit') == false",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							-90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'up' && q.block_state('cb2:lit') == true",
+				"components": {
+					"minecraft:light_emission": 12,
+					"minecraft:transformation": {
+						"rotation": [
+							180,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'down' && q.block_state('cb2:lit') == true",
+				"components": {
+					"minecraft:light_emission": 12,
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'east' && q.block_state('cb2:lit') == true",
+				"components": {
+					"minecraft:light_emission": 12,
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							90
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'west' && q.block_state('cb2:lit') == true",
+				"components": {
+					"minecraft:light_emission": 12,
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							-90
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'north' && q.block_state('cb2:lit') == true",
+				"components": {
+					"minecraft:light_emission": 12,
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:facing_direction') == 'south' && q.block_state('cb2:lit') == true",
+				"components": {
+					"minecraft:light_emission": 12,
+					"minecraft:transformation": {
+						"rotation": [
+							-90,
+							0,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

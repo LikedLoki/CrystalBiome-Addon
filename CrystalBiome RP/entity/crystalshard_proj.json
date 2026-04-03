@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:crystalshard_proj",
+			"materials": {
+				"default": "egg"
+			},
+			"textures": {
+				"blue": "textures/entity/shard_porjectile_blue",
+				"red": "textures/entity/shard_porjectile_red",
+				"green": "textures/entity/shard_porjectile_green",
+				"yellow": "textures/entity/shard_porjectile_yellow"
+			},
+			"geometry": {
+				"default": "geometry.item_sprite"
+			},
+			"render_controllers": [
+				"controller.render.crystalshard_proj"
+			],
+			"animations": {
+				"face_player": "animation.actor.billboard"
+			},
+			"scripts": {
+				"scale": "1.5",
+				"animate": [
+					"face_player"
+				]
+			}
+		}
+	}
+}

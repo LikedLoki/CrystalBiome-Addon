@@ -1,0 +1,24 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "cb2:refined_red_crystal_block_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"ingredients": [
+			{
+				"item": "cb2:crystal_salt",
+				"count": 1
+			},
+			{
+				"item": "cb2:polished_red_crystal_block"
+			}
+		],
+		"result": {
+			"item": "cb2:refined_red_crystal_block",
+			"count": 1
+		}
+	}
+}

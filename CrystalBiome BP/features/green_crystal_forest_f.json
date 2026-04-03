@@ -1,0 +1,26 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "cb2:green_crystal_forest_f"
+		},
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false,
+		"may_attach_to": {
+			"auto_rotate": false,
+			"top": [
+				"cb2:red_crystal_block",
+				"cb2:yellow_crystal_block"
+			]
+		},
+		"places_block": {
+			"name": "cb2:green_crystal_cluster",
+			"states": {
+				"minecraft:block_face": "down"
+			}
+		},
+		"may_replace": [
+			"minecraft:air"
+		]
+	}
+}

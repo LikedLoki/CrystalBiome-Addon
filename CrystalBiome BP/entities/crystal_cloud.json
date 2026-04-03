@@ -1,0 +1,97 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:entity": {
+		"description": {
+			"properties": {
+				"cb2:counter": {
+					"type": "int",
+					"default": 0,
+					"range": [
+						0,
+						80
+					]
+				}
+			},
+			"identifier": "cb2:crystal_cloud",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"cb2:despawn": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:entity_sensor": {
+				"relative_range": true,
+				"subsensors": [
+					{
+						"cooldown": -1,
+						"event": "cb2:vanish",
+						"event_filters": {
+							"any_of": [
+								{
+									"operator": ">=",
+									"domain": "cb2:counter",
+									"test": "int_property",
+									"value": 80
+								}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:timer": {
+				"looping": true,
+				"time": [
+					0.5,
+					0.5
+				],
+				"time_down_event": {
+					"event": "cb2:smoke"
+				}
+			},
+			"minecraft:renders_when_invisible": {},
+			"minecraft:spell_effects": {
+				"add_effects": [
+					{
+						"visible": false,
+						"effect": "invisibility",
+						"duration": "infinite"
+					}
+				]
+			},
+			"minecraft:collision_box": {
+				"height": 0.1,
+				"width": 0.1
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": "no"
+				}
+			}
+		},
+		"events": {
+			"cb2:smoke": {
+				"set_property": {
+					"cb2:counter": "q.property('cb2:counter') + 1"
+				},
+				"queue_command": {
+					"command": [
+						"particle cb2:crystal_smoke ~~32~",
+						"particle cb2:crystal_rain ~~32~"
+					]
+				}
+			},
+			"cb2:vanish": {
+				"add": {
+					"component_groups": [
+						"cb2:despawn"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "cb2:crystaloak_planks_recipe"
+		},
+		"tags": [
+			"crafting_table",
+			"crystal_worktable"
+		],
+		"ingredients": [
+			{
+				"item": "cb2:crystaloak_log"
+			}
+		],
+		"result": {
+			"item": "cb2:crystaloak_planks",
+			"count": 4
+		}
+	}
+}

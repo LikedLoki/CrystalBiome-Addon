@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "construction"
+			},
+			"identifier": "cb2:rare_crystal_bricks"
+		},
+		"components": {
+			"tag:cb2:crystal": {},
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:map_color": "#1C9CB9",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 5
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 5
+			}
+		}
+	}
+}

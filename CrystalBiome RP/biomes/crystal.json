@@ -1,0 +1,13 @@
+{
+	"format_version": "1.21.100",
+	"minecraft:client_biome": {
+		"description": {
+			"identifier": "cb2:crystal"
+		},
+		"components": {
+			"minecraft:fog_appearance": {
+				"fog_identifier": "cb2:crystal_air"
+			}
+		}
+	}
+}

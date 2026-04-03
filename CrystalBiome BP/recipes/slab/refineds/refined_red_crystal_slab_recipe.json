@@ -1,0 +1,23 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:refined_red_crystal_slab_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:refined_red_crystal_block"
+			}
+		},
+		"pattern": [
+			"aaa"
+		],
+		"result": {
+			"item": "cb2:refined_red_crystal_slab",
+			"count": 6
+		}
+	}
+}

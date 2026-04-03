@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:yellowcrystal_pickaxe_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:yellow_crystal_block"
+			},
+			"b": {
+				"item": "cb2:yellow_crystal_shard"
+			}
+		},
+		"pattern": [
+			"aaa",
+			" b ",
+			" b "
+		],
+		"result": {
+			"item": "cb2:yellow_crystal_pickaxe",
+			"count": 1
+		}
+	}
+}

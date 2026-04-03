@@ -1,0 +1,38 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "empty",
+					"weight": 8
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "cb2:crystal_apple"
+				},
+				{
+					"weight": 1,
+					"type": "item",
+					"name": "cb2:crystaloak_sapling_item"
+				}
+			]
+		},
+		{
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"item": "minecraft:shears"
+				}
+			],
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "cb2:crystaloak_leaves"
+				}
+			]
+		}
+	]
+}

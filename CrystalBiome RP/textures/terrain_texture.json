@@ -1,0 +1,524 @@
+{
+	"num_mip_levels": 4,
+	"padding": 8,
+	"resource_pack_name": "Crystal biome",
+	"texture_name": "atlas.terrain",
+	"texture_data": {
+		"cb2_test": {
+			"textures": "textures/blocks/test_crystal_block"
+		},
+		"cb2_crystal_block": {
+			"textures": "textures/blocks/crystal_block"
+		},
+		"cb2_red_crystal_block": {
+			"textures": "textures/blocks/red_crystal_block"
+		},
+		"cb2_green_crystal_block": {
+			"textures": "textures/blocks/green_crystal_block"
+		},
+		"cb2_rare_crystal_block": {
+			"textures": "textures/blocks/rare_crystal_block"
+		},
+		"cb2_rare_crystal_ore": {
+			"textures": "textures/blocks/rare_crystal_ore"
+		},
+		"cb2_redstone_crystal_ore": {
+			"textures": "textures/blocks/crystal_redstone_ore"
+		},
+		"cb2_lapis_crystal_ore": {
+			"textures": "textures/blocks/crystal_lapis_ore"
+		},
+		"cb2_deep_crystal_block": {
+			"textures": "textures/blocks/deep_crystal_block"
+		},
+		"cb2_polished_crystal_block": {
+			"textures": "textures/blocks/polished_crystal_block"
+		},
+		"cb2_crystal_bricks": {
+			"textures": "textures/blocks/crystal_bricks"
+		},
+		"cb2_polished_red_crystal_block": {
+			"textures": "textures/blocks/polished_red_crystal_block"
+		},
+		"cb2_polished_green_crystal_block": {
+			"textures": "textures/blocks/polished_green_crystal_block"
+		},
+		"cb2_red_crystal_bricks": {
+			"textures": "textures/blocks/red_crystal_bricks"
+		},
+		"cb2_green_crystal_bricks": {
+			"textures": "textures/blocks/green_crystal_bricks"
+		},
+		"cb2_crystal_slab": {
+			"textures": "textures/blocks/crystal_slab"
+		},
+		"cb2_rgb_crystal_block": {
+			"textures": "textures/blocks/rgb_crystal_block"
+		},
+		"cb2_yellow_crystal_block": {
+			"textures": "textures/blocks/yellow_crystal_block"
+		},
+		"cb2_crystal_worktable_side1": {
+			"textures": "textures/blocks/crystal_worktable_side1"
+		},
+		"cb2_crystal_worktable_side2": {
+			"textures": "textures/blocks/crystal_worktable_side2"
+		},
+		"cb2_crystal_worktable_up": {
+			"textures": "textures/blocks/crystal_worktable_up"
+		},
+		"cb2_green_shard_block": {
+			"textures": "textures/blocks/green_shard_block"
+		},
+		"cb2_red_shard_block": {
+			"textures": "textures/blocks/red_shard_block"
+		},
+		"cb2_blue_shard_block": {
+			"textures": "textures/blocks/blue_shard_block"
+		},
+		"cb2_crystal_pillar_side": {
+			"textures": "textures/blocks/crystal_pillar_side"
+		},
+		"cb2_refined_crystal_block": {
+			"textures": "textures/blocks/refined_crystal_block"
+		},
+		"cb2_refined_green_crystal_block": {
+			"textures": "textures/blocks/refined_green_crystal_block"
+		},
+		"cb2_refined_red_crystal_block": {
+			"textures": "textures/blocks/refined_red_crystal_block"
+		},
+		"cb2_refined_yellow_crystal_block": {
+			"textures": "textures/blocks/refined_yellow_crystal_block"
+		},
+		"cb2_refined_rare_crystal_block": {
+			"textures": "textures/blocks/refined_rare_crystal_block"
+		},
+		"cb2_polished_yellow_crystal_block": {
+			"textures": "textures/blocks/polished_yellow_crystal_block"
+		},
+		"cb2_yellow_crystal_bricks": {
+			"textures": "textures/blocks/yellow_crystal_bricks"
+		},
+		"cb2_yellow_shard_block": {
+			"textures": "textures/blocks/yellow_shard_block"
+		},
+		"cb2_rare_crystal_pillar_side": {
+			"textures": "textures/blocks/rare_crystal_pillar_side"
+		},
+		"cb2_rare_crystal_pillar_top": {
+			"textures": "textures/blocks/rare_crystal_pillar_top"
+		},
+		"cb2_cbspawner_block": {
+			"textures": "textures/blocks/crystal_spawner"
+		},
+		"cb2_red_crystal_pillar_side": {
+			"textures": "textures/blocks/red_crystal_pillar_side"
+		},
+		"cb2_green_crystal_pillar_side": {
+			"textures": "textures/blocks/green_crystal_pillar_side"
+		},
+		"cb2_yellow_crystal_pillar_side": {
+			"textures": "textures/blocks/yellow_crystal_pillar_side"
+		},
+		"cb2_crystal_pillar_top": {
+			"textures": "textures/blocks/crystal_pillar_top"
+		},
+		"cb2_red_crystal_pillar_top": {
+			"textures": "textures/blocks/red_crystal_pillar_top"
+		},
+		"cb2_green_crystal_pillar_top": {
+			"textures": "textures/blocks/green_crystal_pillar_top"
+		},
+		"cb2_yellow_crystal_pillar_top": {
+			"textures": "textures/blocks/yellow_crystal_pillar_top"
+		},
+		"cb2_fertile_crystal": {
+			"textures": "textures/blocks/fertile_crystal"
+		},
+		"cb2_cracked_crystal_bricks": {
+			"textures": "textures/blocks/cracked_crystal_bricks"
+		},
+		"cb2_cracked_red_crystal_bricks": {
+			"textures": "textures/blocks/cracked_red_crystal_bricks"
+		},
+		"cb2_cracked_green_crystal_bricks": {
+			"textures": "textures/blocks/cracked_green_crystal_bricks"
+		},
+		"cb2_cracked_yellow_crystal_bricks": {
+			"textures": "textures/blocks/cracked_yellow_crystal_bricks"
+		},
+		"cb2_cracked_rare_crystal_bricks": {
+			"textures": "textures/blocks/cracked_rare_crystal_bricks"
+		},
+		"cb2_crystal_orb": {
+			"textures": "textures/blocks/crystal_orb"
+		},
+		"cb2_red_crystal_lantern": {
+			"textures": "textures/blocks/red_crystal_lantern"
+		},
+		"cb2_crystal_lantern": {
+			"textures": "textures/blocks/crystal_lantern"
+		},
+		"cb2_green_crystal_lantern": {
+			"textures": "textures/blocks/green_crystal_lantern"
+		},
+		"cb2_yellow_crystal_lantern": {
+			"textures": "textures/blocks/yellow_crystal_lantern"
+		},
+		"cb2_rare_crystal_lantern": {
+			"textures": "textures/blocks/rare_crystal_lantern"
+		},
+		"cb2_crystal_door": {
+			"textures": "textures/blocks/crystal_door"
+		},
+		"cb2_polished_rare_crystal_block": {
+			"textures": "textures/blocks/polished_rare_crystal_block"
+		},
+		"cb2_rare_crystal_bricks": {
+			"textures": "textures/blocks/rare_crystal_bricks"
+		},
+		"cb2_saline_crystal": {
+			"textures": "textures/blocks/saline_crystal"
+		},
+		"cb2_saline_shard_block": {
+			"textures": "textures/blocks/saline_shard_block"
+		},
+		"cb2_crystal_test": {
+			"textures": "textures/blocks/crystal_test"
+		},
+		"cb2_crystaloak_planks": {
+			"textures": "textures/blocks/shineoak_planks"
+		},
+		"cb2_crystaloak_leaves": {
+			"textures": "textures/blocks/shineoak_leaves"
+		},
+		"cb2_crystaloak_log_side": {
+			"textures": "textures/blocks/shineoak_log"
+		},
+		"cb2_crystaloak_log_top": {
+			"textures": "textures/blocks/shineoak_log_top"
+		},
+		"cb2_boss_frame": {
+			"textures": "textures/blocks/boss_frame"
+		},
+		"cb2_crystal_stairs": {
+			"textures": "textures/blocks/crystal_stairs"
+		},
+		"cb2_blue_shard_small": {
+			"textures": "textures/blocks/small_blue_shard"
+		},
+		"cb2_blue_shard_medium": {
+			"textures": "textures/blocks/medium_blue_shard"
+		},
+		"cb2_blue_shard_large": {
+			"textures": "textures/blocks/large_blue_shard"
+		},
+		"cb2_blue_shard": {
+			"textures": "textures/blocks/blue_shard_block"
+		},
+		"cb2_red_shard_small": {
+			"textures": "textures/blocks/small_red_shard"
+		},
+		"cb2_red_shard_medium": {
+			"textures": "textures/blocks/medium_red_shard"
+		},
+		"cb2_red_shard_large": {
+			"textures": "textures/blocks/large_red_shard"
+		},
+		"cb2_red_shard": {
+			"textures": "textures/blocks/red_shard_block"
+		},
+		"cb2_green_shard_small": {
+			"textures": "textures/blocks/small_green_shard"
+		},
+		"cb2_green_shard_medium": {
+			"textures": "textures/blocks/medium_green_shard"
+		},
+		"cb2_green_shard_large": {
+			"textures": "textures/blocks/large_green_shard"
+		},
+		"cb2_green_shard": {
+			"textures": "textures/blocks/green_shard_block"
+		},
+		"cb2_yellow_shard_small": {
+			"textures": "textures/blocks/small_yellow_shard"
+		},
+		"cb2_yellow_shard_medium": {
+			"textures": "textures/blocks/medium_yellow_shard"
+		},
+		"cb2_yellow_shard_large": {
+			"textures": "textures/blocks/large_yellow_shard"
+		},
+		"cb2_yellow_shard": {
+			"textures": "textures/blocks/yellow_shard_block"
+		},
+		"cb2_spawn_sleepking": {
+			"textures": "textures/blocks/spawn_sleepking"
+		},
+		"cb2_fence_assist": {
+			"textures": "textures/blocks/fence_assist"
+		},
+		"cb2_crystal_door_up": {
+			"textures": "textures/blocks/crystal_door_up"
+		},
+		"cb2_red_crystal_door_up": {
+			"textures": "textures/blocks/red_crystal_door_up"
+		},
+		"cb2_green_crystal_door_up": {
+			"textures": "textures/blocks/green_crystal_door_up"
+		},
+		"cb2_yellow_crystal_door_up": {
+			"textures": "textures/blocks/yellow_crystal_door_up"
+		},
+		"cb2_rare_crystal_door_up": {
+			"textures": "textures/blocks/rare_crystal_door_up"
+		},
+		"cb2_crystal_door_down": {
+			"textures": "textures/blocks/crystal_door_down"
+		},
+		"cb2_red_crystal_door_down": {
+			"textures": "textures/blocks/red_crystal_door_down"
+		},
+		"cb2_green_crystal_door_down": {
+			"textures": "textures/blocks/green_crystal_door_down"
+		},
+		"cb2_yellow_crystal_door_down": {
+			"textures": "textures/blocks/yellow_crystal_door_down"
+		},
+		"cb2_rare_crystal_door_down": {
+			"textures": "textures/blocks/rare_crystal_door_down"
+		},
+		"cb2_crystal_trapdoor": {
+			"textures": "textures/blocks/crystal_trapdoor"
+		},
+		"cb2_red_crystal_trapdoor": {
+			"textures": "textures/blocks/red_crystal_trapdoor"
+		},
+		"cb2_green_crystal_trapdoor": {
+			"textures": "textures/blocks/green_crystal_trapdoor"
+		},
+		"cb2_yellow_crystal_trapdoor": {
+			"textures": "textures/blocks/yellow_crystal_trapdoor"
+		},
+		"cb2_crystaloak_sapling": {
+			"textures": "textures/blocks/crystaloak_sapling"
+		},
+		"cb2_cbspawner_block_end": {
+			"textures": "textures/blocks/crystal_spawner_end"
+		},
+		"cb2_rare_shard_small": {
+			"textures": "textures/blocks/small_rare_shard"
+		},
+		"cb2_rare_shard_medium": {
+			"textures": "textures/blocks/medium_rare_shard"
+		},
+		"cb2_rare_shard_large": {
+			"textures": "textures/blocks/large_rare_shard"
+		},
+		"cb2_rare_shard_block": {
+			"textures": "textures/blocks/rare_shard_block"
+		},
+		"cb2_flare_shard_small": {
+			"textures": "textures/blocks/small_flare_shard"
+		},
+		"cb2_flare_shard_medium": {
+			"textures": "textures/blocks/medium_flare_shard"
+		},
+		"cb2_flare_shard_large": {
+			"textures": "textures/blocks/large_flare_shard"
+		},
+		"cb2_flare_shard_block": {
+			"textures": "textures/blocks/flare_shard_block"
+		},
+		"cb2_powered_flare": {
+			"textures": "textures/blocks/powered_flare_block"
+		},
+		"cb2_saline_shard_small": {
+			"textures": "textures/blocks/small_saline_shard"
+		},
+		"cb2_saline_shard_medium": {
+			"textures": "textures/blocks/medium_saline_shard"
+		},
+		"cb2_saline_shard_large": {
+			"textures": "textures/blocks/large_saline_shard"
+		},
+		"cb2_crystal_iron_ore": {
+			"textures": "textures/blocks/crystal_iron_ore"
+		},
+		"cb2_crystal_chest": {
+			"textures": "textures/blocks/crystal_chest"
+		},
+		"cb2_red_crystal_chest": {
+			"textures": "textures/blocks/red_crystal_chest"
+		},
+		"cb2_green_crystal_chest": {
+			"textures": "textures/blocks/green_crystal_chest"
+		},
+		"cb2_yellow_crystal_chest": {
+			"textures": "textures/blocks/yellow_crystal_chest"
+		},
+		"cb2_rare_crystal_chest": {
+			"textures": "textures/blocks/rare_crystal_chest"
+		},
+		"cb2_crystaloak_trapdoor": {
+			"textures": "textures/blocks/crystaloak_trapdoor"
+		},
+		"cb2_rare_crystal_trapdoor": {
+			"textures": "textures/blocks/rare_crystal_trapdoor"
+		},
+		"cb2_crystaloak_door_up": {
+			"textures": "textures/blocks/crystaloak_door_up"
+		},
+		"cb2_crystaloak_door_down": {
+			"textures": "textures/blocks/crystaloak_door_down"
+		},
+		"cb2_crystal_spotlight_side": {
+			"textures": "textures/blocks/crystal_spotlight_side"
+		},
+		"cb2_crystal_light": {
+			"textures": "textures/blocks/crystal_light"
+		},
+		"cb2_crystal_light_on": {
+			"textures": "textures/blocks/crystal_light_lit"
+		},
+		"cb2_blue_crystal_statue": {
+			"textures": "textures/blocks/blue_crystal_statue"
+		},
+		"cb2_red_crystal_statue": {
+			"textures": "textures/blocks/red_crystal_statue"
+		},
+		"cb2_green_crystal_statue": {
+			"textures": "textures/blocks/green_crystal_statue"
+		},
+		"cb2_yellow_crystal_statue": {
+			"textures": "textures/blocks/yellow_crystal_statue"
+		},
+		"cb2_minion_block_container": {
+			"textures": "textures/blocks/minion_block_container"
+		},
+		"cb2_minion_blue_block": {
+			"textures": "textures/blocks/minion_blue_block"
+		},
+		"cb2_minion_red_block": {
+			"textures": "textures/blocks/minion_red_block"
+		},
+		"cb2_minion_green_block": {
+			"textures": "textures/blocks/minion_green_block"
+		},
+		"cb2_minion_yellow_block": {
+			"textures": "textures/blocks/minion_yellow_block"
+		},
+		"cb2_minion_break_blue_block": {
+			"textures": "textures/blocks/minion_break_blue_block"
+		},
+		"cb2_minion_break_red_block": {
+			"textures": "textures/blocks/minion_break_red_block"
+		},
+		"cb2_minion_break_green_block": {
+			"textures": "textures/blocks/minion_break_green_block"
+		},
+		"cb2_minion_break_yellow_block": {
+			"textures": "textures/blocks/minion_break_yellow_block"
+		},
+		"cb2_flare_crystal_block": {
+			"textures": "textures/blocks/flare_crystal_block"
+		},
+		"cb2_clear_crystal_block": {
+			"textures": "textures/blocks/clear_crystal_block"
+		},
+		"cb2_clear_red_crystal_block": {
+			"textures": "textures/blocks/clear_red_crystal_block"
+		},
+		"cb2_clear_green_crystal_block": {
+			"textures": "textures/blocks/claer_green_crystal_block"
+		},
+		"cb2_clear_yellow_crystal_block": {
+			"textures": "textures/blocks/clear_yellow_crystal_block"
+		},
+		"cb2_clear_rare_crystal_block": {
+			"textures": "textures/blocks/clear_rare_crystal_block"
+		},
+		"cb2_flare_crystal_ore": {
+			"textures": "textures/blocks/flare_crystal_ore"
+		},
+		"cb2_testblock": {
+			"textures": "textures/blocks/test_block"
+		},
+		"cb2_crystal_planks": {
+			"textures": "textures/blocks/crystal_panel"
+		},
+		"cb2_crystal_leafstone": {
+			"textures": "textures/blocks/crystal_leafstone"
+		},
+		"cb2_crystalcap": {
+			"textures": "textures/blocks/crystalcap_block"
+		},
+		"cb2_mystery_bookshelf": {
+			"textures": "textures/blocks/mystery_bookshelf"
+		},
+		"cb2_rare_crystal_portal": {
+			"textures": "textures/blocks/rare_crystal_portal"
+		},
+		"cb2_crystal_enctable": {
+			"textures": "textures/blocks/crystal_enctable"
+		},
+		"cb2_crystal_furnace": {
+			"textures": "textures/blocks/crystal_furnace_front"
+		},
+		"cb2_crystal_furnace_side": {
+			"textures": "textures/blocks/crystal_furnace_side"
+		},
+		"cb2_crystal_furnace_on": {
+			"textures": "textures/blocks/crystal_furnace_front_on"
+		},
+		"cb2_crystal_vine": {
+			"textures": "textures/blocks/crystal_vine"
+		},
+		"cb2_green_crystal_vine": {
+			"textures": "textures/blocks/green_crystal_vine"
+		},
+		"cb2_crystal_vine_top": {
+			"textures": "textures/blocks/crystal_vine_top"
+		},
+		"cb2_refined_crystal_panel": {
+			"textures":"textures/blocks/refined_crystal_panel"
+		},
+		"cb2_refined_red_crystal_panel": {
+			"textures":"textures/blocks/refined_red_crystal_panel"
+		},
+		"cb2_refined_green_crystal_panel": {
+			"textures":"textures/blocks/refined_green_crystal_panel"
+		},
+		"cb2_refined_yellow_crystal_panel": {
+			"textures":"textures/blocks/refined_yellow_crystal_panel"
+		},
+		"cb2_refined_rare_crystal_panel": {
+			"textures":"textures/blocks/refined_rare_crystal_panel"
+		},
+		"cb2_prismstone": {
+			"textures":"textures/blocks/prismstone_desu"
+		},
+		"cb2_crystal_portal": {
+			"textures": "textures/blocks/crystal_portal"
+		},
+		"cb2_framed_crystal_block": {
+			"textures": "textures/blocks/framed_crystal_block"
+		},
+		"cb2_framed_red_crystal_block": {
+			"textures": "textures/blocks/framed_red_crystal_block"
+		},
+		"cb2_framed_green_crystal_block": {
+			"textures": "textures/blocks/framed_green_crystal_block"
+		},
+		"cb2_framed_yellow_crystal_block": {
+			"textures": "textures/blocks/framed_yellow_crystal_block"
+		},
+		"cb2_fragment_frame_off": {
+			"textures": "textures/blocks/fragment_frame_off"
+		},
+		"cb2_fragment_frame_on": {
+			"textures": "textures/blocks/fragment_frame_on"
+		}
+	}
+}

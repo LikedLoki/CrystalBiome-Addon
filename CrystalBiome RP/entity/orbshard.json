@@ -1,0 +1,31 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:orbshard",
+			"animations": {
+				"blockrot": "animation.smallorb.idle"
+			},
+			"scripts": {
+				"animate": [
+					"blockrot"
+				]
+			},
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"blue": "textures/blocks/crystal_block",
+				"red": "textures/blocks/red_crystal_block",
+				"green": "textures/blocks/green_crystal_block",
+				"yellow": "textures/blocks/yellow_crystal_block"
+			},
+			"geometry": {
+				"default": "geometry.small_orbshard"
+			},
+			"render_controllers": [
+				"controller.render.cbspawner_block"
+			]
+		}
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "cb2:rare_crystal_nugget_recipe"
+		},
+		"tags": [
+			"furnace",
+			"blast_furnace"
+		],
+		"input": "cb2:rare_crystal",
+		"output": "cb2:rare_crystal_nugget"
+	}
+}

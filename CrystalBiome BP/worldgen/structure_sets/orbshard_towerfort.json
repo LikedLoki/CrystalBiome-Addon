@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "cb2:orbshard_towerfort_strs"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 19283746,
+			"spacing": 24,
+			"separation": 2,
+			"spread_type": "linear"
+		},
+		"structures": [
+			{
+				"structure": "cb2:orbshard_towerfort_str",
+				"weight": 1
+			}
+		]
+	}
+}

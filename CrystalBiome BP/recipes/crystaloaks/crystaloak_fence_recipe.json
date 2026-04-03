@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:crystaloak_fence_recipe"
+		},
+		"tags": [
+			"crafting_table",
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:crystaloak_planks"
+			},
+			"b": {
+				"item": "minecraft:stick"
+			}
+		},
+		"pattern": [
+			"aba",
+			"aba"
+		],
+		"result": {
+			"item": "cb2:crystaloak_fence",
+			"count": 3
+		}
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "cb2:crystal_castle"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 89047213,
+			"spacing": 48,
+			"separation": 12,
+			"spread_type": "linear"
+		},
+		"structures": [
+			{
+				"structure": "cb2:crystal_castle",
+				"weight": 1
+			}
+		]
+	}
+}

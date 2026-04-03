@@ -1,0 +1,26 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:crystaloak_sapling_item",
+			"menu_category": {
+				"category": "nature",
+				"group": "itemGroup.name.sapling"
+			}
+		},
+		"components": {
+			"minecraft:block_placer": {
+				"block": "cb2:crystaloak_sapling",
+				"use_on": [
+					"dirt",
+					"grass_block",
+					"dirt_with_roots",
+					"mud",
+					"short_grass"
+				]
+			},
+			"minecraft:max_stack_size": 64,
+			"minecraft:icon": "cb2_crystaloak_sapling_item"
+		}
+	}
+}

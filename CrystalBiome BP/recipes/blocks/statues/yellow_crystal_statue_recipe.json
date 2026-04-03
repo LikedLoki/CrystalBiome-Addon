@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:yellow_crystal_statue_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"b": {
+				"item": "cb2:ground_yellow_crystal_block"
+			},
+			"a": {
+				"item": "cb2:yellow_crystal_shard"
+			}
+		},
+		"pattern": [
+			" b ",
+			"aba",
+			" b "
+		],
+		"result": {
+			"item": "cb2:yellow_crystal_statue",
+			"count": 1
+		}
+	}
+}

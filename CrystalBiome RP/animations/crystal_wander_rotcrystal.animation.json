@@ -1,0 +1,17 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.crystal_wander.rotcrystal": {
+			"loop": true,
+			"animation_length": 1.5,
+			"bones": {
+				"bones": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.5": [0, 360, 0]
+					}
+				}
+			}
+		}
+	}
+}

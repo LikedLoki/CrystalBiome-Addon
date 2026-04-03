@@ -1,0 +1,33 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature"
+			},
+			"identifier": "cb2:red_crystal_block"
+		},
+		"components": {
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": true
+			},
+			"cb2:crystalstep": {
+				"name": "red"
+			},
+			"tag:cb2:crystal": {},
+			"tag:cb2:rawcrystal": {},
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:loot": "loot_tables/blocks/block_crystal_red.json",
+			"minecraft:map_color": "#FF9A9A",
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			}
+		}
+	}
+}

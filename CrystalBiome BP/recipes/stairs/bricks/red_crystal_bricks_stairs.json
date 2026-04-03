@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:red_crystal_bricks_stairs"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:red_crystal_bricks"
+			}
+		},
+		"pattern": [
+			"a  ",
+			"aa ",
+			"aaa"
+		],
+		"result": {
+			"item": "cb2:red_crystal_bricks_stairs",
+			"count": 4
+		}
+	}
+}

@@ -1,0 +1,68 @@
+{
+	"format_version": "1.21.130",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature"
+			},
+			"identifier": "cb2:flare_crystal_block",
+			"states": {
+				"cb2:powered": [
+					false,
+					true
+				],
+				"cb2:fuel": {
+					"values": {
+						"min": 0,
+						"max": 15
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_flare_crystal_block",
+					"render_method": "opaque"
+				}
+			},
+			"cb2:flare_crystal": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"tag:cb2:crystal": {},
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": true
+			},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": false,
+			"minecraft:loot": "loot_tables/flare_crystal_loot.json",
+			"minecraft:map_color": "#2CDDF0",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('cb2:powered')",
+				"components": {
+					"minecraft:loot": "loot_tables/empty.json",
+					"minecraft:geometry": "minecraft:geometry.full_block",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_powered_flare",
+							"render_method": "opaque"
+						}
+					}
+				}
+			}
+		]
+	}
+}

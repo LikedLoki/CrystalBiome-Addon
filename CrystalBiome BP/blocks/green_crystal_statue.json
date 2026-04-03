@@ -1,0 +1,173 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"cb2:pose": [
+					0,
+					1,
+					2,
+					3
+				]
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			},
+			"identifier": "cb2:green_crystal_statue"
+		},
+		"components": {
+			"minecraft:custom_components": [
+				"cb2:crystal_statue_pose"
+			],
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0
+			},
+			"minecraft:liquid_detection": {
+				"detection_rules": [
+					{
+						"can_contain_liquid": true,
+						"liquid_type": "water",
+						"on_liquid_touches": "no_reaction"
+					}
+				]
+			},
+			"minecraft:light_emission": 0,
+			"minecraft:light_dampening": 0,
+			"minecraft:destruction_particles": {
+				"texture": "cb2_ground_crystal_block"
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-4,
+					0,
+					-4
+				],
+				"size": [
+					8,
+					16,
+					8
+				]
+			},
+			"minecraft:collision_box": {
+				"origin": [
+					-4,
+					0,
+					-4
+				],
+				"size": [
+					8,
+					16,
+					8
+				]
+			},
+			"minecraft:geometry": "geometry.crystal_statue_stand",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_green_crystal_statue",
+					"render_method": "blend",
+					"face_dimming": false,
+					"ambient_occlusion": true
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('cb2:pose') == 1",
+				"components": {
+					"minecraft:geometry": "geometry.crystal_statue_walk",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_green_crystal_statue",
+							"render_method": "blend",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('cb2:pose') == 2",
+				"components": {
+					"minecraft:geometry": "geometry.crystal_statue_sit",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_green_crystal_statue",
+							"render_method": "blend",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('cb2:pose') == 3",
+				"components": {
+					"minecraft:geometry": "geometry.crystal_statue_point",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_green_crystal_statue",
+							"render_method": "blend",
+							"face_dimming": false,
+							"ambient_occlusion": true
+						}
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

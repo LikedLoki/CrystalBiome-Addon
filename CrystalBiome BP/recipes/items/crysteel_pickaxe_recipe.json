@@ -1,0 +1,28 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:crysteel_pickaxe_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:crysteel_ingot"
+			},
+			"b": {
+				"item": "cb2:crystal_shard"
+			}
+		},
+		"pattern": [
+			"aaa",
+			" b ",
+			" b "
+		],
+		"result": {
+			"item": "cb2:crysteel_pickaxe",
+			"count": 1
+		}
+	}
+}

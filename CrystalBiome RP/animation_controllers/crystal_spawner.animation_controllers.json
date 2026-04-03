@@ -1,0 +1,29 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.crystal_spawner_entity": {
+			"states": {
+				"default": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"active": "query.is_casting"
+						}
+					]
+				},
+				"active": {
+					"animations": [
+						"spawn"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_casting"
+						}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "cb2:clear_green_crystal_f"
+		},
+		"places_block": {
+			"name": "cb2:clear_green_crystal_block",
+			"states": {
+				"cb2:nature": true
+			}
+		},
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false,
+		"may_attach_to": {
+			"top": [
+				"air"
+			],
+			"auto_rotate": false
+		},
+		"may_replace": [
+			"cb2:crystal_block",
+			"cb2:green_crystal_block"
+		]
+	}
+}

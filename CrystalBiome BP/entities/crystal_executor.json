@@ -1,0 +1,200 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:entity": {
+		"events": {},
+		"description": {
+			"identifier": "cb2:crystal_executor",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {},
+		"components": {
+			"minecraft:boss": {
+				"hud_range": 55,
+				"name": "クリスタルエグゼクター",
+				"should_darken_sky": false
+			},
+			"minecraft:scale": {
+				"value": 2
+			},
+			"minecraft:attack": {
+				"damage": 2
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 3,
+				"reach_multiplier": 3,
+				"speed_multiplier": 1.1,
+				"track_target": false
+			},
+			"minecraft:environment_sensor": {
+				"triggers": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_equipment_tag",
+									"operator": "==",
+									"subject": "self",
+									"value": "cb2:staff"
+								}
+							]
+						},
+						"event": "cb2:range_change"
+					}
+				]
+			},
+			"minecraft:health": {
+				"max": 30,
+				"value": 30
+			},
+			"minecraft:movement": {
+				"value": 0.2
+			},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player?5+(math.random(5,10)):0"
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"within_radius": 25,
+				"reselect_targets": true,
+				"entity_types": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"operator": "!=",
+									"test": "is_family",
+									"subject": "other",
+									"value": "crystal"
+								},
+								{
+									"operator": "!=",
+									"test": "is_family",
+									"subject": "other",
+									"value": "creeper"
+								},
+								{
+									"operator": "!=",
+									"test": "is_family",
+									"subject": "other",
+									"value": "armor_stand"
+								}
+							],
+							"any_of": [
+								{
+									"operator": "!=",
+									"test": "is_family",
+									"subject": "other",
+									"value": "crystal_guard"
+								}
+							]
+						},
+						"max_dist": 35
+					}
+				],
+				"must_see": true,
+				"must_see_forget_duration": 17
+			},
+			"minecraft:equipment": {
+				"slot_drop_chance": [
+					{
+						"drop_chance": 0.05,
+						"slot": "slot.weapon.mainhand"
+					}
+				],
+				"table": "loot_tables/crystal_executor_weapon.json"
+			},
+			"minecraft:behavior.equip_item": {},
+			"minecraft:equip_item": {},
+			"minecraft:physics": {
+				"has_gravity": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": [
+					"cb2:enemy",
+					"crystal",
+					"crystal_guard",
+					"mob",
+					"monster"
+				]
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:navigation.walk": {
+				"is_amphibious": true,
+				"can_pass_doors": true,
+				"can_walk": true,
+				"can_break_doors": true
+			},
+			"minecraft:annotation.break_door": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:despawn": {
+				"despawn_from_chance": true,
+				"despawn_from_distance": {},
+				"despawn_from_inactivity": true,
+				"despawn_from_simulation_edge": true,
+				"min_range_inactivity_timer": 30,
+				"min_range_random_chance": 800,
+				"remove_child_entities": false
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0,
+				"breathes_air": true,
+				"breathes_water": true
+			},
+			"minecraft:behavior.move_towards_restriction": {
+				"priority": 5,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1,
+				"entity_types": [
+					{
+						"filters": {
+							"any_of": [
+								{
+									"operator": "!=",
+									"test": "is_family",
+									"value": "crystal"
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	}
+}

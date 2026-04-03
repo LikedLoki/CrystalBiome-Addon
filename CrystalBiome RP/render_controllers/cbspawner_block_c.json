@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"render_controllers": {
+		"controller.render.cbspawner_block": {
+			"arrays": {
+				"textures": {
+					"Array.top": [
+						"Texture.blue",
+						"Texture.red",
+						"Texture.green",
+						"Texture.yellow"
+					]
+				}
+			},
+			"geometry": "geometry.default",
+			"materials": [
+				{
+					"*": "material.default"
+				}
+			],
+			"textures": [
+				"array.top[q.variant]"
+			]
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_furnace": {
+		"description": {
+			"identifier": "cb2:cracked_blue_crystal_bricks_recipe"
+		},
+		"tags": [
+			"furnace"
+		],
+		"input": "cb2:crystal_bricks",
+		"output": "cb2:cracked_crystal_bricks"
+	}
+}

@@ -1,0 +1,306 @@
+{
+	"resource_pack_name": "Crystal biome",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"cb2_crystal_shard": {
+			"textures": "textures/items/crystal_shard"
+		},
+		"cb2_red_crystal": {
+			"textures": "textures/items/red_crystal_shard"
+		},
+		"cb2_green_crystal_shard": {
+			"textures": "textures/items/green_crystal_shard"
+		},
+		"cb2_deep_crystal_shard": {
+			"textures": "textures/items/deep_crystal_shard"
+		},
+		"cb2_crysteel_sword": {
+			"textures": "textures/items/crysteel_sword"
+		},
+		"cb2_crystal_breaker": {
+			"textures": "textures/items/crystal_breaker"
+		},
+		"cb2_rare_crystal_plate": {
+			"textures": "textures/items/rare_plate"
+		},
+		"cb2_crysteel_ingot": {
+			"textures": "textures/items/crysteel_ingot"
+		},
+		"cb2_crysteel_helmet": {
+			"textures": "textures/items/crysteel_helmet"
+		},
+		"cb2_crysteel_chestplate": {
+			"textures": "textures/items/crysteel_chestplate"
+		},
+		"cb2_crysteel_leggings": {
+			"textures": "textures/items/crysteel_leggings"
+		},
+		"cb2_crysteel_boots": {
+			"textures": "textures/items/crysteel_boots"
+		},
+		"cb2_yellow_crystal_shard": {
+			"textures": "textures/items/yellow_crystal_shard"
+		},
+		"cb2_crysteel_pickaxe": {
+			"textures": "textures/items/crysteel_pickaxe"
+		},
+		"cb2_rare_crystal_shard": {
+			"textures": "textures/items/rare_crystal_shard"
+		},
+		"cb2_crystal_wand": {
+			"textures": "textures/items/crystal_wand"
+		},
+		"cb2_crystal_wand_spike": {
+			"textures": "textures/items/crystal_wand_spike"
+		},
+		"cb2_crystal_salt": {
+			"textures": "textures/items/crystal_salt"
+		},
+		"cb2_saline_shard": {
+			"textures": "textures/items/saline_shard"
+		},
+		"cb2_crystal_material": {
+			"textures": "textures/items/crysteel_material"
+		},
+		"cb2_blue_cluster_item": {
+			"textures": "textures/blocks/blue_shard_block"
+		},
+		"cb2_red_cluster_item": {
+			"textures": "textures/blocks/red_shard_block"
+		},
+		"cb2_green_cluster_item": {
+			"textures": "textures/blocks/green_shard_block"
+		},
+		"cb2_yellow_cluster_item": {
+			"textures": "textures/blocks/yellow_shard_block"
+		},
+		"cb2_saline_cluster_item": {
+			"textures": "textures/blocks/saline_shard_block"
+		},
+		"cb2_rare_cluster_item": {
+			"textures": "textures/blocks/rare_shard_block"
+		},
+		"cb2_flare_cluster_item": {
+			"textures": "textures/blocks/flare_shard_block"
+		},
+		"cb2_crystal_crown": {
+			"textures": "textures/items/crystal_crown_item"
+		},
+		"cb2_king_cape_chestplate": {
+			"textures": "textures/items/king_cape_item"
+		},
+		"cb2_crystal_heart_shard": {
+			"textures": "textures/items/crystal_heart_shard"
+		},
+		"cb2_red_crystal_pickaxe": {
+			"textures": "textures/items/red_crystal_pickaxe"
+		},
+		"cb2_yellow_crystal_pickaxe": {
+			"textures": "textures/items/yellow_crystal_pickaxe"
+		},
+		"cb2_green_crystal_pickaxe": {
+			"textures": "textures/items/green_crystal_pickaxe"
+		},
+		"cb2_blue_crystal_pickaxe": {
+			"textures": "textures/items/blue_crystal_pickaxe"
+		},
+		"cb2_polished_blue_crystal_pickaxe": {
+			"textures": "textures/items/polished_blue_crystal_pickaxe"
+		},
+		"cb2_polished_red_crystal_pickaxe": {
+			"textures": "textures/items/polished_red_crystal_pickaxe"
+		},
+		"cb2_polished_green_crystal_pickaxe": {
+			"textures": "textures/items/polished_green_crystal_pickaxe"
+		},
+		"cb2_polished_yellow_crystal_pickaxe": {
+			"textures": "textures/items/polished_yellow_crystal_pickaxe"
+		},
+		"cb2_refined_blue_crystal_pickaxe": {
+			"textures": "textures/items/refined_blue_crystal_pickaxe"
+		},
+		"cb2_refined_red_crystal_pickaxe": {
+			"textures": "textures/items/refined_red_crystal_pickaxe"
+		},
+		"cb2_refined_green_crystal_pickaxe": {
+			"textures": "textures/items/refined_green_crystal_pickaxe"
+		},
+		"cb2_refined_yellow_crystal_pickaxe": {
+			"textures": "textures/items/refined_yellow_crystal_pickaxe"
+		},
+		"cb2_crystal_door_item": {
+			"textures": "textures/items/crystal_door_item"
+		},
+		"cb2_red_crystal_door_item": {
+			"textures": "textures/items/red_crystal_door_item"
+		},
+		"cb2_green_crystal_door_item": {
+			"textures": "textures/items/green_crystal_door_item"
+		},
+		"cb2_yellow_crystal_door_item": {
+			"textures": "textures/items/yellow_crystal_door_item"
+		},
+		"cb2_rare_crystal_door_item": {
+			"textures": "textures/items/rare_crystal_door_item"
+		},
+		"cb2_crystaloak_door_item": {
+			"textures": "textures/items/crystaloak_door_item"
+		},
+		"cb2_crystaloak_sapling_item": {
+			"textures": "textures/blocks/crystaloak_sapling"
+		},
+		"cb2_power_stick": {
+			"textures": "textures/items/power_stick"
+		},
+		"cb2_blue_crystal_sword": {
+			"textures": "textures/items/blue_crystal_sword"
+		},
+		"cb2_polished_blue_crystal_sword": {
+			"textures": "textures/items/polished_blue_crystal_sword"
+		},
+		"cb2_refined_blue_crystal_sword": {
+			"textures": "textures/items/refined_blue_crystal_sword"
+		},
+		"cb2_red_crystal_sword": {
+			"textures": "textures/items/red_crystal_sword"
+		},
+		"cb2_polished_red_crystal_sword": {
+			"textures": "textures/items/polished_red_crystal_sword"
+		},
+		"cb2_refined_red_crystal_sword": {
+			"textures": "textures/items/refined_red_crystal_sword"
+		},
+		"cb2_green_crystal_sword": {
+			"textures": "textures/items/green_crystal_sword"
+		},
+		"cb2_polished_green_crystal_sword": {
+			"textures": "textures/items/polished_green_crystal_sword"
+		},
+		"cb2_refined_green_crystal_sword": {
+			"textures": "textures/items/refined_green_crystal_sword"
+		},
+		"cb2_yellow_crystal_sword": {
+			"textures": "textures/items/yellow_crystal_sword"
+		},
+		"cb2_polished_yellow_crystal_sword": {
+			"textures": "textures/items/polished_yellow_crystal_sword"
+		},
+		"cb2_refined_yellow_crystal_sword": {
+			"textures": "textures/items/refined_yellow_crystal_sword"
+		},
+		"cb2_blue_crystal_gem": {
+			"textures": "textures/items/blue_crystal_gem"
+		},
+		"cb2_red_crystal_gem": {
+			"textures": "textures/items/red_crystal_gem"
+		},
+		"cb2_green_crystal_gem": {
+			"textures": "textures/items/green_crystal_gem"
+		},
+		"cb2_yellow_crystal_gem": {
+			"textures": "textures/items/yellow_crystal_gem"
+		},
+		"cb2_staff_of_blue_item": {
+			"textures": "textures/items/staff_of_blue_item"
+		},
+		"cb2_staff_of_red_item": {
+			"textures": "textures/items/staff_of_red_item"
+		},
+		"cb2_staff_of_green_item": {
+			"textures": "textures/items/staff_of_green_item"
+		},
+		"cb2_staff_of_yellow_item": {
+			"textures": "textures/items/staff_of_yellow_item"
+		},
+		"cb2_flare_crystal_shard": {
+			"textures": "textures/items/flare_crystal_shard"
+		},
+		"cb2_crystal_guard_spawn_egg": {
+			"textures": "textures/items/crystal_guard_spawn_egg"
+		},
+		"cb2_crystal_wander_spawn_egg": {
+			"textures": "textures/items/crystal_wander_spawn_egg"
+		},
+		"cb2_crystal_king_spawn_egg": {
+			"textures": "textures/items/crystal_king_spawn_egg"
+		},
+		"cb2_crystal_trader_spawn_egg": {
+			"textures": "textures/items/crystal_trader_spawn_egg"
+		},
+		"cb2_giant_cluster_spawn_egg": {
+			"textures": "textures/items/giant_cluster_spawn_egg"
+		},
+		"cb2_crystal_spawn_egg": {
+			"textures": "textures/items/crystal_spawn_egg"
+		},
+		"cb2_crysteel_axe": {
+			"textures": "textures/items/crysteel_axe"
+		},
+		"cb2_blue_crystal_axe": {
+			"textures": "textures/items/blue_crystal_axe"
+		},
+		"cb2_red_crystal_axe": {
+			"textures": "textures/items/red_crystal_axe"
+		},
+		"cb2_green_crystal_axe": {
+			"textures": "textures/items/green_crystal_axe"
+		},
+		"cb2_yellow_crystal_axe": {
+			"textures": "textures/items/yellow_crystal_axe"
+		},
+		"cb2_polished_blue_crystal_axe": {
+			"textures": "textures/items/polished_blue_crystal_axe"
+		},
+		"cb2_polished_red_crystal_axe": {
+			"textures": "textures/items/polished_red_crystal_axe"
+		},
+		"cb2_polished_green_crystal_axe": {
+			"textures": "textures/items/polished_green_crystal_axe"
+		},
+		"cb2_polished_yellow_crystal_axe": {
+			"textures": "textures/items/polished_yellow_crystal_axe"
+		},
+		"cb2_refined_blue_crystal_axe": {
+			"textures": "textures/items/refined_blue_crystal_axe"
+		},
+		"cb2_refined_red_crystal_axe": {
+			"textures": "textures/items/refined_red_crystal_axe"
+		},
+		"cb2_refined_green_crystal_axe": {
+			"textures": "textures/items/refined_green_crystal_axe"
+		},
+		"cb2_refined_yellow_crystal_axe": {
+			"textures": "textures/items/refined_yellow_crystal_axe"
+		},
+		"cb2_crystal_heart": {
+			"textures": "textures/items/crystal_heart"
+		},
+		"cb2_crystalcap_item": {
+			"textures": "textures/items/crystalcap"
+		},
+		"cb2_baked_crystalcap_item": {
+			"textures": "textures/items/baked_crystalcap"
+		},
+		"cb2_crystal_bread": {
+			"textures": "textures/items/crystal_bread"
+		},
+		"cb2_blue_amber_sugar": {
+			"textures": "textures/items/blue_amber_sugar"
+		},
+		"cb2_red_amber_sugar": {
+			"textures": "textures/items/red_amber_sugar"
+		},
+		"cb2_green_amber_sugar": {
+			"textures": "textures/items/green_amber_sugar"
+		},
+		"cb2_yellow_amber_sugar": {
+			"textures": "textures/items/yellow_amber_sugar"
+		},
+		"cb2_crystal_apple": {
+			"textures": "textures/items/crystal_apple"
+		},
+		"cb2_crystal_locator": {
+			"textures": "textures/items/crystal_locater"
+		}
+	}
+}

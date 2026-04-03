@@ -1,0 +1,79 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"bridge."
+		],
+		"generated_with": {
+			"bridge": [
+				"2.7.54"
+			],
+			"dash": [
+				"0.11.7"
+			]
+		}
+	},
+	"header": {
+		"name": "Crystal biome addon",
+		"description": "水晶バイオームを追加",
+		"min_engine_version": [
+			1,
+			21,
+			0
+		],
+		"uuid": "dbadd942-14b3-43c2-a6fd-28446f35ebf0",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "b998e16b-a9bb-42e6-b6b0-7bcd21426231",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "d2b9f33c-280e-4a56-904a-db43a54f8c71",
+			"entry": "scripts/main.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "6526d6e8-39d7-4ecd-9810-00f393f7fecc",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"uuid": "e8fb7511-9e81-4b9d-935f-67e1ae20bcb6",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "beta"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "beta"
+		}
+	]
+}

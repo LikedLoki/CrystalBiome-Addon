@@ -1,0 +1,27 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "cb2:saline_crystal_s"
+		},
+		"iterations": 64,
+		"project_input_to_floor": true,
+		"coordinate_eval_order": "xyz",
+		"x": {
+			"distribution": "gaussian",
+			"extent": [
+				0,
+				15
+			]
+		},
+		"z": {
+			"distribution": "gaussian",
+			"extent": [
+				0,
+				15
+			]
+		},
+		"y": -1,
+		"places_feature": "cb2:saline_crystal_f"
+	}
+}

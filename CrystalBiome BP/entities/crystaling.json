@@ -1,0 +1,689 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "cb2:crystaling",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"cb2:big": {
+				"minecraft:scale": {
+					"value": 3
+				}
+			},
+			"cb2:sittable": {
+				"minecraft:behavior.tempt": {
+					"speed_multiplier": 0
+				},
+				"minecraft:behavior.random_stroll": {
+					"speed_multiplier": 0
+				}
+			},
+			"cb2:tamed_crystaling": {
+				"minecraft:inventory": {
+					"inventory_size": 27,
+					"can_be_siphoned_from": false,
+					"container_type": "inventory",
+					"private": false
+				},
+				"minecraft:sittable": {
+					"sit_event": {
+						"event": "cb2:start_sit"
+					},
+					"stand_event": {
+						"event": "cb2:end_sit"
+					}
+				},
+				"minecraft:behavior.follow_owner": {
+					"can_teleport": true,
+					"speed_multiplier": 1.5,
+					"start_distance": 10,
+					"stop_distance": 2
+				},
+				"minecraft:is_tamed": {}
+			},
+			"cb2:shard_none": {
+				"minecraft:mark_variant": {
+					"value": 0
+				}
+			},
+			"cb2:shard_south": {
+				"minecraft:mark_variant": {
+					"value": 1
+				}
+			},
+			"cb2:shard_east": {
+				"minecraft:mark_variant": {
+					"value": 2
+				}
+			},
+			"cb2:shard_west": {
+				"minecraft:mark_variant": {
+					"value": 3
+				}
+			},
+			"cb2:shard_up": {
+				"minecraft:mark_variant": {
+					"value": 4
+				}
+			},
+			"cb2:rare": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:rare_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:behavior.tempt": {
+					"priority": 4,
+					"speed_multiplier": 1.25,
+					"items": [
+						"cb2:rare_crystal_shard"
+					]
+				},
+				"minecraft:breedable": {
+					"require_tame": false,
+					"breed_items": [
+						"cb2:rare_crystal_shard"
+					],
+					"breeds_with": {
+						"mate_type": "cb2:crystaling",
+						"baby_type": "cb2:crystaling",
+						"breed_event": {
+							"event": "minecraft:entity_born",
+							"target": "baby"
+						}
+					}
+				},
+				"minecraft:variant": {
+					"value": 8
+				}
+			},
+			"cb2:yellow": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:yellow_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 3
+				}
+			},
+			"cb2:green": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:green_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 2
+				}
+			},
+			"cb2:red": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:red_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 1
+				}
+			},
+			"cb2:blue": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:blue_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			"cb2:blue_polished_ling": {
+				"minecraft:variant": {
+					"value": 4
+				}
+			},
+			"cb2:red_polished_ling": {
+				"minecraft:variant": {
+					"value": 5
+				}
+			},
+			"cb2:green_polished_ling": {
+				"minecraft:variant": {
+					"value": 6
+				}
+			},
+			"cb2:yellow_polished_ling": {
+				"minecraft:variant": {
+					"value": 7
+				}
+			},
+			"cb2:rare_polished_ling": {
+				"minecraft:variant": {
+					"value": 9
+				}
+			},
+			"cb2:crystaling_rider": {},
+			"cb2:crystaling_baby": {
+				"minecraft:is_baby": {},
+				"minecraft:scale": {
+					"value": 0.5
+				},
+				"minecraft:ageable": {
+					"duration": 1200,
+					"feed_items": "cb2:crystalcap_item",
+					"grow_up": {
+						"event": "minecraft:ageable_grow_up",
+						"target": "self"
+					}
+				},
+				"minecraft:behavior.follow_parent": {
+					"priority": 6,
+					"speed_multiplier": 1.1
+				}
+			},
+			"cb2:crystaling_adult": {
+				"minecraft:tameable": {
+					"probability": 1,
+					"tame_event": {
+						"event": "cb2:tame"
+					},
+					"tame_items": "cb2:baked_crystalcap_item"
+				},
+				"minecraft:scale": {
+					"value": 0.9
+				},
+				"minecraft:experience_reward": {
+					"on_bred": "math.random(1,7)",
+					"on_death": "query.last_hit_by_player?math.random(1,3):0"
+				},
+				"minecraft:loot": {
+					"table": "loot_tables/blocks/crystalcap_item.json"
+				},
+				"minecraft:behavior.breed": {
+					"priority": 3,
+					"speed_multiplier": 1
+				},
+				"minecraft:breedable": {
+					"require_tame": false,
+					"breed_items": [
+						"cb2:crystalcap_item"
+					],
+					"breeds_with": {
+						"mate_type": "cb2:crystaling",
+						"baby_type": "cb2:crystaling",
+						"breed_event": {
+							"event": "minecraft:entity_born",
+							"target": "baby"
+						}
+					}
+				}
+			}
+		},
+		"components": {
+			"minecraft:behavior.mount_pathing": {
+				"priority": 1,
+				"speed_multiplier": 1.25,
+				"track_target": true,
+				"target_dist": 0
+			},
+			"minecraft:type_family": {
+				"family": [
+					"crystal",
+					"crystaling",
+					"animal",
+					"mob"
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0
+			},
+			"minecraft:navigation.walk": {
+				"can_path_over_water": true,
+				"avoid_water": true,
+				"avoid_damage_blocks": true
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:collision_box": {
+				"width": 1,
+				"height": 1.6
+			},
+			"minecraft:nameable": {},
+			"minecraft:health": {
+				"value": 20,
+				"max": 20
+			},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:movement": {
+				"value": 0.25
+			},
+			"minecraft:despawn": {
+				"despawn_from_distance": {}
+			},
+			"minecraft:behavior.float": {
+				"priority": 0
+			},
+			"minecraft:behavior.panic": {
+				"priority": 1,
+				"speed_multiplier": 1.25
+			},
+			"minecraft:behavior.breed": {
+				"priority": 3,
+				"speed_multiplier": 1
+			},
+			"minecraft:behavior.tempt": {
+				"priority": 4,
+				"speed_multiplier": 1.25,
+				"items": [
+					"cb2:crystalcap_item"
+				]
+			},
+			"minecraft:behavior.follow_parent": {
+				"priority": 5,
+				"speed_multiplier": 1.1
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 0.8
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 9
+			},
+			"minecraft:leashable": {
+				"soft_distance": 4,
+				"hard_distance": 6,
+				"max_distance": 10
+			},
+			"minecraft:balloonable": {},
+			"minecraft:rideable": {
+				"seat_count": 1,
+				"family_types": [
+					"crystal_guard"
+				],
+				"seats": {
+					"position": [
+						0,
+						1.105,
+						0
+					]
+				}
+			},
+			"minecraft:physics": {},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:conditional_bandwidth_optimization": {}
+		},
+		"events": {
+			"cb2:color": {
+				"randomize": [
+					{
+						"weight": 5,
+						"add": {
+							"component_groups": [
+								"cb2:rare"
+							]
+						}
+					},
+					{
+						"weight": 50,
+						"add": {
+							"component_groups": [
+								"cb2:blue"
+							]
+						}
+					},
+					{
+						"weight": 50,
+						"add": {
+							"component_groups": [
+								"cb2:red"
+							]
+						}
+					},
+					{
+						"weight": 50,
+						"add": {
+							"component_groups": [
+								"cb2:green"
+							]
+						}
+					},
+					{
+						"weight": 50,
+						"add": {
+							"component_groups": [
+								"cb2:yellow"
+							]
+						}
+					}
+				]
+			},
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"weight": 6,
+								"add": {
+									"component_groups": [
+										"cb2:shard_none"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"cb2:shard_south"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"cb2:shard_west"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"cb2:shard_east"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"add": {
+									"component_groups": [
+										"cb2:shard_up"
+									]
+								}
+							}
+						]
+					},
+					{
+						"randomize": [
+							{
+								"weight": 199,
+								"trigger": "cb2:color",
+								"add": {
+									"component_groups": [
+										"cb2:crystaling_adult"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"trigger": "cb2:color",
+								"add": {
+									"component_groups": [
+										"cb2:crystaling_adult",
+										"cb2:big"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"minecraft:entity_born": {
+				"add": {
+					"component_groups": [
+						"cb2:crystaling_baby"
+					]
+				}
+			},
+			"minecraft:entity_transformed": {
+				"remove": {},
+				"add": {
+					"component_groups": [
+						"cb2:crystaling_adult"
+					]
+				}
+			},
+			"minecraft:ageable_grow_up": {
+				"remove": {
+					"component_groups": [
+						"cb2:crystaling_baby"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"cb2:crystaling_adult"
+					]
+				}
+			},
+			"minecraft:spawn_adult": {
+				"add": {
+					"component_groups": [
+						"cb2:crystaling_adult"
+					]
+				}
+			},
+			"cb2:blue_polished": {
+				"remove": {
+					"component_groups": [
+						"cb2:blue"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"cb2:blue_polished_ling"
+					]
+				}
+			},
+			"cb2:red_polished": {
+				"remove": {
+					"component_groups": [
+						"cb2:red"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"cb2:red_polished_ling"
+					]
+				}
+			},
+			"cb2:green_polished": {
+				"remove": {
+					"component_groups": [
+						"cb2:green"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"cb2:green_polished_ling"
+					]
+				}
+			},
+			"cb2:yellow_polished": {
+				"remove": {
+					"component_groups": [
+						"cb2:yellow"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"cb2:yellow_polished_ling"
+					]
+				}
+			},
+			"cb2:rare_polished": {
+				"remove": {
+					"component_groups": [
+						"cb2:rare"
+					]
+				},
+				"add": {
+					"component_groups": [
+						"cb2:rare_polished_ling"
+					]
+				}
+			},
+			"cb2:tame": {
+				"add": {
+					"component_groups": [
+						"cb2:tamed_crystaling"
+					]
+				}
+			},
+			"cb2:start_sit": {
+				"add": {
+					"component_groups": [
+						"cb2:sittable"
+					]
+				}
+			},
+			"cb2:end_sit": {
+				"remove": {
+					"component_groups": [
+						"cb2:sittable"
+					]
+				}
+			}
+		}
+	}
+}

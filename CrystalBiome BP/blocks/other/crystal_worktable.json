@@ -1,0 +1,56 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"identifier": "cb2:crystal_worktable"
+		},
+		"components": {
+			"tag:cb2:crystal": {},
+			"minecraft:crafting_table": {
+				"crafting_tags": [
+					"crystal_worktable"
+				],
+				"grid_size": 3,
+				"table_name": "クラフト"
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:map_color": "#2CDDF0",
+			"minecraft:material_instances": {
+				"north": {
+					"texture": "cb2_crystal_worktable_side1",
+					"render_method": "opaque"
+				},
+				"south": {
+					"texture": "cb2_crystal_worktable_side1",
+					"render_method": "opaque"
+				},
+				"west": {
+					"texture": "cb2_crystal_worktable_side2",
+					"render_method": "opaque"
+				},
+				"east": {
+					"texture": "cb2_crystal_worktable_side2",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "cb2_crystal_worktable_up",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "cb2_red_crystal_block",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 5
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			}
+		}
+	}
+}

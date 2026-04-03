@@ -1,0 +1,49 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "cb2:crystal_vines",
+			"places_feature": "cb2:crystal_vines_ss"
+		},
+		"conditions": {
+			"placement_pass": "after_underground_pass",
+			"minecraft:biome_filter": {
+				"any_of": [
+					{
+						"test": "has_biome_tag",
+						"value": "crystal",
+						"operator": "=="
+					}
+				]
+			}
+		},
+		"distribution": {
+			"scatter_chance": {
+				"denominator": 1,
+				"numerator": 1
+			},
+			"iterations": 24,
+			"x": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					16
+				]
+			},
+			"y": {
+				"distribution": "gaussian",
+				"extent": [
+					-40,
+					80
+				]
+			},
+			"z": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					16
+				]
+			}
+		}
+	}
+}

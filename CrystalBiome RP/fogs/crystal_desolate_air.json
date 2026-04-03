@@ -1,0 +1,1 @@
+{"format_version":"1.16.100","minecraft:fog_settings":{"description":{"identifier":"cb2:crystaldesolate_air"},"distance":{"weather":{"render_distance_type":"render","fog_end":1,"fog_start":0.65,"fog_color":"#637C68"},"air":{"render_distance_type":"render","fog_end":1,"fog_start":0.65,"fog_color":"#756B8D"}}}}

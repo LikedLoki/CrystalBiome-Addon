@@ -1,0 +1,33 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "cb2:clear_crystal_s"
+		},
+		"iterations": 256,
+		"project_input_to_floor": true,
+		"coordinate_eval_order": "xyz",
+		"x": {
+			"distribution": "gaussian",
+			"extent": [
+				2,
+				12
+			]
+		},
+		"z": {
+			"distribution": "gaussian",
+			"extent": [
+				2,
+				12
+			]
+		},
+		"y": {
+			"distribution": "gaussian",
+			"extent": [
+				-4,
+				0
+			]
+		},
+		"places_feature": "cb2:clear_crystal_f"
+	}
+}

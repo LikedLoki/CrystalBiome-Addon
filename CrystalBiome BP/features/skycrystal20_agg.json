@@ -1,0 +1,15 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:aggregate_feature": {
+		"description": {
+			"identifier": "cb2:skycrystal20_agg"
+		},
+		"early_out": "first_failure",
+		"features": [
+			"cb2:sky_crystal",
+			"cb2:skycrystal20_shard_s",
+			"cb2:skycrystal20_tree_s",
+			"cb2:skycrystal20_greencrystal_s"
+		]
+	}
+}

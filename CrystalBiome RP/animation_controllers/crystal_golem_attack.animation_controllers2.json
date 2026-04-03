@@ -1,0 +1,31 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.crystal_golem.attack2": {
+			"states": {
+				"default": {
+					"animations": [
+						""
+					],
+					"transitions": [
+						{
+							"active": "query.has_target&&q.modified_move_speed>0.05"
+						}
+					],
+					"blend_transition": 0.2
+				},
+				"active": {
+					"animations": [
+						"dash"
+					],
+					"transitions": [
+						{
+							"default": "!query.has_target"
+						}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		}
+	}
+}

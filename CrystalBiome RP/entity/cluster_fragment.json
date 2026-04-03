@@ -1,0 +1,33 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:client_entity": {
+		"description": {
+			"scripts": {
+				"animate": [
+					"idle"
+				]
+			},
+			"animations": {
+				"none":"animation.cbempty",
+				"idle": "animation.cluster_fragment.idle"
+			},
+			"identifier":"cb2:cluster_fragment",
+			"materials": {
+				"default":"zombie"
+			},
+			"textures": {
+				"default": "textures/entity/cluster_fragment"
+			},
+			"geometry": {
+				"default": "geometry.cluster_fragment"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"spawn_egg": {
+				"texture": "cb2_crystal_guard_spawn_egg"
+			},
+			"enable_attachables": true
+		}
+	}
+}

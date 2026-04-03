@@ -1,0 +1,19 @@
+{
+	"format_version": "1.21.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:power_stick",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:glint": true,
+			"minecraft:allow_off_hand": true,
+			"minecraft:damage": {
+				"value": 255
+			},
+			"minecraft:icon": "cb2_power_stick"
+		}
+	}
+}

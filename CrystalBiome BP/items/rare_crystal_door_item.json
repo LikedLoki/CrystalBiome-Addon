@@ -1,0 +1,18 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:rare_crystal_door_item",
+			"menu_category": {
+				"category": "construction",
+				"group": "itemGroup.name.door"
+			}
+		},
+		"components": {
+			"minecraft:block_placer": {
+				"block": "cb2:rare_crystal_door_down"
+			},
+			"minecraft:icon": "cb2_rare_crystal_door_item"
+		}
+	}
+}

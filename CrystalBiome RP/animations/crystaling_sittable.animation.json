@@ -1,0 +1,42 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.crystaling.sittable": {
+			"loop": true,
+			"override_previous_animation": true,
+			"bones": {
+				"leftleg": {
+					"rotation": [
+						-90,
+						-12,
+						0
+					],
+					"position": [
+						0,
+						-10,
+						0
+					]
+				},
+				"rightleg": {
+					"rotation": [
+						-90,
+						12,
+						0
+					],
+					"position": [
+						0,
+						-10,
+						0
+					]
+				},
+				"body": {
+					"position": [
+						0,
+						-10,
+						0
+					]
+				}
+			}
+		}
+	}
+}

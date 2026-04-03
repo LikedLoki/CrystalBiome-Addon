@@ -1,0 +1,37 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block_culling_rules": {
+		"description": {
+			"identifier": "cb2:ground_crystals_stair_rule"
+		},
+		"rules": [
+			{
+				"condition": "same_block",
+				"direction": "north",
+				"geometry_part": {
+					"bone": "low",
+					"cube": 0,
+					"face": "north"
+				}
+			},
+			{
+				"condition": "same_block",
+				"direction": "north",
+				"geometry_part": {
+					"bone": "mid",
+					"cube": 0,
+					"face": "north"
+				}
+			},
+			{
+				"condition": "same_block",
+				"direction": "north",
+				"geometry_part": {
+					"bone": "top",
+					"cube": 0,
+					"face": "north"
+				}
+			}
+		]
+	}
+}

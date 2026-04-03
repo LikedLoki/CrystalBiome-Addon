@@ -1,0 +1,71 @@
+{
+	"format_version": "1.16.100",
+	"minecraft:tree_feature": {
+		"description": {
+			"identifier": "cb2:big_crystal_tree"
+		},
+		"base_cluster": {
+			"cluster_radius": 2,
+			"num_clusters": 4,
+			"may_replace": [
+				"cb2:crystal_block",
+				"cb2:green_crystal_block"
+			]
+		},
+		"may_grow_on": [
+			"cb2:crystal_block",
+			"cb2:green_crystal_block"
+		],
+		"may_replace": [
+			"minecraft:air",
+			"minecraft:water"
+		],
+		"may_grow_through": [
+			"cb2:crystal_block",
+			"cb2:green_crystal_block"
+		],
+		"mega_trunk": {
+			"trunk_block": "cb2:red_crystal_block",
+			"trunk_width": 4,
+			"trunk_height": {
+				"base": 10,
+				"intervals": [
+					2,
+					12
+				]
+			},
+			"branches": {
+				"branch_length": 10,
+				"branch_slope": 1,
+				"branch_interval": {
+					"range_min": 0.5,
+					"range_max": 2
+				},
+				"branch_altitude_factor": {
+					"min": 0.4,
+					"max": 1
+				},
+				"branch_canopy": {
+					"canopy": {
+						"leaf_block": "air",
+						"canopy_offset": {
+							"min": -1,
+							"max": 1
+						},
+						"min_width": 1,
+						"canopy_slope": {
+							"run": 4,
+							"rise": 3
+						},
+						"variation_chance": [
+							{
+								"denominator": 2,
+								"numerator": 1
+							}
+						]
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,148 @@
+{
+  "pools": [
+    {
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "name": "cb2:crystal_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": { "min": 0, "max": 2 }
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "cb2:green_crystal_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": { "min": 0, "max": 2 }
+            }
+          ],
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "looting",
+              "levels": { "range_min": 1, "range_max": 1 }
+            }
+          ],
+          "count": 1
+        }
+      ],
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "name": "cb2:crystal_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": { "min": 0, "max": 2 }
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "cb2:green_crystal_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": { "min": 0, "max": 2 }
+            }
+          ],
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "looting",
+              "levels": { "range_min": 2, "range_max": 2 }
+            }
+          ],
+          "count": 1
+        }
+      ],
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "name": "cb2:crystal_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": { "min": 0, "max": 4 }
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "cb2:green_crystal_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": { "min": 0, "max": 4 }
+            }
+          ],
+          "weight": 2
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "enchantments": [
+            {
+              "enchantment": "looting",
+              "levels": { "range_min": 3, "range_max": 3 }
+            }
+          ],
+          "count": 1
+        }
+      ],
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "name": "cb2:crystal_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": { "min": 0, "max": 6 }
+            }
+          ],
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "cb2:green_crystal_shard",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": { "min": 0, "max": 6 }
+            }
+          ],
+          "weight": 2
+        }
+      ]
+    }
+  ]
+}

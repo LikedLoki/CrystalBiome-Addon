@@ -1,0 +1,26 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:template_pool": {
+		"description": {
+			"identifier": "cb2:random_sn"
+		},
+		"elements": [
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "bluet"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "redt_sn"
+				},
+				"weight": 7,
+				"projection": "terrain_matching"
+			}
+		]
+	}
+}

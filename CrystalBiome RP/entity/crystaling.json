@@ -1,0 +1,62 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:crystaling",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"blue_ling": "textures/entity/crystaling",
+				"red_ling": "textures/entity/red_crystaling",
+				"green_ling": "textures/entity/green_crystaling",
+				"yellow_ling": "textures/entity/yellow_crystaling",
+				"polished_blue": "textures/entity/polished_crystaling",
+				"polished_red": "textures/entity/polished_red_crystaling",
+				"polished_green": "textures/entity/polished_green_crystaling",
+				"polished_yellow": "textures/entity/polished_yellow_crystaling",
+				"rare_ling": "textures/entity/rare_crystaling",
+				"polished_rare": "textures/entity/polished_rare_crystaling"
+			},
+			"geometry": {
+				"default": "geometry.crystaling_default",
+				"spike_south": "geometry.crystaling_back",
+				"spike_east": "geometry.crystaling_right",
+				"spike_west": "geometry.crystaling_left",
+				"spike_up": "geometry.crystaling_up"
+			},
+			"spawn_egg": {
+				"texture": "cb2_crystal_spawn_egg"
+			},
+			"scripts": {
+				"animate": [
+					"walkco",
+					"sittableco"
+				],
+				"pre_animation": [
+					"variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+					"variable.tcos1 = -variable.tcos0;",
+					"variable.attack_body_rot_y = Math.sin(Math.sqrt(variable.attack_time) * 360.0) * 11.46;",
+					"variable.cos_attack_body_rot_y = Math.cos(variable.attack_body_rot_y);",
+					"variable.sin_attack_body_rot_y = Math.sin(variable.attack_body_rot_y);",
+					"variable.internal_swim_pos = Math.mod(query.modified_distance_moved, 26.0);",
+					"variable.attack = Math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3;",
+					"variable.attack2 = Math.sin(variable.attack_time * 180.0) * 57.3;",
+					"variable.z_bob = Math.cos(query.life_time * 103.13244) * 2.865 + 2.865;",
+					"variable.x_bob = Math.sin(query.life_time * 76.776372) * 2.865;"
+				]
+			},
+			"animations": {
+				"none":"animation.cbempty",
+				"sittableco": "controller.animation.crystaling.sittable",
+				"sittable": "animation.crystaling.sittable",
+				"walkco": "animation.humanoid.move",
+				"move": "animation.humanoid.move"
+			},
+			"render_controllers": [
+				"controller.render.crystaling"
+			],
+			"enable_attachables": true
+		}
+	}
+}

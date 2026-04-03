@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:crystal_spike",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"blue": "textures/blocks/blue_shard_block",
+				"red": "textures/blocks/red_shard_block",
+				"green": "textures/blocks/green_shard_block",
+				"yellow": "textures/blocks/yellow_shard_block"
+			},
+			"geometry": {
+				"default": "geometry.shard_cross"
+			},
+			"animations": {
+				"attack": "animation.shard_spike.attack"
+			},
+			"scripts": {
+				"animate": [
+					"attack"
+				]
+			},
+			"render_controllers": [
+				"controller.render.crystal_spike"
+			]
+		}
+	}
+}

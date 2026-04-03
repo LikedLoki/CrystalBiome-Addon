@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:crystal_bread",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:use_modifiers": {
+				"use_duration": 1.6,
+				"movement_modifier": 0.35
+			},
+			"minecraft:use_animation": "eat",
+			"minecraft:food": {
+				"can_always_eat": false,
+				"nutrition": 6,
+				"saturation_modifier": 6
+			},
+			"minecraft:icon": "cb2_crystal_bread"
+		}
+	}
+}

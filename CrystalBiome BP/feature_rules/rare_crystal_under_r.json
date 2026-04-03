@@ -1,0 +1,52 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "cb2:rare_crystal_under_r",
+			"places_feature": "cb2:rare_crystal_ore_f"
+		},
+		"conditions": {
+			"placement_pass": "underground_pass",
+			"minecraft:biome_filter": [
+				{
+					"any_of": [
+						{
+							"test": "has_biome_tag",
+							"operator": "==",
+							"value": "crystal"
+						}
+					]
+				}
+			]
+		},
+		"distribution": {
+			"scatter_chance": {
+				"denominator": 1,
+				"numerator": 1
+			},
+			"iterations": 12,
+			"coordinate_eval_order": "zyx",
+			"x": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					15
+				]
+			},
+			"y": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					60
+				]
+			},
+			"z": {
+				"distribution": "uniform",
+				"extent": [
+					0,
+					15
+				]
+			}
+		}
+	}
+}
