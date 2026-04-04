@@ -8,7 +8,7 @@
 			"identifier": "cb2:crystal_block"
 		},
 		"components": {
-			"cb2:crystalstep": {
+						"cb2:crystalstep": {
 				"name": "blue"
 			},
 			"tag:minecraft:is_pickaxe_item_destructible": {},

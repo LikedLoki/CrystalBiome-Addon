@@ -12,16 +12,6 @@
 			"minecraft:destructible_by_explosion": false,
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 9
-			},
-			"fristia:runCommand": {
-				"interact": {
-					"command": [
-						"tellraw @s {\"rawtext\":[{\"text\":\"...\"}]}",
-						"tellraw @s {\"rawtext\":[{\"text\":\"....\"}]}",
-						"tellraw @s {\"rawtext\":[{\"text\":\".....?\"}]}"
-					],
-					"delay": [0,20,20]
-				}
 			}
 		}
 	}

@@ -514,6 +514,9 @@
 		"cb2_framed_yellow_crystal_block": {
 			"textures": "textures/blocks/framed_yellow_crystal_block"
 		},
+		"cb2_framed_rare_crystal_block": {
+			"textures": "textures/blocks/framed_rare_crystal_block"
+		},
 		"cb2_fragment_frame_off": {
 			"textures": "textures/blocks/fragment_frame_off"
 		},
