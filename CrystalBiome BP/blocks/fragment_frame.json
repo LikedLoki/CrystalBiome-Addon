@@ -28,8 +28,17 @@
 				}
 			},
 			{
+				
 				"condition": "query.block_state('cb2:summon')",
 				"components": {
+																								"minecraft:tick": {
+						"looping": true,
+						"interval_range": [
+							10,
+							30
+						]
+					},
+			"cb2:fragmentframe": {},
 					"minecraft:geometry": "minecraft:geometry.full_block",
 					"minecraft:material_instances": {
 						"*": {
