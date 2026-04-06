@@ -25,5 +25,5 @@ import "./crystalcap_grow.js";
 import "./place_entity.js";
 import "./crystal_locate.js";
 import "./fragmentframe.js";
-import "./boss_awake.js";
+import "./cluster_fragment.js";
 import "./other.js";

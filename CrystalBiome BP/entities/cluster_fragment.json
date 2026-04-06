@@ -8,8 +8,15 @@
 			"is_summonable": true,
 			"is_experimental": false
 		},
-		"component_groups": {},
+		"component_groups": {
+			"cb2:barrier": {
+				
+			}
+		},
 		"components": {
+			"minecraft:loot": {
+				"table": "loot_tables/crystal_heart_loot.json"
+			},
 			"minecraft:boss": {
 				"hud_range": 55,
 				"name": "クラスターフラグメント",
@@ -19,8 +26,8 @@
 				"value": 2
 			},
 			"minecraft:health": {
-				"max": 30,
-				"value": 30
+				"max": 120,
+				"value": 120
 			},
 			"minecraft:experience_reward": {
 				"on_death": "query.last_hit_by_player?5+(math.random(5,10)):0"
