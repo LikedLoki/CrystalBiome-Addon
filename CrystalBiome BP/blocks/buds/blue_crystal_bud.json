@@ -25,9 +25,11 @@
 		"components": {
 			"fristia:growth": {
 				"chance": 0.5,
-				"satate": "cb2:growshard",
+				"state": "cb2:growshard",
+				"allow": ["cb2:fertile_crystal_block"],
+				"maxstage": 3,
 				"fullgrow": {
-					"replace": "cb2:crystal_cluster"
+					"replace": "cb2:blue_crystal_cluster"
 				}
 			},
 			"minecraft:placement_filter": {

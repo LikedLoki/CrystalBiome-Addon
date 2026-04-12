@@ -6,7 +6,6 @@ interface doorSetting {
     open:string,
     close:string;
 }
-
 const DoorDown: BlockCustomComponent = {
     onPlace(event, data) {
         const block: Block = event.block;

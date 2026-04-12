@@ -10,6 +10,6 @@ export function CrystalSpawn(name: string, pos: Vector3, dimension: Dimension, t
     };
     dimension.playSound("cbspawner_detect", pos);
     dimension.spawnParticle("cb2:cbspawn_particle", pos, vars);
-    if (tag) { dimension.spawnEntity(name as VanillaEntityIdentifier, pos, { spawnEvent: `cb2:color_${selectColor}` }).addTag(tag); return; };
-    dimension.spawnEntity(name as VanillaEntityIdentifier, pos, { spawnEvent: `cb2:color_${selectColor}` })
+    if (!tag) { dimension.spawnEntity(name as VanillaEntityIdentifier, pos, { spawnEvent: `cb2:color_${selectColor}` }); return; }
+    dimension.spawnEntity(name as VanillaEntityIdentifier, pos, { spawnEvent: `cb2:color_${selectColor}` }).addTag(tag);
 } 
