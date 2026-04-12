@@ -117,7 +117,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "cb2:saline_shard",
+                    "name": "cb2:saline_crystal_shard",
                     "weight": 6,
                     "functions": [
                         {

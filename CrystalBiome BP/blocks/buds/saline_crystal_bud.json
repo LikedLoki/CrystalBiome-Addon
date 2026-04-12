@@ -23,7 +23,15 @@
 			"identifier": "cb2:saline_crystal_bud"
 		},
 		"components": {
-			"cb2:shardgrowth": {},
+			"fristia:growth": {
+				"chance": 0.25,
+				"state": "cb2:growshard",
+				"allow": ["cb2:fertile_crystal_block"],
+				"maxstage": 3,
+				"fullgrow": {
+					"replace": "cb2:saline_crystal_cluster"
+				}
+			},
 			"minecraft:placement_filter": {
 				"conditions": [
 					{

@@ -16,7 +16,6 @@ import "./crystal_enemy.js";
 import "./orbshard.js";
 import "./spotlight.js";
 import "./flare_crystal.js";
-import "./growth_shard.js";
 import "./crystal_furnace.js";
 import "./tester.js";
 import "./greencrystal_tools.js";

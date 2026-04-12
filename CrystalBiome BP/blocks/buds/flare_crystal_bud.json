@@ -23,9 +23,14 @@
 			"identifier": "cb2:flare_crystal_bud"
 		},
 		"components": {
-			"cb2:shardgrowth": {
-				"name": "flare_crystal",
-				"chance": 0.25
+			"fristia:growth": {
+				"chance": 0.25,
+				"state": "cb2:growshard",
+				"allow": ["cb2:fertile_crystal_block"],
+				"maxstage": 3,
+				"fullgrow": {
+					"replace": "cb2:flare_crystal_cluster"
+				}
 			},
 			"minecraft:placement_filter": {
 				"conditions": [
