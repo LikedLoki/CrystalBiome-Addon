@@ -1,70 +1,67 @@
-import { Block, BlockCustomComponent, Dimension, system, VanillaEntityIdentifier, Vector3, Entity, MolangVariableMap, ServerMessageAfterEventSignal } from "@minecraft/server";
+import { Block, BlockCustomComponent, Dimension, system, VanillaEntityIdentifier, Vector3, Entity, MolangVariableMap, ServerMessageAfterEventSignal, VectorXZ } from "@minecraft/server";
 import { CrystalSpawn } from "./other";
 
-const offsetMap: { x: number, z: number }[] = [
-    { x: 1, z: 0 }, { x: 0, z: 1 }, { x: -1, z: 0 }, { x: 0, z: -1 }, { x: -1, z: 1 }, { x: 1, z: -1 }, { x: 1, z: 1 }, { x: -1, z: -1 }
-];
-function spawn(block: Block, dimension: Dimension) {
-    const offset: Vector3 = { x: 0.5, y: 0, z: 0.5 };
-    const loc: Vector3 = {
-        x: block.location.x + offset.x,
-        y: block.location.y + offset.y,
-        z: block.location.z + offset.z
-    };
-    const cbg: Entity[] = dimension.getEntities(
-        {
-            location: loc,
-            maxDistance: 0.1,
-            type: "cb2:orbshard"
-        }
-    );
-    if (cbg[0]) return;
-    dimension.spawnEntity("cb2:orbshard" as VanillaEntityIdentifier, loc);
+/**cb2:orbshardがおおまかに同じ座標にいないなら、cb2:orbshardを召喚する。 */
+function orbSpawn(block: Block, dimension: Dimension): void {
+    const hasOrbshard: boolean = dimension.getEntities({
+        location: block.center(),
+        maxDistance: 0.1,
+        type: "cb2:orbshard"
+    }).length > 0;
+    if (hasOrbshard) return;
+    const { x, y, z }: Vector3 = block.center();
+    dimension.spawnEntity("cb2:orbshard" as VanillaEntityIdentifier, { x: x, y: y - 0.5, z: z });
+};
+
+/**引数に基づいて、空気のBlock[]か、空の配列を返す。 */
+function getBlocks(offsetXZ: VectorXZ[], offsetY: number, loc: Vector3, dimension: Dimension): Block[] | [] {
+    const result: Block[] = [];
+    offsetXZ.forEach(data => {
+        const target: Block | undefined = dimension.getBlock({ x: loc.x + data.x, y: loc.y + offsetY, z: loc.z + data.z });
+        if (target) result.push(target);
+    });
+    return result.filter(data => data.typeId === "minecraft:air");
 }
 
-const small: BlockCustomComponent = {
-    onPlace({ dimension, block }) {
-        if (!dimension.getBlock(block.location)) return;
-        spawn(block, dimension);
+const offsetMap: VectorXZ[] = [
+    { x: 1, z: 0 }, { x: -1, z: 0 }, { x: 0, z: 1 }, { x: 0, z: -1 }, { x: 1, z: 1 }, { x: -1, z: -1 }, { x: -1, z: 1 }, { x: 1, z: -1 }
+];
+const OrbShard: BlockCustomComponent = {
+    onPlace({ block, dimension }) {
+        orbSpawn(block, dimension);
     },
-    onTick({ dimension, block }) {
-        spawn(block, dimension);
+    onTick({ block, dimension }) {
+        orbSpawn(block, dimension);
         const { x, y, z }: Vector3 = block.location;
-        const box: Vector3[] = [];
-        for (let I = -1; I <= 0; I++) for (const data of offsetMap) {
-            const search: Block | undefined = dimension.getBlock({ x: x + data.x, y: y + I, z: z + data.z });
-            if (search?.typeId === "minecraft:air") box.push(search);
-        };
-        if (!box[0]) return;
-        const limitEnemy: boolean = (dimension.getEntities({
-            location: block.center(),
+        const hasLimit: boolean = dimension.getEntities({
+            location: block.location,
+            maxDistance: 128,
             tags: [`cb2:orbshard_${x}=${y}=${z}`]
-        }) || []).length >= 6;
-        if (!limitEnemy) {
-            const select: Vector3 = box[Math.floor(Math.random() * box.length)];
-            const entity: string = ["cb2:crystal_guard", "cb2:crystal_wander"][Math.floor(Math.random() * 2)];
-            CrystalSpawn(entity, select, dimension, `cb2:orbshard_${x}=${y}=${z}`);
-        }
+        }).length >= 6;
+        if (hasLimit) return;
+        const lowerBlocks: Block[] | [] = getBlocks(offsetMap, 0, block.location, dimension);
+        const upperBlocks: Block[] | [] | undefined = lowerBlocks.length === 0 ? getBlocks(offsetMap, -1, block.location, dimension) : undefined;
+        if (lowerBlocks.length === 0 && (upperBlocks?.length === 0 || !upperBlocks)) return;
+        const layerBlocks: Block[] | undefined = lowerBlocks.length === 0 ? upperBlocks : lowerBlocks;
+        if (!layerBlocks) return;
+        const selectVector: Vector3 = layerBlocks[Math.floor(Math.random() * layerBlocks.length)].center();
+        const selectEntity: string = ["cb2:crystal_guard", "cb2:crystal_wander"][Math.floor(Math.random() * 2)];
+        CrystalSpawn(selectEntity, selectVector, dimension, `cb2:orbshard_${x}=${y}=${z}`);
     },
     onBreak({ block, dimension }) {
         dimension.spawnParticle("cb2:orbshard_break_particle", block.center());
-        dimension.playSound("crystal.break", block.center(), { pitch: 0.8 })
+        dimension.playSound("crystal.break", block.center(), { pitch: 0.8 });
         const { x, y, z }: Vector3 = block.location;
-        const enemyList: Entity[] | [] = dimension.getEntities(
-            {
+        const enemyList: Entity[] | [] = dimension.getEntities({
                 location: { x: x, y: y, z: z },
                 maxDistance: 128,
                 tags: [`cb2:orbshard_${x}=${y}=${z}`]
-            }
-        ) || [];
-        if (!enemyList[0]) return;
-        for (const data of enemyList) {
-            data.remove();
-        };
+            }) || [];
+        if (enemyList.length === 0) return;
+        enemyList.forEach(data => data.remove());
     }
 };
 
-
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:orbshard", small);
+    blockComponentRegistry.registerCustomComponent("cb2:orbshard", OrbShard);
 });
