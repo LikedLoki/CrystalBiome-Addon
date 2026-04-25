@@ -25,4 +25,5 @@ import "./place_entity.js";
 import "./crystal_locate.js";
 import "./fragmentframe.js";
 import "./cluster_fragment.js";
+import "./crystal_cluster_display.js"
 import "./other.js";

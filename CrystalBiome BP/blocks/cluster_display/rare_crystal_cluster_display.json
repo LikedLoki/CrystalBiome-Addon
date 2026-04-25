@@ -1,0 +1,53 @@
+{
+	"format_version": "1.21.130",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature"
+			},
+			"identifier": "cb2:rare_crystal_cluster_display"
+		},
+		"components": {
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_rare_crystal_cluster_display_side",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "cb2_polished_rare_crystal_block",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "cb2_rare_crystal_cluster_display_up",
+					"render_method": "opaque"
+				}
+			},
+			"cb2:cluster_display":{},
+			"minecraft:tick": {
+				"interval_range": [
+					80, 160
+				]
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"tag:cb2:crystal": {},
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": true
+			},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": false,
+			"minecraft:map_color": "#72D7FF",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			}
+		}
+	}
+}

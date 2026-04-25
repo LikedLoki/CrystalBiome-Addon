@@ -22,7 +22,12 @@
 					"cb2:clear_crystal_block",
 					"cb2:clear_red_crystal_block",
 					"cb2:clear_green_crystal_block",
-					"cb2:clear_yellow_crystal_block"
+					"cb2:clear_yellow_crystal_block",
+					"cb2:crystal_cluster_display",
+					"cb2:red_crystal_cluster_display",
+					"cb2:green_crystal_cluster_display",
+					"cb2:yellow_crystal_cluster_display",
+					"cb2:rare_crystal_cluster_display"
 				]
 			},
 			"minecraft:icon": "cb2_blue_cluster_item"

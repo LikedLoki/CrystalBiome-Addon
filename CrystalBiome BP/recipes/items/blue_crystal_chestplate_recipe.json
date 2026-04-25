@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:blue_crystal_chestplate_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:crystal_block"
+			}
+		},
+		"pattern": [
+			"a a",
+			"aaa",
+			"aaa"
+		],
+		"result": {
+			"item": "cb2:rough_blue_crystal_chestplate",
+			"count": 1
+		}
+	}
+}

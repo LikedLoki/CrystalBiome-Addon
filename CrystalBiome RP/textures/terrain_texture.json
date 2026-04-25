@@ -522,6 +522,66 @@
 		},
 		"cb2_fragment_frame_on": {
 			"textures": "textures/blocks/fragment_frame_on"
+		},
+		"cb2_chiseled_crystal_block": {
+			"textures": "textures/blocks/chiseled_crystal_block"
+		},
+		"cb2_chiseled_red_crystal_block": {
+			"textures": "textures/blocks/chiseled_red_crystal_block"
+		},
+		"cb2_chiseled_green_crystal_block": {
+			"textures": "textures/blocks/chiseled_green_crystal_block"
+		},
+		"cb2_chiseled_yellow_crystal_block": {
+			"textures": "textures/blocks/chiseled_yellow_crystal_block"
+		},
+		"cb2_chiseled_rare_crystal_block": {
+			"textures": "textures/blocks/chiseled_rare_crystal_block"
+		},
+		"cb2_crystal_fractale_block": {
+			"textures": "textures/blocks/crystal_fractale_block"
+		},
+		"cb2_red_crystal_fractale_block": {
+			"textures": "textures/blocks/red_crystal_fractale_block"
+		},
+		"cb2_green_crystal_fractale_block": {
+			"textures": "textures/blocks/green_crystal_fractale_block"
+		},
+		"cb2_yellow_crystal_fractale_block": {
+			"textures": "textures/blocks/yellow_crystal_fractale_block"
+		},
+		"cb2_rare_crystal_fractale_block": {
+			"textures": "textures/blocks/rare_crystal_fractale_block"
+		},
+		"cb2_crystal_cluster_display_side": {
+			"textures": "textures/blocks/crystal_cluster_display"
+		},
+		"cb2_crystal_cluster_display_up": {
+			"textures": "textures/blocks/crystal_cluster_display_up"
+		},
+		"cb2_red_crystal_cluster_display_side": {
+			"textures": "textures/blocks/red_crystal_cluster_display"
+		},
+		"cb2_red_crystal_cluster_display_up": {
+			"textures": "textures/blocks/red_crystal_cluster_display_up"
+		},
+		"cb2_green_crystal_cluster_display_side": {
+			"textures": "textures/blocks/green_crystal_cluster_display"
+		},
+		"cb2_green_crystal_cluster_display_up": {
+			"textures": "textures/blocks/green_crystal_cluster_display_up"
+		},
+		"cb2_yellow_crystal_cluster_display_side": {
+			"textures": "textures/blocks/yellow_crystal_cluster_display"
+		},
+		"cb2_yellow_crystal_cluster_display_up": {
+			"textures": "textures/blocks/yellow_crystal_cluster_display_up"
+		},
+		"cb2_rare_crystal_cluster_display_side": {
+			"textures": "textures/blocks/rare_crystal_cluster_display"
+		},
+		"cb2_rare_crystal_cluster_display_up": {
+			"textures": "textures/blocks/rare_crystal_cluster_display_up"
 		}
 	}
 }

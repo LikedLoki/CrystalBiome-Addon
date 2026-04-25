@@ -692,5 +692,35 @@
 	},
 	"cb2:crystal_portal": {
 		"textures":"cb2_crystal_portal"
+	},
+	"cb2:framed_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:framed_red_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:framed_green_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:framed_yellow_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:framed_rare_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:chiseled_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:chiseled_red_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:chiseled_green_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:chiseled_yellow_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:chiseled_rare_crystal_block": {
+		"sound": "amethyst_block"
 	}
 }

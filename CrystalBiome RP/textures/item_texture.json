@@ -93,16 +93,16 @@
 			"textures": "textures/items/crystal_heart_shard"
 		},
 		"cb2_red_crystal_pickaxe": {
-			"textures": "textures/items/red_crystal_pickaxe"
+			"textures": "textures/items/rough_red_crystal_pickaxe"
 		},
 		"cb2_yellow_crystal_pickaxe": {
-			"textures": "textures/items/yellow_crystal_pickaxe"
+			"textures": "textures/items/rough_yellow_crystal_pickaxe"
 		},
 		"cb2_green_crystal_pickaxe": {
-			"textures": "textures/items/green_crystal_pickaxe"
+			"textures": "textures/items/rough_green_crystal_pickaxe"
 		},
 		"cb2_blue_crystal_pickaxe": {
-			"textures": "textures/items/blue_crystal_pickaxe"
+			"textures": "textures/items/rough_blue_crystal_pickaxe"
 		},
 		"cb2_polished_blue_crystal_pickaxe": {
 			"textures": "textures/items/polished_blue_crystal_pickaxe"
@@ -153,7 +153,7 @@
 			"textures": "textures/items/power_stick"
 		},
 		"cb2_blue_crystal_sword": {
-			"textures": "textures/items/blue_crystal_sword"
+			"textures": "textures/items/rough_blue_crystal_sword"
 		},
 		"cb2_polished_blue_crystal_sword": {
 			"textures": "textures/items/polished_blue_crystal_sword"
@@ -162,7 +162,7 @@
 			"textures": "textures/items/refined_blue_crystal_sword"
 		},
 		"cb2_red_crystal_sword": {
-			"textures": "textures/items/red_crystal_sword"
+			"textures": "textures/items/rough_red_crystal_sword"
 		},
 		"cb2_polished_red_crystal_sword": {
 			"textures": "textures/items/polished_red_crystal_sword"
@@ -171,7 +171,7 @@
 			"textures": "textures/items/refined_red_crystal_sword"
 		},
 		"cb2_green_crystal_sword": {
-			"textures": "textures/items/green_crystal_sword"
+			"textures": "textures/items/rough_green_crystal_sword"
 		},
 		"cb2_polished_green_crystal_sword": {
 			"textures": "textures/items/polished_green_crystal_sword"
@@ -180,7 +180,7 @@
 			"textures": "textures/items/refined_green_crystal_sword"
 		},
 		"cb2_yellow_crystal_sword": {
-			"textures": "textures/items/yellow_crystal_sword"
+			"textures": "textures/items/rough_yellow_crystal_sword"
 		},
 		"cb2_polished_yellow_crystal_sword": {
 			"textures": "textures/items/polished_yellow_crystal_sword"
@@ -237,16 +237,16 @@
 			"textures": "textures/items/crysteel_axe"
 		},
 		"cb2_blue_crystal_axe": {
-			"textures": "textures/items/blue_crystal_axe"
+			"textures": "textures/items/rough_blue_crystal_axe"
 		},
 		"cb2_red_crystal_axe": {
-			"textures": "textures/items/red_crystal_axe"
+			"textures": "textures/items/rough_red_crystal_axe"
 		},
 		"cb2_green_crystal_axe": {
-			"textures": "textures/items/green_crystal_axe"
+			"textures": "textures/items/rough_green_crystal_axe"
 		},
 		"cb2_yellow_crystal_axe": {
-			"textures": "textures/items/yellow_crystal_axe"
+			"textures": "textures/items/rough_yellow_crystal_axe"
 		},
 		"cb2_polished_blue_crystal_axe": {
 			"textures": "textures/items/polished_blue_crystal_axe"
@@ -301,6 +301,30 @@
 		},
 		"cb2_crystal_locator": {
 			"textures": "textures/items/crystal_locater"
+		},
+		"cb2_blue_crystal_chestplate": {
+			"textures": "textures/items/rough_blue_crystal_chestplate"
+		},
+		"cb2_red_crystal_leggings": {
+			"textures": "textures/items/rough_red_crystal_leggings"
+		},
+		"cb2_green_crystal_helmet": {
+			"textures": "textures/items/rough_green_crystal_helmet"
+		},
+		"cb2_yellow_crystal_boots": {
+			"textures": "textures/items/rough_yellow_crystal_boots"
+		},
+		"cb2_polished_blue_crystal_chestplate": {
+			"textures": "textures/items/polished_blue_crystal_chestplate"
+		},
+		"cb2_polished_red_crystal_leggings": {
+			"textures": "textures/items/polished_red_crystal_leggings"
+		},
+		"cb2_polished_green_crystal_helmet": {
+			"textures": "textures/items/polished_green_crystal_helmet"
+		},
+		"cb2_polished_yellow_crystal_boots": {
+			"textures": "textures/items/polished_yellow_crystal_boots"
 		}
 	}
 }

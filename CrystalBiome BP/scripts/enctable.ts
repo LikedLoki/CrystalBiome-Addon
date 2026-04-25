@@ -1,204 +1,272 @@
-import { system, ItemStack, Player, Block, Vector3, Container, Dimension, ItemDurabilityComponent, ItemEnchantableComponent, EnchantInfo, Enchantment } from "@minecraft/server";
+import { system, BlockCustomComponent, Player, ItemStack, Container, EntityInventoryComponent, world, ItemEnchantableComponent, Enchantment, ItemDurabilityComponent } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 
-type toolId = `cb2:${string}`;
-
-interface cbBox {
-    name: string;
-    info: { id: string, amount: number }[];
+type Rank = {
+    now: string;
+    nextId: string;
 }
 
-const idMap: { [id: string]: string } = {
-    "cb2:rare_crystal_shard": "希少石の欠片",
-    "cb2:crysteel_ingot": "玻璃鉄のインゴット",
-    "cb2:crystal_block": "蒼水晶ブロック",
-    "cb2:red_crystal_block": "紅水晶ブロック",
-    "cb2:green_crystal_block": "翠水晶ブロック",
-    "cb2:yellow_crystal_block": "黄水晶ブロック",
-    "cb2:blue_crystal_pickaxe": "蒼水晶のツルハシ",
-    "cb2:polished_blue_crystal_pickaxe": "磨かれた蒼水晶のツルハシ",
-    "cb2:refined_blue_crystal_pickaxe": "研磨された蒼水晶のツルハシ",
-    "cb2:red_crystal_pickaxe": "紅水晶のツルハシ",
-    "cb2:polished_red_crystal_pickaxe": "磨かれた紅水晶のツルハシ",
-    "cb2:refined_red_crystal_pickaxe": "研磨された紅水晶のツルハシ",
-    "cb2:green_crystal_pickaxe": "翠水晶のツルハシ",
-    "cb2:polished_green_crystal_pickaxe": "磨かれた翠水晶のツルハシ",
-    "cb2:refined_green_crystal_pickaxe": "研磨された翠水晶のツルハシ",
-    "cb2:yellow_crystal_pickaxe": "黄水晶のツルハシ",
-    "cb2:polished_yellow_crystal_pickaxe": "磨かれた黄水晶のツルハシ",
-    "cb2:refined_yellow_crystal_pickaxe": "研磨された黄水晶のツルハシ",
-    "cb2:blue_crystal_sword": "蒼水晶の剣",
-    "cb2:polished_blue_crystal_sword": "磨かれた蒼水晶の剣",
-    "cb2:refined_blue_crystal_sword": "研磨された蒼水晶の剣",
-    "cb2:red_crystal_sword": "紅水晶の剣",
-    "cb2:polished_red_crystal_sword": "磨かれた紅水晶の剣",
-    "cb2:refined_red_crystal_sword": "研磨された紅水晶の剣",
-    "cb2:green_crystal_sword": "翠水晶の剣",
-    "cb2:polished_green_crystal_sword": "磨かれた翠水晶の剣",
-    "cb2:refined_green_crystal_sword": "研磨された翠水晶の剣",
-    "cb2:yellow_crystal_sword": "黄水晶の剣",
-    "cb2:polished_yellow_crystal_sword": "磨かれた黄水晶の剣",
-    "cb2:refined_yellow_crystal_sword": "研磨された黄水晶の剣",
-    "cb2:blue_crystal_axe": "蒼水晶の斧",
-    "cb2:polished_blue_crystal_axe": "磨かれた蒼水晶の斧",
-    "cb2:refined_blue_crystal_axe": "研磨された蒼水晶の斧",
-    "cb2:red_crystal_axe": "紅水晶の斧",
-    "cb2:polished_red_crystal_axe": "磨かれた紅水晶の斧",
-    "cb2:refined_red_crystal_axe": "研磨された紅水晶の斧",
-    "cb2:green_crystal_axe": "翠水晶の斧",
-    "cb2:polished_green_crystal_axe": "磨かれた翠水晶の斧",
-    "cb2:refined_green_crystal_axe": "研磨された翠水晶の斧",
-    "cb2:yellow_crystal_axe": "黄水晶の斧",
-    "cb2:polished_yellow_crystal_axe": "磨かれた黄水晶の斧",
-    "cb2:refined_yellow_crystal_axe": "研磨された黄水晶の斧"
-}
-
-const part: string[][] = [
-    ["", "polished_", "refined_"],
-    ["blue_", "red_", "green_", "yellow_"],
-    ["sword", "pickaxe", "axe"]
+const allowList: string[] = [
+    "cb2:rough_red_crystal_sword",
+    "cb2:rough_green_crystal_sword",
+    "cb2:rough_blue_crystal_sword",
+    "cb2:rough_yellow_crystal_sword",
+    "cb2:polished_red_crystal_sword",
+    "cb2:polished_green_crystal_sword",
+    "cb2:polished_blue_crystal_sword",
+    "cb2:polished_yellow_crystal_sword",
+    "cb2:refined_red_crystal_sword",
+    "cb2:refined_green_crystal_sword",
+    "cb2:refined_blue_crystal_sword",
+    "cb2:refined_yellow_crystal_sword",
+    "cb2:rough_red_crystal_pickaxe",
+    "cb2:rough_green_crystal_pickaxe",
+    "cb2:rough_blue_crystal_pickaxe",
+    "cb2:rough_yellow_crystal_pickaxe",
+    "cb2:polished_red_crystal_pickaxe",
+    "cb2:polished_green_crystal_pickaxe",
+    "cb2:polished_blue_crystal_pickaxe",
+    "cb2:polished_yellow_crystal_pickaxe",
+    "cb2:refined_red_crystal_pickaxe",
+    "cb2:refined_green_crystal_pickaxe",
+    "cb2:refined_blue_crystal_pickaxe",
+    "cb2:refined_yellow_crystal_pickaxe",
+    "cb2:rough_red_crystal_axe",
+    "cb2:rough_green_crystal_axe",
+    "cb2:rough_blue_crystal_axe",
+    "cb2:rough_yellow_crystal_axe",
+    "cb2:polished_red_crystal_axe",
+    "cb2:polished_green_crystal_axe",
+    "cb2:polished_blue_crystal_axe",
+    "cb2:polished_yellow_crystal_axe",
+    "cb2:refined_red_crystal_axe",
+    "cb2:refined_green_crystal_axe",
+    "cb2:refined_blue_crystal_axe",
+    "cb2:refined_yellow_crystal_axe",
+    "cb2:rough_green_crystal_helmet",
+    "cb2:rough_blue_crystal_chestplate",
+    "cb2:rough_red_crystal_leggings",
+    "cb2:rough_yellow_crystal_boots",
+    "cb2:polished_green_crystal_helmet",
+    "cb2:polished_blue_crystal_chestplate",
+    "cb2:polished_red_crystal_leggings",
+    "cb2:polished_yellow_crystal_boots",
+    "cb2:refined_green_crystal_helmet",
+    "cb2:refined_blue_crystal_chestplate",
+    "cb2:refined_red_crystal_leggings",
+    "cb2:refined_yellow_crystal_boots",
 ]
-const iiyo: string[] = [];
-for (const data1 of part[0]) {
-    for (const data2 of part[1]) {
-        for (const data3 of part[2]) {
-            iiyo.push(`cb2:${data1}${data2}crystal_${data3}`)
-        }
-    }
-}
-const costMap: { [type: string]: { "otherItem": [{ "id": string, "amount": number }], "crystalBlock": number } } = {
-    "none": {
-        "otherItem": [{ "id": "cb2:rare_crystal_shard", "amount": 8 }],
-        "crystalBlock": 4
-    },
-    "polished": {
-        "otherItem": [{ "id": "cb2:crysteel_ingot", "amount": 4 }],
-        "crystalBlock": 8
-    },
-}
 
-const typeTarget: string[] = ["polished", "refined"];
-
-function costItem(tool: toolId): cbBox {
-    const rawId: string = tool.replace("cb2:", "");
-    const type: string = rawId.split("_").find(item => typeTarget.includes(item)) ?? "none";
-    const color: string = rawId.split("_").find(item => ["red", "green", "yellow"].includes(item)) ?? "";
-    const costRank: { "otherItem": { id: string, amount: number }[], "crystalBlock": number } = costMap[type];
-    const box: { id: string, amount: number }[] = [...costRank["otherItem"]];
-    const blockItem: { id: string, amount: number } = {
-        "id": `cb2:${color && color + "_"}crystal_block`,
-        "amount": costRank["crystalBlock"]
+class ItemOrder {
+    #name: string; #amount: number;
+    constructor(name: string, amount: number) {
+        this.#name = name;
+        this.#amount = amount;
     };
-    box.push(blockItem)
-    let display: string = "";
-    for (const data of box) {
-        display += `${idMap[data.id]}×${data.amount}\n`
-    }
-
-    return {
-        "name": display,
-        "info": box
-    }
+    get name() {
+        return this.#name;
+    };
+    get amount() {
+        return this.#amount;
+    };
 }
 
-function hasItem(player: Player, info: { id: string, amount: number }) {
-    let counter: number = 0;
-    const inventory: Container | undefined = player.getComponent("inventory")?.container;
-    if (!inventory) return;
-    for (let i = 0; i < inventory.size; i++) {
-        const item: ItemStack | undefined = inventory.getItem(i);
-        if (item && item.typeId === info.id) {
-            counter += item.amount;
-        }
-    }
-    if (counter >= info.amount) return true;
-    return false;
-}
+class ItemAdmin {
+    #stack: ItemStack; #enc: Enchantment[]; #durDamage: number; #name: string; #icon: string; #cost: ItemOrder[];
+    private constructor(stack: ItemStack, enc: Enchantment[], durDamage: number, name: string, icon: string, cost: ItemOrder[]) {
+        this.#stack = stack,
+            this.#enc = enc;
+        this.#durDamage = durDamage;
+        this.#name = name,
+            this.#icon = icon,
+            this.#cost = cost;
+    };
+    static newCreate(player: Player): ItemAdmin | undefined {
+        const container: Container | undefined = player.getComponent("inventory")?.container;
+        const item: ItemStack | undefined = container?.getItem(player.selectedSlotIndex);
+        if (!item || !allowList.includes(item.typeId)) return undefined;
+        const enc: Enchantment[] | [] = item.getComponent("enchantable")?.getEnchantments() ?? [];
+        if (!enc) return undefined;
+        const dur: number = item.getComponent("durability")?.damage ?? 0;
+        if (dur === undefined) return undefined;
+        const words: string[] = item.typeId.replace("cb2:", "").split("_");
+        const displayName: string = item.nameTag ? item.nameTag : words.map(data => itemParseMap[data]).join("");
+        const iconPath: string = `textures/items/${item.typeId.replace("cb2:", "")}`;
+        const toolColor: string | undefined = words.find(data => data === "red" || data === "green" || data === "blue" || data === "yellow");
+        if (!toolColor) return undefined;
+        const toolType: string | undefined = words.find(data => data === "rough" || data === "polished" || data === "refined");
+        if (!toolType) return undefined;
+        const costItem: ItemOrder[] | undefined = this.costArray(toolType, toolColor);
+        if (!costItem) return undefined;
+        return new ItemAdmin(item, enc, dur, displayName, iconPath, costItem);
+    };
+    static costArray(toolType: string, toolColor: string): ItemOrder[] | undefined {
+        if (!toolType) return undefined;
+        const blockId: string = toolColor !== "blue" ? `cb2:${toolColor}_crystal_block` : "cb2:crystal_block";
+        const costBox: ItemOrder[] = [];
+        if (toolType === "rough") {
+            costBox.push(new ItemOrder(blockId, 8));
+            costBox.push(new ItemOrder("cb2:rare_crystal_shard", 4));
+        } else if (toolType === "polished") {
+            costBox.push(new ItemOrder(blockId, 16));
+            costBox.push(new ItemOrder("cb2:crysteel_ingot", 4));
+        };
+        return costBox;
+    };
+    costParse(): string | undefined {
+        if (!this.#cost || this.cost.length === 0) return undefined;
+        return this.#cost.reduce((acc: string, I: ItemOrder) => {
+            const words: string[] = I.name.replace("cb2:", "").split("_");
+            if (!words.find(II => II === "red" || II === "green" || II === "yellow" || II === "rare" || II === "crysteel")) words.unshift("blue");
+            if (words.find(II => II === "rare")) words.splice(words.indexOf("crystal"), 1);
+            const parsed: string = words.map(III => blockParseMap[III]).join("") + `×${I.amount}`;
+            return acc + parsed + "\n";
+        }, "");
+    };
+    get rank(): Readonly<Rank> | undefined {
+        const itemRank: string | undefined = this.stack.typeId.replace("cb2:", "").split("_").find(data => data === "rough" || data === "polished" || data === "refined");
+        let nextId: string = "rough";
+        switch (itemRank) {
+            case "rough":
+                nextId = this.stack.typeId.replace("rough", "polished");
+                break;
+            case "polished":
+                nextId = this.stack.typeId.replace("polished", "refined");
+                break;
+            case "refined":
+                break;
+        };
+        if (!itemRank) return undefined;
+        const result: Readonly<Rank> = { now: itemRank, nextId: nextId };
+        Object.freeze(result);
+        return result;
+    };
+    get stack(): ItemStack {
+        return this.#stack;
+    };
+    get enc(): Enchantment[] {
+        return this.#enc;
+    };
+    get durDamage(): number {
+        return this.#durDamage;
+    };
+    get name(): string {
+        return this.#name;
+    };
+    get icon(): string {
+        return this.#icon
+    };
+    get cost(): ItemOrder[] {
+        return this.#cost
+    };
+};
 
-function clearItem(player: Player, info: { id: string, amount: number }) {
-    const inventory: Container | undefined = player.getComponent("inventory")?.container;
-    if (!inventory) return;
-    let count: number = info.amount;
-    for (let i = 0; i < inventory.size; i++) {
-        const item: ItemStack | undefined = inventory.getItem(i);
-        if (item && item.typeId === info.id) {
-            if (item.amount <= count) {
-                count -= item.amount;
-                inventory.setItem(i, undefined);
-            } else {
-                item.amount -= count;
-                inventory.setItem(i, item);
-                count = 0;
+class ItemControl {
+    private static hasItem(target: ItemOrder, container: Container): boolean | undefined {
+        let count: number = 0;
+        for (let i = 0; i < container.size; i++) {
+            if (count >= target.amount) break;
+            const select: ItemStack | undefined = container.getItem(i);
+            if (!select) continue;
+            if (select.typeId === target.name) count += select.amount;
+        };
+        return count >= target.amount ? true : false;
+    };
+    static clearItem(costList: ItemOrder[], container: Container): boolean {
+        const hasItems: boolean = costList.every(data => this.hasItem(data, container));
+        if (!hasItems) return false;
+        for (const data of costList) {
+            let { amount } = data;
+            for (let I: number = 0; I < container.size; I++) {
+                if (amount <= 0) break;
+                let select: ItemStack | undefined = container.getItem(I);
+                if (!select || select.typeId !== data.name) continue;
+                if (select.amount >= amount) {
+                    const then: number = select.amount;
+                    if ((select.amount - amount) <= 0) select = undefined;
+                    else select.amount -= amount;
+                    amount -= then;
+                } else {
+                    amount -= select.amount;
+                    select = undefined;
+                };
+                container.setItem(I, select);
             }
-        }
-        if (count <= 0) break;
+        };
+        return true;
     }
 }
 
-const CPolishing = {
-    onPlayerInteract(event: any) {
-        const block: Block = event.block;
-        const player: Player = event.player;
-        const dimension: Dimension = block.dimension;
-        const loc: Vector3 = block.center();
-        const inventory: Container | undefined = player.getComponent("inventory")?.container;
-        const item: ItemStack = inventory?.getItem(player.selectedSlotIndex) ?? new ItemStack("minecraft:air", 1);
-        if (!iiyo.includes(item.typeId)) return;
-        const icon = item.typeId.replace("cb2:", "")
-        const displayName = item.nameTag ?? idMap[item.typeId];
-        dimension.playSound("random.pop", block.center(), { pitch: 0.5 });
-        const cost: cbBox = costItem(item.typeId as toolId)
+const itemParseMap: Record<string, string> = {
+    "polished": "磨かれた",
+    "refined": "研磨された",
+    "red": "紅",
+    "green": "翠",
+    "blue": "蒼",
+    "yellow": "黄",
+    "crystal": "水晶の",
+    "sword": "剣",
+    "pickaxe": "ツルハシ",
+    "axe": "斧",
+    "helmet": "ヘルメット",
+    "chestplate": "チェストプレート",
+    "leggings": "レギンス",
+    "boots": "ブーツ"
+};
+const blockParseMap: Record<string, string> = {
+    "rare": "希少石",
+    "crysteel": "玻璃鉄",
+    "blue": "蒼",
+    "red": "紅",
+    "green": "翠",
+    "yellow": "黄",
+    "crystal": "水晶",
+    "block": "ブロック",
+    "shard": "の欠片",
+    "ingot": "インゴット"
+};
+Object.freeze(blockParseMap);
+
+const CPolishing: BlockCustomComponent = {
+    onPlayerInteract({ player }) {
+        if (!player) return;
+        const itemAdmin: ItemAdmin | undefined = ItemAdmin.newCreate(player);
+        if (!itemAdmin) return;
+        const container: Container | undefined = player.getComponent("inventory")?.container;
+        if (!container) return;
         let bodytext = ``;
-        bodytext += `${displayName ?? item.typeId} \n`;
+        bodytext += `${itemAdmin.name ?? itemAdmin.stack.typeId} \n`;
         bodytext += "----------------------------------------------\n\n"
         bodytext += `§l必要な物§r: \n`
-        bodytext += `${cost.name} `
+        bodytext += itemAdmin.costParse();
 
         let form = new ActionFormData();
         form.title("cb2:enc_table");
-        form.button("研磨", `textures/items/${icon}`);
-        form.button("修理")
+        form.button("研磨", itemAdmin.icon);
         form.body(bodytext)
         form.show(player).then((response) => {
             if (response.canceled) return;
             if (response.selection === 0) {
-                const nowItem: ItemStack = inventory?.getItem(player.selectedSlotIndex) ?? new ItemStack("minecraft:air", 1);
-                if (nowItem.typeId !== item.typeId) {
-                    player.sendMessage("エラー!!!!");
+                const selectItem: ItemStack | undefined = container.getItem(player.selectedSlotIndex);
+                if (!selectItem || selectItem.typeId !== itemAdmin.stack.typeId) {
+                    player.sendMessage("エラー!!!")
                     return;
                 };
-                for (const d of cost.info) {
-                    if (!hasItem(player, d)) {
-                        player.sendMessage("§7アイテムが不足しています");
-                        return;
-                    }
+                const onClear: boolean = ItemControl.clearItem(itemAdmin.cost, container);
+                if (!onClear) {
+                    player.sendMessage("§7アイテムが足りません");
+                    return;
                 };
-                //研磨実行
-                for (const d of cost.info) {
-                    clearItem(player, d);
-                };
-                const type = nowItem.typeId.replace("cb2:", "").split("_").find(item => typeTarget.includes(item)) ?? "none";
-                const color = nowItem.typeId.replace("cb2:", "").split("_").find(item => ["blue", "red", "green", "yellow"].includes(item));
-                const tool = nowItem.typeId.replace("cb2:", "").split("_").find(item => part[2].includes(item));
-                let newItem: ItemStack | undefined;
-                if (type === "none") {
-                    newItem = new ItemStack(`cb2:polished_${color}_crystal_${tool}`, nowItem.amount);
-                } else if (type === "polished") {
-                    newItem = new ItemStack(`cb2:refined_${color}_crystal_${tool}`, nowItem.amount);
-                };
-                if (!newItem) return;
-                dimension.playSound("crystaling_polished", block.center());
-                dimension.spawnParticle("cb2:crystalenctable_use", block.center())
-                const dur: ItemDurabilityComponent | undefined = nowItem?.getComponent("minecraft:durability");
-                const enc2: ItemEnchantableComponent | undefined = nowItem?.getComponent("minecraft:enchantable");
-                const enc: any = enc2?.getEnchantments();
-                const name = nowItem.nameTag;
-                if (dur) newItem.getComponent("minecraft:durability")!.damage += dur.damage;
-                newItem.getComponent("minecraft:enchantable")?.addEnchantments(enc)
-                newItem.nameTag = name
-                inventory?.setItem(player.selectedSlotIndex, newItem);
-            };
-        });
+                const newId: string | undefined = itemAdmin.rank?.nextId;
+                if (!newId) return;
+                const newItem: ItemStack = new ItemStack(newId, 1);
+                const newDur: ItemDurabilityComponent | undefined = newItem.getComponent("durability");
+                if (!newDur) return;
+                newDur.damage += itemAdmin.durDamage;
+                newItem.getComponent("enchantable")?.addEnchantments(itemAdmin.enc);
+                container.setItem(player.selectedSlotIndex, newItem)
+            }
+        })
     }
 }
 

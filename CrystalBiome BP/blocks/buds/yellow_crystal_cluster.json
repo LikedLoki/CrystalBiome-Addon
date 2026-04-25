@@ -20,6 +20,18 @@
 				"conditions": [
 					{
 						"block_filter": [
+							"cb2:crystal_cluster_display",
+							"cb2:red_crystal_cluster_display",
+							"cb2:green_crystal_cluster_display",
+							"cb2:yellow_crystal_cluster_display",
+							"cb2:rare_crystal_cluster_display"
+						],
+						"allowed_faces": [
+							"up"
+						]
+					},
+					{
+						"block_filter": [
 							"cb2:fertile_crystal_block",
 							"cb2:crystal_block",
 							"cb2:saline_crystal",

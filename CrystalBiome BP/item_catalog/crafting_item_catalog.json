@@ -7,20 +7,20 @@
         "groups": [
           {
             "group_identifier": {
-              "icon": "cb2:blue_crystal_sword",
+              "icon": "cb2:rough_blue_crystal_sword",
               "name": "cb2:cbsword"
             },
             "items": [
-              "cb2:blue_crystal_sword",
+              "cb2:rough_blue_crystal_sword",
               "cb2:polished_blue_crystal_sword",
               "cb2:refined_blue_crystal_sword",
-              "cb2:red_crystal_sword",
+              "cb2:rough_red_crystal_sword",
               "cb2:polished_red_crystal_sword",
               "cb2:refined_red_crystal_sword",
-              "cb2:green_crystal_sword",
+              "cb2:rough_green_crystal_sword",
               "cb2:polished_green_crystal_sword",
               "cb2:refined_green_crystal_sword",
-              "cb2:yellow_crystal_sword",
+              "cb2:rough_yellow_crystal_sword",
               "cb2:polished_yellow_crystal_sword",
               "cb2:refined_yellow_crystal_sword",
               "cb2:crysteel_sword"
@@ -51,20 +51,20 @@
         "groups": [
           {
             "group_identifier": {
-              "icon": "cb2:blue_crystal_pickaxe",
+              "icon": "cb2:rough_blue_crystal_pickaxe",
               "name": "cb2:cbpick"
             },
             "items": [
-              "cb2:blue_crystal_pickaxe",
+              "cb2:rough_blue_crystal_pickaxe",
               "cb2:polished_blue_crystal_pickaxe",
               "cb2:refined_blue_crystal_pickaxe",
-              "cb2:red_crystal_pickaxe",
+              "cb2:rough_red_crystal_pickaxe",
               "cb2:polished_red_crystal_pickaxe",
               "cb2:refined_red_crystal_pickaxe",
-              "cb2:green_crystal_pickaxe",
+              "cb2:rough_green_crystal_pickaxe",
               "cb2:polished_green_crystal_pickaxe",
               "cb2:refined_green_crystal_pickaxe",
-              "cb2:yellow_crystal_pickaxe",
+              "cb2:rough_yellow_crystal_pickaxe",
               "cb2:polished_yellow_crystal_pickaxe",
               "cb2:refined_yellow_crystal_pickaxe",
               "cb2:crysteel_pickaxe"
@@ -77,20 +77,20 @@
         "groups": [
           {
             "group_identifier": {
-              "icon": "cb2:blue_crystal_axe",
+              "icon": "cb2:rough_blue_crystal_axe",
               "name": "cb2:cbaxe"
             },
             "items": [
-              "cb2:blue_crystal_axe",
+              "cb2:rough_blue_crystal_axe",
               "cb2:polished_blue_crystal_axe",
               "cb2:refined_blue_crystal_axe",
-              "cb2:red_crystal_axe",
+              "cb2:rough_red_crystal_axe",
               "cb2:polished_red_crystal_axe",
               "cb2:refined_red_crystal_axe",
-              "cb2:green_crystal_axe",
+              "cb2:rough_green_crystal_axe",
               "cb2:polished_green_crystal_axe",
               "cb2:refined_green_crystal_axe",
-              "cb2:yellow_crystal_axe",
+              "cb2:rough_yellow_crystal_axe",
               "cb2:polished_yellow_crystal_axe",
               "cb2:refined_yellow_crystal_axe",
               "cb2:crysteel_axe"
@@ -318,6 +318,78 @@
               "cb2:refined_green_crystal_block",
               "cb2:refined_yellow_crystal_block",
               "cb2:refined_rare_crystal_block"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:crystal_fractale_block",
+              "name": "cb2:cbfractale"
+            },
+            "items": [
+              "cb2:crystal_fractale_block",
+              "cb2:red_crystal_fractale_block",
+              "cb2:green_crystal_fractale_block",
+              "cb2:yellow_crystal_fractale_block",
+              "cb2:rare_crystal_fractale_block"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:chiseled_crystal_block",
+              "name": "cb2:cbchiseled"
+            },
+            "items": [
+              "cb2:chiseled_crystal_block",
+              "cb2:chiseled_red_crystal_block",
+              "cb2:chiseled_green_crystal_block",
+              "cb2:chiseled_yellow_crystal_block",
+              "cb2:chiseled_rare_crystal_block"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:crystal_cluster_display",
+              "name": "cb2:cbcluster_display"
+            },
+            "items": [
+              "cb2:crystal_cluster_display",
+              "cb2:red_crystal_cluster_display",
+              "cb2:green_crystal_cluster_display",
+              "cb2:yellow_crystal_cluster_display",
+              "cb2:rare_crystal_cluster_display"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:framed_crystal_block",
+              "name": "cb2:cbframed"
+            },
+            "items": [
+              "cb2:framed_crystal_block",
+              "cb2:framed_red_crystal_block",
+              "cb2:framed_green_crystal_block",
+              "cb2:framed_yellow_crystal_block",
+              "cb2:framed_rare_crystal_block"
             ]
           }
         ]
