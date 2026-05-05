@@ -1,0 +1,31 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:rare_crystal_crystal_cluster_display_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:fertile_crystal_block"
+			},
+			"b": {
+				"item": "cb2:chiseled_rare_crystal_crystal_block"
+			},
+			"c": {
+				"item": "cb2:rare_crystal_crystal_bricks_slab"
+			}
+		},
+		"pattern": [
+			"a",
+			"b",
+			"c"
+		],
+		"result": {
+			"item": "cb2:rare_crystal_crystal_cluster_display",
+			"count": 1
+		}
+	}
+}

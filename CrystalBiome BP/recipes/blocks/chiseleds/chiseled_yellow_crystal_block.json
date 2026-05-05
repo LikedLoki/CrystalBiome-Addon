@@ -1,0 +1,24 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:chiseled_yellow_crystal_block_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:yellow_crystal_bricks_slab"
+			}
+		},
+		"pattern": [
+			"a",
+			"a"
+		],
+		"result": {
+			"item": "cb2:chiseled_yellow_crystal_block",
+			"count": 1
+		}
+	}
+}

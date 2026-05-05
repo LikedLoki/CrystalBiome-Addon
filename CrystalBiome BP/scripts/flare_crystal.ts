@@ -14,11 +14,12 @@ const Flare: BlockCustomComponent = {
             { "x": 0, "y": 0, "z": -1 }
         ];
         let onAir: boolean = false;
-        offset.forEach((off: Vector3) => {
+        for (let i = 0; i < offset.length; i++) {
+            const off: Vector3 = offset[i];
             const near: Block | undefined = dimension.getBlock({ x: loc.x + off.x, y: loc.y + off.y, z: loc.z + off.z });
             if (!near) return;
-            if (near.typeId === "minecraft:air") onAir = true;
-        });
+            if (near.typeId === "minecraft:air") { onAir = true; break; };
+        };
         if (onAir) return;
         dimension.playSound("random.fizz", block.center());
         dimension.spawnParticle("cb2:flare_fertile_particle", block.center())

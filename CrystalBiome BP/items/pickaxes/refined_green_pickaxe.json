@@ -9,8 +9,8 @@
 			}
 		},
 		"components": {
-			"cb2:itemdamage_mine": {
-				"value": 1
+			"fristia:minedamage":{
+				"damage": 1
 			},
 			"cb2:gc_pick": {
 				"chain": 2,

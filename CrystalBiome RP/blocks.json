@@ -722,5 +722,20 @@
 	},
 	"cb2:chiseled_rare_crystal_block": {
 		"sound": "amethyst_block"
+	},
+	"cb2:crystal_fractale_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:red_crystal_fractale_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:green_crystal_fractale_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:yellow_crystal_fractale_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:rare_crystal_fractale_block": {
+		"sound": "amethyst_block"
 	}
 }

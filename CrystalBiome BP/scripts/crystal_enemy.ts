@@ -12,8 +12,8 @@ const enemyConfig: config = {
 world.afterEvents.entitySpawn.subscribe(({ entity }) => {
     const pass: boolean = (function () { for (const data of Object.keys(enemyConfig)) { if (entity.typeId === `${data}_spawn`) return true; } return false; })();
     if (!pass) return;
-    const { location, dimension } = entity,
-        hasPrism: boolean = (dimension.getEntities(
+    const { location, dimension } = entity;
+    const hasPrism: boolean = (dimension.getEntities(
             {
                 location: location,
                 maxDistance: 128,
@@ -21,8 +21,8 @@ world.afterEvents.entitySpawn.subscribe(({ entity }) => {
             }
         ) || [])[0] ? true : false;
     if (hasPrism) { entity.remove(); return; }
-    const typeId: crystal = entity.typeId.replace("_spawn", "") as crystal,
-        limitEntity: boolean = dimension.getEntities(
+    const typeId: crystal = entity.typeId.replace("_spawn", "") as crystal;
+    const limitEntity: boolean = dimension.getEntities(
             {
                 location: location,
                 maxDistance: enemyConfig[typeId].dist,

@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:framed_rare_crystal_block_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:rare_crystal_block"
+			},
+			"b": {
+				"item": "cb2:polished_rare_crystal_block"
+			}
+		},
+		"pattern": [
+			"ab",
+			"ba"
+		],
+		"result": {
+			"item": "cb2:framed_rare_crystal_block",
+			"count": 8
+		}
+	}
+}

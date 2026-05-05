@@ -1,0 +1,27 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:red_crystal_fractale_block_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:refined_red_crystal_block"
+			},
+			"b": {
+				"item": "cb2:refined_red_crystal_slab"
+			}
+		},
+		"pattern": [
+			"ab",
+			"ba"
+		],
+		"result": {
+			"item": "cb2:red_crystal_fractale_block",
+			"count": 3
+		}
+	}
+}

@@ -25,5 +25,9 @@ import "./place_entity.js";
 import "./crystal_locate.js";
 import "./fragmentframe.js";
 import "./cluster_fragment.js";
-import "./crystal_cluster_display.js"
+import "./crystal_cluster_display.js";
+import "./crystal_spawner.js";
+import "./crystal_executor.js"
+import "./bosstimeline.js"
+import "./crystal_spikes.js"
 import "./other.js";

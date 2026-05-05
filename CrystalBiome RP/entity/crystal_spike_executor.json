@@ -1,0 +1,28 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:crystal_spike_executor",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/blocks/rare_shard_block"
+			},
+			"geometry": {
+				"default": "geometry.shard_cross"
+			},
+			"animations": {
+				"attack": "animation.shard_spike.attack"
+			},
+			"scripts": {
+				"animate": [
+					"attack"
+				]
+			},
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
+}

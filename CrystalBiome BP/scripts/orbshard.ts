@@ -1,27 +1,23 @@
 import { Block, BlockCustomComponent, Dimension, system, VanillaEntityIdentifier, Vector3, Entity, MolangVariableMap, ServerMessageAfterEventSignal, VectorXZ } from "@minecraft/server";
-import { CrystalSpawn } from "./other";
+import { CrystalSpawn, getBlocks } from "./other";
 
 /**cb2:orbshardがおおまかに同じ座標にいないなら、cb2:orbshardを召喚する。 */
 function orbSpawn(block: Block, dimension: Dimension): void {
     const hasOrbshard: boolean = dimension.getEntities({
         location: block.center(),
-        maxDistance: 0.1,
+        maxDistance: 1,
         type: "cb2:orbshard"
     }).length > 0;
+    const hasOrbshardt: number = dimension.getEntities({
+        location: block.center(),
+        maxDistance: 0.1,
+        type: "cb2:orbshard"
+    }).length;
+    console.log(hasOrbshardt)
     if (hasOrbshard) return;
     const { x, y, z }: Vector3 = block.center();
     dimension.spawnEntity("cb2:orbshard" as VanillaEntityIdentifier, { x: x, y: y - 0.5, z: z });
 };
-
-/**引数に基づいて、空気のBlock[]か、空の配列を返す。 */
-function getBlocks(offsetXZ: VectorXZ[], offsetY: number, loc: Vector3, dimension: Dimension): Block[] | [] {
-    const result: Block[] = [];
-    offsetXZ.forEach(data => {
-        const target: Block | undefined = dimension.getBlock({ x: loc.x + data.x, y: loc.y + offsetY, z: loc.z + data.z });
-        if (target) result.push(target);
-    });
-    return result.filter(data => data.typeId === "minecraft:air");
-}
 
 const offsetMap: VectorXZ[] = [
     { x: 1, z: 0 }, { x: -1, z: 0 }, { x: 0, z: 1 }, { x: 0, z: -1 }, { x: 1, z: 1 }, { x: -1, z: -1 }, { x: -1, z: 1 }, { x: 1, z: -1 }
