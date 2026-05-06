@@ -8,7 +8,7 @@
 			"fristia:runCommand_block": {
 				"onBreak":{
 					"run": [
-						"summon zombiee"
+						"summon zombie"
 					]
 				}
 			}

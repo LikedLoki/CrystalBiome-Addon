@@ -91,7 +91,7 @@
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "cb2_cracked_green_crystal_bricks",
-					"render_method": "oqaque"
+					"render_method": "opaque"
 				}
 			},
 			"minecraft:item_visual": {
