@@ -10,7 +10,6 @@ import "./wallassist_replace.js";
 import "./wall_other.js";
 import "./fence.js";
 import "./fence_other.js";
-import "./fenceassist_replace.js";
 import "./newchest.js";
 import "./crystal_enemy.js";
 import "./orbshard.js";

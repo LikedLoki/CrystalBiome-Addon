@@ -1,4 +1,4 @@
-import { world, system, Entity, Dimension, MolangVariableMap,VanillaEntityIdentifier, Vector3, VectorXZ, Block } from "@minecraft/server";
+import { world, system, Entity, Dimension, MolangVariableMap, VanillaEntityIdentifier, Vector3, VectorXZ, Block } from "@minecraft/server";
 export const sleep = (tick: number) => new Promise<void>(resolve => system.runTimeout(() => {resolve()}, tick));
 
 export function CrystalSpawn(name: string, pos: Vector3, dimension: Dimension, tag: string | null): void {
@@ -48,6 +48,15 @@ export async function summonLine(option: summonLineOption, direction: Vector3): 
             x: location.x + direction.x * offset,
             y: location.y,
             z: location.z + direction.z * offset
+        };
+        if (dimension.getBlock(next)?.typeId !== "minecraft:air") {
+            while (dimension.getBlock(next)?.typeId !== "minecraft:air") {
+                next.y += 1;
+            }
+        } else if (dimension.getBlock({ x: next.x, y: next.y - 1, z: next.z })?.typeId === "minecraft:air") {
+            while (dimension.getBlock({ x: next.x, y: next.y - 1, z: next.z })?.typeId === "minecraft:air") {
+                next.y -= 1;
+            }
         };
         dimension.spawnEntity(entityId as any, next);
     }

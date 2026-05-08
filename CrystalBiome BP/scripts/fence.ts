@@ -19,10 +19,8 @@ const exclusiveList: string[] = [
 ];
 const regex: RegExp = /slab$|stairs$|wall$|door$|trapdoor$|sign$|cluster$|bud$|skull$|head$|chest$|carpet$|flower$/;
 function isConnectable(typeId: string): boolean {
-    const isPass: boolean = !regex.test(typeId) && !exclusiveList.includes(typeId);
-    if (isPass) return true;
-    else return false;
-}
+    return !regex.test(typeId) && !exclusiveList.includes(typeId);
+};
 
 const offsetXZ: readonly Readonly<VectorDXZ>[] = [
     { dx: 1, dz: 0 }, { dx: -1, dz: 0 }, { dx: 0, dz: 1 }, { dx: 0, dz: -1 }
