@@ -19,7 +19,8 @@ export async function executorTimeLine(dimension: Dimension): Promise<void> {
         if (bosstick === 0 || timeout === 0) timeout = randomLeng[Math.floor(Math.random() * randomLeng.length)];
         executors[i].setDynamicProperty("cb2:bosstick_timeout", timeout)
         bosstick++; executors[i].setDynamicProperty("cb2:bosstick", bosstick);
-        if (bosstick >= timeout) {
+        if (bosstick < timeout) return;
+        if (Math.random() < 0.5) {
             if (executors[i].getDynamicProperty("cb2:wait") ?? false) continue;
             executors[i].playAnimation("animation.crystal_executor.cluster_attack");
             executors[i].setDynamicProperty("cb2:wait", true);
@@ -48,6 +49,38 @@ export async function executorTimeLine(dimension: Dimension): Promise<void> {
             summonLine(option, rot);
             summonLine(option, rightRot);
             summonLine(option, leftRot);
+            executors[i].setDynamicProperty("cb2:bosstick", 0);
+        } else {
+            if (executors[i].getDynamicProperty("cb2:wait") ?? false) continue;
+            executors[i].playAnimation("animation.crystal_executor.cluster_center");
+            executors[i].setDynamicProperty("cb2:wait", true);
+            await sleep(30);
+            const rot: Vector3 = executors[i].getViewDirection();
+            const option: summonLineOption = {
+                "amount": 24,
+                "dimension": dimension,
+                "entityId": "cb2:crystal_spike_executor",
+                "interval": 1,
+                "firstSpace": 2,
+                "location": executors[i].location,
+                "per": 1
+            };
+            executors[i].setDynamicProperty("cb2:wait", false);
+            const attackRot: Record<string, Vector3> = {
+                "right": {
+                    x: rot.z, y: rot.y, z: -rot.x
+                },
+                "left": {
+                    x: -rot.z, y: rot.y, z: rot.x
+                },
+                "back": {
+                    x: -rot.x, y: rot.y, z: -rot.z
+                }
+            }
+            summonLine(option, rot);
+            summonLine(option, attackRot.right);
+            summonLine(option, attackRot.left);
+            summonLine(option, attackRot.back);
             executors[i].setDynamicProperty("cb2:bosstick", 0);
         }
     }
