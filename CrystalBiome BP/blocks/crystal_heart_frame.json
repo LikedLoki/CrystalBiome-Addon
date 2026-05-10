@@ -1,0 +1,70 @@
+{
+	"format_version": "1.21.130",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature"
+			},
+			"states": {
+				"cb2:frame": [
+					false,
+					true
+				]
+			},
+			"identifier": "cb2:crystal_heart_frame"
+		},
+		"components": {
+			"cb2:crystal_heartframe": {},
+			"minecraft:destructible_by_mining": false,
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": true
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystal_heart_frame",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "cb2_rare_crystal_cluster_display_up",
+					"render_method": "opaque"
+				},
+				"down": {
+					"texture": "cb2_rare_crystal_cluster_display_up",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": false,
+			"minecraft:map_color": "#72D7FF",
+			"minecraft:destructible_by_explosion": false
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('cb2:frame')",
+				"components": {
+					"minecraft:geometry": "minecraft:geometry.full_block",
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystal_heart_frame_on",
+							"render_method": "opaque"
+						},
+						"up": {
+							"texture": "cb2_rare_crystal_cluster_display_up",
+							"render_method": "opaque"
+						},
+						"down": {
+							"texture": "cb2_rare_crystal_cluster_display_up",
+							"render_method": "opaque"
+						}
+					}
+				}
+			}
+		]
+	}
+}

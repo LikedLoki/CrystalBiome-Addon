@@ -582,6 +582,12 @@
 		},
 		"cb2_rare_crystal_cluster_display_up": {
 			"textures": "textures/blocks/rare_crystal_cluster_display_up"
+		},
+		"cb2_crystal_heart_frame": {
+			"textures": "textures/blocks/crystal_heart_frame"
+		},
+		"cb2_crystal_heart_frame_on": {
+			"textures": "textures/blocks/crystal_heart_frame_on"
 		}
 	}
 }

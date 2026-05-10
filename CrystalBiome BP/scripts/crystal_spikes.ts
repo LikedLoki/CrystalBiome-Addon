@@ -14,12 +14,16 @@ type configMap = {
 
 const spikeConfig: configMap = {
     "cb2:crystal_spike_executor": {
-        "damage": 1,
+        "damage": 4,
         "playsound": "break.amethyst_block",
         "particle": "cb2:spike_particle",
         "tick": 10
     }
 };
+async function removeSpike(setting: configValue, entity: Entity) {
+    await sleep(setting.tick);
+    entity.remove();
+}
 world.afterEvents.entitySpawn.subscribe(async ({ entity }) => {
     if (!Object.keys(spikeConfig).includes(entity.typeId)) return;
     let vars = new MolangVariableMap;
@@ -30,10 +34,9 @@ world.afterEvents.entitySpawn.subscribe(async ({ entity }) => {
     const enemy: Entity | undefined = entity.dimension.getEntities({
         closest: 1,
         location: entity.location,
-        maxDistance: 2,
+        maxDistance: 1.5,
         excludeFamilies: ["crystal"]
     })[0];
-    if (enemy) enemy.applyDamage(1, { cause: EntityDamageCause.entityAttack, damagingEntity: entity });
-    await sleep(setting.tick);
-    entity.remove();
+    if (enemy) enemy.applyDamage(setting.damage, { cause: EntityDamageCause.entityAttack, damagingEntity: entity });
+    removeSpike(setting, entity);
 })

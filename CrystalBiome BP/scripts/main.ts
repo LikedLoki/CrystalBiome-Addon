@@ -29,4 +29,5 @@ import "./crystal_spawner.js";
 import "./crystal_executor.js"
 import "./bosstimeline.js"
 import "./crystal_spikes.js"
+import "./crystal_heart_frame.js"
 import "./other.js";

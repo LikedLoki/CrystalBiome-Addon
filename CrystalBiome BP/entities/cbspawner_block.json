@@ -47,33 +47,6 @@
 						"block": {
 							"name": "cb2:crystal_spawner"
 						}
-					},
-					{
-						"exited_block_event": {
-							"event": "cb2:vanish",
-							"target": "self"
-						},
-						"block": {
-							"name": "cb2:crystal_spawner_mini"
-						}
-					},
-					{
-						"exited_block_event": {
-							"event": "cb2:vanish",
-							"target": "self"
-						},
-						"block": {
-							"name": "cb2:crystal_spawner_big"
-						}
-					},
-					{
-						"exited_block_event": {
-							"event": "cb2:vanish",
-							"target": "self"
-						},
-						"block": {
-							"name": "cb2:crystal_spawner_instant"
-						}
 					}
 				]
 			},

@@ -9,21 +9,41 @@ type FourRot = "east" | "west" | "south" | "north";
 type VerticalType = "up" | "down";
 
 class DoorAdmin {
+    #sideBlock: Block;
+    #facing: FourRot;
+    constructor(sideBlock: Block, facing: FourRot) {
+        this.#facing = facing;
+        this.#sideBlock = sideBlock;
+    };
+    static newCreate(block: Block, dimension: Dimension): DoorAdmin | undefined {
+        const { x, y, z } = block.location;
+        const facing: string | undefined = block.permutation.getState("minecraft:cardinal_direction");
+        if (!facing || facing !== "east" && facing !== "west" && facing !== "south" && facing !== "north") return undefined;
+        const sideBlock: Block | undefined = dimension.getBlock({ x: x + offset[facing].x, y: y, z: z + offset[facing].z });
+        if (!sideBlock) return undefined;
+        return new DoorAdmin(sideBlock, facing as FourRot);
+    };
     static breakChain(type: VerticalType, params: doorSetting, block: Block, dimension: Dimension) {
         const { x, y, z } = block.location;
         const targetBlock: Block | undefined = type === "down" ? block.above() : block.below();
         if (!targetBlock || targetBlock.typeId !== (type === "down" ? `cb2:${params.name}_door_up` : `cb2:${params.name}_door_down`)) return;
         dimension.setBlockType({ x: x, y: y + (type === "down" ? 1 : -1), z: z }, "minecraft:air");
-    }
+    };
     static openTheDoor(type: VerticalType, data: CustomComponentParameters, block: Block, dimension: Dimension) {
         const params: doorSetting = data.params as doorSetting;
-        const targetBlock: Block | undefined = type === "down" ? block.below() : block.above();
+        const targetBlock: Block | undefined = type === "down" ? block.above() : block.below();
         const newPerm: number = block.permutation.getState("cb2:open" as any) ? 0 : 1;
         block.setPermutation(block.permutation.withState("cb2:open" as any, newPerm));
         if (targetBlock) targetBlock.setPermutation(targetBlock.permutation.withState("cb2:open" as any, newPerm));
         const openSound: string = params.open ?? "open_door.copper"
         const closeSound: string = params.close ?? "close_door.copper"
         dimension.playSound(newPerm === 1 ? openSound : closeSound, block.location, { volume: 1, pitch: 1 });
+    };
+    get sideBlock() {
+        return this.#sideBlock;
+    };
+    get selfFacing() {
+        return this.#facing;
     }
 }
 
@@ -43,10 +63,12 @@ const DoorDown: BlockCustomComponent = {
         const { x, y, z } = block.location;
         const params: doorSetting = data.params as doorSetting;
         dimension.setBlockType({ x: x, y: y + 1, z: z }, `cb2:${params.name}_door_up`);
-        const facing: FourRot = block.permutation.getState("minecraft:cardinal_direction") as FourRot;
-        upperBlock.setPermutation(upperBlock.permutation.withState("minecraft:cardinal_direction", facing));
-        const sideBlock: Block | undefined = dimension.getBlock({ x: x + offset[facing].x, y: y, z: z + offset[facing].z });
-        if (!sideBlock || sideBlock.typeId !== `cb2:${params.name}_door_down`) return;
+        const doorAdmin: DoorAdmin | undefined = DoorAdmin.newCreate(block, dimension);
+        if (!doorAdmin) return;
+        upperBlock.setPermutation(
+            upperBlock.permutation.withState("minecraft:cardinal_direction", doorAdmin.selfFacing)
+        );
+        if (doorAdmin.sideBlock.typeId !== `cb2:${params.name}_door_down`) return;
         block.setPermutation(block.permutation.withState("cb2:revers" as any, 1));
         upperBlock.setPermutation(upperBlock.permutation.withState("cb2:revers" as any, 1));
     },

@@ -10,6 +10,10 @@
 		},
 		"component_groups": {},
 		"components": {
+			"minecraft:knockback_resistance": {
+				"value": 1,
+				"max": 1
+			},
 			"minecraft:boss": {
 				"hud_range": 55,
 				"name": "クリスタルエグゼクター",
@@ -19,7 +23,7 @@
 				"value": 2
 			},
 			"minecraft:attack": {
-				"damage": 2
+				"damage": 8
 			},
 			"minecraft:behavior.melee_attack": {
 				"priority": 3,
@@ -45,8 +49,8 @@
 				]
 			},
 			"minecraft:health": {
-				"max": 30,
-				"value": 30
+				"max": 200,
+				"value": 200
 			},
 			"minecraft:movement": {
 				"value": 0.2

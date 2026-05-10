@@ -29,14 +29,15 @@ export type summonLineOption = {
     dimension: Dimension,
     location: Vector3,
     amount: number,
-    per: number,
-    firstSpace: number,
-    interval: number,
-    entityId: string
+    entityId: string,
+    per?: number,
+    firstSpace?: number,
+    interval?: number
 };
 
 export async function summonLine(option: summonLineOption, direction: Vector3): Promise<void> {
-    const { dimension, location, amount, per, firstSpace, interval, entityId } = option;
+    let { dimension, location, amount, per, firstSpace, interval, entityId } = option;
+    interval ??= 1; firstSpace ??= 1; per ??= 1;
     for (let i: number = 0; i < amount; i++) {
         await sleep(interval);
         if (i === 0) {
@@ -61,4 +62,19 @@ export async function summonLine(option: summonLineOption, direction: Vector3): 
         dimension.spawnEntity(entityId as any, next);
     }
 
+}
+
+type Rotation = "right" | "left";
+export async function summonCircle(location: Vector3, dimension: Dimension, entityId: string, radius: number, per: number, rotation: string) {
+    const step = 360 / per;
+    for (let i: number = 0; i < per; i++) {
+        await sleep(1);
+        const radian: number = step * i * (Math.PI / 180); 
+        const next = {
+            x: location.x + radius * (rotation === "right" ? Math.sin(radian) : Math.cos(radian)),
+            y: location.y,
+            z: location.z + radius * (rotation === "right" ? Math.cos(radian) : Math.sin(radian))
+        };
+        dimension.spawnEntity(entityId, next);
+    }
 }
