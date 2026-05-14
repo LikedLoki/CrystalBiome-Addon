@@ -517,6 +517,21 @@
 		"cb2_framed_rare_crystal_block": {
 			"textures": "textures/blocks/framed_rare_crystal_block"
 		},
+		"cb2_framed_crystal_slab": {
+			"textures": "textures/blocks/framed_crystal_slab"
+		},
+		"cb2_framed_red_crystal_slab": {
+			"textures": "textures/blocks/framed_red_crystal_slab"
+		},
+		"cb2_framed_green_crystal_slab": {
+			"textures": "textures/blocks/framed_green_crystal_slab"
+		},
+		"cb2_framed_yellow_crystal_slab": {
+			"textures": "textures/blocks/framed_yellow_crystal_slab"
+		},
+		"cb2_framed_rare_crystal_slab": {
+			"textures": "textures/blocks/framed_rare_crystal_slab"
+		},
 		"cb2_fragment_frame_off": {
 			"textures": "textures/blocks/fragment_frame_off"
 		},

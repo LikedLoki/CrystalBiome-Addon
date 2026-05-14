@@ -8,7 +8,7 @@ interface VectorDXZ {
 const offset: VectorDXZ[] = [
     { "dx": 1, "dz": 0 }, { "dx": -1, "dz": 0 }, { "dx": 0, "dz": 1 }, { "dx": 0, "dz": -1 }
 ];
-const allowedBlocks: string[] = [
+const allowedBlocks: Readonly<string[]> = [
     "cb2:crystal_block",
     "cb2:red_crystal_block",
     "cb2:green_crystal_block",
@@ -21,7 +21,7 @@ const allowedBlocks: string[] = [
     "cb2:clear_green_crystal_block",
     "cb2:clear_yellow_crystal_block",
     "cb2:fertile_crystal_block"
-];
+]; Object.freeze(allowedBlocks);
 
 class GrowthAdmin {
     static canGrowSearch(location: Vector3, dimension: Dimension): Vector3[] {

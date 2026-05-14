@@ -19,6 +19,14 @@
 			"tag:cb2:crystal": {},
 			"minecraft:material_instances": {
 				"*": {
+					"texture": "cb2_framed_red_crystal_slab",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "cb2_framed_red_crystal_block",
+					"render_method": "opaque"
+				},
+				"down": {
 					"texture": "cb2_framed_red_crystal_block",
 					"render_method": "opaque"
 				}

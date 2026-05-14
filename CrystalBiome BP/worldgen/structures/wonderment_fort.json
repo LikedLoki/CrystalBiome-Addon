@@ -1,0 +1,28 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:jigsaw": {
+		"description": {
+			"identifier": "cb2:wonderment_fort_str"
+		},
+		"biome_filters": {
+			"any_of": [
+				{
+					"operator": "==",
+					"value": "desolate_crystal",
+					"test": "has_biome_tag"
+				}
+			]
+		},
+		"step": "surface_structures",
+		"terrain_adaptation": "none",
+		"start_pool": "cb2:wonderment_fort",
+		"max_depth": 1,
+		"start_height": {
+			"type": "constant",
+			"value": {
+				"absolute": 16
+			}
+		},
+		"heightmap_projection": "world_surface"
+	}
+}

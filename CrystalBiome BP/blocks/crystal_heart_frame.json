@@ -7,14 +7,34 @@
 			},
 			"states": {
 				"cb2:frame": [
-					false,
-					true
-				]
+					0, 1, 2
+				],
+				"cb2:enemy_type": [
+					0, 1
+				],
+				"cb2:rot":[
+					0, 1, 2, 3
+				],
+				"cb2:timer_a": {
+					"values": {
+						"min": 0,
+						"max": 15
+					}
+				},
+				"cb2:timer_b": {
+					"values": {
+						"min": 0,
+						"max": 15
+					}
+				}
 			},
 			"identifier": "cb2:crystal_heart_frame"
 		},
 		"components": {
 			"cb2:crystal_heartframe": {},
+			"minecraft:tick": {
+				"interval_range": [1, 1]
+			},
 			"minecraft:destructible_by_mining": false,
 			"minecraft:redstone_conductivity": {
 				"redstone_conductor": true,

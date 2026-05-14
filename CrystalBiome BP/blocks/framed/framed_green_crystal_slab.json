@@ -20,6 +20,14 @@
 			"tag:cb2:rawcrystal": {},
 			"minecraft:material_instances": {
 				"*": {
+					"texture": "cb2_framed_green_crystal_slab",
+					"render_method": "opaque"
+				},
+				"up": {
+					"texture": "cb2_framed_green_crystal_block",
+					"render_method": "opaque"
+				},
+				"down": {
 					"texture": "cb2_framed_green_crystal_block",
 					"render_method": "opaque"
 				}

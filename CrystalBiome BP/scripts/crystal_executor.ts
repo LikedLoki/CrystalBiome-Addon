@@ -14,7 +14,6 @@ async function executorAttack(executor: Entity, dimension: Dimension, bossInfo: 
         bossInfo.wait = false;
         bossInfo.waitTick = 0;
     };
-    console.log(bossInfo.waitTick)
     if (bossInfo.wait ?? false) {
         bossInfo.waitTick++;
         executor.setDynamicProperty("cb2:boss_info", JSON.stringify(bossInfo));
@@ -94,13 +93,13 @@ export function executorTimeLine(dimension: Dimension): void {
         if (!hasEnemy) continue;
         const executor: Entity = executors[dataI];
         const bossInfo: BossInfo = JSON.parse(executor.getDynamicProperty("cb2:boss_info") as string | undefined ?? "{ \"timeout\": 0, \"currTick\": 0, \"wait\": false, \"waitTick\": 0, \"secondCounter\": 0 }");
-        const halfHealth: boolean = bossInfo.secondCounter < 16 ? (executor.getComponent("minecraft:health")?.currentValue ?? 0) <= 50 : false;
+        const halfHealth: boolean = bossInfo.secondCounter < 8 ? (executor.getComponent("minecraft:health")?.currentValue ?? 0) <= 50 : false;
         const vars: MolangVariableMap = new MolangVariableMap();
         if (halfHealth) {
             vars.setColorRGB("variable.color", Math.random() < 0.5 ? { red: 1, green: 1, blue: 1 } : { red: 0, green: 0, blue: 0 });
             const selectPos: Vector3 = { x: Math.random() * 4 - 2 + executor.location.x, y: Math.random() + executor.location.y, z: Math.random() * 4 - 2 + executor.location.z };
             dimension.spawnParticle("cb2:crystal_particle", selectPos, vars);
-            executor.addEffect("speed", 10, { amplifier: 1 });
+            executor.addEffect("speed", 10, { amplifier: 0 });
         }
         if (bossInfo.timeout === 0) bossInfo.timeout = randomLeng[Math.random() * 3 | 0];
         if (bossInfo.secondCounter === undefined) bossInfo.secondCounter = 0;

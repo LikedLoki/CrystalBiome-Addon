@@ -325,6 +325,12 @@
 		},
 		"cb2_polished_yellow_crystal_boots": {
 			"textures": "textures/items/polished_yellow_crystal_boots"
+		},
+		"cb2_executor_reverberation": {
+			"textures": "textures/items/executor_reverberation"
+		},
+		"cb2_wanderment_reverberation": {
+			"textures": "textures/items/wanderment_reverberation"
 		}
 	}
 }

@@ -1,0 +1,17 @@
+{
+	"format_version": "1.21.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:executor_reverberation",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:rarity":"rare",
+			"minecraft:glint": true,
+			"minecraft:allow_off_hand": true,
+			"minecraft:icon": "cb2_executor_reverberation"
+		}
+	}
+}
