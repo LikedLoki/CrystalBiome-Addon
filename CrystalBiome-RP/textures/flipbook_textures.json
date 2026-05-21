@@ -1,0 +1,50 @@
+[
+    {
+        "atlas_tile": "cb2_rgb_crystal_block",
+        "blend_frames": true,
+        "ticks_per_frame": 40,
+        "flipbook_texture": "textures/blocks/rgb_crystal_block"
+    },
+    {
+        "atlas_tile": "cb2_saline_crystal",
+        "blend_frames": true,
+        "ticks_per_frame": 20,
+        "flipbook_texture": "textures/blocks/saline_crystal"
+    },
+    {
+        "atlas_tile": "cb2_crystaloak_planks",
+        "blend_frames": true,
+        "ticks_per_frame": 80,
+        "flipbook_texture": "textures/blocks/shineoak_planks"
+    },
+    {
+        "atlas_tile": "cb2_crystaloak_leaves",
+        "blend_frames": true,
+        "ticks_per_frame": 80,
+        "flipbook_texture": "textures/blocks/shineoak_leaves"
+    },
+    {
+        "atlas_tile": "cb2_crystal_leafstone",
+        "blend_frames": true,
+        "ticks_per_frame": 80,
+        "flipbook_texture": "textures/blocks/crystal_leafstone"
+    },
+    {
+        "atlas_tile": "cb2_crystaloak_log_top",
+        "blend_frames": true,
+        "ticks_per_frame": 80,
+        "flipbook_texture": "textures/blocks/shineoak_log_top"
+    },
+    {
+        "atlas_tile": "cb2_crystaloak_log_side",
+        "blend_frames": true,
+        "ticks_per_frame": 80,
+        "flipbook_texture": "textures/blocks/shineoak_log"
+    },
+    {
+        "atlas_tile": "cb2_crystal_panel",
+        "blend_frames": false,
+        "ticks_per_frame": 20,
+        "flipbook_texture": "textures/blocks/crystal_panel"
+    }
+]

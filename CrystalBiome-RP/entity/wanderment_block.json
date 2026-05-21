@@ -1,0 +1,28 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:wanderment_block",
+			"animations": {
+				"blockrot": "animation.model.cbspawner_block"
+			},
+			"scripts": {
+				"animate": [
+					"blockrot"
+				]
+			},
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/blocks/rare_crystal_block"
+			},
+			"geometry": {
+				"default": "geometry.cbspawner_block"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
+}

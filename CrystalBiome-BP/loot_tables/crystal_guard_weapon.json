@@ -1,0 +1,125 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "cb2:rough_blue_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:rough_red_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:rough_green_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:rough_yellow_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:polished_blue_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:polished_red_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:polished_green_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:polished_yellow_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:refined_blue_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:refined_red_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:refined_green_crystal_sword",
+					"weight": 12
+				},
+				{
+					"type": "item",
+					"name": "cb2:refined_yellow_crystal_sword",
+					"weight": 12
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "empty",
+					"weight": 31
+				},
+				{
+					"type": "item",
+					"name": "cb2:crysteel_helmet",
+					"weight": 1
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "empty",
+					"weight": 31
+				},
+				{
+					"type": "item",
+					"name": "cb2:crysteel_chestplate",
+					"weight": 1
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "empty",
+					"weight": 31
+				},
+				{
+					"type": "item",
+					"name": "cb2:crysteel_leggings",
+					"weight": 1
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "empty",
+					"weight": 31
+				},
+				{
+					"type": "item",
+					"name": "cb2:crysteel_boots",
+					"weight": 1
+				}
+			]
+		}
+	]
+}

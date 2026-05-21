@@ -1,0 +1,48 @@
+{
+	"format_version": "1.26.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "cb2:wanderment_block",
+			"is_spawnable": false,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"component_groups": {
+			"cb2:vanished": {
+				"minecraft:instant_despawn": {}
+			}
+		},
+		"components": {
+			"minecraft:type_family": {
+				"family": [
+					"crystal"
+				]
+			},
+			"minecraft:push_through": {
+				"value": 1
+			},
+			"minecraft:scale": {
+				"value": 2
+			},
+			"minecraft:collision_box": {
+				"height": 0,
+				"width": 0
+			},
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"cause": "all",
+					"deals_damage": "no"
+				}
+			}
+		},
+		"events": {
+			"cb2:vanish": {
+				"add": {
+					"component_groups": [
+						"cb2:vanished"
+					]
+				}
+			}
+		}
+	}
+}

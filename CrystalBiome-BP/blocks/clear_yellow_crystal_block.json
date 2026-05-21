@@ -1,0 +1,50 @@
+{
+	"format_version": "1.26.20",
+	"minecraft:block": {
+		"description": {
+			"states": {
+				"cb2:nature": [
+					false,
+					true
+				]
+			},
+			"identifier": "cb2:clear_yellow_crystal_block",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"tag:cb2:crystal": {},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.2
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			},
+			"minecraft:friction": 0.55,
+			"minecraft:light_dampening": 8,
+			"minecraft:light_emission": 0,
+			"minecraft:geometry": {
+				"culling": "cb2:ground_crystals_rule",
+				"identifier": "geometry.ground_crystal"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_clear_yellow_crystal_block",
+					"render_method": "blend",
+					"ambient_occlusion": false,
+					"face_dimming": false
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "query.block_state('cb2:nature') == true",
+				"components": {
+					"minecraft:loot": "loot_tables/blocks/block_crystal_clearyellow.json"
+				}
+			}
+		]
+	}
+}
