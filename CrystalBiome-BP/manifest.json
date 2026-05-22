@@ -14,7 +14,7 @@
 		}
 	},
 	"header": {
-		"name": "Crystal biome addon",
+		"name": "CrystalBiome-Addon-BP",
 		"description": "水晶バイオームを追加",
 		"min_engine_version": [
 			1,

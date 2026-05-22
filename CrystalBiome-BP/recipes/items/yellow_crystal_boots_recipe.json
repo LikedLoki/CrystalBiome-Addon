@@ -9,12 +9,15 @@
 		],
 		"key": {
 			"a": {
+				"item": "cb2:yellow_crystal_shard"
+			},
+			"b": {
 				"item": "cb2:yellow_crystal_block"
 			}
 		},
 		"pattern": [
 			"a a",
-			"a a"
+			"b b"
 		],
 		"result": {
 			"item": "cb2:rough_yellow_crystal_boots",

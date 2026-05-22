@@ -8,7 +8,7 @@
 			{
 				"element": {
 					"element_type": "minecraft:single_pool_element",
-					"location": "cbminifort1",
+					"location": "cb2:cbplain_fort1",
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,
@@ -17,7 +17,7 @@
 			{
 				"element": {
 					"element_type": "minecraft:single_pool_element",
-					"location": "cbminifort2",
+					"location": "cb2:cbplain_fort2",
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,
@@ -26,7 +26,7 @@
 			{
 				"element": {
 					"element_type": "minecraft:single_pool_element",
-					"location": "cbminifort3",
+					"location": "cb2:cbplain_fort3",
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,
@@ -35,7 +35,7 @@
 			{
 				"element": {
 					"element_type": "minecraft:single_pool_element",
-					"location": "cbminifort4",
+					"location": "cb2:cbplain_fort4",
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,

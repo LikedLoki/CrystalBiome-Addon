@@ -9,13 +9,16 @@
 		],
 		"key": {
 			"a": {
+				"item": "cb2:crystal_shard"
+			},
+			"b": {
 				"item": "cb2:crystal_block"
 			}
 		},
 		"pattern": [
 			"a a",
-			"aaa",
-			"aaa"
+			"bab",
+			"bbb"
 		],
 		"result": {
 			"item": "cb2:rough_blue_crystal_chestplate",

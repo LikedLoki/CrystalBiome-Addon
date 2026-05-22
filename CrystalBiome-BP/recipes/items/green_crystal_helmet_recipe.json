@@ -9,12 +9,15 @@
 		],
 		"key": {
 			"a": {
+				"item": "cb2:green_crystal_shard"
+			},
+			"b": {
 				"item": "cb2:green_crystal_block"
 			}
 		},
 		"pattern": [
-			"aaa",
-			"a a"
+			"aba",
+			"b b"
 		],
 		"result": {
 			"item": "cb2:rough_green_crystal_helmet",
