@@ -3,7 +3,7 @@
 	"minecraft:block": {
 		"description": {
 			"states": {
-				"cb2:leaves_pop": {
+				"cb2:connect_level": {
 					"values": {
 						"min": 0,
 						"max": 8
@@ -23,8 +23,7 @@
 			},
 			"minecraft:custom_components": [
 				"cb2:crystaloak_particle",
-				"cb2:leaves_pop",
-				"cb2:leaves_check"
+				"cb2:crystaloak_leaves"
 			],
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:light_emission": 4,
