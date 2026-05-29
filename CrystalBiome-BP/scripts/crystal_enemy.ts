@@ -1,36 +1,50 @@
-import { Dimension, Entity, EntitySpawnAfterEvent, VanillaEntityIdentifier, Vector3, world, MolangVariableMap } from "@minecraft/server";
+import { Dimension, Entity, EntitySpawnAfterEvent, Vector3, world, MolangVariableMap } from "@minecraft/server";
 import { CrystalSpawn, Color } from "./other.js"
 
-type crystal = `cb2:${string}`;
-type config = { [key: crystal]: { dist: number; limit: number } };
+type CrystalTypeId = "cb2:crystal_guard" | "cb2:crystal_wander";
+type TrrigerTypeId = `${CrystalTypeId}_spawn`;
+type EnemyInfo = { dist: number, limit: number };
+type EnemyMap = Record<CrystalTypeId, EnemyInfo>
 
-const enemyConfig: config = {
+const enemyMap: Readonly<EnemyMap> = {
     "cb2:crystal_guard": { dist: 64, limit: 2 },
     "cb2:crystal_wander": { dist: 64, limit: 2 }
 };
+const includeArray = Object.keys(enemyMap).map(data => data + "_spawn") as TrrigerTypeId[];
 
-world.afterEvents.entitySpawn.subscribe(({ entity }) => {
-    const pass: boolean = (function () { for (const data of Object.keys(enemyConfig)) { if (entity.typeId === `${data}_spawn`) return true; } return false; })();
-    if (!pass) return;
-    const { location, dimension } = entity;
-    const hasPrism: boolean = (dimension.getEntities(
+class naturalSpawnAdmin {
+    static regex: RegExp = /^cb2:.*_spawn$/;
+    static run(event: EntitySpawnAfterEvent): void {
+        const { entity } = event;
+        const isPass: boolean = this.isTrigger(entity.typeId);
+        if (!isPass) return;
+        const { dimension, location } = entity;
+        const hasPrism: boolean = dimension.getEntities(
             {
                 location: location,
                 maxDistance: 128,
                 type: "cb2:prismstone_entity"
             }
-        ) || [])[0] ? true : false;
-    if (hasPrism) { entity.remove(); return; }
-    const typeId: crystal = entity.typeId.replace("_spawn", "") as crystal;
-    const limitEntity: boolean = dimension.getEntities(
+        ).length > 0;
+        if (hasPrism) { entity.remove(); return; }
+        const formatId = entity.typeId.replace("_spawn", "");
+        if (formatId !== "cb2:crystal_guard" && formatId !== "cb2:crystal_wander") return;
+        const enemyInfo: EnemyInfo = enemyMap[formatId];
+        const isLimited: boolean = dimension.getEntities(
             {
                 location: location,
-                maxDistance: enemyConfig[typeId].dist,
-                type: typeId,
+                maxDistance: enemyInfo.dist,
+                type: formatId
             }
-        ).length >= enemyConfig[typeId].limit;
-    if (limitEntity) { entity.remove(); return; }
-    const color: Color = ["red", "blue", "green", "yellow"][Math.random() * 4 | 0] as Color;
-    CrystalSpawn(typeId, location, dimension, color, true);
-    entity.remove();
-});
+        ).length >= enemyInfo.limit;
+        if (isLimited) return;
+        const color: Color = ["red", "blue", "green", "yellow"][Math.random() * 4 | 0] as Color;
+        CrystalSpawn(formatId, location, dimension, color, true);
+        entity.remove();
+    }
+    static isTrigger(typeId: string): boolean {
+        return this.regex.test(typeId) && includeArray.includes(typeId as TrrigerTypeId);
+    }
+}
+
+world.afterEvents.entitySpawn.subscribe(naturalSpawnAdmin.run);

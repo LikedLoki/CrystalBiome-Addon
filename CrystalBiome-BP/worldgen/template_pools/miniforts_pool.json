@@ -40,6 +40,24 @@
 				},
 				"weight": 1,
 				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbplain_fort5",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbplain_fort6",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
 			}
 		]
 	}

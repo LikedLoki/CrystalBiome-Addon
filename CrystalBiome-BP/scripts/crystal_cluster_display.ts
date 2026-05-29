@@ -1,5 +1,4 @@
 import { Block, BlockCustomComponent, MolangVariableMap, system, Vector3 } from "@minecraft/server";
-
 const colorList: string[] = [
     "blue", "red", "green", "yellow", "rare"
 ];
