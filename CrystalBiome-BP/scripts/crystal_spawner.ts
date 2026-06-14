@@ -5,7 +5,7 @@ const offsetMap: VectorXZ[] = [
     { x: 1, z: 0 }, { x: -1, z: 0 }, { x: 0, z: 1 }, { x: 0, z: -1 }, { x: 1, z: 1 }, { x: -1, z: -1 }, { x: -1, z: 1 }, { x: 1, z: -1 }
 ];
 
-const Spawner: BlockCustomComponent = {
+export const Spawner: BlockCustomComponent = {
     onPlace({ block, dimension }) {
         const { x, y, z } = block.center();
         block.setPermutation(block.permutation.withState("cb2:count" as any, 4));
@@ -65,9 +65,3 @@ const Spawner: BlockCustomComponent = {
         }
     }
 }
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent(
-        "cb2:crystal_spawner", Spawner
-    );
-})

@@ -1,5 +1,5 @@
 import { Block, BlockCustomComponent, Dimension, EnchantmentTypeUnknownIdError, Entity, EntityDamageCause, MolangVariableMap, system, Vector3, VectorXZ } from "@minecraft/server";
-import { CrystalSpawn } from "./other";
+import { Color, CrystalSpawn } from "./other";
 
 function lerp(start: number, end: number, t: number) {
     return start + (end - start) * t;
@@ -27,7 +27,7 @@ function particle(block: Block, dimension: Dimension, typeId?: string): void {
         };
 }
 
-const Fragment: BlockCustomComponent = {
+export const Fragment: BlockCustomComponent = {
     onTick({ block, dimension }) {
         particle(block, dimension);
     }
@@ -36,7 +36,7 @@ const Fragment: BlockCustomComponent = {
 const offset: VectorXZ[] = [
     { x: 1, z: 0 }, { x: -1, z: 0 }, { x: 0, z: 1 }, { x: 0, z: -1 }
 ]
-const Barrier: BlockCustomComponent = {
+export const Barrier: BlockCustomComponent = {
     onTick({ block, dimension }) {
         const loc: Vector3 = block.location;
         const hasEntity: boolean = dimension.getEntities({
@@ -46,7 +46,8 @@ const Barrier: BlockCustomComponent = {
         if (hasEntity) return;
         const select: VectorXZ = offset[Math.floor(Math.random() * offset.length)];
         const spawnId: string = ["cb2:crystal_guard", "cb2:crystal_wander"][Math.floor(Math.random() * 2)];
-        CrystalSpawn(spawnId, { x: loc.x + select.x, y: loc.y, z: loc.z + select.z },  dimension, `cb2:barrier_guard_${loc.x}_${loc.y}_${loc.z}`);
+        const selectColor: Color = ["red", "green", "blue", "yellow"][Math.random() * 4 | 0] as Color;
+        CrystalSpawn(spawnId, { x: loc.x + select.x, y: loc.y, z: loc.z + select.z },  dimension, selectColor).addTag(`cb2:barrier_guard_${loc.x}_${loc.y}_${loc.z}`);
     },
     onBreak({ block, dimension }) {
         particle(block, dimension, "cb2:cluster_fragment");
@@ -61,8 +62,3 @@ const Barrier: BlockCustomComponent = {
         cluster.applyDamage((cluster.getComponent("health")?.defaultValue ?? 120) /8, { cause: EntityDamageCause.override });
     }
 };
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:fragmentframe", Fragment);
-    blockComponentRegistry.registerCustomComponent("cb2:barrierframe", Barrier); 
-});

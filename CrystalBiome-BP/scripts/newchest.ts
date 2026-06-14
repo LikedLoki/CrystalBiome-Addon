@@ -1,6 +1,6 @@
 import { Block, BlockComponentOnPlaceEvent, BlockComponentPlayerInteractEvent, Dimension, system, Vector3 } from "@minecraft/server";
 const sleep: Function = (ticks: number) => new Promise<void>(resolve => system.runTimeout(resolve, ticks));
-const Chest: any = {
+export const Chest: any = {
     onPlayerInteract(event: BlockComponentPlayerInteractEvent) {
         const block: Block = event.block;
         const dimension: Dimension = block.dimension;
@@ -77,8 +77,4 @@ async function animationClose(block: Block) {
     block.setPermutation(
         block.permutation.withState("cb2:opend" as any, false)
     );
-}
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:newchest", Chest);
-});
+};

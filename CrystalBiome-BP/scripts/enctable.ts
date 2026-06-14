@@ -227,7 +227,7 @@ const blockParseMap: Record<string, string> = {
 };
 Object.freeze(blockParseMap);
 
-const CPolishing: BlockCustomComponent = {
+export const CPolishing: BlockCustomComponent = {
     onPlayerInteract({ player }) {
         if (!player) return;
         const itemAdmin: ItemAdmin | undefined = ItemAdmin.newCreate(player);
@@ -268,8 +268,4 @@ const CPolishing: BlockCustomComponent = {
             }
         })
     }
-}
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:polishing", CPolishing);
-});
+};

@@ -1,5 +1,5 @@
 import { BlockComponentOnPlaceEvent, system, Block, Dimension, Vector3, BlockComponentPlayerBreakEvent } from "@minecraft/server";
-const Stairs: any = {
+export const Stairs: any = {
     onPlace(event: BlockComponentOnPlaceEvent) {
         const block: Block = event.block;
         const dimension: Dimension = event.dimension;
@@ -112,8 +112,4 @@ function getSideBlock(block: Block, dimension: Dimension): { block: { front: Blo
             "map": self
         }
     };
-}
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:stairs", Stairs);
-});
+};

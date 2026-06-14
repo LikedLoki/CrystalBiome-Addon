@@ -2,7 +2,7 @@ import { Block, BlockPermutation, Dimension, Entity, EntityApplyDamageOptions, E
 const offset: Vector3[] = [
     { x: 1, y: 0, z: 0 }, { x: -1, y: 0, z: 0 }, { x: 0, y: 1, z: 0 }, { x: 0, y: -1, z: 0 }, { x: 0, y: 0, z: 1 }, { x: 0, y: 0, z: -1 }
 ]
-const GCPick: ItemCustomComponent = {
+export const GCPick: ItemCustomComponent = {
     onMineBlock({ block, minedBlockPermutation }, data) {
         const params = data.params as { chance: number, chain: number };
         if (Math.random() > params.chance) return;
@@ -35,7 +35,7 @@ function lerp(start: number, end: number, t: number) {
     return start + (end - start) * t;
 }
 
-const GCsword: ItemCustomComponent = {
+export const GCsword: ItemCustomComponent = {
     onHitEntity({ hitEntity, attackingEntity }, data) {
         const params = data.params as { chance: number, chain: number, damage: number, radius: number };
         if (Math.random() > params.chance) return;
@@ -72,10 +72,4 @@ const GCsword: ItemCustomComponent = {
             select.applyDamage(params.damage, { cause: EntityDamageCause.entityAttack, damagingEntity: attackingEntity });
         }
     }
-}
-
-
-system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => {
-    itemComponentRegistry.registerCustomComponent("cb2:gc_pick", GCPick);
-    itemComponentRegistry.registerCustomComponent("cb2:gc_sword", GCsword);
-});
+};

@@ -56,7 +56,7 @@ const offset: Record<string, VectorXZ> = {
     "south": { x: 1, z: 0 },
     "north": { x: -1, z: 0 }
 }
-const DoorDown: BlockCustomComponent = {
+export const DoorDown: BlockCustomComponent = {
     onPlace({ block, dimension }, data) {
         const upperBlock: Block | undefined = block.above();
         if (!upperBlock || !upperBlock.isAir) {
@@ -84,17 +84,12 @@ const DoorDown: BlockCustomComponent = {
     onPlayerInteract({ block, dimension }, data) {
         DoorAdmin.openTheDoor("down", data, block, dimension);
     }
-}
-const DoorUp: BlockCustomComponent = {
+};
+export const DoorUp: BlockCustomComponent = {
     onBreak({ block, dimension }, data) {
         DoorAdmin.breakChain("up", data.params as doorSetting, block, dimension);
     },
     onPlayerInteract({ block, dimension }, data) {
         DoorAdmin.openTheDoor("up", data, block, dimension);
     }
-}
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:doordown", DoorDown);
-    blockComponentRegistry.registerCustomComponent("cb2:doorup", DoorUp);
-});
+};

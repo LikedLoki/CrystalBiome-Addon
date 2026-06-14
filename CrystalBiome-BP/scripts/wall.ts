@@ -91,7 +91,7 @@ export class WallAdmin {
     }
 }
 
-const Wall: BlockCustomComponent = {
+export const Wall: BlockCustomComponent = {
     onPlace({ block, dimension }) {
         WallAdmin.updateWall(block, dimension);
     },
@@ -99,7 +99,3 @@ const Wall: BlockCustomComponent = {
         WallAdmin.updateNearby(block, dimension);
     }
 };
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:wall", Wall);
-});

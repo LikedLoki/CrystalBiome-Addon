@@ -16,9 +16,8 @@ const f2map: {[rot:string]:string}  = {
     "up": "down",
     "down": "up"
 }
-const SpotLight: BlockCustomComponent = {
+export const SpotLight: BlockCustomComponent = {
     onRedstoneUpdate({ block, powerLevel}) {
-        console.log(powerLevel);
         let lit: boolean = powerLevel ? true : false;
         block.setPermutation(
             block.permutation.withState("cb2:lit" as any, lit)
@@ -52,10 +51,3 @@ const SpotLight: BlockCustomComponent = {
         }
     }
 };
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent(
-        "cb2:spotlight",
-        SpotLight
-    );
-});

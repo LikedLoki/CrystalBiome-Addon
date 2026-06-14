@@ -37,7 +37,7 @@ class GrowthAdmin {
     };
 };
 
-const CapComponent: BlockCustomComponent = {
+export const CapComponent: BlockCustomComponent = {
     onRandomTick({ block, dimension }) {
         const { x, y, z } = block.location;
         if (dimension.getBlock({ x: x, y: y - 1, z: z })?.typeId !== "cb2:fertile_crystal_block") return;
@@ -46,9 +46,4 @@ const CapComponent: BlockCustomComponent = {
         const selectLoc: Vector3 = canGrowList[Math.random() * canGrowList.length | 0];
         dimension.setBlockType(selectLoc, "cb2:crystalcap");
     }
-}
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent(
-        "cb2:crystalcap_grow", CapComponent
-    );
-});
+};

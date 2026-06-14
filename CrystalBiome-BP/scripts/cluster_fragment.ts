@@ -33,7 +33,6 @@ function fragmentAwake(world: World): void {
 
         if (fragment.getDynamicProperty("cb2:awake")) {
             if (tick < 6) {
-                console.log(tick);
                 map.set(fragment, tick + 1);
                 continue;
             }

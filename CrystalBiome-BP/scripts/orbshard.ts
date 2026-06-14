@@ -13,7 +13,6 @@ function orbSpawn(block: Block, dimension: Dimension): void {
         maxDistance: 0.1,
         type: "cb2:orbshard"
     }).length;
-    console.log(hasOrbshardt)
     if (hasOrbshard) return;
     const { x, y, z }: Vector3 = block.center();
     dimension.spawnEntity("cb2:orbshard" as VanillaEntityIdentifier, { x: x, y: y - 0.5, z: z });
@@ -22,7 +21,7 @@ function orbSpawn(block: Block, dimension: Dimension): void {
 const offsetMap: VectorXZ[] = [
     { x: 1, z: 0 }, { x: -1, z: 0 }, { x: 0, z: 1 }, { x: 0, z: -1 }, { x: 1, z: 1 }, { x: -1, z: -1 }, { x: -1, z: 1 }, { x: 1, z: -1 }
 ];
-const OrbShard: BlockCustomComponent = {
+export const OrbShard: BlockCustomComponent = {
     onPlace({ block, dimension }) {
         orbSpawn(block, dimension);
     },
@@ -58,7 +57,3 @@ const OrbShard: BlockCustomComponent = {
         enemyList.forEach(data => data.remove());
     }
 };
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:orbshard", OrbShard);
-});

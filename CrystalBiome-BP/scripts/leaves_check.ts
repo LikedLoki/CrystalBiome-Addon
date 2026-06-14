@@ -23,7 +23,7 @@ class LeavesAdmin {
     }
 }
 
-const CrystaloakLeaves: BlockCustomComponent = {
+export const CrystaloakLeaves: BlockCustomComponent = {
     onRandomTick({ dimension, block }): void {
         const newPerm: number = LeavesAdmin.nearbyMaxLevel(dimension, block);
         if (newPerm > 0) block.setPermutation(block.permutation.withState("cb2:connect_level" as any, newPerm));
@@ -39,9 +39,3 @@ const CrystaloakLeaves: BlockCustomComponent = {
         if (newPerm > 0) block.setPermutation(block.permutation.withState("cb2:connect_level" as any, newPerm));
     }
 }
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent(
-        "cb2:crystaloak_leaves", CrystaloakLeaves
-    );
-});

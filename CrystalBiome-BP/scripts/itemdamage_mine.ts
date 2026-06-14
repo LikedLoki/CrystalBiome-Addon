@@ -1,6 +1,6 @@
 import { system, EquipmentSlot, Player, ItemCustomComponent, EntityEquippableComponent, ItemStack, ContainerSlot, GameMode, ItemDurabilityComponent, ItemEnchantableComponent, EnchantInfo, Enchantment, Container, Entity } from "@minecraft/server";
 
-const MineDamage: ItemCustomComponent = {
+export const MineDamage: ItemCustomComponent = {
 	onMineBlock({ source }, data) {
 		const params = data.params as { value: number };
 		if (!(source instanceof Player)) return;
@@ -36,7 +36,4 @@ const MineDamage: ItemCustomComponent = {
 			}
 		}
 	}
-}
-system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => {
-	itemComponentRegistry.registerCustomComponent("cb2:itemdamage_mine", MineDamage);
-});
+};

@@ -1,88 +1,143 @@
-import { Dimension, Entity, MolangVariableMap, system, Vector3 } from "@minecraft/server";
-import { sleep, summonCircle, summonLine, summonLineOption } from "./other";
+import { Block, Dimension, Entity, MolangVariableMap, system, Vector3 } from "@minecraft/server";
+import { sleep } from "./other";
 
+type CrystalExecutor = Entity & { "typeId": "cb2:crystal_executor", };
+type PropertyType = string | number | boolean | Vector3 | undefined;
+type GetTimePropReturn = { "timeout": number, "clock": number };
 
-export class ExecutorAdmin {
-    static randomLeng: number[] = [40, 60, 80];
-    static run(dimension: Dimension): void {
-        const executors: Entity[] | [] = dimension.getEntities({
-            type: "cb2:crystal_executor"
-        });
-        if (executors.length <= 0) return;
-        for (let dataI = 0, lengI = executors.length; dataI < lengI; dataI++) {
-            const executor: Entity = executors[dataI];
-            const hasEnemy: boolean = dimension.getEntities({
-                location: executor.location,
-                maxDistance: 16,
-                excludeFamilies: ["crystal"]
-            }).length > 0;
-            if (!hasEnemy) continue;
-            const halfHealth: boolean = executor.getDynamicProperty("cb2:executor_second_counter") ?? 0 < 8 ? (executor.getComponent("minecraft:health")?.currentValue ?? 0) <= 50 : false;
-            const vars: MolangVariableMap = new MolangVariableMap();
-            if (halfHealth) {
-                vars.setColorRGB("variable.color", Math.random() < 0.5 ? { red: 1, green: 1, blue: 1 } : { red: 0, green: 0, blue: 0 });
-                const selectPos: Vector3 = { x: Math.random() * 4 - 2 + executor.location.x, y: Math.random() + executor.location.y, z: Math.random() * 4 - 2 + executor.location.z };
-                dimension.spawnParticle("cb2:crystal_particle", selectPos, vars);
-                executor.addEffect("speed", 10, { amplifier: 0 });
-            }
-            const timeout: number = this.execTimeout(executor);
-            const currTick: number = executor.getDynamicProperty("cb2:executor_tick") as number | undefined ?? 0;
-            executor.setDynamicProperty("cb2:executor_tick", currTick + 1);
-            if (currTick >= timeout) continue;
-            this.attack(executor, dimension, halfHealth);
+const randomLeng: number[] = [40, 60, 80];
+
+const getProperty = (entity: Entity, name: string): PropertyType => entity.getDynamicProperty(name);
+const setProperty = (entity: Entity, name: string, value: PropertyType): void => entity.setDynamicProperty(name, value);
+const getExecutors = (dimension: Dimension): CrystalExecutor[] | undefined => {
+    const getEntities: Entity[] | [] = dimension.getEntities({ "type": "cb2:crystal_executor" });
+    if (getEntities.length === 0) return;
+    return getEntities as CrystalExecutor[];
+};
+const hasEnemyNearby = (dimension: Dimension, location: Vector3): boolean => dimension.getEntities({
+    location: location,
+    maxDistance: 16,
+    excludeFamilies: ["crystal"]
+}).length > 0;
+const getTimeProperty = (executor: CrystalExecutor): GetTimePropReturn => {
+    const result = { "timeout": 0, "clock": 0 };
+
+    const getTimeout: PropertyType = getProperty(executor, "cb2:executor_timeout");
+    if (typeof getTimeout === "number") result.timeout = getTimeout;
+    else result.timeout = randomLeng[Math.random() * 3 | 0];
+
+    const getClock: PropertyType = getProperty(executor, "cb2:executor_clock");
+    if (typeof getClock === "number") result.clock = getClock;
+    else result.clock = 0;
+
+    return result;
+};
+const timesReset = (executor: CrystalExecutor, halfTime: boolean): void => {
+    const selectLeng: number = halfTime ? randomLeng[Math.random() * 3 | 0] / 2 : randomLeng[Math.random() * 3 | 0];
+    setProperty(executor, "cb2:executor_timeout", selectLeng);
+    setProperty(executor, "cb2:executor_clock", 0);
+};
+const hmmWait = (executor: CrystalExecutor): boolean => {
+    const isWait: boolean = !!getProperty(executor, "cb2:executor_wait");
+    const currWaitTime: number = +(getProperty(executor, "cb2:executor_wait_time") ?? 0) || 0;
+    const nextWaitTime: number = isWait ? currWaitTime + 1 : 0;
+    setProperty(executor, "cb2:executor_wait_time", nextWaitTime);
+    if (isWait && nextWaitTime < 160) return false;
+
+    setProperty(executor, "cb2:executor_wait_time", 0);
+    setProperty(executor, "cb2:executor_wait", false);
+    return true;
+};
+const summonSpikeLine = async (dimension: Dimension, location: Vector3, dirX: number, dirZ: number) => {
+    for (let i: number = 0; i < 24; i++) {
+        await sleep(1);
+        if (i === 0) {
+            location.x += dirX * 2;
+            location.z += dirZ * 2
         }
-    }
-    static execTimeout(executor: Entity): number {
-        const getTimeout = executor.getDynamicProperty("cb2:executor_timeout") as number | undefined;
-        const timeout = getTimeout ?? this.randomLeng[Math.random() * this.randomLeng.length | 0];
-        if (getTimeout === undefined) executor.setDynamicProperty("cb2:executor_timeout", timeout);
-        return timeout;
-    }
-    static async attack(executor: Entity, dimension: Dimension, halfHealth: boolean) {
-        const isWaiting: boolean | undefined = executor.getDynamicProperty("cb2:executor_wait") as boolean | undefined;
-        if (isWaiting === undefined) executor.setDynamicProperty("cb2:executor_wait", false);
-        const currWaitTick: number = executor.getDynamicProperty("cb2:executor_wait_tick") as number;
-        const nextWaitTick: number = isWaiting && currWaitTick < 80 ? currWaitTick + 1 : 0;
-        executor.setDynamicProperty("cb2:executor_wait_tick", nextWaitTick);
-        let methodOption;
-        if (Math.random() < 0.8) {
-            executor.playAnimation("animation.crystal_executor.cluster_attack");
-            await sleep(20);
-            const rot: Vector3 = executor.getViewDirection();
-            const option: summonLineOption = {
-                "amount": 24,
-                "dimension": dimension,
-                "entityId": "cb2:crystal_spike_executor",
-                "firstSpace": 2,
-                "location": executor.location,
-            };
-            executor.setDynamicProperty("cb2:executor_wait", false);
-            let setRot;
-            methodOption = { volume: 1, pitch: 1.2 };
-            dimension.playSound("random.explode", executor.location, methodOption);
-            if (!halfHealth) {
-                setRot = { x: rot.x + (rot.z * 0.2), y: rot.y, z: rot.z + (-rot.x * 0.2) };
-                summonLine(option, setRot);
-                setRot = { x: rot.x + (-rot.z * 0.2), y: rot.y, z: rot.z + (rot.x * 0.2) };
-                summonLine(option, setRot);
-            } else {
-                summonLine(option, rot);
-                setRot = { x: rot.x + (rot.z * 0.5), y: rot.y, z: rot.z + (-rot.x * 0.5) };
-                summonLine(option, setRot);
-                setRot = { x: rot.x + (-rot.z * 0.5), y: rot.y, z: rot.z + (rot.x * 0.5) };
-                summonLine(option, setRot);
-            }
-        } else {
-            methodOption = { amplifier: 255, showParticles: false };
-            executor.addEffect("slowness", 40, methodOption);
-            executor.playAnimation("animation.crystal_executor.cluster_center");
-            await sleep(30);
-            executor.setDynamicProperty("cb2:executor_wait", false);
-            methodOption = { volume: 1, pitch: 0.8 };
-            dimension.playSound("random.explode", executor.location, methodOption);
-            summonCircle(executor.location, dimension, "cb2:crystal_spike_executor", 2, 8, "right");
-            summonCircle(executor.location, dimension, "cb2:crystal_spike_executor", 4, 16, "left");
-            if (halfHealth) summonCircle(executor.location, dimension, "cb2:crystal_spike_executor", 6, 24, "right");
+        const offset: number = i * 1;
+        const next: Vector3 = {
+            x: location.x + dirX * offset,
+            y: location.y,
+            z: location.z + dirZ * offset
         };
+        if (dimension.getBlock(next)?.typeId !== "minecraft:air") {
+            while (dimension.getBlock(next)?.typeId !== "minecraft:air") {
+                next.y += 1;
+            }
+        } else if (dimension.getBlock({ x: next.x, y: next.y - 1, z: next.z })?.typeId === "minecraft:air") {
+            while (dimension.getBlock({ x: next.x, y: next.y - 1, z: next.z })?.typeId === "minecraft:air") {
+                next.y -= 1;
+            }
+        };
+        try { dimension.spawnEntity("cb2:crystal_spike_executor", next) } catch(e) {};
     }
+};
+const summonSpikeTwoWay = (executor: CrystalExecutor, rot: Vector3): void => {
+    summonSpikeLine(executor.dimension, executor.location, rot.x + (rot.z * 0.2), rot.z + (-rot.x * 0.2));
+    summonSpikeLine(executor.dimension, executor.location, rot.x + (-rot.z * 0.2), rot.z + (rot.x * 0.2));
+};
+const summonSpikeThreeWay = (executor: CrystalExecutor, rot: Vector3): void => {
+    summonSpikeLine(executor.dimension, executor.location, rot.x, rot.z);
+    summonSpikeLine(executor.dimension, executor.location, rot.x + (rot.z * 0.5), rot.z + (-rot.x * 0.5));
+    summonSpikeLine(executor.dimension, executor.location, rot.x + (-rot.z * 0.5), rot.z + (rot.x * 0.5));
+};
+const summonSpikeCircle = async (location: Vector3, dimension: Dimension, radius: number, per: number, rotation: string) => {
+    const step = 360 / per;
+    for (let i: number = 0; i < per; i++) {
+        await sleep(1);
+        const radian: number = step * i * (Math.PI / 180);
+        const next = {
+            x: location.x + radius * (rotation === "right" ? Math.sin(radian) : Math.cos(radian)),
+            y: location.y,
+            z: location.z + radius * (rotation === "right" ? Math.cos(radian) : Math.sin(radian))
+        };
+        try { dimension.spawnEntity("cb2:crystal_spike_executor", next) } catch(e) {};
+    }
+}
+
+
+const executorAttack = async (executor: CrystalExecutor, halfHealth: boolean) => {
+    if (!hmmWait(executor)) return;
+    setProperty(executor, "cb2:executor_wait", true);
+
+    const { dimension, location } = executor;
+    if (Math.random() < 0.8) {
+        executor.playAnimation("animation.crystal_executor.cluster_attack");
+        await sleep(20);
+        if (!halfHealth) summonSpikeTwoWay(executor, executor.getViewDirection());
+        else summonSpikeThreeWay(executor, executor.getViewDirection());
+    } else {
+        executor.addEffect("slowness", 40, { "amplifier": 255 });
+        executor.playAnimation("animation.crystal_executor.cluster_center");
+        await sleep(30);
+        summonSpikeCircle(location, dimension, 2, 8, "right");
+        summonSpikeCircle(location, dimension, 4, 16, "left");
+        if (halfHealth) summonSpikeCircle(location, dimension, 6, 24, "right");
+    }
+
+    setProperty(executor, "cb2:executor_wait_time", 0);
+    setProperty(executor, "cb2:executor_wait", false);
+    timesReset(executor, halfHealth);
+};
+const run = (dimension: Dimension): void => {
+    const executors: CrystalExecutor[] | undefined = getExecutors(dimension);
+    if (!executors) return;
+    for (const executor of executors) {
+        if (!hasEnemyNearby(executor.dimension, executor.location)) continue;
+
+        const isHalfHealth: boolean = (executor.getComponent("minecraft:health")?.currentValue ?? 0) < 100;
+
+        const { timeout, clock }: GetTimePropReturn = getTimeProperty(executor);
+        setProperty(executor, "cb2:executor_timeout", timeout);
+        setProperty(executor, "cb2:executor_clock", clock + 1);
+        if (clock < timeout) continue;
+
+        executorAttack(executor, isHalfHealth);
+    }
+};
+
+
+export default {
+    run
 }

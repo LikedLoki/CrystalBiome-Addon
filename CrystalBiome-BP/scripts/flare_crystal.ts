@@ -1,6 +1,6 @@
 import { BlockCustomComponent, system, Block, Dimension, Vector3 } from "@minecraft/server";
 
-const Flare: BlockCustomComponent = {
+export const Flare: BlockCustomComponent = {
     onRandomTick(event) {
         const block: Block = event.block;
         const dimension: Dimension = event.dimension;
@@ -36,9 +36,3 @@ const Flare: BlockCustomComponent = {
         }
     }
 };
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent(
-        "cb2:flare_crystal", Flare
-    );
-});

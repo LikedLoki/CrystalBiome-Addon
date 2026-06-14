@@ -1,18 +1,10 @@
-import { Entity, ItemComponentConsumeEvent, Player, system, CustomComponentParameters } from "@minecraft/server";
+import { ItemCustomComponent } from "@minecraft/server";
 
-const Consume: any = {
-    onConsume(event: ItemComponentConsumeEvent, data: { params: { name: string, duration: number, amplifier: number }[] }) {
-        const { params } = data;
-        const source: Entity = event.source;
-        for (const newpar of params) {
-            source.addEffect(newpar.name, Number(newpar.duration), {
-                amplifier: Number(newpar.amplifier),
-                showParticles: true
-            });
-        };
+export const EatEffect: ItemCustomComponent = {
+    onConsume({ source }, { params }) {
+        if (typeof params !== "object" || params === null) return;
+        if (!("name" in params) || !("duration" in params) || !("amplifier" in params)) return;
+        if (typeof params.name !== "string" || typeof params.duration !== "number" || typeof params.amplifier !== "number") return;
+        source.addEffect(params.name, params.duration, { amplifier: params.amplifier });
     }
-};
-
-system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => {
-    itemComponentRegistry.registerCustomComponent("cb2:eat_effect", Consume);
-});
+}

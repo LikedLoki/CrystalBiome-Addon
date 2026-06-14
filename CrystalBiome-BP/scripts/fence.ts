@@ -66,7 +66,7 @@ export class FenceAdmin {
     }
 };
 
-const Fence: BlockCustomComponent = {
+export const Fence: BlockCustomComponent = {
     onPlace({ block, dimension }) {
         FenceAdmin.updateFence(block, dimension);
     },
@@ -74,7 +74,3 @@ const Fence: BlockCustomComponent = {
         FenceAdmin.updateNearby(block, dimension);
     }
 };
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:fence", Fence);
-});

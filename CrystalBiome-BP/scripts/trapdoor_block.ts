@@ -1,6 +1,6 @@
 import { BlockComponentPlayerInteractEvent, Block, system, Dimension, Vector3 } from "@minecraft/server";
 
-const TrapdoorBlock: any = {
+export const TrapdoorBlock: any = {
     onPlayerInteract(event: BlockComponentPlayerInteractEvent, data: { params: { open: string, close: string } }) {
         const block: Block = event.block;
         const dimension: Dimension = block.dimension;
@@ -18,7 +18,3 @@ const TrapdoorBlock: any = {
         }
     }
 };
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:trapdoor", TrapdoorBlock);
-});

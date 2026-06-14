@@ -17,25 +17,7 @@
 				"cb2:flame": [
 					false,
 					true
-				],
-				"cb2:let_a": {
-					"values": {
-						"min": 0,
-						"max": 15
-					}
-				},
-				"cb2:let_b": {
-					"values": {
-						"min": 0,
-						"max": 15
-					}
-				},
-				"cb2:itemcount": {
-					"values": {
-						"min": 0,
-						"max": 15
-					}
-				}
+				]
 			}
 		},
 		"components": {

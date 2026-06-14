@@ -603,6 +603,54 @@
 		},
 		"cb2_crystal_heart_frame_on": {
 			"textures": "textures/blocks/crystal_heart_frame_on"
+		},
+		"cb2_fristia_flower_0": {
+			"textures": "textures/blocks/fristia_flower_0"
+		},
+		"cb2_fristia_flower_1": {
+			"textures": "textures/blocks/fristia_flower_1"
+		},
+		"cb2_fristia_flower_2": {
+			"textures": "textures/blocks/fristia_flower_2"
+		},
+		"cb2_fristia_flower_3": {
+			"textures": "textures/blocks/fristia_flower_3"
+		},
+		"cb2_fristia_sideflower_0": {
+			"textures": "textures/blocks/fristia_sideflower_0"
+		},
+		"cb2_fristia_sideflower_1": {
+			"textures": "textures/blocks/fristia_sideflower_1"
+		},
+		"cb2_ice_crystal_block": {
+			"textures": "textures/blocks/ice_crystal_block"
+		},
+		"cb2_crystal_packing_box": {
+			"textures": "textures/blocks/crystal_packing_box"
+		},
+		"cb2_red_crystal_packing_box": {
+			"textures": "textures/blocks/red_crystal_packing_box"
+		},
+		"cb2_green_crystal_packing_box": {
+			"textures": "textures/blocks/green_crystal_packing_box"
+		},
+		"cb2_yellow_crystal_packing_box": {
+			"textures": "textures/blocks/yellow_crystal_packing_box"
+		},
+		"cb2_yellow_crystal_packing_box_0": {
+			"textures": "textures/blocks/yellow_crystal_packing_box_0"
+		},
+		"cb2_yellow_crystal_packing_box_1": {
+			"textures": "textures/blocks/yellow_crystal_packing_box_1"
+		},
+		"cb2_yellow_crystal_packing_box_2": {
+			"textures": "textures/blocks/yellow_crystal_packing_box_2"
+		},
+		"cb2_yellow_crystal_packing_box_3": {
+			"textures": "textures/blocks/yellow_crystal_packing_box_3"
+		},
+		"cb2_yellow_crystal_packing_box_4": {
+			"textures": "textures/blocks/yellow_crystal_packing_box_4"
 		}
 	}
 }

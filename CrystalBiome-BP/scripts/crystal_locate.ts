@@ -16,7 +16,7 @@ function kyori(start: VectorXZ | Vector3, end: VectorXZ | Vector3): VectorXZ {
         z: percent(kyori.z, sum),
     };
 };
-const crystalLocate: ItemCustomComponent = {
+export const crystalLocate: ItemCustomComponent = {
     onUse({ source }) {
         const { dimension } = source;
         const mainhand: ContainerSlot | undefined = source.getComponent("equippable")?.getEquipmentSlot(EquipmentSlot.Mainhand);
@@ -43,7 +43,3 @@ const crystalLocate: ItemCustomComponent = {
         }, 81)
     }
 };
-
-system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => {
-    itemComponentRegistry.registerCustomComponent("cb2:crystallocate", crystalLocate);
-});

@@ -24,7 +24,6 @@ const ATK = {
         }
 
         const critdamage = Math.floor((damage + sharpnessLevel) / 2);
-        console.log(`${critdamage}`)
         hitEntity.dimension.runCommand(`damage @e[x=${x},y=${y},z=${z},r=0.5] ${critdamage} override`);
         hitEntity.dimension.runCommand(`particle cb2:crystalparticle_pop3 ${x} ${y + 1} ${z}`);
     }

@@ -1,6 +1,6 @@
 import { system, MolangVariableMap, BlockComponentStepOnEvent,Block, Dimension, Vector3, BlockCustomComponent } from "@minecraft/server";
 
-const CrystalStep: any = {
+export const CrystalStep: any = {
     onStepOn(event: BlockComponentStepOnEvent, data: {params:{name:string}}) {
         const block: Block | undefined = event.block;
         if (!block) return;
@@ -23,7 +23,3 @@ const CrystalStep: any = {
         }
     }
 };
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:crystalstep", CrystalStep);
-});

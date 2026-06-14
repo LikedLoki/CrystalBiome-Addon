@@ -16,7 +16,7 @@ const hexStringify: Function = (demical: number) => {
     };
 };
 
-const HeartFrame: BlockCustomComponent = {
+export const HeartFrame: BlockCustomComponent = {
     onPlayerInteract({ block, dimension, player }) {
         const vars: MolangVariableMap = new MolangVariableMap();
         vars.setColorRGB("variable.color", { "red": 1, "green": 0.5, "blue": 0.5 });
@@ -72,11 +72,3 @@ const HeartFrame: BlockCustomComponent = {
         }
     }
 };
-
-async function spawnExecutor(block: Block, dimension: Dimension) {
-
-}
-
-system.beforeEvents.startup.subscribe(({ blockComponentRegistry }) => {
-    blockComponentRegistry.registerCustomComponent("cb2:crystal_heartframe", HeartFrame);
-})
