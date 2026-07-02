@@ -1,0 +1,43 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:feature_rules": {
+		"description": {
+			"identifier": "cb2:green_mega_clusters_r",
+			"places_feature": "cb2:green_mega_cluster_s"
+		},
+		"conditions": {
+			"placement_pass": "surface_pass",
+			"minecraft:biome_filter": {
+				"any_of": [
+					{
+						"test": "has_biome_tag",
+						"value": "crystal_spikes",
+						"operator": "=="
+					}
+				]
+			}
+		},
+		"distribution": {
+			"scatter_chance": {
+				"denominator": 8,
+				"numerator": 1
+			},
+			"iterations": 1,
+			"x": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					15
+				]
+			},
+			"y": "query.heightmap(variable.worldx, variable.worldz)",
+			"z": {
+				"distribution": "gaussian",
+				"extent": [
+					0,
+					15
+				]
+			}
+		}
+	}
+}

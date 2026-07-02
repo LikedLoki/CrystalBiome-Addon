@@ -6,12 +6,6 @@
         "flipbook_texture": "textures/blocks/rgb_crystal_block"
     },
     {
-        "atlas_tile": "cb2_saline_crystal",
-        "blend_frames": true,
-        "ticks_per_frame": 20,
-        "flipbook_texture": "textures/blocks/saline_crystal"
-    },
-    {
         "atlas_tile": "cb2_crystaloak_planks",
         "blend_frames": true,
         "ticks_per_frame": 80,

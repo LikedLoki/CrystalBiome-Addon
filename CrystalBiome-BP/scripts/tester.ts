@@ -1,7 +1,8 @@
-import { world, ItemStack, Block, Player } from "@minecraft/server";
-import { packingBoxList } from "./packing_box";
+import { world, ItemStack, Block, Player, BlockComponentEntityEvent } from "@minecraft/server";
 world.afterEvents.chatSend.subscribe(({ message, sender }) => {
-    console.log(world.getDynamicProperty("cb2:packing_list"));
-    console.log(JSON.stringify(packingBoxList));
-    console.log(world.getDynamicProperty("cb2:furnace_list"));
+    const { x, y, z } = sender.location;
+    const get: Block = sender.dimension.getBlock({ x: x, y: y-1, z: z});
+    const props = get.getComponent("minecraft:dynamic_properties");
+    console.log(props?.get("cb2:box_in_chest"))
 })
+

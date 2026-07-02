@@ -38,29 +38,17 @@
 				]
 			},
 			"minecraft:particle_appearance_billboard": {
-				"size": [
-					0.2,
-					0.2
-				],
+				"size": [0.2, 0.2],
 				"facing_camera_mode": "rotate_xyz",
 				"uv": {
-					"texture_width": 8,
-					"texture_height": 24,
+					"texture_width": 16,
+					"texture_height": 32,
 					"flipbook": {
-						"base_UV": [
-							0,
-							0
-						],
-						"size_UV": [
-							8,
-							8
-						],
-						"step_UV": [
-							0,
-							8
-						],
+						"base_UV": ["math.floor(variable.particle_random_1 * 2) * 8", 0],
+						"size_UV": [8, 8],
+						"step_UV": [0, 8],
 						"frames_per_second": 12,
-						"max_frame": 3,
+						"max_frame": 4,
 						"stretch_to_lifetime": true
 					}
 				}

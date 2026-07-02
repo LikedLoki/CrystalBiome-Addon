@@ -1,6 +1,6 @@
-import { system, ItemStack, world, Block, Vector3, Dimension, BlockCustomComponent, Container, Player } from "@minecraft/server";
+import { system, ItemStack, world, Block, Vector3, Dimension, BlockCustomComponent, Container, Player, BlockCustomComponentInstance } from "@minecraft/server";
 import { sleep } from "./other"
-import { packingBoxList } from "./packing_box";
+import { BoxInfo } from "./box_in_chest";
 
 export type LocationName = `${string}|${string}|${string}`;
 type FurnaceInfo = {
@@ -9,21 +9,20 @@ type FurnaceInfo = {
         dim: number
     }
 };
-type PackingInfo = {
-    is: boolean,
-    block?: Block,
-    qty: number
+type BoxChest = {
+    props: BlockCustomComponentInstance | undefined,
+    boxInfo: BoxInfo | undefined
 };
 export type FurnaceContext = {
     dimension: Dimension,
     block: Block,
     locName: LocationName,
-    aboveBlock: Block
+    aboveBlock: Block,
+    belowBlock: Block
 };
 type GetEl = {
     belowBlock: Block,
     aboveBlock: Block,
-
 }
 
 
@@ -34,32 +33,31 @@ const dimensionList: string[] = [
     "minecraft:overworld", "minecraft:nether", "minecraft:the_end"
 ];
 
-const blockResultMap = {
+const resultMap = {
     "cb2:crystal_block": "cb2:clear_crystal_block",
     "cb2:red_crystal_block": "cb2:clear_red_crystal_block",
     "cb2:green_crystal_block": "cb2:clear_green_crystal_block",
     "cb2:yellow_crystal_block": "cb2:clear_yellow_crystal_block",
     "cb2:crysteel_material": "cb2:crysteel_ingot",
     "cb2:crystalcap_item": "cb2:baked_crystalcap_item",
-    "cb2:crystal_packing_box": "cb2:$exception",
-    "cb2:red_crystal_packing_box": "cb2:$exception",
-    "cb2:green_crystal_packing_box": "cb2:$exception",
-    "cb2:yellow_crystal_packing_box": "cb2:$exception"
+    "cb2:ice_crystal_block": "cb2:progress_ice_crystal_block",
+    "cb2:crystal_box_in_chest": "cb2:$exception",
+    "cb2:red_crystal_box_in_chest": "cb2:$exception",
+    "cb2:green_crystal_box_in_chest": "cb2:$exception",
+    "cb2:yellow_crystal_box_in_chest": "cb2:$exception"
 } as const;
 
-const packingSecondsMap: Record<string, number> = {
-    "cb2:crystal_packing_box": 80,
-    "cb2:red_crystal_packing_box": 40,
-    "cb2:green_crystal_packing_box": 120,
-    "cb2:yellow_crystal_packing_box": 20
+const packingTickMap: Record<string, number> = {
+    "cb2:crystal_box_in_chest": 80,
+    "cb2:red_crystal_box_in_chest": 40,
+    "cb2:green_crystal_box_in_chest": 120,
+    "cb2:yellow_crystal_box_in_chest": 1
 };
 
 const errorThrow = (as: Player, condition: boolean, message: string): boolean => {
     if (condition) as.sendMessage(`§7${message}`);
     return condition;
 };
-
-const stepStateFn = (times: number): number[] => [1, 2, 3, 4].map(dataI => dataI === 4 ? times : Math.round((times * dataI) / 4));
 
 const parseLocName = (locName: LocationName): Vector3 => {
     const [x, y, z] = locName.split("|");
@@ -70,9 +68,9 @@ const parseLocName = (locName: LocationName): Vector3 => {
     }
 }
 const buildLocName = (location: Vector3): LocationName => `${location.x.toString(36)}|${location.y.toString(36)}|${location.z.toString(36)}`;
-const buildFCtx = (dimension: Dimension, block: Block, locName: LocationName, aboveBlock: Block): FurnaceContext => {
-    return { dimension: dimension, block: block, locName: locName, aboveBlock: aboveBlock };
-}
+const buildFCtx = (dimension: Dimension, block: Block, locName: LocationName, aboveBlock: Block, belowBlock: Block): FurnaceContext => {
+    return { dimension: dimension, block: block, locName: locName, aboveBlock: aboveBlock, belowBlock: belowBlock };
+};
 
 const furnaceGetElements = (block: Block): GetEl | undefined => {
     const belowBlock: Block | undefined = block.below();
@@ -85,35 +83,20 @@ const furnaceGetElements = (block: Block): GetEl | undefined => {
     };
 }
 
-const furnaceCheck = (player: Player) => {
-    const conditions = (belowBlock: Block, aboveBlock: Block): boolean => {
+const checkConditions = (player: Player, belowBlock: Block, aboveBlock: Block, boxChest: BoxChest): boolean => {
         const hasFlare: boolean = belowBlock.typeId === "cb2:flare_crystal_block";
-        const isAllowBlock: boolean = aboveBlock.typeId in blockResultMap;
+        const isAllowBlock: boolean = aboveBlock.typeId in resultMap;
         if (errorThrow(player, !hasFlare, "燃料がありません")) return false;
         if (errorThrow(player, aboveBlock.isAir, "上に精錬するブロックを置いてください")) return false;
         else if (errorThrow(player, !isAllowBlock, "このブロックは精錬出来ません。")) return false;
+        if (boxChest.props && boxChest.boxInfo && errorThrow(player, boxChest.boxInfo.before.quantity <= 0, "仕込み箱に何か入れてください")) return false;
         return true;
     };
-    const packingBox = (aboveBlock: Block): PackingInfo | undefined => {
-        const packingInfo: PackingInfo = {
-            "is": aboveBlock.hasTag("cb2:packing"),
-            "qty": packingBoxList[buildLocName(aboveBlock.location)]?.bef.qty ?? 0
-        };
-        if (packingInfo.is) {
-            const hasContent: boolean = packingInfo.qty > 0;
-            if (errorThrow(player, !hasContent, "仕込み箱に何かを入れてください")) return undefined;
-        }
-        return packingInfo;
-    };
-    return {
-        conditions: conditions,
-        packingBox: packingBox
-    } as const
-};
 
 const furnaceFuelConsum = (dimension: Dimension, belowBlock: Block): void => {
     const fuelLevel: number = belowBlock.permutation.getState("cb2:fuel" as any);
     if (Math.random() < 0.8) {
+        dimension.spawnParticle("cb2:powered_flare", belowBlock.center());
         if (fuelLevel > 0) belowBlock.setPermutation(belowBlock.permutation.withState("cb2:fuel" as any, fuelLevel - 1));
         if (fuelLevel <= 0) dimension.setBlockType(belowBlock.location, "cb2:deep_crystal_block");
     }
@@ -122,7 +105,8 @@ const furnaceFuelConsum = (dimension: Dimension, belowBlock: Block): void => {
 export const smeltingEnd = (fCtx: FurnaceContext, success: boolean) => {
     const { dimension, block, locName, aboveBlock } = fCtx;
     if (success) {
-        const nextTypeId: string = blockResultMap[aboveBlock.typeId as keyof typeof blockResultMap];
+        const nextTypeId: string = resultMap[aboveBlock.typeId as keyof typeof resultMap];
+        console.log(aboveBlock.typeId, nextTypeId);
         if (nextTypeId !== "cb2:$exception") dimension.setBlockType(aboveBlock.location, nextTypeId);
     }
     block.setPermutation(block.permutation.withState("cb2:flame" as any, false));
@@ -131,8 +115,12 @@ export const smeltingEnd = (fCtx: FurnaceContext, success: boolean) => {
 };
 
 const smeltingTimer = async (fCtx: FurnaceContext, timeout: number) => {
-    const { dimension, block, locName } = fCtx;
-    for (let tick = 0; tick < timeout; tick++) {
+    const { dimension, block, locName, belowBlock } = fCtx;
+    for (let tick = 0; tick < (timeout / 2); tick++) {
+        if (belowBlock.typeId !== "cb2:flare_crystal_block") {
+            smeltingEnd(fCtx, false);
+            break;
+        }
         try {
             if (!block.permutation.getState("cb2:flame" as any)) {
                 smeltingEnd(fCtx, false);
@@ -146,66 +134,71 @@ const smeltingTimer = async (fCtx: FurnaceContext, timeout: number) => {
     }
 };
 
-const packingBoxControl = (loopCount: number, stepTimes: number[] | undefined, countI: number, aboveBlock: Block) => {
-    if (stepTimes?.includes(countI)) {
-        const currState: number = aboveBlock.permutation.getState("cb2:packing_state" as any);
-        console.log(currState, stepTimes)
-        const setState: number = stepTimes?.lastIndexOf(countI) === 3 ? 5 : currState + 1
-        try { aboveBlock.setPermutation(aboveBlock.permutation.withState("cb2:packing_state" as any, setState)); } catch(e) {console.error("詳細エラー: " + JSON.stringify(e, Object.getOwnPropertyNames(e)));}
-    }
-    packingBoxList[buildLocName(aboveBlock.location)].bef.qty--;
-    packingBoxList[buildLocName(aboveBlock.location)].aft.qty++;
-    console.log(packingBoxList)
-}
-const smeltingProgress = async (fCtx: FurnaceContext, packingInfo: PackingInfo) => {
-    const { dimension, block, aboveBlock } = fCtx;
-    const loopCount: number = packingInfo.is ? packingInfo.qty : 1;
-    const timeout: number = packingSecondsMap[aboveBlock.typeId ?? ""] ?? 80;
-    const stepTimes: number[] | undefined = packingInfo.is ? stepStateFn(loopCount) : undefined;
+const smeltingProgress = async (fCtx: FurnaceContext, boxChest: BoxChest) => {
+    const { dimension, block, aboveBlock, belowBlock } = fCtx;
+    const loopCount: number = boxChest.boxInfo?.before?.quantity ?? 1;
+    const timeout: number = packingTickMap[aboveBlock.typeId ?? ""] ?? 80;
     for (let countI = 1; countI <= loopCount; countI++) {
+         
+        if (countI !== 1) furnaceFuelConsum(dimension, belowBlock);
         dimension.playSound("mob.blaze.shoot", block.center(), { pitch: 2 });
         await smeltingTimer(fCtx, timeout);
-        if (packingInfo.is) packingBoxControl(loopCount, stepTimes, countI, aboveBlock)
+        if (boxChest.props && boxChest.boxInfo) {
+            const getInfo: BoxInfo = JSON.parse(boxChest.props.get("cb2:box_in_chest"));
+            const newInfo: BoxInfo = {
+                "before": {
+                    "itemId": getInfo.before.itemId,
+                    "quantity": getInfo.before.quantity - 1
+                },
+                "after": {
+                    "itemId": getInfo.after.itemId,
+                    "quantity": getInfo.after.quantity + 1
+                }
+            };
+            boxChest.props.set("cb2:box_in_chest", JSON.stringify(newInfo))
+        }
     }
     if (block.above()?.typeId !== aboveBlock.typeId) smeltingEnd(fCtx, false);
     smeltingEnd(fCtx, true);
 };
 
-const smeltingStart = (fCtx: FurnaceContext, packingInfo: PackingInfo): void => {
+const smeltingStart = (fCtx: FurnaceContext, boxChest: BoxChest): void => {
     const { dimension, block, aboveBlock, locName } = fCtx;
     furnaceList[locName] = { id: 0, dim: 0 };
-    furnaceList[locName].id = Object.keys(blockResultMap).indexOf(aboveBlock.typeId);
+    furnaceList[locName].id = Object.keys(resultMap).indexOf(aboveBlock.typeId);
     furnaceList[locName].dim = dimensionList.indexOf(dimension.id);
     block.setPermutation(block.permutation.withState("cb2:flame" as any, true));
-    if (packingInfo.is) aboveBlock.setPermutation(aboveBlock.permutation.withState("cb2:packing_state" as any, 2));
 
-    smeltingProgress(fCtx, packingInfo);
+    smeltingProgress(fCtx, boxChest);
 };
 
 export const CrystalFurnace: BlockCustomComponent = {
     onPlayerInteract({ dimension, player, block }) {
         if (!player) return
 
-        const FurnaceCk = furnaceCheck(player);
         const elements: GetEl | undefined = furnaceGetElements(block);
         if (!elements) return;
 
         const { belowBlock, aboveBlock } = elements;
-        if (!FurnaceCk.conditions(belowBlock, aboveBlock)) return;
-
-        const packingInfo: PackingInfo | undefined = FurnaceCk.packingBox(aboveBlock);
-        if (!packingInfo) return;
+        const isBoxChest = aboveBlock.getComponent("minecraft:dynamic_properties");
+        const boxChest: BoxChest = {
+            "props": isBoxChest,
+            "boxInfo": JSON.parse(isBoxChest?.get("cb2:box_in_chest") ?? "[]") || undefined
+        };
+        if (!checkConditions(player, belowBlock, aboveBlock, boxChest)) return;
 
         furnaceFuelConsum(dimension, block);
+        
         const locName: LocationName = buildLocName(block.location);
-        const fCtx: FurnaceContext = buildFCtx(dimension, block, locName, aboveBlock);
+        const fCtx: FurnaceContext = buildFCtx(dimension, block, locName, aboveBlock, belowBlock);
 
-        smeltingStart(fCtx, packingInfo);
+        smeltingStart(fCtx, boxChest);
     },
-    onPlace({ block }) {
+    onPlace({ block, dimension }) {
         const belowBlock: Block | undefined = block.below();
         if (!belowBlock || belowBlock.typeId !== "cb2:flare_crystal_block") return;
         belowBlock.setPermutation(belowBlock.permutation.withState("cb2:powered" as any, true).withState("cb2:fuel" as any, 15));
+        dimension.spawnParticle("cb2:powered_flare", belowBlock.center());
     }
 };
 
@@ -227,13 +220,19 @@ system.run(async () => {
         const dimension: Dimension = world.getDimension(dimensionList[valueI.dim]);
         const getBlock: Block | undefined = dimension.getBlock(location);
         const aboveBlock: Block | undefined = getBlock?.above();
+        const belowBlock: Block | undefined = getBlock?.below();
 
         if (!getBlock || getBlock.typeId !== "cb2:crystal_furnace") continue;
-        if (!aboveBlock || !(aboveBlock.typeId in blockResultMap)) continue;
+        if (!aboveBlock || !(aboveBlock.typeId in resultMap)) continue;
+        if (!belowBlock || belowBlock.typeId !== "cb2:flare_crystal_block") continue;
+        const isBoxChest = aboveBlock.getComponent("minecraft:dynamic_properties");
+        const boxChest: BoxChest = {
+            "props": isBoxChest,
+            "boxInfo": JSON.parse(isBoxChest?.get("cb2:box_in_chest") ?? "[]") || undefined
+        }
         const locName: LocationName = buildLocName(getBlock.location);
-        const packingInfo: PackingInfo = { is: aboveBlock.hasTag("cb2:packing"), qty: packingBoxList[buildLocName(aboveBlock.location)]?.bef.qty ?? 0 };
-        const fCtx: FurnaceContext = { dimension: dimension, block: getBlock, aboveBlock: aboveBlock, locName: locName };
-        smeltingProgress(fCtx, packingInfo);
+        const fCtx: FurnaceContext = { dimension: dimension, block: getBlock, aboveBlock: aboveBlock, locName: locName, belowBlock: belowBlock };
+        smeltingProgress(fCtx, boxChest);
     }
 });
 system.runInterval(() => {
@@ -249,12 +248,18 @@ system.runInterval(() => {
             return;
         }
         const aboveBlock: Block | undefined = getBlock.above();
-        if (!aboveBlock || !(aboveBlock.typeId in blockResultMap)) return;
+        const belowBlock: Block | undefined = getBlock?.below();
+        if (!belowBlock || belowBlock.typeId !== "cb2:flare_crystal_block") continue;
+        if (!aboveBlock || !(aboveBlock.typeId in resultMap)) return;
         furnaceUnloadList.splice(furnaceUnloadList.indexOf(dataI));
+        const isBoxChest = aboveBlock.getComponent("minecraft:dynamic_properties");
+        const boxChest: BoxChest = {
+            "props": isBoxChest,
+            "boxInfo": JSON.parse(isBoxChest?.get("cb2:box_in_chest") ?? "[]") || undefined
+        }
         const locName: LocationName = buildLocName(getBlock.location);
-        const packingInfo: PackingInfo = { is: aboveBlock.hasTag("cb2:packing"), qty: packingBoxList[buildLocName(aboveBlock.location)]?.bef.qty ?? 0 };
-        const fCtx: FurnaceContext = { dimension: dimension, block: getBlock, aboveBlock: aboveBlock, locName: locName };
-        smeltingProgress(fCtx, packingInfo);
+        const fCtx: FurnaceContext = { dimension: dimension, block: getBlock, aboveBlock: aboveBlock, locName: locName, belowBlock: belowBlock };
+        smeltingProgress(fCtx, boxChest);
     }
 }, 160);
 system.beforeEvents.shutdown.subscribe(() => {

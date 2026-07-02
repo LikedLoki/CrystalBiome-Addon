@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:yellow_crystal_fractale_stairs_recipe1"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:yellow_crystal_fractale_block"
+			}
+		},
+		"pattern": [
+			"a  ",
+			"aa ",
+			"aaa"
+		],
+		"result": {
+			"item": "cb2:yellow_crystal_fractale_stairs",
+			"count": 4
+		}
+	}
+}

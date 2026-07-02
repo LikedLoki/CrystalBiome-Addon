@@ -1,5 +1,6 @@
 import { Block, BlockCustomComponent, Entity, MolangVariableMap, Player, system, Vector3, VectorXZ } from "@minecraft/server";
-import { Color, CrystalSpawn, getBlocks } from "./other";
+import { getBlocks } from "./other";
+import { crystalSpawnFn, SettingColor } from "./crystal-spawn-fn"
 
 const offsetMap: VectorXZ[] = [
     { x: 1, z: 0 }, { x: -1, z: 0 }, { x: 0, z: 1 }, { x: 0, z: -1 }, { x: 1, z: 1 }, { x: -1, z: -1 }, { x: -1, z: 1 }, { x: 1, z: -1 }
@@ -59,8 +60,8 @@ export const Spawner: BlockCustomComponent = {
             if (!layerBlocks) return;
             const selectVector: Vector3 = layerBlocks[Math.floor(Math.random() * layerBlocks.length)].center();
             const selectEntity: string = ["cb2:crystal_guard", "cb2:crystal_wander"][Math.floor(Math.random() * 2)];
-            const selectColor: Color = ["red", "green", "blue", "yellow"][Math.floor(Math.random() * 4)] as Color;
-            CrystalSpawn(selectEntity, selectVector, dimension, selectColor, true).addTag(`cb2:spawner_${x}=${y}=${z}`);
+            const selectColor = ["red", "green", "blue", "yellow"][Math.floor(Math.random() * 4)] as SettingColor;
+            crystalSpawnFn(dimension, selectEntity, selectVector, selectColor).addTag(`cb2:spawner_${x}=${y}=${z}`);
             block.setPermutation(block.permutation.withState("cb2:count" as any, block.permutation.getState("cb2:count" as any) - 1));
         }
     }

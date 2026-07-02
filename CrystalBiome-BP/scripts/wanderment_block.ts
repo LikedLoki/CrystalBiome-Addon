@@ -1,5 +1,5 @@
 import { Dimension, Entity, EntitySpawnAfterEvent, Vector3, world, MolangVariableMap, EntityDamageCause } from "@minecraft/server";
-import { Color, CrystalSpawn, sleep } from "./other.js"
+import { crystalSpawnFn, SettingColor } from "./crystal-spawn-fn"
 
 class AttackAdmin {
     static pillarAttack(entity: Entity, dimension: Dimension): void {
@@ -20,7 +20,7 @@ class AttackAdmin {
         entity.remove();
     }
     static summonAttack(entity: Entity, dimension: Dimension): void {
-        CrystalSpawn("cb2:crystal_wander", entity.location, dimension, ["blue", "red", "green", "yellow"][Math.random() * 4 | 0] as Color, true)
+        crystalSpawnFn(dimension, "cb2:crystal_wander", entity.location, ["blue", "red", "green", "yellow"][Math.random() * 4 | 0] as SettingColor)
             .addTag("cb2:under_wanderment");
         entity.remove();
     }

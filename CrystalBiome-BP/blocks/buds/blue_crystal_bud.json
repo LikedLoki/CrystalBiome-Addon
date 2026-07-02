@@ -48,6 +48,14 @@
 							"cb2:clear_red_crystal_block",
 							"cb2:clear_green_crystal_block",
 							"cb2:clear_yellow_crystal_block",
+							"cb2:budding_crystal_block",
+							"cb2:budding_red_crystal_block",
+							"cb2:budding_green_crystal_block",
+							"cb2:budding_yellow_crystal_block",
+							"cb2:closed_crystal_block",
+							"cb2:closed_red_crystal_block",
+							"cb2:closed_green_crystal_block",
+							"cb2:closed_yellow_crystal_block",
 							"cb2:deep_crystal_block"
 						]
 					}

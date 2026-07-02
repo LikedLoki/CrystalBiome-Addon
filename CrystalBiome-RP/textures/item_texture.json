@@ -326,11 +326,38 @@
 		"cb2_polished_yellow_crystal_boots": {
 			"textures": "textures/items/polished_yellow_crystal_boots"
 		},
+		"cb2_refined_blue_crystal_chestplate": {
+			"textures": "textures/items/refined_blue_crystal_chestplate"
+		},
+		"cb2_refined_red_crystal_leggings": {
+			"textures": "textures/items/refined_red_crystal_leggings"
+		},
+		"cb2_refined_green_crystal_helmet": {
+			"textures": "textures/items/refined_green_crystal_helmet"
+		},
+		"cb2_refined_yellow_crystal_boots": {
+			"textures": "textures/items/refined_yellow_crystal_boots"
+		},
 		"cb2_executor_reverberation": {
 			"textures": "textures/items/executor_reverberation"
 		},
 		"cb2_wanderment_reverberation": {
 			"textures": "textures/items/wanderment_reverberation"
+		},
+		"cb2_lively_crystal_shard": {
+			"textures": "textures/items/lively_crystal_shard"
+		},
+		"cb2_lively_red_crystal_shard": {
+			"textures": "textures/items/lively_red_crystal_shard"
+		},
+		"cb2_lively_green_crystal_shard": {
+			"textures": "textures/items/lively_green_crystal_shard"
+		},
+		"cb2_lively_yellow_crystal_shard": {
+			"textures": "textures/items/lively_yellow_crystal_shard"
+		},
+		"cb2_lively_saline_crystal_shard": {
+			"textures": "textures/items/lively_saline_shard"
 		}
 	}
 }

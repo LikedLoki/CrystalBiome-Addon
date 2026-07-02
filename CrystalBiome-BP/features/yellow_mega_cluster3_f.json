@@ -1,0 +1,28 @@
+{
+	"format_version": "1.26.0",
+	"minecraft:structure_template_feature": {
+		"description": {
+			"identifier": "cb2:yellow_mega_cluster3_f"
+		},
+		"structure_name": "mystructure:y_cryst_mg_clust3",
+		"facing_direction": "random",
+		"adjustment_radius": 8,
+        "ground_level": 0,
+		"constraints": {
+            "unburied": {},
+			"block_intersection": {
+				"block_allowlist": [
+					"air",
+                    "cb2:blue_crystal_bud",
+                    "cb2:red_crystal_bud",
+                    "cb2:green_crystal_bud",
+                    "cb2:yellow_crystal_cluster",
+                    "cb2:blue_crystal_cluster",
+                    "cb2:red_crystal_cluster",
+                    "cb2:green_crystal_cluster",
+                    "cb2:yellow_crystal_bud"
+				]
+			}
+		}
+	}
+}

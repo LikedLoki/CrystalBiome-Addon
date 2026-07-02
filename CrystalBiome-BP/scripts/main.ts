@@ -1,10 +1,10 @@
 import "./silktouch_drop.js";
-import "./crystal_enemy.js";
+import "./natural-spawn.js";
 import "./tester.js";
 import "./cluster_fragment.js";
 import "./entity_timeline.js"
 import "./crystal_spikes.js"
 import "./wanderment_block.js"
 import "./world_subscribe.js"
-import "./custom_components.js"
+import "./custom_components.js";
 import "./other.js";

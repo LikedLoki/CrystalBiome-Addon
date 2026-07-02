@@ -1,0 +1,44 @@
+{
+	"format_version": "1.21.130",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature"
+			},
+			"identifier": "cb2:closed_crystal_block"
+		},
+		"components": {
+						"cb2:crystalstep": {
+				"name": "blue"
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"tag:cb2:crystal": {},
+			"tag:cb2:rawcrystal": {},
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": true
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_closed_crystal_block",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": false,
+			"minecraft:loot": "loot_tables/blocks/closed/closed_crystal_block_lt.json",
+			"minecraft:map_color": "#72D7FF",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			}
+		}
+	}
+}

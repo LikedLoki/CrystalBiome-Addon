@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.110",
+	"format_version": "1.26.0",
 	"minecraft:item": {
 		"description": {
 			"identifier": "cb2:rough_yellow_crystal_pickaxe",
@@ -78,6 +78,8 @@
 			},
 			"minecraft:tags": {
 				"tags": [
+					"cb2:yellow_crystal_tool",
+					"cb2:crystal_pickaxe",
 					"cb2:crystaling_polished",
 					"minecraft:is_pickaxe"
 				]

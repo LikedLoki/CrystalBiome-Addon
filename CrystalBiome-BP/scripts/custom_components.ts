@@ -24,8 +24,12 @@ import { SpotLight } from "./spotlight";
 import { Stairs } from "./stairs";
 import { TrapdoorBlock } from "./trapdoor_block";
 import { Wall } from "./wall";
-import { PackingBox } from "./packing_box";
+import { BoxInChest } from "./box_in_chest";
 import { Barrier, Fragment } from "./fragmentframe";
+import { BuddingCrystal } from "./budding_crystal";
+import { RandomCluster } from "./random_cluster";
+import { Box } from "./box";
+import { CompressedIceCrystal, ProgressIceCrystal } from "./ice_crystal"
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
     blockComponentRegistry.registerCustomComponent("cb2:cluster_display", Display);
@@ -56,7 +60,12 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     blockComponentRegistry.registerCustomComponent("cb2:stairs", Stairs);
     blockComponentRegistry.registerCustomComponent("cb2:trapdoor", TrapdoorBlock);
     blockComponentRegistry.registerCustomComponent("cb2:wall", Wall);
-    blockComponentRegistry.registerCustomComponent("cb2:packing_box", PackingBox);
+    blockComponentRegistry.registerCustomComponent("cb2:box_in_chest", BoxInChest);
         blockComponentRegistry.registerCustomComponent("cb2:fragmentframe", Fragment);
     blockComponentRegistry.registerCustomComponent("cb2:barrierframe", Barrier); 
+    blockComponentRegistry.registerCustomComponent("cb2:budding_crystal", BuddingCrystal);
+    blockComponentRegistry.registerCustomComponent("cb2:random_cluster", RandomCluster);
+    blockComponentRegistry.registerCustomComponent("cb2:box", Box);
+    blockComponentRegistry.registerCustomComponent("cb2:prog_ice_crystal", ProgressIceCrystal);
+    blockComponentRegistry.registerCustomComponent("cb2:compr_ice_crystal", CompressedIceCrystal);
 })

@@ -1,0 +1,27 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "cb2:blue_mega_cluster_s"
+		},
+		"iterations": 4,
+		"project_input_to_floor": true,
+		"coordinate_eval_order": "xyz",
+		"x": {
+			"distribution": "uniform",
+			"extent": [
+				0,
+				15
+			]
+		},
+		"z": {
+			"distribution": "uniform",
+			"extent": [
+				0,
+				15
+			]
+		},
+		"y": 0,
+		"places_feature": "cb2:blue_mega_cluster_wr"
+	}
+}

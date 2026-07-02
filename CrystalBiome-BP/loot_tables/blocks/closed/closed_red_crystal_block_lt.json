@@ -1,0 +1,27 @@
+{
+	"pools": [
+        {
+            "rolls": 1,
+            "conditions": [
+                {
+                    "condition": "match_tool",
+                    "minecraft:match_tool_filter_all": [
+                        "cb2:yellow_crystal_tool",
+                        "cb2:crystal_pickaxe"
+                    ]
+                }
+            ],
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "cb2:lively_red_crystal_shard",
+                    "weight": 1
+                },
+                {
+                    "type": "empty",
+                    "weight": 3
+                }
+            ]
+        }
+	]
+}

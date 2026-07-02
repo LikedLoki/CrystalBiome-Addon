@@ -683,7 +683,7 @@
 		"sound": "stone"
 	},
 	"cb2:crystal_furnace": {
-		"sound": "stone",
+		"sound": "amethyst_block",
 		"textures": "cb2_crystal_furnace"
 	},
 	"cb2:crystal_vine": {
@@ -736,6 +736,45 @@
 		"sound": "amethyst_block"
 	},
 	"cb2:rare_crystal_fractale_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:ice_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:progress_ice_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:compressed_ice_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:closed_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:closed_red_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:closed_green_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:closed_yellow_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:closed_saline_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:budding_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:budding_red_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:budding_green_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:budding_yellow_crystal_block": {
+		"sound": "amethyst_block"
+	},
+	"cb2:budding_saline_crystal_block": {
 		"sound": "amethyst_block"
 	}
 }

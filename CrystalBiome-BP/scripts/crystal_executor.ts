@@ -120,7 +120,7 @@ const executorAttack = async (executor: CrystalExecutor, halfHealth: boolean) =>
     setProperty(executor, "cb2:executor_wait", false);
     timesReset(executor, halfHealth);
 };
-const run = (dimension: Dimension): void => {
+const main = (dimension: Dimension): void => {
     const executors: CrystalExecutor[] | undefined = getExecutors(dimension);
     if (!executors) return;
     for (const executor of executors) {
@@ -139,5 +139,5 @@ const run = (dimension: Dimension): void => {
 
 
 export default {
-    run
+    main
 }

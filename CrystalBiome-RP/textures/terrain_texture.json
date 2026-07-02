@@ -625,32 +625,71 @@
 		"cb2_ice_crystal_block": {
 			"textures": "textures/blocks/ice_crystal_block"
 		},
-		"cb2_crystal_packing_box": {
-			"textures": "textures/blocks/crystal_packing_box"
+		"cb2_crystal_box": {
+			"textures": "textures/blocks/crystal_box"
 		},
-		"cb2_red_crystal_packing_box": {
-			"textures": "textures/blocks/red_crystal_packing_box"
+		"cb2_red_crystal_box": {
+			"textures": "textures/blocks/red_crystal_box"
 		},
-		"cb2_green_crystal_packing_box": {
-			"textures": "textures/blocks/green_crystal_packing_box"
+		"cb2_green_crystal_box": {
+			"textures": "textures/blocks/green_crystal_box"
 		},
-		"cb2_yellow_crystal_packing_box": {
-			"textures": "textures/blocks/yellow_crystal_packing_box"
+		"cb2_yellow_crystal_box": {
+			"textures": "textures/blocks/yellow_crystal_box"
 		},
-		"cb2_yellow_crystal_packing_box_0": {
-			"textures": "textures/blocks/yellow_crystal_packing_box_0"
+		"cb2_rare_crystal_box": {
+			"textures": "textures/blocks/rare_crystal_box"
 		},
-		"cb2_yellow_crystal_packing_box_1": {
-			"textures": "textures/blocks/yellow_crystal_packing_box_1"
+		"cb2_crystal_box_in_chest": {
+			"textures": "textures/blocks/crystal_box_in_chest"
 		},
-		"cb2_yellow_crystal_packing_box_2": {
-			"textures": "textures/blocks/yellow_crystal_packing_box_2"
+		"cb2_red_crystal_box_in_chest": {
+			"textures": "textures/blocks/red_crystal_box_in_chest"
 		},
-		"cb2_yellow_crystal_packing_box_3": {
-			"textures": "textures/blocks/yellow_crystal_packing_box_3"
+		"cb2_green_crystal_box_in_chest": {
+			"textures": "textures/blocks/green_crystal_box_in_chest"
 		},
-		"cb2_yellow_crystal_packing_box_4": {
-			"textures": "textures/blocks/yellow_crystal_packing_box_4"
+		"cb2_yellow_crystal_box_in_chest": {
+			"textures": "textures/blocks/yellow_crystal_box_in_chest"
+		},
+		"cb2_progress1_ice_crystal_block": {
+			"textures": "textures/blocks/progress1_ice_crystal_block"
+		},
+		"cb2_progress2_ice_crystal_block": {
+			"textures": "textures/blocks/progress2_ice_crystal_block"
+		},
+		"cb2_compressed_ice_crystal_block": {
+			"textures": "textures/blocks/compressed_ice_crystal_block"
+		},
+		"cb2_budding_crystal_block": {
+			"textures": "textures/blocks/budding_crystal_block"
+		},
+		"cb2_budding_red_crystal_block": {
+			"textures": "textures/blocks/budding_red_crystal_block"
+		},
+		"cb2_budding_green_crystal_block": {
+			"textures": "textures/blocks/budding_green_crystal_block"
+		},
+		"cb2_budding_yellow_crystal_block": {
+			"textures": "textures/blocks/budding_yellow_crystal_block"
+		},
+		"cb2_budding_saline_crystal_block": {
+			"textures": "textures/blocks/budding_saline_crystal_block"
+		},
+		"cb2_closed_crystal_block": {
+			"textures": "textures/blocks/closed_crystal_block"
+		},
+		"cb2_closed_red_crystal_block": {
+			"textures": "textures/blocks/closed_red_crystal_block"
+		},
+		"cb2_closed_green_crystal_block": {
+			"textures": "textures/blocks/closed_green_crystal_block"
+		},
+		"cb2_closed_yellow_crystal_block": {
+			"textures": "textures/blocks/closed_yellow_crystal_block"
+		},
+		"cb2_closed_saline_crystal_block": {
+			"textures": "textures/blocks/closed_saline_crystal_block"
 		}
 	}
 }

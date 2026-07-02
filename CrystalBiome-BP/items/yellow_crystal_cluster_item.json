@@ -27,7 +27,16 @@
 					"cb2:red_crystal_cluster_display",
 					"cb2:green_crystal_cluster_display",
 					"cb2:yellow_crystal_cluster_display",
-					"cb2:rare_crystal_cluster_display"
+					"cb2:rare_crystal_cluster_display",
+					"cb2:budding_crystal_block",
+					"cb2:budding_red_crystal_block",
+					"cb2:budding_green_crystal_block",
+					"cb2:budding_yellow_crystal_block",
+					"cb2:closed_crystal_block",
+					"cb2:closed_red_crystal_block",
+					"cb2:closed_green_crystal_block",
+					"cb2:closed_yellow_crystal_block",
+					"cb2:deep_crystal_block"
 				]
 			},
 			"minecraft:icon": "cb2_yellow_cluster_item"

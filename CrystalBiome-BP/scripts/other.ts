@@ -6,24 +6,6 @@ export type ColorRGB = {
     green: number,
     blue: number
 };
-export type Color = "red" | "green" | "blue" | "yellow" | ColorRGB;
-export function CrystalSpawn(name: string, pos: Vector3, dimension: Dimension, color: Color, colorSpawn?: boolean): Entity {
-    const vars: MolangVariableMap = new MolangVariableMap();
-    switch (true) {
-        case color === "red": vars.setColorRGB("variable.color", { red: 1, green: 0.5, blue: 0.5 }); break;
-        case color === "green": vars.setColorRGB("variable.color", { red: 0.2, green: 1, blue: 0.75 }); break;
-        case color === "blue": vars.setColorRGB("variable.color", { red: 0.2, green: 1, blue: 1 }); break;
-        case color === "yellow": vars.setColorRGB("variable.color", { red: 1, green: 1, blue: 0.25 }); break;
-        case typeof color === "object": vars.setColorRGB("variable.color", color); break;
-    };
-    dimension.playSound("cbspawner_detect", pos);
-    dimension.spawnParticle("cb2:cbspawn_particle", pos, vars);
-    if (colorSpawn) {
-        return dimension.spawnEntity(name as VanillaEntityIdentifier, pos, { spawnEvent: `cb2:color_${color}` }); 
-    } else {
-        return dimension.spawnEntity(name as VanillaEntityIdentifier, pos);
-    };
-};
 
 export function getBlocks(offsetXZ: VectorXZ[], offsetY: number, loc: Vector3, dimension: Dimension): Block[] | [] {
     const result: Block[] = [];

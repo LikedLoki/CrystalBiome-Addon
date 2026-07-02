@@ -8,12 +8,7 @@
 			"any_of": [
 				{
 					"operator": "==",
-					"value": "crystal_lowland",
-					"test": "has_biome_tag"
-				},
-				{
-					"operator": "==",
-					"value": "crystal_forest",
+					"value": "desolate_crystal",
 					"test": "has_biome_tag"
 				}
 			]

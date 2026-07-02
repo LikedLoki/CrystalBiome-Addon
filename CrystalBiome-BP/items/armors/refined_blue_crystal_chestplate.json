@@ -21,7 +21,7 @@
 					"max": 100
 				}
 			},
-			"minecraft:icon": "cb2_crysteel_chestplate",
+			"minecraft:icon": "cb2_refined_blue_crystal_chestplate",
 			"minecraft:wearable": {
 				"slot": "slot.armor.chest",
 				"protection": 6

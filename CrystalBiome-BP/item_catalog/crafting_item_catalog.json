@@ -177,6 +177,42 @@
         "groups": [
           {
             "group_identifier": {
+              "icon": "cb2:budding_crystal_block",
+              "name": "cb2:cbbudding"
+            },
+            "items": [
+              "cb2:budding_crystal_block",
+              "cb2:budding_red_crystal_block",
+              "cb2:budding_green_crystal_block",
+              "cb2:budding_yellow_crystal_block",
+              "cb2:budding_saline_crystal_block"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:closed_crystal_block",
+              "name": "cb2:cbclosed"
+            },
+            "items": [
+              "cb2:closed_crystal_block",
+              "cb2:closed_red_crystal_block",
+              "cb2:closed_green_crystal_block",
+              "cb2:closed_yellow_crystal_block",
+              "cb2:closed_saline_crystal_block"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "group_identifier": {
               "icon": "cb2:clear_crystal_block",
               "name": "cb2:cbclear"
             },
@@ -246,6 +282,24 @@
               "cb2:flare_crystal_shard",
               "cb2:rare_crystal_shard",
               "cb2:crystal_heart_shard"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:lively_crystal_shard",
+              "name": "cb2:cblivelyshard"
+            },
+            "items": [
+              "cb2:lively_crystal_shard",
+              "cb2:lively_red_crystal_shard",
+              "cb2:lively_green_crystal_shard",
+              "cb2:lively_yellow_crystal_shard",
+              "cb2:lively_saline_crystal_shard"
             ]
           }
         ]

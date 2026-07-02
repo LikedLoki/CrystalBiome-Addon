@@ -13,8 +13,8 @@
 			}
 		},
 		"pattern": [
-			"aa",
-			"aa"
+			"aa ",
+			"aa "
 		],
 		"result": {
 			"item": "cb2:deep_crystal_block",

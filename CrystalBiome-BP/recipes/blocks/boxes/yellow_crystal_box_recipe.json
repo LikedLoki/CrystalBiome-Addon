@@ -1,0 +1,25 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:yellow_crystal_box_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:polished_yellow_crystal_slab"
+			}
+		},
+		"pattern": [
+			"aaa",
+			"a a",
+			"aaa"
+		],
+		"result": {
+			"item": "cb2:yellow_crystal_box",
+			"count": 2
+		}
+	}
+}
