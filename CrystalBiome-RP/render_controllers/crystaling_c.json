@@ -23,7 +23,19 @@
 						"Texture.polished_green",
 						"Texture.polished_yellow",
 						"Texture.rare_ling",
-						"Texture.polished_rare"
+						"Texture.polished_rare",
+						"Texture.blue_ling_rage",
+						"Texture.blue_ling_sleep",
+						"Texture.blue_ling_cry",
+						"Texture.red_ling_rage",
+						"Texture.red_ling_sleep",
+						"Texture.red_ling_cry",
+						"Texture.green_ling_rage",
+						"Texture.green_ling_sleep",
+						"Texture.green_ling_cry",
+						"Texture.yellow_ling_rage",
+						"Texture.yellow_ling_sleep",
+						"Texture.yellow_ling_cry"
 					]
 				}
 			},

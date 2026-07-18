@@ -33,13 +33,14 @@
 			}
 		},
 		"components": {
+			"minecraft:health": {
+				"value": 1024,
+				"max": 1024
+			},
 			"minecraft:scale": {
 				"value": 0.8
 			},
-			"minecraft:collision_box": {
-				"height": 0,
-				"width": 0
-			},
+			"minecraft:collision_box": false,
 			"minecraft:inside_block_notifier": {
 				"block_list": [
 					{
@@ -53,11 +54,10 @@
 					}
 				]
 			},
-			"minecraft:damage_sensor": {
-				"triggers": {
-					"cause": "all",
-					"deals_damage": false
-				}
+			"minecraft:type_family": {
+				"family": [
+					"cb2:prismstone_f"
+				]
 			}
 		},
 		"events": {

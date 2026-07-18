@@ -1,0 +1,21 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:scatter_feature": {
+		"description": {
+			"identifier": "cb2:surface_flare_ore_s"
+		},
+		"iterations": 8,
+		"project_input_to_floor": true,
+		"coordinate_eval_order": "xyz",
+		"x": 0,
+		"z": 0,
+		"y": {
+			"distribution": "gaussian",
+			"extent": [
+				-1,
+				0
+			]
+		},
+		"places_feature": "cb2:surface_flare_ore_f"
+	}
+}

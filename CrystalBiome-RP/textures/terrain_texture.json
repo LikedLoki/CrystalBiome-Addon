@@ -497,7 +497,7 @@
 			"textures":"textures/blocks/refined_rare_crystal_panel"
 		},
 		"cb2_prismstone": {
-			"textures":"textures/blocks/prismstone_desu"
+			"textures":"textures/blocks/prismstone"
 		},
 		"cb2_crystal_portal": {
 			"textures": "textures/blocks/crystal_portal"
@@ -676,6 +676,9 @@
 		"cb2_budding_saline_crystal_block": {
 			"textures": "textures/blocks/budding_saline_crystal_block"
 		},
+		"cb2_budding_flare_crystal_block": {
+			"textures": "textures/blocks/budding_flare_crystal_block"
+		},
 		"cb2_closed_crystal_block": {
 			"textures": "textures/blocks/closed_crystal_block"
 		},
@@ -690,6 +693,27 @@
 		},
 		"cb2_closed_saline_crystal_block": {
 			"textures": "textures/blocks/closed_saline_crystal_block"
+		},
+		"cb2_closed_flare_crystal_block": {
+			"textures": "textures/blocks/closed_flare_crystal_block"
+		},
+		"cb2_hardent_deep_crystal_block": {
+			"textures": "textures/blocks/hardent_deep_crystal_block"
+		},
+		"cb2_reflaction_left_block": {
+			"textures": "textures/blocks/left_reflaction_block"
+		},
+		"cb2_reflaction_right_block": {
+			"textures": "textures/blocks/right_reflaction_block"
+		},
+		"cb2_broken_prismstone": {
+			"textures": "textures/blocks/broken_prismstone"
+		},
+		"cb2_resonance_node_block_on": {
+			"textures": "textures/blocks/resonance_node_block_on"
+		},
+		"cb2_resonance_node_block_off": {
+			"textures": "textures/blocks/resonance_node_block_off"
 		}
 	}
 }

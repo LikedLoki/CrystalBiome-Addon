@@ -1,0 +1,27 @@
+{
+	"format_version": "1.26.30",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature"
+			},
+			"identifier": "cb2:broken_prismstone"
+		},
+		"components": {
+			"minecraft:destructible_by_mining": false,
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:geometry": {
+				"identifier": "geometry.prismstone"
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_broken_prismstone",
+					"render_method": "blend",
+					"face_dimming": false
+				}
+			}
+
+
+		}
+	}
+}

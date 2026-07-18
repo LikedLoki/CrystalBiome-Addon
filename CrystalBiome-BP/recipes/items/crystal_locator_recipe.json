@@ -5,8 +5,7 @@
 			"identifier": "cb2:crystal_locator_recipe"
 		},
 		"tags": [
-			"crafting_table",
-			"crystal_worktable"
+			"crafting_table"
 		],
 		"ingredients": [
 			{

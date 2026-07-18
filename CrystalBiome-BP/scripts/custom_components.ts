@@ -29,7 +29,11 @@ import { Barrier, Fragment } from "./fragmentframe";
 import { BuddingCrystal } from "./budding_crystal";
 import { RandomCluster } from "./random_cluster";
 import { Box } from "./box";
-import { CompressedIceCrystal, ProgressIceCrystal } from "./ice_crystal"
+import { CompressedIceCrystal, ProgressIceCrystal } from "./ice_crystal";
+import { hardentDeepCrystal } from "./hardent_deep_crystal";
+import { KnowledgeCrystal } from "./knowledge_crystal";
+import { PrismStone } from "./prisms";
+import { resonanceNode } from "./resonance_node";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
     blockComponentRegistry.registerCustomComponent("cb2:cluster_display", Display);
@@ -61,11 +65,15 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     blockComponentRegistry.registerCustomComponent("cb2:trapdoor", TrapdoorBlock);
     blockComponentRegistry.registerCustomComponent("cb2:wall", Wall);
     blockComponentRegistry.registerCustomComponent("cb2:box_in_chest", BoxInChest);
-        blockComponentRegistry.registerCustomComponent("cb2:fragmentframe", Fragment);
+    blockComponentRegistry.registerCustomComponent("cb2:fragmentframe", Fragment);
     blockComponentRegistry.registerCustomComponent("cb2:barrierframe", Barrier); 
     blockComponentRegistry.registerCustomComponent("cb2:budding_crystal", BuddingCrystal);
     blockComponentRegistry.registerCustomComponent("cb2:random_cluster", RandomCluster);
     blockComponentRegistry.registerCustomComponent("cb2:box", Box);
     blockComponentRegistry.registerCustomComponent("cb2:prog_ice_crystal", ProgressIceCrystal);
     blockComponentRegistry.registerCustomComponent("cb2:compr_ice_crystal", CompressedIceCrystal);
+    blockComponentRegistry.registerCustomComponent("cb2:hardent_deep_crystal", hardentDeepCrystal);
+    itemComponentRegistry.registerCustomComponent("cb2:knowledge", KnowledgeCrystal);
+    blockComponentRegistry.registerCustomComponent("cb2:prism_stone", PrismStone);
+    blockComponentRegistry.registerCustomComponent("cb2:resonance_node", resonanceNode);
 })

@@ -16,7 +16,19 @@
 				"polished_green": "textures/entity/polished_green_crystaling",
 				"polished_yellow": "textures/entity/polished_yellow_crystaling",
 				"rare_ling": "textures/entity/rare_crystaling",
-				"polished_rare": "textures/entity/polished_rare_crystaling"
+				"polished_rare": "textures/entity/polished_rare_crystaling",
+				"blue_ling_rage": "textures/entity/crystaling_rage",
+				"blue_ling_sleep": "textures/entity/crystaling_sleep",
+				"blue_ling_cry": "textures/entity/crystaling_cry",
+				"red_ling_rage": "textures/entity/red_crystaling_rage",
+				"red_ling_sleep": "textures/entity/red_crystaling_sleep",
+				"red_ling_cry": "textures/entity/red_crystaling_cry",
+				"green_ling_rage": "textures/entity/green_crystaling_rage",
+				"green_ling_sleep": "textures/entity/green_crystaling_sleep",
+				"green_ling_cry": "textures/entity/green_crystaling_cry",
+				"yellow_ling_rage": "textures/entity/yellow_crystaling_rage",
+				"yellow_ling_sleep": "textures/entity/yellow_crystaling_sleep",
+				"yellow_ling_cry": "textures/entity/yellow_crystaling_cry"
 			},
 			"geometry": {
 				"default": "geometry.crystaling_default",

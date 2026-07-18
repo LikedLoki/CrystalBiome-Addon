@@ -15,6 +15,7 @@
 			"identifier": "cb2:blue_crystal_cluster"
 		},
 		"components": {
+			"tag:cb2:cluster_bud": {},
 			"minecraft:placement_filter": {
 				"conditions": [
 					{

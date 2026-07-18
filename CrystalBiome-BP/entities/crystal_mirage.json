@@ -1,0 +1,271 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "cb2:crystal_mirage",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"events": {
+			"minecraft:entity_spawned": {
+				"trigger": "cb2:random_color"
+			},
+			"cb2:random_color": {
+				"randomize": [
+					{
+						"weight": 25,
+						"trigger": "cb2:color_blue"
+					},
+					{
+						"weight": 25,
+						"trigger": "cb2:color_red"
+					},
+					{
+						"weight": 25,
+						"trigger": "cb2:color_green"
+					},
+					{
+						"weight": 25,
+						"trigger": "cb2:color_yellow"
+					}
+				]
+			},
+			"cb2:color_blue": {
+				"add": {
+					"component_groups": [
+						"cb2:crystal_wander_blue"
+					]
+				}
+			},
+			"cb2:color_red": {
+				"add": {
+					"component_groups": [
+						"cb2:crystal_wander_red"
+					]
+				}
+			},
+			"cb2:color_green": {
+				"add": {
+					"component_groups": [
+						"cb2:crystal_wander_green"
+					]
+				}
+			},
+			"cb2:color_yellow": {
+				"add": {
+					"component_groups": [
+						"cb2:crystal_wander_yellow"
+					]
+				}
+			}
+		},
+		"component_groups": {
+			"cb2:crystal_wander_blue": {
+				"minecraft:loot": {
+					"table": "loot_tables/entity/blue_crystal_wander_loot.json"
+				},
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			"cb2:crystal_wander_red": {
+				"minecraft:loot": {
+					"table": "loot_tables/entity/red_crystal_wander_loot.json"
+				},
+				"minecraft:variant": {
+					"value": 1
+				}
+			},
+			"cb2:crystal_wander_green": {
+				"minecraft:loot": {
+					"table": "loot_tables/entity/green_crystal_wander_loot.json"
+				},
+				"minecraft:variant": {
+					"value": 2
+				}
+			},
+			"cb2:crystal_wander_yellow": {
+				"minecraft:loot": {
+					"table": "loot_tables/entity/yellow_crystal_wander_loot.json"
+				},
+				"minecraft:variant": {
+					"value": 3
+				}
+			}
+		},
+		"components": {
+			"minecraft:follow_range": {
+				"value": 128,
+				"max": 128
+			},
+			"minecraft:collision_box": {
+				"width": 0.6,
+				"height": 1.9
+			},
+			"minecraft:health": {
+				"max": 20,
+				"value": 20
+			},
+            "minecraft:scale": {
+                "value": 1.2
+            },
+			"minecraft:movement": {
+				"value": 0.35
+			},
+			"minecraft:experience_reward": {
+				"on_death": "query.last_hit_by_player?10+(math.random(5,10)):0"
+			},
+			"minecraft:behavior.random_stroll": {
+				"priority": 6,
+				"speed_multiplier": 0.8
+			},
+			"minecraft:behavior.nearest_attackable_target": {
+				"priority": 2,
+				"within_radius": 128,
+				"reselect_targets": true,
+				"must_see": true,
+				"must_see_forget_duration": 17,
+				"entity_types": [
+					{
+						"must_see": false,
+						"max_dist": 128,
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_tag",
+									"subject": "self",
+									"operator": "==",
+									"value": "cb2:crystal_raid_enemy"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "==",
+									"value": "cb2:prismstone_f"
+								}
+							]
+						}
+					},
+					{
+						"max_dist": 24,
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "cb2:prismstone_f"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "crystal"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "other"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "armor_stand"
+								},
+								{
+									"test": "is_family",
+									"subject": "other",
+									"operator": "!=",
+									"value": "crystal_guard"
+								}
+							]
+						}
+					}
+				]
+			},
+			"minecraft:despawn": {
+				"remove_child_entities": false,
+				"min_range_random_chance": 800,
+				"min_range_inactivity_timer": 30,
+				"despawn_from_simulation_edge": true,
+				"despawn_from_inactivity": true,
+				"despawn_from_chance": true,
+				"despawn_from_distance": {
+					"max_distance": 128,
+					"min_distance": 32
+				}
+			},
+			"minecraft:behavior.equip_item": {},
+			"minecraft:equip_item": {},
+			"minecraft:physics": {
+				"has_gravity": true
+			},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:nameable": {},
+			"minecraft:type_family": {
+				"family": [
+					"cb2:enemy",
+					"crystal",
+					"crystal_guard",
+					"mob",
+					"monster"
+				]
+			},
+			"minecraft:movement.basic": {},
+			"minecraft:navigation.walk": {
+				"is_amphibious": true,
+				"can_pass_doors": true,
+				"can_walk": true,
+				"can_break_doors": true
+			},
+			"minecraft:annotation.break_door": {},
+			"minecraft:jump.static": {},
+			"minecraft:can_climb": {},
+			"minecraft:hurt_on_condition": {
+				"damage_conditions": [
+					{
+						"filters": {
+							"test": "in_lava",
+							"subject": "self",
+							"operator": "==",
+							"value": true
+						},
+						"cause": "lava",
+						"damage_per_tick": 4
+					}
+				]
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0,
+				"breathes_air": true,
+				"breathes_water": true
+			},
+			"minecraft:attack": {
+				"damage": 4
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 3,
+				"speed_multiplier": 1,
+				"track_target": false
+			},
+			"minecraft:behavior.look_at_player": {
+				"priority": 7,
+				"look_distance": 6,
+				"probability": 0.02
+			},
+			"minecraft:behavior.random_look_around": {
+				"priority": 7
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 1
+			}
+		}
+	}
+}

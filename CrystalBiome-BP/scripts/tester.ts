@@ -1,8 +1,14 @@
-import { world, ItemStack, Block, Player, BlockComponentEntityEvent } from "@minecraft/server";
+import { world, ItemStack, Block, Player, BlockComponentEntityEvent, Entity } from "@minecraft/server";
 world.afterEvents.chatSend.subscribe(({ message, sender }) => {
-    const { x, y, z } = sender.location;
-    const get: Block = sender.dimension.getBlock({ x: x, y: y-1, z: z});
-    const props = get.getComponent("minecraft:dynamic_properties");
-    console.log(props?.get("cb2:box_in_chest"))
+    const a: string[] = message.split(" ");
+    if (a[0] === "#") {
+        if (!world.getDynamicProperty(a[1])) {
+            world.sendMessage("???")
+            return;
+        }
+        world.setDynamicProperty(a[1], a[2] === "undefined" ? undefined : a[2]);
+    } else if (a[0] === "$") {
+        world.sendMessage(JSON.stringify(world.getDynamicProperty(a[1])));
+    }
 })
 

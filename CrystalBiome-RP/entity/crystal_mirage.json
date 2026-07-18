@@ -1,0 +1,45 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:crystal_mirage",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"blue": "textures/entity/crystal_mirage",
+				"red": "textures/entity/red_crystal_mirage",
+				"green": "textures/entity/green_crystal_mirage",
+				"yellow": "textures/entity/yellow_crystal_mirage"
+			},
+			"geometry": {
+				"default": "geometry.crystal_mirage"
+			},
+			"animations": {
+				"look_at_target": "animation.humanoid.look_at_target.default",
+				"look_at_target_default": "animation.humanoid.look_at_target.default",
+				"look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+				"look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+				"idle": "animation.crystal_wander.idle",
+				"angry": "animation.crystal_wander.angry",
+				"baseco": "controller.animation.crystal_wander.base"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.angry_timer = query.has_target ? Math.min(20.0, variable.angry_timer + 2.0) : 0.0;"
+				],
+				"animate": [
+					"look_at_target",
+					"look_at_target_default",
+					"baseco"
+				]
+			},
+			"render_controllers": [
+				"controller.render.crystal_wander"
+			],
+			"spawn_egg": {
+				"texture": "cb2_crystal_wander_spawn_egg"
+			}
+		}
+	}
+}

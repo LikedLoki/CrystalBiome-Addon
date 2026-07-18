@@ -4,29 +4,20 @@
 		"controller.animation.crystal_wander.base": {
 			"initial_state": "idle",
 			"states": {
-				"idle": {
-					"animations": [
-						"idle"
-					],
-					"transitions": [
-						{
-							"angry": "query.has_target"
-						}
-					],
-					"blend_transition": 0
-				},
-				"angry": {
-					"animations": [
-						"angry"
-					],
-					"transitions": [
-						{
-							"idle": "!query.has_target"
-						}
-					],
-					"blend_transition": 0
-				}
-			}
+  "idle": {
+    "animations": ["idle"],
+    "transitions": [
+      { "angry": "variable.angry_timer >= 20.0" }
+    ]
+  },
+  "angry": {
+    "animations": ["angry"],
+    "transitions": [
+
+      { "idle": "!query.has_target" }
+    ]
+  }
+}
 		}
 	}
 }

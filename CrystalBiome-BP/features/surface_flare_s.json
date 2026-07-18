@@ -1,0 +1,12 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:sequence_feature": {
+		"description": {
+			"identifier": "cb2:surface_flare_sq"
+		},
+		"features": [
+			"cb2:surface_flare_ore_s",
+			"cb2:surface_flare_shard_s"
+		]
+	}
+}

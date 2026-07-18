@@ -1,4 +1,6 @@
-import { system, ItemCustomComponent, VectorXZ, Vector3, Vector2, MolangVariableMap, EquipmentSlot, ContainerSlot } from "@minecraft/server";
+import { system, ItemCustomComponent, VectorXZ, Vector3, Vector2, MolangVariableMap, EquipmentSlot, ContainerSlot, world } from "@minecraft/server";
+import { PrismInfo } from "./crystal-biome";
+import { PrismInfoAdmin } from "./prism-info-fn";
 
 const offsetMap: VectorXZ[] = [
     { x: -1, z: 1 }, { x: 1, z: -1 }, { x: 0, z: 1 }, { x: 1, z: 0 }, { x: -1, z: 0 }, { x: 0, z: -1 }, { x: -1, z: -1 }, { x: 1, z: 1 }
@@ -23,7 +25,8 @@ export const crystalLocate: ItemCustomComponent = {
         if (!mainhand) return;
         dimension.playSound("crystal.break", source.location);
         mainhand.setItem(undefined);
-        if (dimension.getBiome(source.location).hasTags(["crystal"]) && !dimension.getBiome(source.location).hasTags(["cluster"])) return;
+        const prismAdmin = new PrismInfoAdmin(world);
+        if (prismAdmin.info.state !== 0) return;
         const locate: Vector3 | undefined = dimension.findClosestBiome(source.location, "cb2:crystal");
         if (!locate) return;
         source.runCommand("camera @s fade time 0.1 4 0.1");
@@ -32,6 +35,9 @@ export const crystalLocate: ItemCustomComponent = {
         source.runCommand("hud @a[r=6] hide all");
         const { x, y, z } = locate;
         const center: Vector3 = { x: x + 2.5, y: y + 1, z: z + 2.5 };
+        prismAdmin.setValue("location", center);
+        prismAdmin.setValue("state", 1);
+        prismAdmin.apply(world);
         dimension.runCommand(`structure load cbportal_base ${x} ${y} ${z}`)
         const select: VectorXZ = offsetMap[Math.floor(Math.random() * offsetMap.length)];
         system.runTimeout(() => {

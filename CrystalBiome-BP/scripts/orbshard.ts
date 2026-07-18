@@ -27,9 +27,10 @@ const getOrbShard = (dimension: Dimension, { x, y, z }: Vector3): OrbShardEntity
  * - getOrbShard()が偽なら、新しくcb2:orbshardを召喚する。
  * - つまり、何らかの理由でcb2:orbshardが消えていたら補充する。
  */
-const orbSet = ({ dimension, block: { location } }: BlockComponentOnPlaceEvent | BlockComponentTickEvent): void => {
-    const shardExists: boolean = getOrbShard(dimension, location).length > 0;
-    if (!shardExists) dimension.spawnEntity("cb2:orbshard", location);
+const orbSet = ({ dimension, block }: BlockComponentOnPlaceEvent | BlockComponentTickEvent): void => {
+    const shardExists: boolean = getOrbShard(dimension, block.center()).length > 0;
+    const { x, y, z } = block.center();
+    if (!shardExists) dimension.spawnEntity("cb2:orbshard", { "x": x, "y": y - 0.5, "z": z });
 };
 
 /**

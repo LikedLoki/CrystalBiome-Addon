@@ -40,5 +40,11 @@
         "blend_frames": false,
         "ticks_per_frame": 20,
         "flipbook_texture": "textures/blocks/crystal_panel"
+    },
+    {
+        "atlas_tile": "cb2_prismstone",
+        "blend_frames": true,
+        "ticks_per_frame": 20,
+        "flipbook_texture": "textures/blocks/prismstone"
     }
 ]

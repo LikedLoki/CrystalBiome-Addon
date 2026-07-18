@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.130",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -8,45 +8,28 @@
 			"identifier": "cb2:prismstone"
 		},
 		"components": {
-			"cb2:placeEntity":["cb2:prismstone_entity"],
-			"tag:minecraft:is_pickaxe_item_destructible": {},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 2.4
+			"minecraft:tick": {
+				"interval_range": [
+					80, 80
+				]
 			},
-			"minecraft:item_visual": {
-				"geometry": "geometry.prismstone_item",
-				"material_instances": {
-					"*": {
-					"texture": "cb2_prismstone",
-					"render_method": "opaque"
-					}
-				}
+			"cb2:placeEntity": ["cb2:prismstone_entity"],
+			"cb2:prism_stone": {},
+						"minecraft:block_entity": {
+				"dynamic_properties": true
 			},
-			"minecraft:geometry":{
+			"minecraft:geometry": {
 				"identifier": "geometry.prismstone"
 			},
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "cb2_prismstone",
-					"render_method": "opaque"
+					"render_method": "blend",
+					"face_dimming": false
 				}
-			},
-			"tag:cb2:crystal": {},
-			"minecraft:redstone_conductivity": {
-				"redstone_conductor": true,
-				"allows_wire_to_step_down": true
-			},
-			"minecraft:collision_box": true,
-			"minecraft:selection_box": true,
-			"minecraft:light_dampening": 0,
-			"minecraft:light_emission": 8,
-			"minecraft:friction": 0.4,
-			"minecraft:flammable": false,
-			"minecraft:loot": "loot_tables/blocks/block_crystal_blue.json",
-			"minecraft:map_color": "#72D7FF",
-			"minecraft:destructible_by_explosion": {
-				"explosion_resistance": 6
 			}
+
+
 		}
 	}
 }

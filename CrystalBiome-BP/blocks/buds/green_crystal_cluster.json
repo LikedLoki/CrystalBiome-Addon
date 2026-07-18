@@ -15,41 +15,7 @@
 			"identifier": "cb2:green_crystal_cluster"
 		},
 		"components": {
-			"minecraft:placement_filter": {
-				"conditions": [
-					{
-						"block_filter": [
-							"cb2:crystal_cluster_display",
-							"cb2:red_crystal_cluster_display",
-							"cb2:green_crystal_cluster_display",
-							"cb2:yellow_crystal_cluster_display",
-							"cb2:rare_crystal_cluster_display"
-						],
-						"allowed_faces": [
-							"up"
-						]
-					},
-					{
-						"block_filter": [
-							"cb2:fertile_crystal_block",
-							"cb2:crystal_block",
-							"cb2:saline_crystal",
-							"cb2:red_crystal_block",
-							"cb2:green_crystal_block",
-							"cb2:yellow_crystal_block",
-							"cb2:rare_crystal_block",
-							"cb2:flare_crystal_block",
-							"cb2:clear_crystal_block",
-							"cb2:clear_red_crystal_block",
-							"cb2:clear_green_crystal_block",
-							"cb2:clear_yellow_crystal_block",
-							"cb2:budding_green_crystal_block",
-							"cb2:closed_green_crystal_block",
-							"cb2:deep_crystal_block"
-						]
-					}
-				]
-			},
+			"tag:cb2:cluster_bud": {},
 			"minecraft:replaceable": {},
 			"minecraft:liquid_detection": {
 				"detection_rules": [

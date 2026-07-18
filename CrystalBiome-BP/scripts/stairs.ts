@@ -1,115 +1,133 @@
-import { BlockComponentOnPlaceEvent, system, Block, Dimension, Vector3, BlockComponentPlayerBreakEvent } from "@minecraft/server";
-export const Stairs: any = {
-    onPlace(event: BlockComponentOnPlaceEvent) {
-        const block: Block = event.block;
-        const dimension: Dimension = event.dimension;
-        updateStair(block, dimension);
-        const loc: Vector3 = block.location;
-        const checkset: { x: number, z: number }[] = [
-            { "x": 0, "z": -1 }, { "x": 1, "z": 0 }, { "x": 0, "z": 1 }, { "x": -1, "z": 0 }
-        ];
-        for (const deta of checkset) {
-            const getblock: Block | undefined = dimension.getBlock({ x: loc.x + deta.x, y: loc.y, z: loc.z + deta.z });
-            if (!getblock) return;
-            const hasTag: boolean = getblock.permutation.hasTag("cb2:stairs");
-            if (!hasTag) return;
-            updateStair(getblock, dimension);
+import { Block, BlockComponentOnPlaceEvent, BlockCustomComponent, Dimension, Vector3 } from "@minecraft/server";
 
-        };
+type Vertical = "top" | "bottom";
+type BlockFacing = "east" | "west" | "south" | "north";
+type RelatFacing = "front" | "back" | "left" | "right";
+type RelativeBlockList = {
+    "frontBlock": Block,
+    "backBlock": Block,
+    "leftBlock": Block,
+    "rightBlock": Block
+};
+type StairsState = {
+        "vertical": Vertical,
+        "facing": BlockFacing
+};
+type NearBlockState = {
+    [K in RelatFacing]: StairsState | undefined
+};
+
+const relatMap = {
+    "east": {
+        "front": "west",
+        "back": "east",
+        "left": "south",
+        "right": "north"
     },
-    onBreak(event: BlockComponentPlayerBreakEvent) {
-        const block: Block = event.block;
-        const dimension: Dimension = event.dimension;
-        const loc: Vector3 = block.location;
-        const checkset: { x: number, z: number }[] = [
-            { "x": 0, "z": -1 }, { "x": 1, "z": 0 }, { "x": 0, "z": 1 }, { "x": -1, "z": 0 }
-        ];
-        for (const deta of checkset) {
-            const getblock: Block | undefined = dimension.getBlock({ x: loc.x + deta.x, y: loc.y, z: loc.z + deta.z });
-            if (!getblock) return;
-            const hasTag: boolean = getblock.permutation.hasTag("cb2:stairs");
-            if (!hasTag) return;
-            updateStair(getblock, dimension)
-
-        }
+    "west": {
+        "front": "east",
+        "back": "west",
+        "left": "south",
+        "right": "north"
+    },
+    "south": {
+        "front": "north",
+        "back": "south",
+        "left": "west",
+        "right": "east"
+    },
+    "north": {
+        "front": "south",
+        "back": "north",
+        "left": "west",
+        "right": "east"
     }
-}
+} as const;
+const rotMap = {
+    "east": { dx : 1, dz: 0 },
+    "west": { dx : -1, dz: 0 },
+    "south": { dx : 0, dz: 1 },
+    "north": { dx : 0, dz: -1 }
+} as const;
 
-function updateStair(block: Block, dimension: Dimension) {
-    //省略用 <<
-    const gets = getSideBlock(block, dimension);
-    if (!gets) return;
-    const frontBlock: Block | undefined = gets.block.front;
-    const backBlock: Block | undefined = gets.block.back;
-    const part1: string | undefined = frontBlock.permutation.getState("minecraft:vertical_half");
-    const part2: string | undefined = block.permutation.getState("minecraft:vertical_half");
-    const part3: string | undefined = backBlock.permutation.getState("minecraft:vertical_half");
-    //>>ここまで
-
-    let frontConnect: number, backConnect: number, leftConnect: number, rightConnect: number;
-    frontConnect = backConnect = leftConnect = rightConnect = 0;
-    const FhasTag: boolean = frontBlock.permutation.hasTag("cb2:stairs");
-    const BhasTag: boolean = backBlock.permutation.hasTag("cb2:stairs");
-
-    //条件分岐<<
-    if (FhasTag && frontBlock.permutation.getState("minecraft:cardinal_direction") === gets.relat.map.left && part1 === part2) {
-        frontConnect = 1;
-    } else if (FhasTag && frontBlock.permutation.getState("minecraft:cardinal_direction") === gets.relat.map.right && part1 === part2) {
-        frontConnect = 2;
+const getNearBlock = (dimension: Dimension, { x, y, z }: Vector3, blockFacing: BlockFacing): RelativeBlockList | undefined => {
+    const tempList: Block[] = [];
+    const facing = relatMap[blockFacing];
+    for (const dataI in facing) {
+        const { dx, dz } = rotMap[facing[dataI as RelatFacing]];
+        const getBlock: Block | undefined = dimension.getBlock({ x: x + dx, y: y, z: z + dz });
+        if (getBlock) tempList.push(getBlock);
     }
-
-    if (BhasTag && backBlock.permutation.getState("minecraft:cardinal_direction") === gets.relat.map.left && part3 === part2) {
-        backConnect = 1;
-    } else if (BhasTag && backBlock.permutation.getState("minecraft:cardinal_direction") === gets.relat.map.right && part3 === part2) {
-        backConnect = 2;
-    }
-    //>>ここまで
-    const newperm = block.permutation
-        .withState("cb2:connect_front" as any, frontConnect)
-        .withState("cb2:connect_back" as any, backConnect)
-        .withState("cb2:connect_left" as any, leftConnect)
-        .withState("cb2:connect_right" as any, rightConnect);
-    block.setPermutation(newperm);
-
-}
-
-function getSideBlock(block: Block, dimension: Dimension): { block: { front: Block, back: Block, left: Block, right: Block }, relat: { set: { [rot: string]: { x: number, z: number } }, map: { front: string, back: string, left: string, right: string } } } | undefined {
-    const loc: Vector3 = block.location;
-    const facing: string | undefined = block.permutation.getState("minecraft:cardinal_direction");
-    if (!facing) return;
-    const offmap: { [rot: string]: { front: string, back: string, left: string, right: string } } = {
-        "east": { "front": "west", "back": "east", "left": "south", "right": "north" },
-        "west": { "front": "east", "back": "west", "left": "north", "right": "south" },
-        "south": { "front": "north", "back": "south", "left": "west", "right": "east" },
-        "north": { "front": "south", "back": "north", "left": "east", "right": "west" }
-    }
-    const offset: { [rot: string]: { x: number, z: number } } = {
-        "east": { "x": -1, "z": 0 }, "west": { "x": 1, "z": 0 }, "south": { "x": 0, "z": -1 }, "north": { "x": 0, "z": 1 }
-    };
-    const self: { front: string, back: string, left: string, right: string } = offmap[facing];
-    const newset: { [rot: string]: { x: number, z: number } } = {
-        "front": { x: offset[self.front].x, z: offset[self.front].z },
-        "back": { x: offset[self.back].x, z: offset[self.back].z },
-        "left": { x: offset[self.left].x, z: offset[self.left].z },
-        "right": { x: offset[self.right].x, z: offset[self.right].z }
-    }
-    const key: string[] = Object.keys(newset);
-    const bank: Block[] = [];
-    for (const data of key) {
-        const kensa: Block | undefined = dimension.getBlock({ x: loc.x + newset[data].x, y: loc.y, z: loc.z + newset[data].z });
-        if (!kensa) continue;
-        bank.push(kensa);
-    };
     return {
-        "block": {
-            "front": bank[0],
-            "back": bank[1],
-            "left": bank[2],
-            "right": bank[3]
-        },
-        "relat": {
-            "set": newset,
-            "map": self
-        }
+        "frontBlock": tempList[0],
+        "backBlock": tempList[1],
+        "leftBlock": tempList[2],
+        "rightBlock": tempList[3]
     };
 };
+const getNearState = (nearBlock: RelativeBlockList): NearBlockState => {
+    const tempList: (StairsState | undefined)[] = [];
+    for (const dataI in nearBlock) {
+        const block: Block = nearBlock[dataI as `${RelatFacing}Block`];
+        if (!block.hasTag("cb2:stairs")) {
+            tempList.push(undefined);
+            continue;
+        }
+        const vertical = block.permutation.getState("minecraft:vertical_half") as Vertical;
+        const facing = block.permutation.getState("minecraft:cardinal_direction") as BlockFacing;
+        tempList.push({ "vertical": vertical, "facing": facing });
+    } 
+    return {
+        "front": tempList[0],
+        "back": tempList[1],
+        "left": tempList[2],
+        "right": tempList[3]
+    };
+}
+
+const updateStairs = (dimension: Dimension, block: Block) => {
+    const facing = block.permutation.getState("minecraft:cardinal_direction");
+    const vertical = block.permutation.getState("minecraft:vertical_half");
+    if ((facing !== "east" && facing !== "west" && facing !== "south" && facing !== "north") || (vertical !== "top" && vertical !== "bottom" )) return;
+
+    const selfRelatMap = relatMap[facing];
+    const nearBlock: RelativeBlockList | undefined = getNearBlock(dimension, block.location, facing);
+    if (!nearBlock) return;
+
+    const { frontBlock, backBlock } = nearBlock;
+    if (!frontBlock.hasTag("cb2:stairs") || !backBlock.hasTag("cb2:stairs")) return;
+
+    const nearState: NearBlockState = getNearState(nearBlock); 
+    const { front, back } = nearState;
+    const connect = { "front": 0, "back": 0 };
+
+    if (vertical === front?.vertical) {
+        if (selfRelatMap.left === front.facing) connect.front = 1;
+        else if (selfRelatMap.right === front.facing) connect.front = 2;
+    }
+    if (vertical === back?.vertical) {
+        if (selfRelatMap.left === back.facing) connect.back = 1;
+        else if (selfRelatMap.right === back.facing) connect.back = 2;
+    }
+
+    const currPerm = block.permutation;
+    const newPerm = currPerm
+        .withState("cb2:connect_front" as any, connect.front)
+        .withState("cb2:connect_back" as any, connect.back);
+    if (currPerm.matches(newPerm.type.id, newPerm.getAllStates())) return;
+    block.setPermutation(newPerm);
+    updateNearby(dimension, block);
+}
+const updateNearby = (dimension: Dimension, block: Block) => {
+    const { x, y, z } = block.location;
+    for (const { dx, dz } of Object.values(rotMap)) {
+        const getBlock: Block | undefined = dimension.getBlock({ "x": x + dx, "y": y, "z": z + dz });
+        if (!getBlock?.hasTag("cb2:stairs")) continue;
+        updateStairs(dimension, getBlock);
+    }
+}
+
+export const Stairs: BlockCustomComponent = {
+    "onPlace": event => updateStairs(event.dimension, event.block),
+    "onBreak": event => updateNearby(event.dimension, event.block)
+}

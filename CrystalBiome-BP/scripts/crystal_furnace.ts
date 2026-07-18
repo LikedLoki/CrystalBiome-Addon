@@ -2,7 +2,7 @@ import { system, ItemStack, world, Block, Vector3, Dimension, BlockCustomCompone
 import { sleep } from "./other"
 import { BoxInfo } from "./box_in_chest";
 
-export type LocationName = `${string}|${string}|${string}`;
+type LocationName = `${string}|${string}|${string}`;
 type FurnaceInfo = {
     [loc: LocationName]: {
         id: number,
@@ -95,18 +95,16 @@ const checkConditions = (player: Player, belowBlock: Block, aboveBlock: Block, b
 
 const furnaceFuelConsum = (dimension: Dimension, belowBlock: Block): void => {
     const fuelLevel: number = belowBlock.permutation.getState("cb2:fuel" as any);
-    if (Math.random() < 0.8) {
-        dimension.spawnParticle("cb2:powered_flare", belowBlock.center());
-        if (fuelLevel > 0) belowBlock.setPermutation(belowBlock.permutation.withState("cb2:fuel" as any, fuelLevel - 1));
-        if (fuelLevel <= 0) dimension.setBlockType(belowBlock.location, "cb2:deep_crystal_block");
-    }
+    console.log(fuelLevel);
+    dimension.spawnParticle("cb2:powered_flare", belowBlock.center());
+    if (fuelLevel > 0) belowBlock.setPermutation(belowBlock.permutation.withState("cb2:fuel" as any, fuelLevel - 1));
+    if (fuelLevel <= 0) dimension.setBlockType(belowBlock.location, "cb2:deep_crystal_block");
 };
 
 export const smeltingEnd = (fCtx: FurnaceContext, success: boolean) => {
     const { dimension, block, locName, aboveBlock } = fCtx;
     if (success) {
         const nextTypeId: string = resultMap[aboveBlock.typeId as keyof typeof resultMap];
-        console.log(aboveBlock.typeId, nextTypeId);
         if (nextTypeId !== "cb2:$exception") dimension.setBlockType(aboveBlock.location, nextTypeId);
     }
     block.setPermutation(block.permutation.withState("cb2:flame" as any, false));
@@ -187,7 +185,7 @@ export const CrystalFurnace: BlockCustomComponent = {
         };
         if (!checkConditions(player, belowBlock, aboveBlock, boxChest)) return;
 
-        furnaceFuelConsum(dimension, block);
+        furnaceFuelConsum(dimension, belowBlock);
         
         const locName: LocationName = buildLocName(block.location);
         const fCtx: FurnaceContext = buildFCtx(dimension, block, locName, aboveBlock, belowBlock);
@@ -198,6 +196,7 @@ export const CrystalFurnace: BlockCustomComponent = {
         const belowBlock: Block | undefined = block.below();
         if (!belowBlock || belowBlock.typeId !== "cb2:flare_crystal_block") return;
         belowBlock.setPermutation(belowBlock.permutation.withState("cb2:powered" as any, true).withState("cb2:fuel" as any, 15));
+        console.log(belowBlock.permutation.getState("cb2:fuel" as any));
         dimension.spawnParticle("cb2:powered_flare", belowBlock.center());
     }
 };

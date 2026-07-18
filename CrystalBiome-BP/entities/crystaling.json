@@ -156,6 +156,105 @@
 					"value": 3
 				}
 			},
+			"cb2:yellow_rage": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:yellow_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 19
+				}
+			},
+			"cb2:yellow_sleep": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:yellow_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 20
+				}
+			},
+			"cb2:yellow_cry": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:yellow_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 21
+				}
+			},
 			"cb2:green": {
 				"minecraft:interact": {
 					"interactions": [
@@ -187,6 +286,105 @@
 				},
 				"minecraft:variant": {
 					"value": 2
+				}
+			},
+			"cb2:green_rage": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:green_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 16
+				}
+			},
+			"cb2:green_sleep": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:green_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 17
+				}
+			},
+			"cb2:green_cry": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:green_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 18
 				}
 			},
 			"cb2:red": {
@@ -222,6 +420,105 @@
 					"value": 1
 				}
 			},
+			"cb2:red_rage": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:red_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 13
+				}
+			},
+			"cb2:red_sleep": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:red_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 14
+				}
+			},
+			"cb2:red_cry": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:red_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 15
+				}
+			},
 			"cb2:blue": {
 				"minecraft:interact": {
 					"interactions": [
@@ -253,6 +550,105 @@
 				},
 				"minecraft:variant": {
 					"value": 0
+				}
+			},
+			"cb2:blue_rage": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:blue_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 10
+				}
+			},
+			"cb2:blue_sleep": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:blue_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 11
+				}
+			},
+			"cb2:blue_cry": {
+				"minecraft:interact": {
+					"interactions": [
+						{
+							"on_interact": {
+								"event": "cb2:blue_polished",
+								"filters": {
+									"any_of": [
+										{
+											"test": "has_equipment_tag",
+											"operator": "==",
+											"subject": "other",
+											"value": "cb2:crystaling_polished"
+										}
+									],
+									"all_of": [
+										{
+											"test": "is_family",
+											"subject": "other",
+											"value": "player"
+										}
+									]
+								}
+							},
+							"play_sounds": "attack",
+							"interact_text": "action.interact.polishing"
+						}
+					]
+				},
+				"minecraft:variant": {
+					"value": 12
 				}
 			},
 			"cb2:blue_polished_ling": {
@@ -457,7 +853,7 @@
 			"cb2:color": {
 				"randomize": [
 					{
-						"weight": 5,
+						"weight": 1,
 						"add": {
 							"component_groups": [
 								"cb2:rare"
@@ -465,7 +861,7 @@
 						}
 					},
 					{
-						"weight": 50,
+						"weight": 16,
 						"add": {
 							"component_groups": [
 								"cb2:blue"
@@ -473,7 +869,31 @@
 						}
 					},
 					{
-						"weight": 50,
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:blue_rage"
+							]
+						}
+					},
+					{
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:blue_sleep"
+							]
+						}
+					},
+					{
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:blue_cry"
+							]
+						}
+					},
+					{
+						"weight": 16,
 						"add": {
 							"component_groups": [
 								"cb2:red"
@@ -481,7 +901,31 @@
 						}
 					},
 					{
-						"weight": 50,
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:red_rage"
+							]
+						}
+					},
+					{
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:red_sleep"
+							]
+						}
+					},
+					{
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:red_cry"
+							]
+						}
+					},
+					{
+						"weight": 16,
 						"add": {
 							"component_groups": [
 								"cb2:green"
@@ -489,10 +933,58 @@
 						}
 					},
 					{
-						"weight": 50,
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:green_rage"
+							]
+						}
+					},
+					{
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:green_sleep"
+							]
+						}
+					},
+					{
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:green_cry"
+							]
+						}
+					},
+					{
+						"weight": 16,
 						"add": {
 							"component_groups": [
 								"cb2:yellow"
+							]
+						}
+					},
+					{
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:yellow_rage"
+							]
+						}
+					},
+					{
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:yellow_sleep"
+							]
+						}
+					},
+					{
+						"weight": 4,
+						"add": {
+							"component_groups": [
+								"cb2:yellow_cry"
 							]
 						}
 					}

@@ -1,0 +1,1 @@
+scoreboard objectives add "cb2|temp" dummy

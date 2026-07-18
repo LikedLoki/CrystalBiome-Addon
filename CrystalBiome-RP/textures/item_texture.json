@@ -358,6 +358,12 @@
 		},
 		"cb2_lively_saline_crystal_shard": {
 			"textures": "textures/items/lively_saline_shard"
+		},
+		"cb2_knowledge_crystal": {
+			"textures": "textures/items/knowledge_crystal"
+		},
+		"cb2_knowledge_shard": {
+			"textures": "textures/items/knowledge_shard"
 		}
 	}
 }

@@ -2,28 +2,19 @@
 	"format_version": "1.20.80",
 	"minecraft:client_entity": {
 		"description": {
-			"animations": {
-				"idle": "animation.prismstone_entity.idle"
-			},
-			"scripts": {
-				"animate": [
-					"idle"
-				]
-			},
 			"identifier": "cb2:prismstone_entity",
 			
 			"materials": {
-    "default": "entity_emissive_alpha"
-	},
+				"default": "entity_alphatest"
+			},
 			"textures": {
-				"default": "textures/blocks/prismstone_desu"
+				"default": "textures/blocks/fence_assist"
 			},
 			"geometry": {
-				"default": "geometry.prismstone_entity"
+				"default": "geometry.chestentity"
 			},
-			
 			"render_controllers": [
-				"controller.render.default"
+				"controller.render.chestentity"
 			]
 		}
 	}

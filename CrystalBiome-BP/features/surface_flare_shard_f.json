@@ -1,0 +1,28 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:single_block_feature": {
+		"description": {
+			"identifier": "cb2:surface_flare_shard_f"
+		},
+		"places_block": {
+			"name": "cb2:flare_crystal_cluster",
+			"states": {
+				"minecraft:block_face": "up"
+			}
+		},
+		"enforce_placement_rules": false,
+		"enforce_survivability_rules": false,
+		"may_attach_to": {
+			"auto_rotate": false,
+			"bottom": [
+				"cb2:crystal_block",
+				"cb2:red_crystal_block",
+				"cb2:green_crystal_block",
+				"cb2:flare_crystal_ore"
+			]
+		},
+		"may_replace": [
+			"minecraft:air"
+		]
+	}
+}

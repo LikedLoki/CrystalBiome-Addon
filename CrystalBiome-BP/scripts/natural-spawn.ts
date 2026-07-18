@@ -1,6 +1,7 @@
 import { Dimension, Entity, EntitySpawnAfterEvent, Vector3, world, MolangVariableMap } from "@minecraft/server";
 import { crystalSpawnFn, SettingColor } from "./crystal-spawn-fn"
 import { CrystColor } from "./crystal-biome";
+import { guradualClustFragm } from "./crystal_guradual"
 
 type SpawnerTypeId = keyof typeof enemyMap;
 type SpawnerEntity = Entity & { "typeId": SpawnerTypeId };
@@ -21,13 +22,15 @@ const hasPrism = (dimension: Dimension, location: Vector3): boolean => dimension
         "type": "cb2:prismstone_entity"
     }
 ).length > 0;
+
 const isLimited = (dimension: Dimension, location: Vector3, option: CrystalInfo<SpawnerTypeId>): boolean => dimension.getEntities(
     {
         "location": location,
         "maxDistance": option.dist,
         "type": option.typeId
     }
-).length >= option.limit;
+    //クラスターフラグメント討伐済みなら自然スポーンの上限を二倍に↓
+).length >= (guradualClustFragm ? option.limit * 2 : option.limit);
 
 const mainEnd = (entity: Entity): void => entity.remove();
 
