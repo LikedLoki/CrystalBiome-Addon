@@ -22,6 +22,9 @@
 				"baseco": "controller.animation.crystal_wander.base"
 			},
 			"scripts": {
+				"pre_animation": [
+					"variable.angry_timer = query.has_target ? Math.min(20.0, variable.angry_timer + 2.0) : 0.0;"
+				],
 				"animate": [
 					"look_at_target",
 					"look_at_target_default",

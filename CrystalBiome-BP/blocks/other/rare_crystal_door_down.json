@@ -3,7 +3,7 @@
 	"minecraft:block": {
 		"description": {
 			"states": {
-				"cb2:revers": [
+				"cb2:reverse": [
 					0,
 					1
 				],
@@ -80,7 +80,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('cb2:revers') == 0 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'north'",
+				"condition": "q.block_state('cb2:reverse') == 0 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'north'",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
@@ -92,7 +92,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('cb2:revers') == 0 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'south'",
+				"condition": "q.block_state('cb2:reverse') == 0 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'south'",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
@@ -104,7 +104,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('cb2:revers') == 0 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'west'",
+				"condition": "q.block_state('cb2:reverse') == 0 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'west'",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
@@ -116,7 +116,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('cb2:revers') == 0 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'east'",
+				"condition": "q.block_state('cb2:reverse') == 0 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'east'",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
@@ -128,147 +128,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('cb2:revers') == 0 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'north'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"face_dimming": true,
-							"ambient_occlusion": true,
-							"texture": "cb2_rare_crystal_door_down"
-						}
-					},
-					"minecraft:geometry": "geometry.door2",
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							-90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('cb2:revers') == 0 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'south'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"face_dimming": true,
-							"ambient_occlusion": true,
-							"texture": "cb2_rare_crystal_door_down"
-						}
-					},
-					"minecraft:geometry": "geometry.door2",
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('cb2:revers') == 0 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'west'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"face_dimming": true,
-							"ambient_occlusion": true,
-							"texture": "cb2_rare_crystal_door_down"
-						}
-					},
-					"minecraft:geometry": "geometry.door2",
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('cb2:revers') == 0 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'east'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"face_dimming": true,
-							"ambient_occlusion": true,
-							"texture": "cb2_rare_crystal_door_down"
-						}
-					},
-					"minecraft:geometry": "geometry.door2",
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('cb2:revers') == 1 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'north'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"face_dimming": true,
-							"ambient_occlusion": true,
-							"texture": "cb2_rare_crystal_door_down"
-						}
-					},
-					"minecraft:geometry": "geometry.door2",
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							0,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('cb2:revers') == 1 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'south'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"face_dimming": true,
-							"ambient_occlusion": true,
-							"texture": "cb2_rare_crystal_door_down"
-						}
-					},
-					"minecraft:geometry": "geometry.door2",
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							180,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('cb2:revers') == 1 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'west'",
-				"components": {
-					"minecraft:material_instances": {
-						"*": {
-							"face_dimming": true,
-							"ambient_occlusion": true,
-							"texture": "cb2_rare_crystal_door_down"
-						}
-					},
-					"minecraft:geometry": "geometry.door2",
-					"minecraft:transformation": {
-						"rotation": [
-							0,
-							90,
-							0
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('cb2:revers') == 1 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'east'",
+				"condition": "q.block_state('cb2:reverse') == 0 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'north'",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {
@@ -288,7 +148,147 @@
 				}
 			},
 			{
-				"condition": "q.block_state('cb2:revers') == 1 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'north'",
+				"condition": "q.block_state('cb2:reverse') == 0 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": true,
+							"ambient_occlusion": true,
+							"texture": "cb2_rare_crystal_door_down"
+						}
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:reverse') == 0 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": true,
+							"ambient_occlusion": true,
+							"texture": "cb2_rare_crystal_door_down"
+						}
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:reverse') == 0 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": true,
+							"ambient_occlusion": true,
+							"texture": "cb2_rare_crystal_door_down"
+						}
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:reverse') == 1 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": true,
+							"ambient_occlusion": true,
+							"texture": "cb2_rare_crystal_door_down"
+						}
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:reverse') == 1 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": true,
+							"ambient_occlusion": true,
+							"texture": "cb2_rare_crystal_door_down"
+						}
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:reverse') == 1 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": true,
+							"ambient_occlusion": true,
+							"texture": "cb2_rare_crystal_door_down"
+						}
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:reverse') == 1 && q.block_state('cb2:open') == 0 && q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"face_dimming": true,
+							"ambient_occlusion": true,
+							"texture": "cb2_rare_crystal_door_down"
+						}
+					},
+					"minecraft:geometry": "geometry.door2",
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('cb2:reverse') == 1 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'north'",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
@@ -300,7 +300,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('cb2:revers') == 1 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'south'",
+				"condition": "q.block_state('cb2:reverse') == 1 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'south'",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
@@ -312,7 +312,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('cb2:revers') == 1 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'west'",
+				"condition": "q.block_state('cb2:reverse') == 1 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'west'",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [
@@ -324,7 +324,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('cb2:revers') == 1 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'east'",
+				"condition": "q.block_state('cb2:reverse') == 1 && q.block_state('cb2:open') == 1 && q.block_state('minecraft:cardinal_direction') == 'east'",
 				"components": {
 					"minecraft:transformation": {
 						"rotation": [

@@ -1,4 +1,4 @@
-import { Block, BlockCustomComponent, Dimension, system, Vector3, world } from "@minecraft/server";
+import { Block, BlockCustomComponent, Dimension, Entity, Player, system, Vector3, world } from "@minecraft/server";
 import { sleep } from "./other";
 import { PrismInfoAdmin } from "./prism-info-fn";
 import { PrismInfo } from "./crystal-biome";
@@ -103,12 +103,31 @@ class Raycast {
     }
 }
 
+const E = (typeId: string, weight: number): { typeId: string, weight: number } => ({ typeId: typeId, weight: weight });
+
+const randEnemy = (ids: { typeId: string, weight: number }[], amount: number) => {
+    const result: string[] = [];
+    for (let i = 0; i < amount; i++) {
+        const total: number = ids.reduce((sum, item) => sum + item.weight, 0);
+        let random = Math.random() * total;
+        for (const item of ids) {
+            if (random < item.weight) {
+                result.push(item.typeId);
+            }
+            random -= item.weight;
+        }
+    }
+    return result;
+}
+
 const waveMap: Record<PrismInfo["raid"]["enter"], RaidWaveInfo> = {
     "none": [[]],
     "small_raid": [[""]],
     "medium_raid": [[""]],
     "mega_raid_executor": [
-        ["cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_guard"]
+        randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4), E("cb2:crystal_sentinel", 2), E("cb2:crystal_mirage", 1)], 16),
+        ["cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_guard"],
+        ["cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_wander"]
     ],
     "mega_raid_wanderment": [[""]],
 }
@@ -116,9 +135,22 @@ const waveSpawn = (dimension: Dimension, location: Vector3, list: RaidWaveInfo, 
     const waveList: string[] = list[currWave - 1];
     const tag: RaidTag = raidTag(location);
     console.log(waveList)
+    const r = 32;
     for (const data of waveList) {
-        dimension.spawnEntity(data, location).addTag(tag);
+        const rand: number = Math.random() * 2 * Math.PI;
+        const spawnLoc: Vector3 = {
+            "x": location.x + r * Math.cos(rand),
+            "y": location.y,
+            "z": location.z + r * Math.sin(rand)
+        }
+        const A: Entity = dimension.spawnEntity(data, spawnLoc);
+        A.addTag(tag);
+        A.addTag("cb2:crystal_raid_enemy")
     }
+}
+
+const sendActionBar = (targets: Player[], text: string) => {
+    for (const target of targets) target.runCommand(`title @s actionbar ${text}`);
 }
 
 const radiationPrism = (dimension: Dimension, block: Block) => {
@@ -130,46 +162,68 @@ const radiationPrism = (dimension: Dimension, block: Block) => {
 }
 const raidOnPrism = (dimension: Dimension, block: Block) => {
     const prismInfo = new PrismInfoAdmin(world);
-    const raid = prismInfo.info.raid;
+
+    const loc: Vector3 = block.center();
+    const nearPlayers = dimension.getPlayers({
+        "maxDistance": 128,
+        "location": loc
+    })
 
     if (!prismInfo.hasQueue() && !prismInfo.isRaid()) return;
 
     if (prismInfo.hasQueue()) {
-        if (!prismInfo.applyRaid()) return;
-        raid.enter = "none";
+        if (!prismInfo.runRaid()) return;
+        prismInfo.raid.enter = "none";
     }
 
-    if (raid.currWave === 0) {
-        raid.currWave = 1;
-        dimension.setBlockType(block.above()?.location!, "cb2:boss_frame");
+    if (prismInfo.raid.currWave === 0) {
+        prismInfo.raid.currWave = 1;
         prismInfo.apply(world);
-        console.log("Wave 1 開始: フレーム設置");
+        waveSpawn(dimension, loc, waveMap[prismInfo.info.raid.progress], 1);
+        sendActionBar(nearPlayers, "WAVE1")
         return;
     }
 
-    const isFrameBroken = block.above()?.typeId === "minecraft:air";
+    if (prismInfo.raid.attacked >= 4) {
+        prismInfo.raid.attacked = 0;
+        dimension.playSound("random.totem", block.location);
+        prismInfo.apply(world);
+        return;
+    }
 
-    if (isFrameBroken) {
-        raid.currWave++;
-        
-        if (raid.currWave > 3) {
-            console.log("おわり: 襲撃クリア");
+    const condition = dimension.getEntities({
+        "tags": [raidTag(loc)]
+    }).length === 0;
+    const hasNearEnemy = dimension.getEntities({
+        "location": loc,
+        "maxDistance": 2,
+        "tags": [raidTag(loc)]
+    }).length !== 0
+    if (condition) {
+        prismInfo.raid.attacked = 0;
+        prismInfo.raid.currWave++;
+        if (prismInfo.raid.currWave > waveMap[prismInfo.info.raid.progress].length) {
+            sendActionBar(nearPlayers, "終了!!!")
             prismInfo.setValue("raid", {
                 enter: "none",
                 progress: "none",
                 currWave: 0,
-                firstOfWave: false
+                firstOfWave: false,
+                attacked: 0
             });
             prismInfo.apply(world);
             return;
         }
-
-        dimension.setBlockType(block.above()?.location!, "cb2:boss_frame");
-        waveSpawn(dimension, block.center(), listtt, 1);
+        waveSpawn(dimension, loc, waveMap[prismInfo.raid.progress], prismInfo.raid.currWave);
         prismInfo.apply(world);
-        console.log(`Wave ${raid.currWave}`);
         return;
+    } else if (hasNearEnemy) {
+        dimension.playSound("random.anvil_land", block.location)
+        prismInfo.raid.attacked++
+        prismInfo.apply(world);
     }
+    sendActionBar(nearPlayers, `WAVE${prismInfo.raid.currWave}`);
+
 };
 
 export const PrismStone: BlockCustomComponent = {

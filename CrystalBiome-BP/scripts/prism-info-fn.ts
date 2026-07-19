@@ -10,6 +10,9 @@ export class PrismInfoAdmin {
         this.info.raid.currWave ??= 0;
         this.info.raid.firstOfWave ??= false;
     }
+    get raid() {
+        return this.info.raid;
+    }
     isRaid(): boolean {
         return this.info.raid.progress === "none" ? false : true
     }
@@ -25,7 +28,7 @@ export class PrismInfoAdmin {
     queueRaid(value: PrismInfo["raid"]["enter"]) {
         this.info.raid["enter"] = value;
     }
-    applyRaid(): boolean {
+    runRaid(): boolean {
         if (this.info.raid.progress !== "none") return false;
         this.info.raid.progress = this.info.raid.enter;
         this.info.raid.currWave = 0;
