@@ -133,6 +133,33 @@
 					"haggle.yes": "mob.frystia.yes",
 					"haggle.no": "mob.frystia.no"
 				}
+			},
+			"cb2:crystal_sentinel": {
+				"pitch": [
+					0.5,
+					1
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "crystal_guard_death"
+				}
+			},"cb2:crystal_mirage": {
+				"pitch": [
+					0.5,
+					1
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "crystal_guard_death"
+				}
 			}
 		}
 	}

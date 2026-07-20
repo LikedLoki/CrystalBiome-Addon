@@ -1,7 +1,10 @@
-import { Block, BlockCustomComponent, Dimension, Entity, Player, system, Vector3, world } from "@minecraft/server";
+import { Block, BlockCustomComponent, Dimension, Entity, MolangVariableMap, Player, system, Vector3, world } from "@minecraft/server";
 import { sleep } from "./other";
 import { PrismInfoAdmin } from "./prism-info-fn";
 import { PrismInfo } from "./crystal-biome";
+
+let var1: MolangVariableMap;
+system.run(() => var1 = new MolangVariableMap())
 
 const offset = [
     { dx: 1, dz: 0 },
@@ -11,10 +14,10 @@ const offset = [
 ] as const;
 
 type n = number;
-type Facing = Record<"dx" | "dz", n>;
-type State = `${n}|${n}|${n}|${n}|${n}`;
+type Facing = { dx: number; dy: number; dz: number };
+type State = `${n}|${n}|${n}|${n}|${n}|${n}`;
 type Check = typeof checkMap[keyof typeof checkMap] | "stop";
-type RaidWaveInfo = string[][]
+type RaidWaveInfo = string[][][]
 type RaidTag = `cb2:raid_by_${n}/${n}/${n}`;
 
 const raidTag = (location: Vector3): RaidTag => `cb2:raid_by_${location.x}/${location.y}/${location.z}`;
@@ -23,6 +26,8 @@ const checkMap = {
     "minecraft:air": "none",
     "cb2:reflection_left_block": "left",
     "cb2:reflection_right_block": "right",
+    "cb2:reflection_up_block": "up",
+    "cb2:reflection_down_block": "down",
     "cb2:resonance_node_block": "energy",
     "cb2:clear_crystal_block": "split"
 } as const;
@@ -39,7 +44,7 @@ class Raycast {
         this.record = record;
     }
     get #state(): State {
-        return `${this.location.x}|${this.location.y}|${this.location.z}|${this.facing.dx}|${this.facing.dz}`;
+        return `${this.location.x}|${this.location.y}|${this.location.z}|${this.facing.dx}|${this.facing.dy}|${this.facing.dz}`;
     }
     #recordCheck(state: State): boolean {
         if (this.record.has(state)) return true;
@@ -55,11 +60,13 @@ class Raycast {
         return checkMap[typeId as keyof typeof checkMap];
     }
 
-    #getDirect(get: "left" | "right"): Facing {
-        const { dx, dz } = this.facing;
-        return get === "left"
-            ? { dx: dz, dz: -dx }
-            : { dx: -dz, dz: dx };
+    #getDirect(direction: "left" | "right" | "up" | "down"): Facing {
+        const { dx, dy, dz } = this.facing;
+        if (direction === "left") return { dx: dz, dy: 0, dz: -dx };
+        if (direction === "right") return { dx: -dz, dy: 0, dz: dx };
+        if (direction === "up") return { dx: 0, dy: 1, dz: 0 };
+        if (direction === "down") return { dx: 0, dy: -1, dz: 0 };
+        return this.facing;
     }
     async forward(dimension: Dimension) {
         for (let i = 0; i < 8; i++) {
@@ -67,11 +74,11 @@ class Raycast {
             const block = dimension.getBlock(this.location);
             const check = this.#blockCheck(block?.typeId);
             if (check === "stop") break;
-            else if (check === "left" || check === "right") {
+            else if (check === "left" || check === "right" || check === "up" || check === "down") {
                 const { x, y, z } = block!.center();
                 const direct: Facing = this.#getDirect(check);
-                const { dx, dz } = direct;
-                const ray = new Raycast({ x: x + dx, y: y, z: z + dz }, direct, this.record);
+                const { dx, dy, dz } = direct;
+                const ray = new Raycast({ x: x + dx, y: y + dy, z: z + dz }, direct, this.record);
                 ray.forward(dimension);
                 dimension.playSound("random.pop", { x: x, y: y, z: z }, { "pitch": 3 });
                 break;
@@ -86,16 +93,16 @@ class Raycast {
                 break;
             } else if (check === "energy") {
                 block?.setPermutation(block.permutation.withState("cb2:bool_I" as any, true));
-                block?.setPermutation(block.permutation.withState("cb2:energy" as any, 8));
+                block?.setPermutation(block.permutation.withState("cb2:energy" as any, 4));
                 break;
             }
             dimension.spawnParticle(
                 "cb2:prismstone_line_particle",
                 this.location
             );
-            const isX = this.facing.dx !== 0;
-            if (isX) this.location.x += this.facing.dx;
-            else this.location.z += this.facing.dz;
+            this.location.x += this.facing.dx;
+    this.location.y += this.facing.dy;
+    this.location.z += this.facing.dz;
 
             if (i % 2 === 0) await sleep(1);
         }
@@ -113,6 +120,7 @@ const randEnemy = (ids: { typeId: string, weight: number }[], amount: number) =>
         for (const item of ids) {
             if (random < item.weight) {
                 result.push(item.typeId);
+                break;
             }
             random -= item.weight;
         }
@@ -121,28 +129,53 @@ const randEnemy = (ids: { typeId: string, weight: number }[], amount: number) =>
 }
 
 const waveMap: Record<PrismInfo["raid"]["enter"], RaidWaveInfo> = {
-    "none": [[]],
-    "small_raid": [[""]],
-    "medium_raid": [[""]],
+    "none": [[[]]],
+    "small_raid": [[[]]],
+    "medium_raid": [[[]]],
     "mega_raid_executor": [
-        randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4), E("cb2:crystal_sentinel", 2), E("cb2:crystal_mirage", 1)], 16),
-        ["cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_guard"],
-        ["cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_guard", "cb2:crystal_wander"]
+        [
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4)], 4),
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4)], 4),
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4)], 4),
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4)], 4),
+        ],
+        [
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4)], 6),
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4)], 6),
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4), E("cb2:crystal_sentinel", 2), E("cb2:crystal_mirage", 1)], 6),
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4), E("cb2:crystal_sentinel", 2), E("cb2:crystal_mirage", 1)], 6),
+        ],
+        [
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4), E("cb2:crystal_sentinel", 4), E("cb2:crystal_mirage", 2)], 8),
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4), E("cb2:crystal_sentinel", 4), E("cb2:crystal_mirage", 2)], 8),
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4), E("cb2:crystal_sentinel", 4), E("cb2:crystal_mirage", 2)], 8),
+            randEnemy([E("cb2:crystal_guard", 8), E("cb2:crystal_wander", 4), E("cb2:crystal_sentinel", 4), E("cb2:crystal_mirage", 2)], 8),
+        ],
+        [
+            randEnemy([E("cb2:crystal_sentinel", 4), E("cb2:crystal_mirage", 2)], 32)
+        ],
     ],
-    "mega_raid_wanderment": [[""]],
+    "mega_raid_wanderment": [[[]]],
 }
-const waveSpawn = (dimension: Dimension, location: Vector3, list: RaidWaveInfo, currWave: number) => {
-    const waveList: string[] = list[currWave - 1];
+const searchY = (dimension: Dimension, location: Vector3): Vector3 => {
+    const loc: Vector3 = { ...location }
+    while (!dimension.getBlock({ x: loc.x, y: loc.y, z: loc.z })?.isAir) {
+        loc.y++;
+    }
+    return loc
+}
+const waveSpawn = (dimension: Dimension, location: Vector3, list: RaidWaveInfo, currWave: number, currGroup: number) => {
+    const waveList: string[][] = list[currWave - 1];
+    const gropuList: string[] = waveList[currGroup - 1];
     const tag: RaidTag = raidTag(location);
-    console.log(waveList)
     const r = 32;
-    for (const data of waveList) {
+    for (const data of gropuList) {
         const rand: number = Math.random() * 2 * Math.PI;
-        const spawnLoc: Vector3 = {
+        const spawnLoc: Vector3 = searchY(dimension, {
             "x": location.x + r * Math.cos(rand),
             "y": location.y,
             "z": location.z + r * Math.sin(rand)
-        }
+        })
         const A: Entity = dimension.spawnEntity(data, spawnLoc);
         A.addTag(tag);
         A.addTag("cb2:crystal_raid_enemy")
@@ -156,74 +189,220 @@ const sendActionBar = (targets: Player[], text: string) => {
 const radiationPrism = (dimension: Dimension, block: Block) => {
     const { x, y, z } = block.center();
     for (const { dx, dz } of offset) {
-        const ray = new Raycast({ x: x + dx, y: y, z: z + dz }, { dx: dx, dz: dz }, new Set());
+        const ray = new Raycast({ x: x + dx, y: y, z: z + dz }, { dx: dx, dy: 0, dz: dz }, new Set());
         ray.forward(dimension);
     }
 }
-const raidOnPrism = (dimension: Dimension, block: Block) => {
+const raidOnPrism = async (dimension: Dimension, block: Block) => {
     const prismInfo = new PrismInfoAdmin(world);
+
+    if (prismInfo.info.stop_time >= 8) {
+        prismInfo.info.stop_time = 0;
+        prismInfo.info.stop = false;
+        prismInfo.apply(world);
+    }
+    if (prismInfo.info.stop) {
+        prismInfo.info.stop_time++
+        prismInfo.apply(world);
+        return;
+    }
 
     const loc: Vector3 = block.center();
     const nearPlayers = dimension.getPlayers({
         "maxDistance": 128,
         "location": loc
-    })
+    });
 
     if (!prismInfo.hasQueue() && !prismInfo.isRaid()) return;
 
+    //============================
+    const GROUP_SPAWN_INTERVAL = 4;
+    //============================
+
+    let isDamagedThisTick = false;
+    const enemies: Entity[] = dimension.getEntities({
+        "tags": [raidTag(loc)]
+    });
+
     if (prismInfo.hasQueue()) {
-        if (!prismInfo.runRaid()) return;
+        prismInfo.runRaid()
         prismInfo.raid.enter = "none";
+        prismInfo.raid.raidState = "begin";
+    }
+    else if (prismInfo.raid.currWave === 0) {
+        prismInfo.raid.raidState = "begin";
+    }
+    else {
+        const hasNearEnemy = dimension.getEntities({
+            "location": loc,
+            "maxDistance": 2,
+            "tags": [raidTag(loc)]
+        }).length !== 0;
+
+        if (hasNearEnemy) {
+            prismInfo.raid.attacked++;
+            isDamagedThisTick = true;
+        }
+
+        const currentWaveData = waveMap[prismInfo.raid.progress]?.[prismInfo.raid.currWave - 1];
+        const maxGroups = currentWaveData?.length ?? 0;
+        const maxWaves = waveMap[prismInfo.raid.progress]?.length ?? 0;
+
+        if (typeof prismInfo.raid.groupTimer !== "number" || isNaN(prismInfo.raid.groupTimer)) {
+            prismInfo.raid.groupTimer = GROUP_SPAWN_INTERVAL;
+        }
+
+        if (prismInfo.raid.attacked >= 8) {
+            prismInfo.raid.raidState = "lose";
+        }
+        else if (prismInfo.raid.currGroup < maxGroups && (prismInfo.raid.groupTimer <= 0 || enemies.length === 0)) {
+            prismInfo.raid.raidState = "next_group";
+        }
+        else if (prismInfo.raid.currGroup >= maxGroups && enemies.length === 0) {
+            const nextWave = prismInfo.raid.currWave + 1;
+            if (nextWave > maxWaves) {
+                prismInfo.raid.raidState = "win";
+            } else {
+                prismInfo.raid.raidState = "next";
+            }
+        }
+        else {
+            prismInfo.raid.raidState = "wait";
+        }
     }
 
-    if (prismInfo.raid.currWave === 0) {
-        prismInfo.raid.currWave = 1;
-        prismInfo.apply(world);
-        waveSpawn(dimension, loc, waveMap[prismInfo.info.raid.progress], 1);
-        sendActionBar(nearPlayers, "WAVE1")
-        return;
-    }
+    // ==========================================
+    // 2. raidState に基づいた実行フェーズ
+    // ==========================================
+    switch (prismInfo.raid.raidState) {
+        case "begin": {
+            prismInfo.toggleStop();
+            prismInfo.apply(world);
+            sendActionBar(nearPlayers, "§o-#-");
+            await sleep(40);
+            sendActionBar(nearPlayers, "§o-$-");
+            await sleep(40);
+            sendActionBar(nearPlayers, "§o-%-");
+            await sleep(40);
+            sendActionBar(nearPlayers, "§o-&-");
+            await sleep(40);
+            sendActionBar(nearPlayers, "§o---");
+            await sleep(80);
+            prismInfo.toggleStop();
 
-    if (prismInfo.raid.attacked >= 4) {
-        prismInfo.raid.attacked = 0;
-        dimension.playSound("random.totem", block.location);
-        prismInfo.apply(world);
-        return;
-    }
+            prismInfo.raid.currWave = 1;
+            prismInfo.raid.currGroup = 1;
+            prismInfo.raid.attacked = 0;
+            prismInfo.raid.groupTimer = GROUP_SPAWN_INTERVAL;
+            prismInfo.raid.raidState = "wait";
 
-    const condition = dimension.getEntities({
-        "tags": [raidTag(loc)]
-    }).length === 0;
-    const hasNearEnemy = dimension.getEntities({
-        "location": loc,
-        "maxDistance": 2,
-        "tags": [raidTag(loc)]
-    }).length !== 0
-    if (condition) {
-        prismInfo.raid.attacked = 0;
-        prismInfo.raid.currWave++;
-        if (prismInfo.raid.currWave > waveMap[prismInfo.info.raid.progress].length) {
-            sendActionBar(nearPlayers, "終了!!!")
+            var1.setColorRGB("variable.color", { "red": 1, "green": 0.2, "blue": 0.2 });
+            dimension.spawnParticle("cb2:prismstone_react_particle", loc, var1);
+            for (const { location } of nearPlayers) dimension.playSound("mace.smash_ground", location, { "pitch": 0.5 });
+
+            waveSpawn(dimension, loc, waveMap[prismInfo.raid.progress], prismInfo.raid.currWave, prismInfo.raid.currGroup);
+
+            sendActionBar(nearPlayers, `CURRENT: WAVE ${prismInfo.raid.currWave}`);
+
+            prismInfo.apply(world);
+            break;
+        }
+
+        case "next_group": {
+            if (isDamagedThisTick) {
+                sendActionBar(nearPlayers, `CURRENT: WAVE ${prismInfo.raid.currWave}\n${prismInfo.raid.attacked > 4 ? "§l" : ""}§cDAMAGED: ${prismInfo.raid.attacked}/8`);
+                for (const { location } of nearPlayers) dimension.playSound("random.anvil_land", location);
+            } else {
+                prismInfo.raid.attacked = 0;
+                sendActionBar(nearPlayers, `CURRENT: WAVE ${prismInfo.raid.currWave}`);
+            }
+            prismInfo.raid.currGroup++;
+            prismInfo.raid.groupTimer = GROUP_SPAWN_INTERVAL; // タイマーリセット
+            prismInfo.raid.raidState = "wait";
+
+            waveSpawn(dimension, loc, waveMap[prismInfo.raid.progress], prismInfo.raid.currWave, prismInfo.raid.currGroup);
+            prismInfo.apply(world);
+            break;
+        }
+
+        case "wait": {
+            prismInfo.raid.groupTimer--;
+
+            if (isDamagedThisTick) {
+                sendActionBar(nearPlayers, `CURRENT: WAVE ${prismInfo.raid.currWave}\n${prismInfo.raid.attacked > 4 ? "§l" : ""}§cDAMAGED: ${prismInfo.raid.attacked}/8`);
+                for (const { location } of nearPlayers) dimension.playSound("random.anvil_land", location);
+            } else {
+                prismInfo.raid.attacked = 0;
+                sendActionBar(nearPlayers, `CURRENT: WAVE ${prismInfo.raid.currWave}`);
+            }
+            // タイマーが減った状態を確実に保存
+            prismInfo.apply(world);
+            break;
+        }
+
+        case "next": {
+            prismInfo.raid.attacked = 0;
+            prismInfo.raid.currWave++;
+            prismInfo.raid.currGroup = 1;
+            prismInfo.raid.groupTimer = GROUP_SPAWN_INTERVAL;
+            prismInfo.raid.raidState = "wait";
+
+            sendActionBar(nearPlayers, `NEXT -> WAVE${prismInfo.raid.currWave}`);
+
+            var1.setColorRGB("variable.color", { "red": 0.2, "green": 0.2, "blue": 1 });
+            dimension.spawnParticle("cb2:prismstone_react_particle", loc, var1);
+            for (const { location } of nearPlayers) dimension.playSound("mace.smash_ground", location, { "pitch": 1.5 });
+
+            waveSpawn(dimension, loc, waveMap[prismInfo.raid.progress], prismInfo.raid.currWave, prismInfo.raid.currGroup);
+            prismInfo.apply(world);
+            break;
+        }
+
+        case "win": {
+            sendActionBar(nearPlayers, "RAID-WIN");
+
+            var1.setColorRGB("variable.color", { "red": 0.2, "green": 1, "blue": 0.2 });
+            dimension.spawnParticle("cb2:prismstone_react_particle", loc, var1);
+            dimension.spawnParticle("cb2:prismstone_react_particle", { x: loc.x + 4, y: loc.y, z: loc.z + 4 }, var1);
+            dimension.spawnParticle("cb2:prismstone_react_particle", { x: loc.x - 4, y: loc.y, z: loc.z + 4 }, var1);
+            dimension.spawnParticle("cb2:prismstone_react_particle", { x: loc.x + 4, y: loc.y, z: loc.z - 4 }, var1);
+            dimension.spawnParticle("cb2:prismstone_react_particle", { x: loc.x - 4, y: loc.y, z: loc.z - 4 }, var1);
+            for (const { location } of nearPlayers) dimension.playSound("random.totem", location, { "pitch": 1.5 });
+
             prismInfo.setValue("raid", {
                 enter: "none",
                 progress: "none",
+                raidState: "none",
                 currWave: 0,
+                currGroup: 0,
+                groupTimer: 0,
                 firstOfWave: false,
                 attacked: 0
             });
             prismInfo.apply(world);
-            return;
+            break;
         }
-        waveSpawn(dimension, loc, waveMap[prismInfo.raid.progress], prismInfo.raid.currWave);
-        prismInfo.apply(world);
-        return;
-    } else if (hasNearEnemy) {
-        dimension.playSound("random.anvil_land", block.location)
-        prismInfo.raid.attacked++
-        prismInfo.apply(world);
-    }
-    sendActionBar(nearPlayers, `WAVE${prismInfo.raid.currWave}`);
 
+        case "lose": {
+            sendActionBar(nearPlayers, "RAID-LOSE");
+            var1.setColorRGB("variable.color", { "red": 1, "green": 0.2, "blue": 0.2 });
+            dimension.spawnParticle("cb2:prismstone_lose_particle", loc, var1);
+            prismInfo.setValue("raid", {
+                enter: "none",
+                progress: "none",
+                raidState: "none",
+                currWave: 0,
+                currGroup: 0,
+                groupTimer: 0,
+                firstOfWave: false,
+                attacked: 0
+            });
+            for (const { location } of nearPlayers) dimension.playSound("random.totem", location);
+            for (const enm of enemies) enm.removeTag(raidTag(loc));
+            prismInfo.apply(world);
+            break;
+        }
+    }
 };
 
 export const PrismStone: BlockCustomComponent = {

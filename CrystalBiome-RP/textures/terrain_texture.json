@@ -706,6 +706,12 @@
 		"cb2_reflaction_right_block": {
 			"textures": "textures/blocks/right_reflaction_block"
 		},
+		"cb2_reflaction_up_block": {
+			"textures": "textures/blocks/up_reflaction_block"
+		},
+		"cb2_reflaction_down_block": {
+			"textures": "textures/blocks/down_reflaction_block"
+		},
 		"cb2_broken_prismstone": {
 			"textures": "textures/blocks/broken_prismstone"
 		},

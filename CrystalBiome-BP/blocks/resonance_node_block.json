@@ -7,7 +7,7 @@
             },
             "states": {
                 "cb2:energy": [
-                    0, 1, 2, 3, 4, 5, 6, 7, 8
+                    0, 1, 2, 3, 4
                 ],
                 "cb2:bool_I": [
                     false,
@@ -17,6 +17,9 @@
             "identifier": "cb2:resonance_node_block"
         },
         "components": {
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 8
+            },
             "cb2:resonance_node": {},
             "minecraft:item_visual": {
                 "geometry": {

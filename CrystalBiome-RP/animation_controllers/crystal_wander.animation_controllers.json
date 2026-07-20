@@ -7,7 +7,7 @@
   "idle": {
     "animations": ["idle"],
     "transitions": [
-      { "angry": "variable.angry_timer >= 20.0" }
+      { "angry": "query.has_target" }
     ]
   },
   "angry": {

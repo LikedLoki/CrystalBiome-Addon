@@ -70,7 +70,7 @@ const fnMap = {
         const { x, y, z } = block.center();
         const a: string = block.typeId.replace("cb2:", "").split("_")[1]
         const color: string = `cb2:color_${a === "crystal" ? "blue" : a}`
-        const A: Entity = dimension.spawnEntity("cb2:crystalshard_proj", { x: x + dx, y: y + dy, z: z + dz }, {"spawnEvent": color});
+        const A: Entity = dimension.spawnEntity("cb2:crystalshard_proj", { x: x + dx, y: y, z: z + dz }, {"spawnEvent": color});
         A.applyImpulse({ x: dx, y: dy, z: dz });
     },
     "knock": (dimension: Dimension, block: Block) => {

@@ -8,9 +8,10 @@
 			"identifier": "cb2:prismstone"
 		},
 		"components": {
+			"minecraft:destructible_by_mining": false,
 			"minecraft:tick": {
 				"interval_range": [
-					80, 80
+					40, 40
 				]
 			},
 			"cb2:placeEntity": ["cb2:prismstone_entity"],

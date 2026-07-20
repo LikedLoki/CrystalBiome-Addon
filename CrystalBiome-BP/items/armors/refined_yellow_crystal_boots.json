@@ -24,7 +24,7 @@
 			"minecraft:icon": "cb2_refined_yellow_crystal_boots",
 			"minecraft:wearable": {
 				"slot": "slot.armor.feet",
-				"protection": 2
+				"protection": 3
 			},
 			"minecraft:repairable": {
 				"repair_items": [

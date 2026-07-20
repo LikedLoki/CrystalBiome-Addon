@@ -170,7 +170,7 @@
 				"max": 128
 			},
 			"minecraft:attack": {
-				"damage": 2
+				"damage": 3
 			},
 			"minecraft:behavior.melee_attack": {
 				"priority": 3,
@@ -199,11 +199,11 @@
 				"height": 1.9
 			},
 			"minecraft:health": {
-				"max": 30,
-				"value": 30
+				"max": 40,
+				"value": 40
 			},
 			"minecraft:movement": {
-				"value": 0.25
+				"value": 0.2
 			},
 			"minecraft:experience_reward": {
 				"on_death": "query.last_hit_by_player?5+(math.random(5,10)):0"

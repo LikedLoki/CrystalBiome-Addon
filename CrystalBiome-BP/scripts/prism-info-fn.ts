@@ -13,6 +13,9 @@ export class PrismInfoAdmin {
     get raid() {
         return this.info.raid;
     }
+    toggleStop() {
+        this.info.stop = !this.info.stop
+    }
     isRaid(): boolean {
         return this.info.raid.progress === "none" ? false : true
     }
@@ -32,6 +35,9 @@ export class PrismInfoAdmin {
         if (this.info.raid.progress !== "none") return false;
         this.info.raid.progress = this.info.raid.enter;
         this.info.raid.currWave = 0;
+        this.info.raid.currGroup = 0;
+        this.info.raid.groupTimer = 0;
+        this.info.raid.raidState = "begin"
         this.info.raid.firstOfWave = true;
         return true;
     }

@@ -24,7 +24,7 @@
 			"minecraft:icon": "cb2_refined_green_crystal_helmet",
 			"minecraft:wearable": {
 				"slot": "slot.armor.head",
-				"protection": 2
+				"protection": 3
 			},
 			"minecraft:repairable": {
 				"repair_items": [
