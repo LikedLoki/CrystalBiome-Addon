@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.130",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -43,11 +43,13 @@
 			"identifier": "cb2:crystal_stairs"
 		},
 		"components": {
+			"minecraft:tags": [
+				"cb2:crystal",
+				"cb2:rawcrystal",
+				"cb2:stairs",
+				"minecraft:is_pickaxe_item_destructible"
+			],
 			"cb2:stairs": {},
-			"tag:cb2:crystal": {},
-			"tag:cb2:rawcrystal": {},
-			"tag:cb2:stairs": {},
-			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},

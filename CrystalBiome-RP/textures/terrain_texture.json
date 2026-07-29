@@ -178,7 +178,7 @@
 		"cb2_rare_crystal_bricks": {
 			"textures": "textures/blocks/rare_crystal_bricks"
 		},
-		"cb2_saline_crystal": {
+		"cb2_saline_crystal_block": {
 			"textures": "textures/blocks/saline_crystal"
 		},
 		"cb2_saline_shard_block": {

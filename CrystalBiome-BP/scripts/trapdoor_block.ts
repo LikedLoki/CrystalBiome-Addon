@@ -10,11 +10,10 @@ export const TrapdoorBlock: any = {
         block.setPermutation(block.permutation.withState("cb2:open" as any, newVal));
         const pos: Vector3 = block.location;
         const openSound: string = params.open ?? "open_trapdoor.copper"
-        const closeSound: string = params.close ?? "close_trapdoor.copper"
         if (newVal) {
             dimension.playSound(openSound, pos, { volume: 1, pitch: 1 });
         } else {
-            dimension.playSound(closeSound, pos, { volume: 1, pitch: 1 });
+            dimension.playSound(openSound, pos, { volume: 1, pitch: 1 });
         }
     }
 };

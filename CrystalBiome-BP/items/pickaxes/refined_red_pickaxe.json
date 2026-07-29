@@ -79,6 +79,7 @@
 			"minecraft:tags": {
 				"tags": [
 					"cb2:crystaling_polished",
+					"cb2:refined_pickaxe",
 					"minecraft:is_pickaxe"
 				]
 			}

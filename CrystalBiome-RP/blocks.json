@@ -1,780 +1,734 @@
 {
-	"format_version": [
-		1,
-		1,
-		0
-	],
-	"cb2:crystal_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_crystal_block"
-	},
-	"cb2:red_crystal_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_red_crystal_block"
-	},
-	"cb2:green_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_ore": {
-		"sound": "amethyst_cluster",
-		"textures": "cb2_rare_crystal_ore"
-	},
-	"cb2:rare_crystal_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_rare_crystal_block"
-	},
-	"cb2:deep_crystal_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_deep_crystal_block"
-	},
-	"cb2:polished_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_red_crystal_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_polished_red_crystal_block"
-	},
-	"cb2:polished_green_crystal_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_polished_green_crystal_block"
-	},
-	"cb2:crystal_bricks": {
-		"sound": "amethyst_block",
-		"textures": "cb2_crystal_bricks"
-	},
-	"cb2:red_crystal_bricks": {
-		"sound": "amethyst_block",
-		"textures": "cb2_red_crystal_bricks"
-	},
-	"cb2:green_crystal_bricks": {
-		"sound": "amethyst_block",
-		"textures": "cb2_green_crystal_bricks"
-	},
-	"cb2:crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_red_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_green_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_rare_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crystal_bricks_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_bricks_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_bricks_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rgb_crystal_block": {
-		"sound": "stone",
-		"textures": "cb2_rgb_crystal_block"
-	},
-	"cb2:yellow_crystal_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_yellow_crystal_block"
-	},
-	"cb2:yellow_crystal_slab": {
-		"sound": "amethyst_block",
-		"textures": "cb2_yellow_crystal_block"
-	},
-	"cb2:crystal_worktable": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:blue_crystal_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_bud": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_bud": {
-		"sound": "amethyst_block",
-		"textures": "cb2_red_shard_block"
-	},
-	"cb2:yellow_crystal_bud": {
-		"sound": "amethyst_block"
-	},
-	"cb2:blue_crystal_bud": {
-		"sound": "amethyst_block",
-		"textures": "cb2_blue_shard_block"
-	},
-	"cb2:refined_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_red_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_red_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_red_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_red_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_green_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_green_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_green_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_green_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_yellow_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_yellow_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_yellow_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_yellow_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_rare_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_rare_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_rare_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:refined_rare_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_yellow_crystal_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_polished_yellow_crystal_block"
-	},
-	"cb2:yellow_crystal_bricks": {
-		"sound": "amethyst_block",
-		"textures": "cb2_yellow_crystal_bricks"
-	},
-	"cb2:polished_yellow_crystal_slab": {
-		"sound": "amethyst_block",
-		"textures": "cb2_polished_yellow_crystal_block"
-	},
-	"cb2:yellow_crystal_bricks_slab": {
-		"sound": "amethyst_block",
-		"textures": "cb2_yellow_crystal_bricks"
-	},
-	"cb2:crystal_spawner": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_pillar": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crystal_pillar": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_pillar": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_pillar": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crysten_crop": {
-		"sound": "stone"
-	},
-	"cb2:crysnate": {
-		"sound": "grass"
-	},
-	"cb2:fertile_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:cracked_crystal_bricks": {
-		"sound": "amethyst_block",
-		"textures": "cb2_cracked_crystal_bricks"
-	},
-	"cb2:cracked_red_crystal_bricks": {
-		"sound": "amethyst_block",
-		"textures": "cb2_cracked_red_crystal_bricks"
-	},
-	"cb2:cracked_green_crystal_bricks": {
-		"sound": "amethyst_block",
-		"textures": "cb2_cracked_green_crystal_bricks"
-	},
-	"cb2:crystal_orb": {
-		"sound": "amethyst_block",
-		"textures": "cb2_crystal_orb"
-	},
-	"cb2:cracked_yellow_crystal_bricks": {
-		"sound": "amethyst_block",
-		"textures": "cb2_cracked_yellow_crystal_bricks"
-	},
-	"cb2:crystal_trapdoor": {
-		"sound": "amethyst_block",
-		"textures": "cb2_crystal_door"
-	},
-	"cb2:red_crystal_trapdoor": {
-		"sound": "amethyst_block",
-		"textures": "cb2_crystal_door"
-	},
-	"cb2:green_crystal_trapdoor": {
-		"sound": "amethyst_block",
-		"textures": "cb2_crystal_door"
-	},
-	"cb2:yellow_crystal_trapdoor": {
-		"sound": "amethyst_block",
-		"textures": "cb2_crystal_door"
-	},
-	"cb2:saline_crystal": {
-		"sound": "amethyst_block",
-		"textures": "cb2_saline_crystal"
-	},
-	"cb2:saline_shard_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_saline_shard_block"
-	},
-	"cb2:boss_frame": {
-		"sound": "stone",
-		"textures": "cb2_boss_frame"
-	},
-	"cb2:polished_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_red_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_green_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_yellow_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_red_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_green_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_yellow_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:blue_extend_pillar": {
-		"sound": "stone"
-	},
-	"cb2:spawn_sleepking": {
-		"sound": "stone",
-		"textures": "cb2_spawn_sleepking"
-	},
-	"cb2:crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_red_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_red_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_green_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_green_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_yellow_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_yellow_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_red_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_red_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_green_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_green_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_yellow_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_yellow_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:dev_blue_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:dev_red_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:dev_green_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:dev_yellow_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crystal_door_down": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_door_down": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_door_down": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_door_down": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crystal_door_up": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_door_up": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_door_up": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_door_up": {
-		"sound": "amethyst_block"
-	},
-	"cb2:cracked_crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:cracked_red_crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:cracked_green_crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:cracked_yellow_crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:iron_crystal_ore": {
-		"sound": "amethyst_block",
-		"textures": "cb2_crystal_iron_ore"
-	},
-	"cb2:crystal_chest": {
-		"sound": "stone",
-		"textures": "cb2_crystal_chest"
-	},
-	"cb2:blue_crystal_statue": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_statue": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_statue": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_statue": {
-		"sound": "amethyst_block"
-	},
-	"cb2:minion_block_container": {
-		"sound": "amethyst_block"
-	},
-	"cb2:minion_blue_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:minion_red_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:minion_green_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:minion_yellow_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:clear_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:clear_red_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:clear_green_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:clear_yellow_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:flare_crystal_ore": {
-		"sound": "amethyst_block",
-		"textures": "cb2_flare_crystal_ore"
-	},
-	"cb2:crystaloak_planks": {
-		"sound": "wood"
-	},
-	"cb2:crystaloak_log": {
-		"sound": "wood"
-	},
-	"cb2:crystaloak_leaves": {
-		"sound": "grass"
-	},
-	"cb2:crystaloak_leaves_nature": {
-		"sound": "grass"
-	},
-	"cb2:crystaloak_sapling": {
-		"sound": "grass"
-	},
-	"cb2:crystaloak_slab": {
-		"sound": "wood"
-	},
-	"cb2:crystaloak_stairs": {
-		"sound": "wood"
-	},
-	"cb2:crystaloak_fence": {
-		"sound": "wood"
-	},
-	"cb2:crystaloak_fence_gate": {
-		"sound": "wood"
-	},
-	"cb2:crystaloak_door_down": {
-		"sound": "wood"
-	},
-	"cb2:crystaloak_door_up": {
-		"sound": "wood"
-	},
-	"cb2:crystaloak_trapdoor": {
-		"sound": "wood"
-	},
-	"cb2:testblock": {
-		"sound": "stone",
-		"textures": "cb2_testblock"
-	},
-	"cb2:crystal_panel": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_rare_crystal_block": {
-		"sound": "amethyst_block",
-		"textures": "cb2_polished_rare_crystal_block"
-	},
-	"cb2:polished_rare_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_rare_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:polished_rare_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_bricks": {
-		"sound": "amethyst_block",
-		"textures": "cb2_rare_crystal_bricks"
-	},
-	"cb2:rare_crystal_brick_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:cracked_rare_crystal_bricks": {
-		"sound": "amethyst_block"
-	},
-	"cb2:cracked_rare_crystal_bricks_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:cracked_rare_crystal_bricks_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:cracked_rare_crystal_bricks_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_rare_crystal_blocks": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_rare_crystal_slab": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_rare_crystal_stairs": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ground_rare_crystal_wall": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_pillar": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_door_down": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_door_up": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_trapdoor": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crystal_lantern": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_lantern": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_lantern": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_lantern": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_lantern": {
-		"sound": "amethyst_block"
-	},
-	"cb2:blue_crystal_chest": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_chest": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_chest": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_chest": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_chest": {
-		"sound": "amethyst_block"
-	},
-	"cb2:redstone_crystal_ore": {
-		"sound": "amethyst_block",
-		"textures": "cb2_redstone_crystal_ore"
-	},
-	"cb2:lapis_crystal_ore": {
-		"sound": "amethyst_block",
-		"textures": "cb2_lapis_crystal_ore"
-	},
-	"cb2:crystalcap": {
-		"sound": "grass"
-	},
-	"cb2:mystery_bookshelf": {
-		"sound": "stone",
-		"textures": "cb2_mystery_bookshelf"
-	},
-	"cb2:flare_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:flare_crystal_bud": {
-		"sound": "amethyst_block"
-	},
-	"cb2:flare_crystal_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_bud": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:saline_crystal_bud": {
-		"sound": "amethyst_block"
-	},
-	"cb2:saline_crystal_cluster": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_portal": {
-		"sound": "stone",
-		"textures": "cb2_rare_crystal_portal"
-	},
-	"cb2:crystal_enctable": {
-		"sound": "stone"
-	},
-	"cb2:crystal_furnace": {
-		"sound": "amethyst_block",
-		"textures": "cb2_crystal_furnace"
-	},
-	"cb2:crystal_vine": {
-		"sound": "stone",
-		"textures": "cb2_crystal_vine"
-	},
-	"cb2:crystal_portal": {
-		"textures":"cb2_crystal_portal"
-	},
-	"cb2:framed_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:framed_red_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:framed_green_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:framed_yellow_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:framed_rare_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:chiseled_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:chiseled_red_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:chiseled_green_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:chiseled_yellow_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:chiseled_rare_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:crystal_fractale_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:red_crystal_fractale_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:green_crystal_fractale_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:yellow_crystal_fractale_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:rare_crystal_fractale_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:ice_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:progress_ice_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:compressed_ice_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:closed_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:closed_red_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:closed_green_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:closed_yellow_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:closed_saline_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:budding_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:budding_red_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:budding_green_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:budding_yellow_crystal_block": {
-		"sound": "amethyst_block"
-	},
-	"cb2:budding_saline_crystal_block": {
-		"sound": "amethyst_block"
-	}
+    "format_version": [
+        1,
+        1,
+        0
+    ],
+    "cb2:crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_ore": {
+        "sound": "amethyst_cluster"
+    },
+    "cb2:rare_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:deep_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_red_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_green_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_red_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_green_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_rare_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_bricks_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_bricks_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_bricks_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rgb_crystal_block": {
+        "sound": "stone"
+    },
+    "cb2:yellow_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_worktable": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:blue_crystal_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_bud": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_bud": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_bud": {
+        "sound": "amethyst_block"
+    },
+    "cb2:blue_crystal_bud": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_red_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_red_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_red_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_red_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_green_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_green_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_green_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_green_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_yellow_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_yellow_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_yellow_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_yellow_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_rare_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_rare_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_rare_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:refined_rare_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_yellow_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_yellow_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_bricks_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_spawner": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_pillar": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_pillar": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_pillar": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_pillar": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crysten_crop": {
+        "sound": "stone"
+    },
+    "cb2:crysnate": {
+        "sound": "grass"
+    },
+    "cb2:fertile_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_red_crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_green_crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_orb": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_yellow_crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_trapdoor": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_trapdoor": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_trapdoor": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_trapdoor": {
+        "sound": "amethyst_block"
+    },
+    "cb2:saline_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:saline_shard_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:boss_frame": {
+        "sound": "stone"
+    },
+    "cb2:polished_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_red_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_green_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_yellow_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_red_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_green_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_yellow_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:blue_extend_pillar": {
+        "sound": "stone"
+    },
+    "cb2:spawn_sleepking": {
+        "sound": "stone"
+    },
+    "cb2:crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_red_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_red_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_green_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_green_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_yellow_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_yellow_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_red_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_red_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_green_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_green_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_yellow_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_yellow_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:dev_blue_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:dev_red_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:dev_green_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:dev_yellow_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_door_down": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_door_down": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_door_down": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_door_down": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_door_up": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_door_up": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_door_up": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_door_up": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_red_crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_green_crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_yellow_crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:iron_crystal_ore": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_chest": {
+        "sound": "stone"
+    },
+    "cb2:blue_crystal_statue": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_statue": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_statue": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_statue": {
+        "sound": "amethyst_block"
+    },
+    "cb2:minion_block_container": {
+        "sound": "amethyst_block"
+    },
+    "cb2:minion_blue_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:minion_red_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:minion_green_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:minion_yellow_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:clear_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:clear_red_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:clear_green_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:clear_yellow_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:flare_crystal_ore": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystaloak_planks": {
+        "sound": "wood"
+    },
+    "cb2:crystaloak_log": {
+        "sound": "wood"
+    },
+    "cb2:crystaloak_leaves": {
+        "sound": "grass"
+    },
+    "cb2:crystaloak_leaves_nature": {
+        "sound": "grass"
+    },
+    "cb2:crystaloak_sapling": {
+        "sound": "grass"
+    },
+    "cb2:crystaloak_slab": {
+        "sound": "wood"
+    },
+    "cb2:crystaloak_stairs": {
+        "sound": "wood"
+    },
+    "cb2:crystaloak_fence": {
+        "sound": "wood"
+    },
+    "cb2:crystaloak_fence_gate": {
+        "sound": "wood"
+    },
+    "cb2:crystaloak_door_down": {
+        "sound": "wood"
+    },
+    "cb2:crystaloak_door_up": {
+        "sound": "wood"
+    },
+    "cb2:crystaloak_trapdoor": {
+        "sound": "wood"
+    },
+    "cb2:testblock": {
+        "sound": "stone"
+    },
+    "cb2:crystal_panel": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_rare_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_rare_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_rare_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:polished_rare_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_brick_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_rare_crystal_bricks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_rare_crystal_bricks_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_rare_crystal_bricks_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:cracked_rare_crystal_bricks_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_rare_crystal_blocks": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_rare_crystal_slab": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_rare_crystal_stairs": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ground_rare_crystal_wall": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_pillar": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_door_down": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_door_up": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_trapdoor": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_lantern": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_lantern": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_lantern": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_lantern": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_lantern": {
+        "sound": "amethyst_block"
+    },
+    "cb2:blue_crystal_chest": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_chest": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_chest": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_chest": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_chest": {
+        "sound": "amethyst_block"
+    },
+    "cb2:redstone_crystal_ore": {
+        "sound": "amethyst_block"
+    },
+    "cb2:lapis_crystal_ore": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystalcap": {
+        "sound": "grass"
+    },
+    "cb2:mystery_bookshelf": {
+        "sound": "stone"
+    },
+    "cb2:flare_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:flare_crystal_bud": {
+        "sound": "amethyst_block"
+    },
+    "cb2:flare_crystal_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_bud": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:saline_crystal_bud": {
+        "sound": "amethyst_block"
+    },
+    "cb2:saline_crystal_cluster": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_portal": {
+        "sound": "stone"
+    },
+    "cb2:crystal_enctable": {
+        "sound": "stone"
+    },
+    "cb2:crystal_furnace": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_vine": {
+        "sound": "stone"
+    },
+    "cb2:crystal_portal": {},
+    "cb2:framed_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:framed_red_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:framed_green_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:framed_yellow_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:framed_rare_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:chiseled_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:chiseled_red_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:chiseled_green_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:chiseled_yellow_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:chiseled_rare_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:crystal_fractale_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:red_crystal_fractale_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:green_crystal_fractale_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:yellow_crystal_fractale_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:rare_crystal_fractale_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:ice_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:progress_ice_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:compressed_ice_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:closed_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:closed_red_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:closed_green_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:closed_yellow_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:closed_saline_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:budding_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:budding_red_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:budding_green_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:budding_yellow_crystal_block": {
+        "sound": "amethyst_block"
+    },
+    "cb2:budding_saline_crystal_block": {
+        "sound": "amethyst_block"
+    }
 }

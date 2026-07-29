@@ -1,0 +1,16 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "cb2:trader_crystaling",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:leashable": {
+				"can_be_stolen": true
+			}
+		}
+	}
+}

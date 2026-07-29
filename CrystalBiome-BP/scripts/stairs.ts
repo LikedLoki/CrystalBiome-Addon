@@ -21,8 +21,8 @@ const relatMap = {
     "east": {
         "front": "west",
         "back": "east",
-        "left": "south",
-        "right": "north"
+        "left": "north",
+        "right": "south"
     },
     "west": {
         "front": "east",
@@ -33,8 +33,8 @@ const relatMap = {
     "south": {
         "front": "north",
         "back": "south",
-        "left": "west",
-        "right": "east"
+        "left": "east",
+        "right": "west"
     },
     "north": {
         "front": "south",
@@ -44,10 +44,10 @@ const relatMap = {
     }
 } as const;
 const rotMap = {
-    "east": { dx : 1, dz: 0 },
-    "west": { dx : -1, dz: 0 },
-    "south": { dx : 0, dz: 1 },
-    "north": { dx : 0, dz: -1 }
+    "east": { dx : -1, dz: 0 },
+    "west": { dx : 1, dz: 0 },
+    "south": { dx : 0, dz: -1 },
+    "north": { dx : 0, dz: 1 }
 } as const;
 
 const getNearBlock = (dimension: Dimension, { x, y, z }: Vector3, blockFacing: BlockFacing): RelativeBlockList | undefined => {
@@ -94,23 +94,28 @@ const updateStairs = (dimension: Dimension, block: Block) => {
     const nearBlock: RelativeBlockList | undefined = getNearBlock(dimension, block.location, facing);
     if (!nearBlock) return;
 
-    const { frontBlock, backBlock } = nearBlock;
-    if (!frontBlock.hasTag("cb2:stairs") || !backBlock.hasTag("cb2:stairs")) return;
-
     const nearState: NearBlockState = getNearState(nearBlock); 
+    console.log(JSON.stringify(nearState))
     const { front, back } = nearState;
     const connect = { "front": 0, "back": 0 };
 
+    console.log(vertical, front?.vertical, back?.vertical)
+        console.log(selfRelatMap.left, front?.facing)
+
     if (vertical === front?.vertical) {
-        if (selfRelatMap.left === front.facing) connect.front = 1;
-        else if (selfRelatMap.right === front.facing) connect.front = 2;
+        if (selfRelatMap.left === front.facing) connect.front = 2;
+        else if (selfRelatMap.right === front.facing) connect.front = 1;
     }
     if (vertical === back?.vertical) {
-        if (selfRelatMap.left === back.facing) connect.back = 1;
-        else if (selfRelatMap.right === back.facing) connect.back = 2;
+        if (selfRelatMap.left === back.facing) connect.back = 2;
+        else if (selfRelatMap.right === back.facing) connect.back = 1;
+    }
+    if (connect.front !== 0 && connect.back !== 0) {
+        connect.back = 0;
     }
 
     const currPerm = block.permutation;
+    console.log(connect.front, connect.back)
     const newPerm = currPerm
         .withState("cb2:connect_front" as any, connect.front)
         .withState("cb2:connect_back" as any, connect.back);
@@ -128,6 +133,11 @@ const updateNearby = (dimension: Dimension, block: Block) => {
 }
 
 export const Stairs: BlockCustomComponent = {
-    "onPlace": event => updateStairs(event.dimension, event.block),
-    "onBreak": event => updateNearby(event.dimension, event.block)
+    "onPlace"(event) {
+        updateStairs(event.dimension, event.block);
+        updateNearby(event.dimension, event.block);
+    },
+    "onBreak"(event) {
+        updateNearby(event.dimension, event.block)
+    }
 }

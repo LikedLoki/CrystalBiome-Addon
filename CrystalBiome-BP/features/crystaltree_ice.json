@@ -27,8 +27,8 @@
 		"trunk": {
 			"trunk_block": "cb2:ice_crystal_block",
 			"trunk_height": {
-				"range_min": 2,
-				"range_max": 4
+				"range_min": 4,
+				"range_max": 8
 			}
 		},
 		"fancy_canopy": {

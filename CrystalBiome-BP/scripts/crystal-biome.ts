@@ -1,4 +1,4 @@
-import { Entity, Vector3 } from "@minecraft/server";
+import { Entity, MolangVariableMap, system, Vector3 } from "@minecraft/server";
 
 
 export type GuardWonderId = "cb2:crystal_guard" | "cb2:crystal_wander";
@@ -24,3 +24,12 @@ export type PrismInfo = {
         "attacked": number;
     }
 }
+
+export let particleColor: MolangVariableMap
+system.run(() => particleColor = new MolangVariableMap())
+export const Color = {
+    red: { red: 1, green: 0.45, blue: 0.45 },
+    green: { red: 0.2, green: 1, blue: 0.75 },
+    blue: { red: 0.2, green: 1, blue: 1 },
+    yellow: { red: 1, green: 1, blue: 0.4 }
+} as const;

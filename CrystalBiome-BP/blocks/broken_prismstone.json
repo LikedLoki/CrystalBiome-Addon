@@ -8,6 +8,7 @@
 			"identifier": "cb2:broken_prismstone"
 		},
 		"components": {
+			"cb2:broken_prism": {},
 			"minecraft:destructible_by_mining": false,
 			"minecraft:destructible_by_explosion": false,
 			"minecraft:geometry": {

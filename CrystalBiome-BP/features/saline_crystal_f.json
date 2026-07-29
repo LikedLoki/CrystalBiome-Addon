@@ -5,7 +5,7 @@
 			"identifier": "cb2:saline_crystal_f"
 		},
 		"places_block": {
-			"name": "cb2:saline_crystal"
+			"name": "cb2:saline_crystal_block"
 		},
 		"enforce_placement_rules": false,
 		"enforce_survivability_rules": false,

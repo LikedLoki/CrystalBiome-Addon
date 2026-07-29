@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.130",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -8,18 +8,27 @@
 			"identifier": "cb2:crystal_block"
 		},
 		"components": {
-						"cb2:crystalstep": {
-				"name": "blue"
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystal_block"
+				}
 			},
-			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"cb2:crystalstep": "blue",
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},
-			"tag:cb2:crystal": {},
-			"tag:cb2:rawcrystal": {},
+			"minecraft:tags": [
+				"cb2:crystal",
+				"cb2:rawcrystal",
+				"minecraft:is_pickaxe_item_destructible"
+			],
 			"minecraft:redstone_conductivity": {
 				"redstone_conductor": true,
-				"allows_wire_to_step_down": true
+				"allows_wire_to_step_down": false
+			},
+			"minecraft:movable": {
+				"movement_type": "push_pull"
 			},
 			"minecraft:collision_box": true,
 			"minecraft:selection_box": true,
@@ -27,7 +36,7 @@
 			"minecraft:light_emission": 0,
 			"minecraft:friction": 0.4,
 			"minecraft:flammable": false,
-			"minecraft:loot": "loot_tables/blocks/block_crystal_blue.json",
+			"minecraft:loot": "loot_tables/blocks/blue_crystal_block_loot.json",
 			"minecraft:map_color": "#72D7FF",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 6

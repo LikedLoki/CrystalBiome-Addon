@@ -2,7 +2,7 @@
 	"format_version": "1.12",
 	"minecraft:recipe_shaped": {
 		"description": {
-			"identifier": "cb2:green_crystal_crystal_cluster_display_recipe"
+			"identifier": "cb2:yellow_crystal_cluster_display_recipe"
 		},
 		"tags": [
 			"crystal_worktable"
@@ -12,10 +12,10 @@
 				"item": "cb2:fertile_crystal_block"
 			},
 			"b": {
-				"item": "cb2:chiseled_green_crystal_crystal_block"
+				"item": "cb2:chiseled_yellow_crystal_block"
 			},
 			"c": {
-				"item": "cb2:green_crystal_crystal_bricks_slab"
+				"item": "cb2:yellow_crystal_bricks_slab"
 			}
 		},
 		"pattern": [
@@ -24,7 +24,7 @@
 			"c"
 		],
 		"result": {
-			"item": "cb2:green_crystal_crystal_cluster_display",
+			"item": "cb2:yellow_crystal_cluster_display",
 			"count": 1
 		}
 	}

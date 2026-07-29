@@ -18,7 +18,7 @@
 		"may_grow_on": [
 			"cb2:crystal_block",
 			"cb2:green_crystal_block",
-			"cb2:saline_crystal"
+			"cb2:saline_crystal_block"
 		],
 		"may_replace": [
 			"minecraft:air",

@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.80",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -11,22 +11,33 @@
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "cb2_polished_red_crystal_block",
-					"render_method": "opaque"
+					"texture": "cb2_polished_red_crystal_block"
 				}
 			},
-			"tag:cb2:crystal": {},
-			"minecraft:light_emission": 0,
-			"minecraft:light_dampening": 15,
-			"minecraft:map_color": "#FFB7B7",
-			"minecraft:destructible_by_explosion": {
-				"explosion_resistance": 6
-			},
-			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},
-			"minecraft:friction": 0.4
+			"minecraft:tags": [
+				"cb2:crystal",
+				"minecraft:is_pickaxe_item_destructible"
+			],
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": false
+			},
+			"minecraft:movable": {
+				"movement_type": "push_pull"
+			},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": false,
+			"minecraft:map_color": "#72D7FF",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			}
 		}
 	}
 }

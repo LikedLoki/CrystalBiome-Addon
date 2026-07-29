@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.100",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -8,22 +8,24 @@
 			"identifier": "cb2:rare_crystal_block"
 		},
 		"components": {
-			"minecraft:redstone_conductivity": {
-				"redstone_conductor": true,
-				"allows_wire_to_step_down": true
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_rare_crystal_block"
+				}
 			},
-			"tag:cb2:crystal": {},
-			"tag:cb2:rawcrystal": {},
-			"minecraft:loot": "loot_tables/rare_crystal_loot.json",
-			"minecraft:light_dampening": 15,
-			"minecraft:light_emission": 0,
-			"minecraft:map_color": "#0086A4",
-			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},
-			"minecraft:destructible_by_explosion": {
-				"explosion_resistance": 6
+			"minecraft:loot": "loot_tables/rare_crystal_loot.json",
+			"minecraft:tags": [
+				"cb2:crystal",
+				"cb2:rawcrystal",
+				"minecraft:is_pickaxe_item_destructible"
+			],
+			"minecraft:redstone_conductivity": {
+				"allows_wire_to_step_down": false,
+				"redstone_conductor": true
 			}
 		}
 	}

@@ -2,7 +2,7 @@
 	"format_version": "1.21.20",
 	"minecraft:jigsaw": {
 		"description": {
-			"identifier": "cb2:crystal_fort1"
+			"identifier": "cb2:crystal_under_forts"
 		},
 		"biome_filters": {
 			"any_of": [
@@ -20,12 +20,18 @@
 		},
 		"step": "surface_structures",
 		"terrain_adaptation": "beard_thin",
-		"start_pool": "cb2:miniforts_pool",
+		"start_pool": "cb2:miniforts_under_pool",
 		"max_depth": 1,
 		"start_height": {
 			"type": "constant",
 			"value": {
-				"absolute": 0
+				"absolute": -16
+			},
+			"max": {
+				"absolute": -16
+			},
+			"min": {
+				"absolute": -32
 			}
 		},
 		"heightmap_projection": "world_surface"

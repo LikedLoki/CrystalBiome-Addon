@@ -70,13 +70,14 @@
 						"block": {
 							"tags": "query.any_tag( 'cb2:orbshard' )"
 						},
-						"speed": 12
+						"speed": 8
 					}
 				]
 			},
 			"minecraft:tags": {
 				"tags": [
 					"cb2:crystaling_polished",
+					"cb2:polished_pickaxe",
 					"minecraft:is_pickaxe"
 				]
 			}

@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "cb2:miniforts_under"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 23957111,
+			"spacing": 6,
+			"separation": 2,
+			"spread_type": "linear"
+		},
+		"structures": [
+			{
+				"structure": "cb2:crystal_under_forts",
+				"weight": 1
+			}
+		]
+	}
+}

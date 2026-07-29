@@ -35,8 +35,12 @@
 						"noise_frequency_scale": 12,
 						"targets": [
 							"minecraft:plains",
+							"minecraft:flower_forest",
 							"minecraft:taiga",
 							"minecraft:birch_forest",
+							"minecraft:birch_forest_hills",
+							"minecraft:birch_forest_hills_mutated",
+							"minecraft:birch_forest_mutated",
 							"minecraft:jungle",
 							"minecraft:savanna",
 							"minecraft:forest"

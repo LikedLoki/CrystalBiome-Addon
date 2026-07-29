@@ -32,8 +32,9 @@ import { Box } from "./box";
 import { CompressedIceCrystal, ProgressIceCrystal } from "./ice_crystal";
 import { hardentDeepCrystal } from "./hardent_deep_crystal";
 import { KnowledgeCrystal } from "./knowledge_crystal";
-import { PrismStone } from "./prisms";
+import { PrismStone, RestorationPrism } from "./prisms";
 import { resonanceNode } from "./resonance_node";
+import { CrystalPowder } from "./crystal_powder";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
     blockComponentRegistry.registerCustomComponent("cb2:cluster_display", Display);
@@ -76,4 +77,6 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     itemComponentRegistry.registerCustomComponent("cb2:knowledge", KnowledgeCrystal);
     blockComponentRegistry.registerCustomComponent("cb2:prism_stone", PrismStone);
     blockComponentRegistry.registerCustomComponent("cb2:resonance_node", resonanceNode);
+    blockComponentRegistry.registerCustomComponent("cb2:broken_prism", RestorationPrism);
+    itemComponentRegistry.registerCustomComponent("cb2:crystal_powder", CrystalPowder)
 })

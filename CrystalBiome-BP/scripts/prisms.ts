@@ -1,4 +1,4 @@
-import { Block, BlockCustomComponent, Dimension, Entity, MolangVariableMap, Player, system, Vector3, world } from "@minecraft/server";
+import { Block, BlockCustomComponent, Container, Dimension, Entity, ItemStack, MolangVariableMap, Player, system, Vector3, world } from "@minecraft/server";
 import { sleep } from "./other";
 import { PrismInfoAdmin } from "./prism-info-fn";
 import { PrismInfo } from "./crystal-biome";
@@ -412,5 +412,30 @@ export const PrismStone: BlockCustomComponent = {
     onTick({ dimension, block }) {
         radiationPrism(dimension, block);
         raidOnPrism(dimension, block);
+    }
+};
+export const RestorationPrism: BlockCustomComponent = {
+    async onPlayerInteract({ dimension, block, player }) {
+        if (!player) return;
+        const container: Container | undefined = player.getComponent("minecraft:inventory")?.container;
+        const item: ItemStack | undefined = container?.getItem(player.selectedSlotIndex);
+        if (!container || !item || item.typeId !== "cb2:crystal_heart_shard") return;
+        const nxtAmnt = item.amount - 1;
+        if (nxtAmnt > 0) {
+            item.amount--;
+            container?.setItem(player.selectedSlotIndex, item);
+        } else {
+            container?.setItem(player.selectedSlotIndex, undefined);
+        }
+        block.setType("cb2:prismstone");
+        dimension.spawnParticle("cb2:prismstone_startup_particle", block.center());
+        dimension.playSound("break.amethyst_cluster", block.center(), { pitch: 2 });
+        dimension.playSound("break.amethyst_cluster", block.center(), { pitch: 2 });
+        await sleep(1);
+        dimension.playSound("break.amethyst_cluster", block.center(), { pitch: 1.5 });
+        dimension.playSound("break.amethyst_cluster", block.center(), { pitch: 1.5 });
+        await sleep(1);
+        dimension.playSound("break.amethyst_cluster", block.center(), { pitch: 1 });
+        dimension.playSound("break.amethyst_cluster", block.center(), { pitch: 1 });
     }
 }

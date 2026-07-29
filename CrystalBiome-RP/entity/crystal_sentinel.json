@@ -60,7 +60,7 @@
 				"default": "geometry.crystal_guards"
 			},
 			"render_controllers": [
-				"controller.render.crystal_guard"
+				"controller.render.crystal_sentinel"
 			],
 			"spawn_egg": {
 				"texture": "cb2_crystal_guard_spawn_egg"

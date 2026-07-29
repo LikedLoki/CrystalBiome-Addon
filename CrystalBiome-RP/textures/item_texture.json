@@ -53,9 +53,6 @@
 		"cb2_crystal_wand_spike": {
 			"textures": "textures/items/crystal_wand_spike"
 		},
-		"cb2_crystal_salt": {
-			"textures": "textures/items/crystal_salt"
-		},
 		"cb2_saline_shard": {
 			"textures": "textures/items/saline_shard"
 		},
@@ -364,6 +361,21 @@
 		},
 		"cb2_knowledge_shard": {
 			"textures": "textures/items/knowledge_shard"
+		},
+		"cb2_crystal_powder": {
+			"textures": "textures/items/crystal_powder"
+		},
+		"cb2_red_crystal_powder": {
+			"textures": "textures/items/red_crystal_powder"
+		},
+		"cb2_green_crystal_powder": {
+			"textures": "textures/items/green_crystal_powder"
+		},
+		"cb2_yellow_crystal_powder": {
+			"textures": "textures/items/yellow_crystal_powder"
+		},
+		"cb2_saline_crystal_powder": {
+			"textures": "textures/items/saline_crystal_powder"
 		}
 	}
 }

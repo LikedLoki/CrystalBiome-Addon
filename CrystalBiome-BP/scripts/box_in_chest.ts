@@ -1,4 +1,4 @@
-import { Block, BlockCustomComponent, BlockCustomComponentInstance, Container, Dimension, ItemStack, Player, PlayerBreakBlockBeforeEvent, system, Vector3, world } from "@minecraft/server";
+import { Block, BlockCustomComponent, BlockCustomComponentInstance, BlockDynamicPropertiesComponent, Container, Dimension, ItemStack, Player, PlayerBreakBlockBeforeEvent, system, Vector3, world } from "@minecraft/server";
 import { sleep } from "./other";
 
 type Result = "成功" | "このアイテムは入りません" | "既に他のアイテムが入っています" | "これ以上入りません";
@@ -56,7 +56,7 @@ const checkCondition = (blockId: BoxBlockId, itemId: string, boxInfo: BoxInfo): 
     return conditions.find(dataI => dataI !== null) ?? "成功";
 }
 
-const intoBox = (block: Block, props: BlockCustomComponentInstance, boxInfo: BoxInfo, itemId: ItemAllowList) => {
+const intoBox = (block: Block, props: BlockDynamicPropertiesComponent, boxInfo: BoxInfo, itemId: ItemAllowList) => {
     const newInfo: BoxInfo = {
         "before": {
             "itemId": itemId,

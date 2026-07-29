@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.80",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -8,16 +8,35 @@
 			"identifier": "cb2:flare_crystal_ore"
 		},
 		"components": {
-			"tag:cb2:crystal": {},
-			"tag:cb2:rawcrystal": {},
-			"minecraft:loot": "loot_tables/flare_crystal_loot.json",
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_flare_crystal_ore"
+				}
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 3.2
+			},
+			"minecraft:tags": [
+				"cb2:crystal",
+				"cb2:rawcrystal",
+				"minecraft:is_pickaxe_item_destructible"
+			],
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": false
+			},
+			"minecraft:movable": {
+				"movement_type": "push_pull"
+			},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
 			"minecraft:light_dampening": 15,
 			"minecraft:light_emission": 0,
-			"minecraft:map_color": "#A95700",
-			"tag:minecraft:is_pickaxe_item_destructible": {},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 2.4
-			},
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": false,
+			"minecraft:loot": "loot_tables/flare_crystal_loot.json",
+			"minecraft:map_color": "#72D7FF",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 6
 			}

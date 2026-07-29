@@ -6,7 +6,7 @@ const typeIdList = [
     "cb2:red_crystal_block",
     "cb2:green_crystal_block",
     "cb2:yellow_crystal_block",
-    "cb2:saline_crystal",
+    "cb2:saline_crystal_block",
     "cb2:deep_crystal_block",
 
     //水晶の芽

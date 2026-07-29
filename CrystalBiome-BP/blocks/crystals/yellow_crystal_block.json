@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.110",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -8,24 +8,36 @@
 			"identifier": "cb2:yellow_crystal_block"
 		},
 		"components": {
-			"minecraft:redstone_conductivity": {
-				"redstone_conductor": true,
-				"allows_wire_to_step_down": true
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_yellow_crystal_block"
+				}
 			},
-			"cb2:crystalstep": {
-				"name": "yellow"
-			},
-			"tag:cb2:crystal": {},
-			"tag:cb2:rawcrystal": {},
-			"minecraft:friction": 0.5,
-			"minecraft:light_dampening": 15,
-			"minecraft:light_emission": 0,
-			"minecraft:loot": "loot_tables/blocks/block_crystal_yellow.json",
-			"minecraft:map_color": "#FFF152",
-			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"cb2:crystalstep": "yellow",
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},
+			"minecraft:tags": [
+				"cb2:crystal",
+				"cb2:rawcrystal",
+				"minecraft:is_pickaxe_item_destructible"
+			],
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": false
+			},
+			"minecraft:movable": {
+				"movement_type": "push_pull"
+			},
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:light_dampening": 15,
+			"minecraft:light_emission": 0,
+			"minecraft:friction": 0.5,
+			"minecraft:flammable": false,
+			"minecraft:loot": "loot_tables/blocks/block_crystal_yellow.json",
+			"minecraft:map_color": "#72D7FF",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 6
 			}

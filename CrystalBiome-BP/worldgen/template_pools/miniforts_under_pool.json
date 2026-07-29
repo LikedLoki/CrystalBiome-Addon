@@ -1,0 +1,26 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:template_pool": {
+		"description": {
+			"identifier": "cb2:miniforts_under_pool"
+		},
+		"elements": [
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbplain_under_fort1",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbplain_under_fort2",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1
+			}
+		]
+	}
+}

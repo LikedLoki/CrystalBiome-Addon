@@ -1,4 +1,4 @@
-import { Block, BlockCustomComponent, Entity, MolangVariableMap, Player, system, Vector3, VectorXZ } from "@minecraft/server";
+import { Block, BlockCustomComponent, Entity, GameMode, MolangVariableMap, Player, system, Vector3, VectorXZ } from "@minecraft/server";
 import { getBlocks } from "./other";
 import { crystalSpawnFn, SettingColor } from "./crystal-spawn-fn"
 
@@ -28,9 +28,19 @@ export const Spawner: BlockCustomComponent = {
         const activeState: number = block.permutation.getState("cb2:active" as any);
         if (activeState === 2) return;
         if (activeState === 0) {
+            const { x, y, z } = block.center()
             const hasPlayer: boolean = dimension.getPlayers({
-                "location": block.center(),
-                "maxDistance": 4
+                "location": {
+                    "x": x - 4,
+                    "y": y - 2,
+                    "z": z - 4
+                },
+                "volume": {
+                    "x": 8,
+                    "y": 4,
+                    "z": 8
+                },
+                "gameMode": GameMode.Survival
             })[0] ? true : false;
             if (!hasPlayer) return;
             const vars: MolangVariableMap = new MolangVariableMap();

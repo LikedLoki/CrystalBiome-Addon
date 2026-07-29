@@ -19,7 +19,7 @@
 		},
 		"distribution": {
 			"scatter_chance": {
-				"denominator": 8,
+				"denominator": 12,
 				"numerator": 1
 			},
 			"iterations": "math.floor(math.random(2, 4))",

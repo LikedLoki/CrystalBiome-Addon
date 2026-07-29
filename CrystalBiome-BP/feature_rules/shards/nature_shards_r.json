@@ -22,7 +22,7 @@
 				"denominator": 1,
 				"numerator": 1
 			},
-			"iterations": 16,
+			"iterations": 24,
 			"x": {
 				"distribution": "uniform",
 				"extent": [
