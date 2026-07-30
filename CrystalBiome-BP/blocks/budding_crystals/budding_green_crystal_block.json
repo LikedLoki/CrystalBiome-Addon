@@ -9,9 +9,7 @@
 		},
 		"components": {
 			"cb2:budding_crystal": "green",
-						"cb2:crystalstep": {
-				"name": "blue"
-			},
+			"cb2:crystalstep": "green",
 			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4

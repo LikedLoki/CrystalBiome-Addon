@@ -95,12 +95,8 @@ const updateStairs = (dimension: Dimension, block: Block) => {
     if (!nearBlock) return;
 
     const nearState: NearBlockState = getNearState(nearBlock); 
-    console.log(JSON.stringify(nearState))
     const { front, back } = nearState;
     const connect = { "front": 0, "back": 0 };
-
-    console.log(vertical, front?.vertical, back?.vertical)
-        console.log(selfRelatMap.left, front?.facing)
 
     if (vertical === front?.vertical) {
         if (selfRelatMap.left === front.facing) connect.front = 2;
@@ -115,7 +111,6 @@ const updateStairs = (dimension: Dimension, block: Block) => {
     }
 
     const currPerm = block.permutation;
-    console.log(connect.front, connect.back)
     const newPerm = currPerm
         .withState("cb2:connect_front" as any, connect.front)
         .withState("cb2:connect_back" as any, connect.back);

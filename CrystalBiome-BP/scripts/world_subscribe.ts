@@ -1,14 +1,14 @@
 import { EntityDamageCause, system, Vector3, world } from "@minecraft/server";
 import { furnaceCancel } from "./crystal_furnace_cancel";
 import { wallNearby } from "./wall_other";
-import { onBreak as boxBreak } from "./box_in_chest";
 import { ClusterBudBreak } from "./cluster_bud_break";
 import { SlayedClusterFragment, SlyaedExecutor, SlyaedWanderment } from "./crystal_guradual";
 import { PrismInfo } from "./crystal-biome";
+import { onBreak } from "./box_in_chest";
 
 
 world.beforeEvents.playerBreakBlock.subscribe((event) => {
-    boxBreak(event);
+    if (event.block.hasTag("cb2:box_in_chest")) onBreak(event);
 })
 world.afterEvents.playerBreakBlock.subscribe(({ dimension, block }) => {
     wallNearby(dimension, block);

@@ -8,9 +8,6 @@
 			"identifier": "cb2:closed_saline_crystal_block"
 		},
 		"components": {
-						"cb2:crystalstep": {
-				"name": "blue"
-			},
 			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4

@@ -8,9 +8,6 @@
 			"identifier": "cb2:red_crystal_box"
 		},
 		"components": {
-			"cb2:crystalstep": {
-				"name": "blue"
-			},
 			"cb2:box": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {
@@ -34,7 +31,6 @@
 			"minecraft:light_emission": 0,
 			"minecraft:friction": 0.4,
 			"minecraft:flammable": false,
-			"minecraft:loot": "loot_tables/blocks/block_crystal_blue.json",
 			"minecraft:map_color": "#72D7FF",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 6

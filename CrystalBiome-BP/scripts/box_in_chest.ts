@@ -1,113 +1,94 @@
 import { Block, BlockCustomComponent, BlockCustomComponentInstance, BlockDynamicPropertiesComponent, Container, Dimension, ItemStack, Player, PlayerBreakBlockBeforeEvent, system, Vector3, world } from "@minecraft/server";
-import { sleep } from "./other";
+import { buildLocName, parseLocName, sleep } from "./other";
+import { crystalBiomeEvent } from "./crystal-biome";
 
-type Result = "成功" | "このアイテムは入りません" | "既に他のアイテムが入っています" | "これ以上入りません";
-type ItemAllowList = keyof typeof resultMap;
-type BoxBlockId = keyof typeof capacityMap;
-type BoxBlock = Block & { "typeId": BoxBlockId };
-type ItemResultList = typeof resultMap[ItemAllowList];
-export type BoxInfo = {
-    "before": {
-        "itemId": ItemAllowList | "cb2:$empty",
-        "quantity": number
-    },
-    "after": {
-        "itemId": ItemResultList | "cb2:$empty",
-        "quantity": number
+type AllowedItem = ItemStack & { typeId: keyof typeof smeltingMap };
+type BoxChestInfo = {
+    before: {
+        typeId: string | null,
+        quantity: number
+    }
+    after: {
+        typeId: string | null,
+        quantity: number
     }
 }
 
-const resultMap = {
+const smeltingMap = {
     "cb2:crystal_block": "cb2:clear_crystal_block",
     "cb2:red_crystal_block": "cb2:clear_red_crystal_block",
     "cb2:green_crystal_block": "cb2:clear_green_crystal_block",
     "cb2:yellow_crystal_block": "cb2:clear_yellow_crystal_block",
-    "cb2:crysteel_material": "cb2:crysteel_ingot",
     "cb2:crystalcap_item": "cb2:baked_crystalcap_item"
 } as const;
-const capacityMap = {
-    "cb2:crystal_box_in_chest": 16,
-    "cb2:red_crystal_box_in_chest": 8,
-    "cb2:green_crystal_box_in_chest": 32,
-    "cb2:yellow_crystal_box_in_chest": 8
-} as const;
 
-const propsInitialize = (block: Block): void => {
-    const getProps = block.getComponent("minecraft:dynamic_properties");
-    const boxInfo: BoxInfo = {
-        "before": {
-            "itemId": "cb2:$empty",
-            "quantity": 0
-        },
-        "after": {
-            "itemId": "cb2:$empty",
-            "quantity": 0
+const signal = (locI: Vector3, locII: Vector3) => locI.x === locII.x && locI.y === locII.y + 1 && locI.z === locII.z
+
+const boxList: Map<string, Block> = new Map();
+
+crystalBiomeEvent.subscribe("furnace_lit", (event: Vector3) => {
+    boxList.forEach(block => {
+        if (!signal(block.location, event)) return;
+        const prop = block.getComponent("minecraft:dynamic_properties");
+        if (!prop) return;
+        const info = JSON.parse(prop.get("cb2:box_chest_info") as string) as BoxChestInfo;
+        if (info.before.typeId === null) return;
+        const times: number = +(prop.get("cb2:times") || 0);
+        if (times < 9) {
+            prop.set("cb2:times", times + 1);
+            return;
         }
-    }
-    getProps?.set("cb2:box_in_chest", JSON.stringify(boxInfo));
-};
-
-const checkCondition = (blockId: BoxBlockId, itemId: string, boxInfo: BoxInfo): Result => {
-    const conditions: (Result | null)[] = [
-        !(itemId in resultMap) ? "このアイテムは入りません" : null,
-        (itemId !== (boxInfo.before.itemId === "cb2:$empty" ? itemId : boxInfo.before.itemId)) ? "既に他のアイテムが入っています" : null,
-        (boxInfo.before.quantity > capacityMap[blockId] - 1) ? "これ以上入りません" : null
-    ] as const;
-    return conditions.find(dataI => dataI !== null) ?? "成功";
-}
-
-const intoBox = (block: Block, props: BlockDynamicPropertiesComponent, boxInfo: BoxInfo, itemId: ItemAllowList) => {
-    const newInfo: BoxInfo = {
-        "before": {
-            "itemId": itemId,
-            "quantity": boxInfo.before.quantity + 1
-        },
-        "after": {
-            "itemId": resultMap[itemId],
-            "quantity": boxInfo.after.quantity
+        if (info.before.quantity > 0) {
+            info.before.quantity--;
+            info.after.quantity++;
         }
-    };
-    const infoJson: string = JSON.stringify(newInfo);
-    props.set("cb2:box_in_chest", infoJson);
-    block.dimension.playSound("random.pop", block.location)
+        block.dimension.playSound("random.pop", block.center())
+        prop.set("cb2:box_chest_info", JSON.stringify(info));
+        prop.set("cb2:times", 0);
+    })
+})
 
-}
-
-const mainOrigin = (player: Player | undefined, block: BoxBlock): void => 
-    {
-    if (!player) return;
-
-    const getProps = block.getComponent("minecraft:dynamic_properties");
-    const boxInfo: BoxInfo = JSON.parse(getProps?.get("cb2:box_in_chest"));
-    const container: Container | undefined = player.getComponent("minecraft:inventory")?.container;
-    const item: ItemStack | undefined = container?.getItem(player.selectedSlotIndex);
-    if (!(getProps && boxInfo && container && item)) return;
-
-    const checkResult: Result = checkCondition(block.typeId, item.typeId, boxInfo);
-    if (checkResult === "成功") {
-        const newItem: ItemStack | undefined = item.amount <= 0 ? undefined : new ItemStack(item.typeId, item.amount - 1);
-        container.setItem(player.selectedSlotIndex, newItem);
-        intoBox(block, getProps, boxInfo, item.typeId as ItemAllowList);
-    } else player.sendMessage(checkResult);
-}
+const isAllowed = (item: ItemStack): item is AllowedItem => item.typeId in smeltingMap;
 
 export const BoxInChest: BlockCustomComponent = {
-    onPlace: ({ block }) => propsInitialize(block),
-    onPlayerInteract: ({ player, block }) => mainOrigin(player, block as BoxBlock)
-};
+    onPlayerInteract({ dimension, player, block }) {
+        if (!player) return;
+        const container: Container | undefined = player.getComponent("minecraft:inventory")?.container;
+        const item: ItemStack | undefined = container?.getItem(player.selectedSlotIndex);
+        if (!container || !item || !isAllowed(item)) return;
 
-export const onBreak = (event: PlayerBreakBlockBeforeEvent) => {
-    if (!event.block.hasTag("cb2:box_in_chest")) return;
-    const getProps = event.block.getComponent("minecraft:dynamic_properties");
-    const boxInfo: BoxInfo = JSON.parse(getProps?.get("cb2:box_in_chest"));
+        const prop = block.getComponent("minecraft:dynamic_properties");
+        if (!prop) return;
+
+        const info = JSON.parse(prop.get("cb2:box_chest_info") as string) as BoxChestInfo;
+        if (info.before.typeId !== null && info.before.typeId !== item.typeId) {
+            player.sendMessage("えぇ");
+            return;
+        }
+        info.before.typeId = item.typeId;
+        info.before.quantity++;
+        info.after.typeId = smeltingMap[item.typeId];
+        console.log(JSON.stringify(info))
+        prop.set("cb2:box_chest_info", JSON.stringify(info));
+    },
+    onPlace({ block }) {
+        boxList.set(buildLocName(block.location), block);
+        const prop = block.getComponent("minecraft:dynamic_properties");
+        if (!prop) return;
+        prop.set("cb2:box_chest_info", JSON.stringify({
+            before: { typeId: null, quantity: 0 },
+            after: { typeId: null, quantity: 0 }
+        }))
+    },
+};
+export const onBreak = ({ dimension, block }: PlayerBreakBlockBeforeEvent) => {
+    boxList.delete(buildLocName(block.location));
+    const prop = block.getComponent("minecraft:dynamic_properties");
+    if (!prop) return;
+    const info = JSON.parse(prop.get("cb2:box_chest_info") as string) as BoxChestInfo;
     system.run(() => {
-        if (boxInfo.before.quantity > 0) {
-            const B: ItemStack = new ItemStack(boxInfo.before.itemId, boxInfo.before.quantity);
-            event.dimension.spawnItem(B, event.block.center());
-        }
-        if (boxInfo.after.quantity > 0) {
-            const A: ItemStack = new ItemStack(boxInfo.after.itemId, boxInfo.after.quantity);
-            event.dimension.spawnItem(A, event.block.center())
-        }
+        if (info.before.typeId && info.before.quantity) dimension.spawnItem(new ItemStack(info.before.typeId, info.before.quantity), block.center())
+        if (info.after.typeId && info.after.quantity) dimension.spawnItem(new ItemStack(info.after.typeId, info.after.quantity), block.center())
     })
+
 }

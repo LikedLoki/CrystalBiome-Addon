@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.130",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -14,36 +14,20 @@
 				}
 			},
 			"states": {
-				"cb2:flame": [
+				"cb2:lit": [
 					false,
 					true
 				]
 			}
 		},
 		"components": {
-			"minecraft:item_visual": {
-				"geometry": "minecraft:geometry.full_block",
-				"material_instances": {
-				"*": {
-					"texture": "cb2_crystal_furnace_side",
-					"render_method": "opaque"
-				},
-				"south": {
-					"texture": "cb2_crystal_furnace",
-					"render_method": "opaque"
-				},
-				"up": {
-					"texture": "cb2_polished_crystal_block",
-					"render_method": "opaque"
-				},
-				"down": {
-					"texture": "cb2_polished_red_crystal_block",
-					"render_method": "opaque"
-				}
-			}
+			"minecraft:block_entity": {
+				"dynamic_properties": true
 			},
 			"cb2:crystal_furnace": {},
-			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:geometry": {
+				"identifier": "minecraft:geometry.full_block"
+			},
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "cb2_crystal_furnace_side",
@@ -65,34 +49,30 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('cb2:flame')",
+				"condition": "q.block_state('cb2:lit')",
 				"components": {
 					"minecraft:light_emission": 8,
 					"minecraft:material_instances": {
 						"*": {
-							"ambient_occlusion": false,
-							"face_dimming": true,
 							"texture": "cb2_crystal_furnace_side",
 							"render_method": "opaque"
 						},
 						"south": {
-							"ambient_occlusion": false,
 							"face_dimming": true,
 							"texture": "cb2_crystal_furnace_on",
 							"render_method": "opaque"
 						},
 						"up": {
-							"ambient_occlusion": false,
-							"face_dimming": true,
 							"texture": "cb2_polished_crystal_block",
 							"render_method": "opaque"
 						},
 						"down": {
-							"ambient_occlusion": false,
-							"face_dimming": true,
 							"texture": "cb2_polished_red_crystal_block",
 							"render_method": "opaque"
 						}
+					},
+					"minecraft:tick": {
+						"interval_range": [5, 5]
 					}
 				}
 			},

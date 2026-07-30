@@ -33,3 +33,21 @@ export const Color = {
     blue: { red: 0.2, green: 1, blue: 1 },
     yellow: { red: 1, green: 1, blue: 0.4 }
 } as const;
+
+class CrystalBiomeEvent {
+    #listeners: Record<string, Function[]>
+    constructor() {
+        this.#listeners = {}
+    }
+    subscribe(eventName: string, callback: Function): boolean {
+        if (!this.#listeners?.[eventName]) this.#listeners[eventName] = [];
+        this.#listeners[eventName].push(callback);
+        return true;
+    }
+    publish(eventName: string, event: any): boolean {
+        if (!this.#listeners?.[eventName]) return false;
+        for (const fn of this.#listeners[eventName]) fn(event);
+        return true;
+    }
+}
+export const crystalBiomeEvent = new CrystalBiomeEvent();

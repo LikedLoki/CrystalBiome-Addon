@@ -14,9 +14,6 @@
 					"texture": "cb2_saline_crystal_block"
 				}
 			},
-						"cb2:crystalstep": {
-				"name": "blue"
-			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},
