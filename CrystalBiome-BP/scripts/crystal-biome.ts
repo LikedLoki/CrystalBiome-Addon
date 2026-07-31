@@ -31,7 +31,8 @@ export const Color = {
     red: { red: 1, green: 0.45, blue: 0.45 },
     green: { red: 0.2, green: 1, blue: 0.75 },
     blue: { red: 0.2, green: 1, blue: 1 },
-    yellow: { red: 1, green: 1, blue: 0.4 }
+    yellow: { red: 1, green: 1, blue: 0.4 },
+    flare: { red: 1, green: 0.5, blue: 0 }
 } as const;
 
 class CrystalBiomeEvent {

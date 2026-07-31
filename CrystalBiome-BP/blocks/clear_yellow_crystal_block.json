@@ -42,7 +42,7 @@
 			{
 				"condition": "query.block_state('cb2:nature') == true",
 				"components": {
-					"minecraft:loot": "loot_tables/blocks/block_crystal_clearyellow.json"
+					"minecraft:loot": "loot_tables/blocks/clear_yellow_crystal_block_lt.json"
 				}
 			}
 		]

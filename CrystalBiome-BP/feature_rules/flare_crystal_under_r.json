@@ -24,7 +24,7 @@
 				"denominator": 1,
 				"numerator": 1
 			},
-			"iterations": 8,
+			"iterations": 32,
 			"coordinate_eval_order": "zyx",
 			"x": {
 				"distribution": "uniform",
@@ -37,7 +37,7 @@
 				"distribution": "gaussian",
 				"extent": [
 					0,
-					80
+					120
 				]
 			},
 			"z": {

@@ -212,7 +212,9 @@ export const CPolishing: BlockCustomComponent = {
                 if (!newDur) return;
                 newDur.damage += itemAdmin.durDamage;
                 newItem.getComponent("enchantable")?.addEnchantments(itemAdmin.enchants);
-                container.setItem(player.selectedSlotIndex, newItem)
+                container.setItem(player.selectedSlotIndex, newItem);
+                dimension.playSound("crystaling_polished", block.center());
+                dimension.spawnParticle("cb2:crystalenctable_use", block.center());
             }
         })
     }

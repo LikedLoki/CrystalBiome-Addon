@@ -35,6 +35,7 @@ import { KnowledgeCrystal } from "./knowledge_crystal";
 import { PrismStone, RestorationPrism } from "./prisms";
 import { resonanceNode } from "./resonance_node";
 import { CrystalPowder } from "./crystal_powder";
+import { CanSmelt } from "./can_smelt";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
     blockComponentRegistry.registerCustomComponent("cb2:cluster_display", Display);
@@ -78,5 +79,6 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     blockComponentRegistry.registerCustomComponent("cb2:prism_stone", PrismStone);
     blockComponentRegistry.registerCustomComponent("cb2:resonance_node", resonanceNode);
     blockComponentRegistry.registerCustomComponent("cb2:broken_prism", RestorationPrism);
-    itemComponentRegistry.registerCustomComponent("cb2:crystal_powder", CrystalPowder)
+    itemComponentRegistry.registerCustomComponent("cb2:crystal_powder", CrystalPowder);
+    blockComponentRegistry.registerCustomComponent("cb2:can_smelt", CanSmelt)
 })

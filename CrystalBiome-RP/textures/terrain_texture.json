@@ -720,6 +720,12 @@
 		},
 		"cb2_resonance_node_block_off": {
 			"textures": "textures/blocks/resonance_node_block_off"
+		},
+		"cb2_ice_crystal_bricks": {
+			"textures": "textures/blocks/ice_crystal_bricks"
+		},
+		"cb2_polished_ice_crystal_block": {
+			"textures": "textures/blocks/polished_ice_crystal_block"
 		}
 	}
 }

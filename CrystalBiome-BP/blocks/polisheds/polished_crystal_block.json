@@ -11,7 +11,8 @@
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "cb2_polished_crystal_block"
+					"texture": "cb2_polished_crystal_block",
+					"render_method": "blend"
 				}
 			},
 			"minecraft:destructible_by_mining": {

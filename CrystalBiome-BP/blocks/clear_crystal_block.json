@@ -39,9 +39,9 @@
 		},
 		"permutations": [
 			{
-				"condition": "query.block_state('cb2:nature') == true",
+				"condition": "query.block_state('cb2:nature')",
 				"components": {
-					"minecraft:loot": "loot_tables/blocks/block_crystal_clearblue.json"
+					"minecraft:loot": "loot_tables/blocks/clear_blue_crystal_block_lt.json"
 				}
 			}
 		]

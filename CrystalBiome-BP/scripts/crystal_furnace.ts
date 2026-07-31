@@ -1,5 +1,5 @@
 import { Block, BlockCustomComponent, system, Vector3 } from "@minecraft/server"
-import { crystalBiomeEvent } from "./crystal-biome"
+import { Color, crystalBiomeEvent, particleColor } from "./crystal-biome"
 import { buildLocName, parseLocName, sleep } from "./other"
 
 type FuelTypeId = typeof fuelList[number];
@@ -22,6 +22,11 @@ const furnaceFizz = (block: Block) => block.setPermutation(block.permutation.wit
 const getFurnaceLit = (block: Block): boolean => !!block.permutation.getState("cb2:lit" as any);
 
 export const CrystalFurnace: BlockCustomComponent = {
+    onPlace({ block }) {
+        const below: Block | undefined = block.below();
+        if (!below || below.typeId !== "cb2:flare_crystal_block") return;
+        below.setPermutation(below.permutation.withState("cb2:powered" as any, true).withState("cb2:fuel" as any, 15));
+    },
     async onPlayerInteract({ dimension, block }) {
         const below: Block | undefined = block.below();
         if (!below || !isFuel(below)) return;
@@ -54,7 +59,8 @@ export const CrystalFurnace: BlockCustomComponent = {
         if (currTimes < 9) prop.set("cb2:times", currTimes + 1);
         else {
             fuelConsume(below);
-            dimension.spawnParticle("cb2:powered_flare", below.center());
+            particleColor.setColorRGB("variable.color", Color.flare)
+            for (let i = 0; i < 8; i++) dimension.spawnParticle("cb2:crystal_particle_disc", below.center(), particleColor);
             dimension.playSound("mob.blaze.shoot", block.center(), { pitch: 2 });
             prop.set("cb2:times", 0)
         }

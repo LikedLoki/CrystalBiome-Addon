@@ -8,6 +8,12 @@
 			"identifier": "cb2:rare_crystal_ore"
 		},
 		"components": {
+			"cb2:can_smelt": {
+				"type": "item",
+				"after": "cb2:rare_crystal_shard",
+				"times": 16,
+				"amount": 2
+			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {

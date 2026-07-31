@@ -5,7 +5,8 @@
 				{
 					"condition": "match_tool",
 					"minecraft:match_tool_filter_none": [
-						"minecraft:is_axe"
+						"minecraft:is_axe",
+						"cb2:yellow_crystal_pickaxe"
 					]
 				}
 			],
@@ -13,7 +14,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "cb2:crystal_shard",
+					"name": "cb2:yellow_crystal_shard",
 					"functions": [
 						{
 							"function": "set_count",
@@ -39,7 +40,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "cb2:crystal_powder",
+					"name": "cb2:yellow_crystal_powder",
 					"functions": [
 						{
 							"function": "set_count",
@@ -49,6 +50,23 @@
 							}
 						}
 					]
+				}
+			]
+		},
+		{
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"minecraft:match_tool_filter_any": [
+						"cb2:yellow_crystal_pickaxe"
+					]
+				}
+			],
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "cb2:yellow_crystal_block"
 				}
 			]
 		}
