@@ -5,8 +5,14 @@ import { ClusterBudBreak } from "./cluster_bud_break";
 import { SlayedClusterFragment, SlyaedExecutor, SlyaedWanderment } from "./crystal_guradual";
 import { PrismInfo } from "./crystal-biome";
 import { onBreak } from "./box_in_chest";
+import { PowderBottoleProj } from "./powder_bottle_proj";
 
-
+world.afterEvents.projectileHitBlock.subscribe((event) => {
+    PowderBottoleProj(event);
+});
+world.afterEvents.projectileHitEntity.subscribe((event) => {
+    PowderBottoleProj(event);
+})
 world.beforeEvents.playerBreakBlock.subscribe((event) => {
     if (event.block.hasTag("cb2:box_in_chest")) onBreak(event);
 })

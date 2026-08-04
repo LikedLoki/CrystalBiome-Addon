@@ -1,7 +1,8 @@
 import { system, BlockCustomComponent, Player, ItemStack, Container, EntityInventoryComponent, world, ItemEnchantableComponent, Enchantment, ItemDurabilityComponent } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
+import { CrystColor } from "./crystal-biome";
 
-type AllowedId = keyof typeof costMap;
+type AllowedId = typeof allowedList[number];
 type AllowedItem = ItemStack & { typeId: AllowedId };
 type FirstToken = "rough" | "polished" | "refined";
 type SecondToken = "red" | "green" | "blue" | "yellow";
@@ -19,56 +20,49 @@ type Rank = {
     next: "rough" | "polished" | "refined" | "none",
 }
 const itmReq = (typeId: string, amount: number): ItemRequired => ({ typeId: typeId, amount: amount });
-const costMap: Record<IdString, ItemRequired[]> = {
-    "cb2:rough_red_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_green_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_blue_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_yellow_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_red_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_green_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_blue_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_yellow_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_red_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_green_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_blue_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_yellow_crystal_sword": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_red_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_green_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_blue_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_yellow_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_red_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_green_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_blue_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_yellow_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_red_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_green_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_blue_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_yellow_crystal_pickaxe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_red_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_green_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_blue_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_yellow_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_red_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_green_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_blue_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_yellow_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_red_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_green_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_blue_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_yellow_crystal_axe": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_green_crystal_helmet": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_blue_crystal_chestplate": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_red_crystal_leggings": [itmReq("cb2:crystal_block", 8),],
-    "cb2:rough_yellow_crystal_boots": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_green_crystal_helmet": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_blue_crystal_chestplate": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_red_crystal_leggings": [itmReq("cb2:crystal_block", 8),],
-    "cb2:polished_yellow_crystal_boots": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_green_crystal_helmet": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_blue_crystal_chestplate": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_red_crystal_leggings": [itmReq("cb2:crystal_block", 8),],
-    "cb2:refined_yellow_crystal_boots": [itmReq("cb2:crystal_block", 8),]
+
+const getCost = (typeId: AllowedId): ItemRequired[] => {
+    const fmt: string[] = typeId.replace("cb2:", "").split("_");
+    const rank = fmt[0] as Rank["now"];
+    const color = fmt[1] as CrystColor;
+    const inlineColor = color === "blue" ? "" : color + "_";
+    if (rank === "rough") return [itmReq(`cb2:${inlineColor}crystal_block`, 8), itmReq(`cb2:${inlineColor}crystal_shard`, 12), itmReq(`cb2:${inlineColor}crystal_powder`, 16),];
+    else return [itmReq(`cb2:${inlineColor}crystal_block`, 16), itmReq("cb2:rare_crystal_shard", 16), itmReq("cb2:rare_crystal_block", 24)]
 }
+const allowedList = [
+  "cb2:rough_red_crystal_sword",
+  "cb2:rough_green_crystal_sword",
+  "cb2:rough_blue_crystal_sword",
+  "cb2:rough_yellow_crystal_sword",
+  "cb2:polished_red_crystal_sword",
+  "cb2:polished_green_crystal_sword",
+  "cb2:polished_blue_crystal_sword",
+  "cb2:polished_yellow_crystal_sword",
+  "cb2:rough_red_crystal_pickaxe",
+  "cb2:rough_green_crystal_pickaxe",
+  "cb2:rough_blue_crystal_pickaxe",
+  "cb2:rough_yellow_crystal_pickaxe",
+  "cb2:polished_red_crystal_pickaxe",
+  "cb2:polished_green_crystal_pickaxe",
+  "cb2:polished_blue_crystal_pickaxe",
+  "cb2:polished_yellow_crystal_pickaxe",
+  "cb2:rough_red_crystal_axe",
+  "cb2:rough_green_crystal_axe",
+  "cb2:rough_blue_crystal_axe",
+  "cb2:rough_yellow_crystal_axe",
+  "cb2:polished_red_crystal_axe",
+  "cb2:polished_green_crystal_axe",
+  "cb2:polished_blue_crystal_axe",
+  "cb2:polished_yellow_crystal_axe",
+  "cb2:rough_green_crystal_helmet",
+  "cb2:rough_blue_crystal_chestplate",
+  "cb2:rough_red_crystal_leggings",
+  "cb2:rough_yellow_crystal_boots",
+  "cb2:polished_green_crystal_helmet",
+  "cb2:polished_blue_crystal_chestplate",
+  "cb2:polished_red_crystal_leggings",
+  "cb2:polished_yellow_crystal_boots"
+] as const;
 const parseMap = {
     rough: "粗い",
     polished: "磨かれた",
@@ -88,9 +82,17 @@ const parseMap = {
 } as const;
 const translateMap = {
     "cb2:crystal_block": "蒼水晶の原石",
+    "cb2:crystal_shard": "蒼水晶の欠片",
+    "cb2:crystal_powder": "蒼水晶の粉末",
     "cb2:red_crystal_block": "紅水晶の原石",
+    "cb2:red_crystal_shard": "紅水晶の欠片",
+    "cb2:red_crystal_powder": "紅水晶の粉末",
     "cb2:green_crystal_block": "翠水晶の原石",
-    "cb2:yellow_crystal_block": "黄水晶の原石"
+    "cb2:green_crystal_shard": "翠水晶の欠片",
+    "cb2:green_crystal_powder": "翠水晶の粉末",
+    "cb2:yellow_crystal_block": "黄水晶の原石",
+    "cb2:yellow_crystal_shard": "黄水晶の欠片",
+    "cb2:yellow_crystal_powder": "黄水晶の粉末"
 } as const;
 const rankMap = {
     "rough": "polished",
@@ -106,7 +108,7 @@ class ItemAdmin {
     constructor(itemStack: AllowedItem) {
         this.#item = itemStack;
         this.#typeId = this.#item.typeId.replace("cb2:", "").split("_") as IdTuple;
-        this.#cost = costMap[this.typeId];
+        this.#cost = getCost(this.typeId);
         this.#rank = { now: this.#typeId[0], next: rankMap[this.#typeId[0]] };
     }
     get typeId(): AllowedId {
@@ -172,7 +174,7 @@ const clearItem = (costList: ItemRequired[], container: Container) => {
     return true;
 }
 
-const isAllowed = (item: ItemStack): item is AllowedItem => item.typeId in costMap;
+const isAllowed = (item: ItemStack): item is AllowedItem => allowedList.includes(item.typeId as any);
 
 export const CPolishing: BlockCustomComponent = {
     onPlayerInteract({ dimension, player, block }) {

@@ -1,0 +1,23 @@
+{
+	"format_version": "1.26.30",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:red_crystal_powder_bottle",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:projectile": {
+				"minimum_critical_power": 1.25,
+				"projectile_entity": "cb2:powder_bottle_red_proj"
+			},
+			"minecraft:throwable": {
+				"do_swing_animation": true,
+				"launch_power_scale": 1
+			},
+            "minecraft:max_stack_size": 64,
+			"minecraft:icon": "cb2_red_crystal_powder_bottle"
+		}
+	}
+}

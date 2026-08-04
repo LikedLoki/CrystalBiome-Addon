@@ -8,6 +8,12 @@
 			"identifier": "cb2:refined_rare_crystal_block"
 		},
 		"components": {
+			"cb2:can_smelt": {
+				"type": "item",
+				"after": "cb2:crystal_bottle",
+				"times": 16,
+				"amount": 4
+			},
 			"tag:cb2:crystal": {},
 			"minecraft:light_emission": 0,
 			"minecraft:light_dampening": 0,

@@ -44,7 +44,6 @@ crystalBiomeEvent.subscribe("furnace_lit", (event: Vector3) => {
 
 export const CanSmelt: BlockCustomComponent = {
     onPlace({ block }, { params }) {
-        console.log("d")
         const param = params as Params
         list.set(buildLocName(block.location), { block: block, param: param })
     },

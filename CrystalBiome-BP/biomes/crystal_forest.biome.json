@@ -10,13 +10,16 @@
 			},
 			"minecraft:surface_builder": {
 				"builder": {
-					"type": "minecraft:overworld",
-					"sea_floor_depth": 7,
-					"sea_floor_material": "cb2:crystal_block",
+					"type": "minecraft:capped",
+					"ceiling_materials": [
+						"cb2:deep_crystal_block"
+					],
+					"floor_materials": [
+						"cb2:crystal_block"
+					],
 					"foundation_material": "cb2:deep_crystal_block",
-					"mid_material": "cb2:crystal_block",
-					"top_material": "cb2:crystal_block",
-					"sea_material": "minecraft:water"
+					"sea_material": "water",
+					"beach_material": "cb2:crystal_block"
 				}
 			},
 			"minecraft:climate": {},
@@ -33,14 +36,16 @@
 					{
 						"amount": 0.2,
 						"dimension": "minecraft:overworld",
-						"noise_frequency_scale": 0.2,
+						"noise_frequency_scale": 0.1,
 						"targets": [
 							"minecraft:plains",
-							"minecraft:taiga",
+							"minecraft:forest",
 							"minecraft:birch_forest",
-							"minecraft:jungle",
+							"minecraft:desert",
 							"minecraft:savanna",
-							"minecraft:forest"
+							"minecraft:taiga",
+							"minecraft:jungle",
+							"minecraft:ice_plains"
 						]
 					}
 				]

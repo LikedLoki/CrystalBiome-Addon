@@ -11,7 +11,8 @@ export const CrystalStep: BlockCustomComponent = {
                 "y": block.location.y + 1,
                 "z": block.center().z
             }
-            dimension.spawnParticle("cb2:crystal_particle", loc, particleColor);
+            try { dimension.spawnParticle("cb2:crystal_particle", loc, particleColor); }
+            catch(_) {}
         }
     }
 };

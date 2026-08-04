@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.80",
+	"format_version": "1.21.110",
 	"minecraft:item": {
 		"description": {
 			"identifier": "cb2:rough_green_crystal_axe",
@@ -9,9 +9,9 @@
 			}
 		},
 		"components": {
-			"minecraft:custom_components": [
-				"cb2:itemdamage_mine"
-			],
+			"fristia:minedamage":{
+				"damage": 1
+			},
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {

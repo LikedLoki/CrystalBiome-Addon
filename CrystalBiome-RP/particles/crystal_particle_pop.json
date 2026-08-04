@@ -26,14 +26,14 @@
 				"rotation": "math.random(0,360)",
 				"rotation_rate": 16
 			},
-			"minecraft:particle_initial_speed": 4,
+			"minecraft:particle_initial_speed": 8,
 			"minecraft:particle_motion_dynamic": {
 				"linear_acceleration": [
 					0,
 					2,
 					0
 				],
-				"linear_drag_coefficient": 2
+				"linear_drag_coefficient": 4
 			},
 			"minecraft:particle_appearance_billboard": {
 				"size": [0.2, 0.2],

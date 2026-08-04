@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:powder_bottle_green_proj",
+			"materials": {
+				"default": "egg"
+			},
+			"textures": {
+				"default": "textures/items/green_crystal_powder_bottle"
+			},
+			"geometry": {
+				"default": "geometry.item_sprite"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"animations": {
+				"face_player": "animation.actor.billboard"
+			},
+			"scripts": {
+				"scale": "1",
+				"animate": [
+					"face_player"
+				]
+			}
+		}
+	}
+}

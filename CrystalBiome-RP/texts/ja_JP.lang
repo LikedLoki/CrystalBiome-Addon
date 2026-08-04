@@ -305,6 +305,12 @@ item.cb2:refined_red_crystal_sword=研磨された紅水晶の剣
 item.cb2:refined_green_crystal_sword=研磨された翠水晶の剣
 item.cb2:refined_yellow_crystal_sword=研磨された黄水晶の剣
 
+item.cb2:crystal_bottle=空の投げ瓶
+item.cb2:crystal_powder_bottle=蒼の投げ瓶
+item.cb2:red_crystal_powder_bottle=紅の投げ瓶
+item.cb2:green_crystal_powder_bottle=翠の投げ瓶
+item.cb2:yellow_crystal_powder_bottle=黄の投げ瓶
+
 item.cb2:crysteel_helmet=玻璃鉄のヘルメット
 item.cb2:crysteel_chestplate=玻璃鉄のチェストプレート
 item.cb2:crysteel_leggings=玻璃鉄のレギンス

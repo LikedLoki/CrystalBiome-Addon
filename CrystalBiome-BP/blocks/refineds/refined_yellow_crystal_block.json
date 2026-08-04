@@ -8,6 +8,12 @@
 			"identifier": "cb2:refined_yellow_crystal_block"
 		},
 		"components": {
+			"cb2:can_smelt": {
+				"type": "item",
+				"after": "cb2:crystal_bottle",
+				"times": 16,
+				"amount": 4
+			},
 			"tag:cb2:crystal": {},
 			"minecraft:geometry": {
 				"identifier": "geometry.ground_crystal",

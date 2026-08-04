@@ -376,6 +376,21 @@
 		},
 		"cb2_saline_crystal_powder": {
 			"textures": "textures/items/saline_crystal_powder"
+		},
+		"cb2_crystal_bottle": {
+			"textures": "textures/items/crystal_bottle"
+		},
+		"cb2_crystal_powder_bottle": {
+			"textures": "textures/items/crystal_powder_bottle"
+		},
+		"cb2_red_crystal_powder_bottle": {
+			"textures": "textures/items/red_crystal_powder_bottle"
+		},
+		"cb2_green_crystal_powder_bottle": {
+			"textures": "textures/items/green_crystal_powder_bottle"
+		},
+		"cb2_yellow_crystal_powder_bottle": {
+			"textures": "textures/items/yellow_crystal_powder_bottle"
 		}
 	}
 }

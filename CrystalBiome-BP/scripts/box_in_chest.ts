@@ -1,6 +1,6 @@
 import { Block, BlockCustomComponent, BlockCustomComponentInstance, BlockDynamicPropertiesComponent, Container, Dimension, ItemStack, Player, PlayerBreakBlockBeforeEvent, system, Vector3, world } from "@minecraft/server";
 import { buildLocName, parseLocName, sleep } from "./other";
-import { crystalBiomeEvent } from "./crystal-biome";
+import { Color, crystalBiomeEvent, particleColor } from "./crystal-biome";
 
 type AllowedItem = ItemStack & { typeId: keyof typeof smeltingMap };
 type BoxChestInfo = {
@@ -34,6 +34,8 @@ crystalBiomeEvent.subscribe("furnace_lit", (event: Vector3) => {
         const info = JSON.parse(prop.get("cb2:box_chest_info") as string) as BoxChestInfo;
         if (info.before.typeId === null) return;
         const times: number = +(prop.get("cb2:times") || 0);
+        particleColor.setColorRGB("variable.color", Color.green);
+        block.dimension.spawnParticle("cb2:crystal_particle", block.center(), particleColor)
         if (times < 9) {
             prop.set("cb2:times", times + 1);
             return;
@@ -41,6 +43,9 @@ crystalBiomeEvent.subscribe("furnace_lit", (event: Vector3) => {
         if (info.before.quantity > 0) {
             info.before.quantity--;
             info.after.quantity++;
+        } else {
+            particleColor.setColorRGB("variable.color", Color.blue);
+            block.dimension.spawnParticle("cb2:crystal_particle_pop", block.center(), particleColor)
         }
         block.dimension.playSound("random.pop", block.center())
         prop.set("cb2:box_chest_info", JSON.stringify(info));
@@ -65,10 +70,11 @@ export const BoxInChest: BlockCustomComponent = {
             player.sendMessage("えぇ");
             return;
         }
+        const newItem = item.amount > 1 ? new ItemStack(item.typeId, item.amount - 1) : undefined;
+        container.setItem(player.selectedSlotIndex, newItem);
         info.before.typeId = item.typeId;
         info.before.quantity++;
         info.after.typeId = smeltingMap[item.typeId];
-        console.log(JSON.stringify(info))
         prop.set("cb2:box_chest_info", JSON.stringify(info));
     },
     onPlace({ block }) {
