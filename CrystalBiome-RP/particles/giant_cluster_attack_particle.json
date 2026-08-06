@@ -2,7 +2,7 @@
 	"format_version": "1.10.0",
 	"particle_effect": {
 		"description": {
-			"identifier": "cb2:giantattack_particle",
+			"identifier": "cb2:giant_cluster_attack_particle",
 			"basic_render_parameters": {
 				"material": "particles_alpha",
 				"texture": "textures/particle/crystal_particle"
@@ -10,7 +10,7 @@
 		},
 		"components": {
 			"minecraft:emitter_rate_instant": {
-				"num_particles": 50
+				"num_particles": 32
 			},
 			"minecraft:emitter_lifetime_once": {
 				"active_time": 1
@@ -41,40 +41,23 @@
 				"linear_drag_coefficient": 3
 			},
 			"minecraft:particle_appearance_billboard": {
-				"size": [
-					0.4,
-					0.4
-				],
+				"size": [0.4, 0.4],
 				"facing_camera_mode": "rotate_xyz",
 				"uv": {
-					"texture_width": 8,
-					"texture_height": 24,
+					"texture_width": 16,
+					"texture_height": 32,
 					"flipbook": {
-						"base_UV": [
-							0,
-							0
-						],
-						"size_UV": [
-							8,
-							8
-						],
-						"step_UV": [
-							0,
-							8
-						],
+						"base_UV": ["math.floor(variable.particle_random_1 * 2) * 8", 0],
+						"size_UV": [8, 8],
+						"step_UV": [0, 8],
 						"frames_per_second": 12,
-						"max_frame": 3,
+						"max_frame": 4,
 						"stretch_to_lifetime": true
 					}
 				}
 			},
 			"minecraft:particle_appearance_tinting": {
-				"color": [
-					0.16078,
-					1,
-					1,
-					1
-				]
+				"color": ["variable.color.r", "variable.color.g", "variable.color.b", 1]
 			}
 		}
 	}

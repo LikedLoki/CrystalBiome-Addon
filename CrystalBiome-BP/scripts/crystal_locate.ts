@@ -7,17 +7,6 @@ const offsetMap: VectorXZ[] = [
 ]
 
 const percent = (value: number, sum: number) => Math.floor((value / sum) * 100) || 0
-function kyori(start: VectorXZ | Vector3, end: VectorXZ | Vector3): VectorXZ {
-    const kyori: VectorXZ = {
-        x: Math.abs(end.x - start.x),
-        z: Math.abs(end.z - start.z),
-    };
-    const sum: number = kyori.x + kyori.z;
-    return {
-        x: percent(kyori.x, sum),
-        z: percent(kyori.z, sum),
-    };
-};
 export const crystalLocate: ItemCustomComponent = {
     onUse({ source }) {
         const { dimension } = source;
@@ -28,7 +17,7 @@ export const crystalLocate: ItemCustomComponent = {
         const prismAdmin = new PrismInfoAdmin(world);
         const place = Math.random() < 0.5 ? "cb2:crystal" : "cb2:crystal_forest";
         console.log(place);
-        const locate: Vector3 | undefined = dimension.findClosestBiome(source.location, place)
+        const locate: Vector3 | undefined = dimension.calculateClosestBiomeFromSeed(source.location, place)
         if (!locate) return;
         source.runCommand("camera @s fade time 0.1 4 0.1");
         source.runCommand("inputpermission set @a[r=6] movement disabled");
@@ -36,8 +25,6 @@ export const crystalLocate: ItemCustomComponent = {
         source.runCommand("hud @a[r=6] hide all");
         const { x, y, z } = locate;
         const center: Vector3 = { x: x + 2.5, y: y + 1, z: z + 2.5 };
-        prismAdmin.setValue("location", { x: center.x - 0.5, y: center.y, z: center.z - 0.5 });
-        prismAdmin.setValue("center", center);
         prismAdmin.setValue("state", 1);
         prismAdmin.apply(world);
         dimension.runCommand(`structure load cbportal_base ${x} ${y} ${z}`)

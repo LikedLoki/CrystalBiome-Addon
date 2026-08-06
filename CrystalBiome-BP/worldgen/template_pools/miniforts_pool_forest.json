@@ -1,0 +1,64 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:template_pool": {
+		"description": {
+			"identifier": "cb2:miniforts_pool_forest"
+		},
+		"elements": [
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbforest_fort1",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbforest_fort2",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbforest_fort3",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbforest_fort4",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbforest_fort5",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			},
+			{
+				"element": {
+					"element_type": "minecraft:single_pool_element",
+					"location": "cb2:cbforest_fort6",
+					"processors": "cb2:ruins_constr"
+				},
+				"weight": 1,
+				"projection": "terrain_matching"
+			}
+		]
+	}
+}

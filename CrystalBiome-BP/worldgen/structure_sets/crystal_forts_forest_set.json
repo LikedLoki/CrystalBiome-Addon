@@ -1,0 +1,21 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:structure_set": {
+		"description": {
+			"identifier": "cb2:crystal_forts_forest_set"
+		},
+		"placement": {
+			"type": "minecraft:random_spread",
+			"salt": 39080479,
+			"spacing": 6,
+			"separation": 2,
+			"spread_type": "linear"
+		},
+		"structures": [
+			{
+				"structure": "cb2:crystal_forts_forest",
+				"weight": 1
+			}
+		]
+	}
+}

@@ -1,0 +1,26 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.giant_cluster_attack_c": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"hide": "query.is_delayed_attacking"
+						}
+					]
+				},
+				"hide": {
+					"on_entry": [
+						"/tag @s add cb2gc_is_attack"
+					],
+					"transitions": [
+						{
+							"default": "!query.is_delayed_attacking"
+						}
+					]
+				}
+			}
+		}
+	}
+}

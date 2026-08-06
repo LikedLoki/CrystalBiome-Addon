@@ -1,0 +1,37 @@
+{
+	"pools": [
+		{
+			"rolls": 3,
+			"entries": [
+				{
+					"type": "item",
+					"name": "cb2:red_crystal_shard",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"max": 64,
+								"min": 1
+							}
+						}
+					],
+					"weight": 8
+				},
+				{
+					"type": "item",
+					"name": "cb2:yellow_crystal_shard",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"max": 64,
+								"min": 1
+							}
+						}
+					],
+					"weight": 8
+				}
+			]
+		}
+	]
+}

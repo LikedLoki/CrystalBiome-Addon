@@ -8,7 +8,8 @@
 			"identifier": "cb2:prismstone"
 		},
 		"components": {
-			"minecraft:destructible_by_mining": false,
+			"minecraft:destructible_by_mining": true,
+			"minecraft:destructible_by_explosion": false,
 			"minecraft:tick": {
 				"interval_range": [
 					40, 40

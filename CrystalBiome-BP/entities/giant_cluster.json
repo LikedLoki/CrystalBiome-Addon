@@ -8,7 +8,7 @@
 				]
 			},
 			"animations": {
-				"test": "controller.animation.test"
+				"test": "controller.animation.giant_cluster_attack_c"
 			},
 			"identifier": "cb2:giant_cluster",
 			"is_spawnable": true,
@@ -18,7 +18,7 @@
 		"component_groups": {},
 		"components": {
 			"minecraft:loot": {
-				"table": "loot_tables/giant_cluster_loot.json"
+				"table": "loot_tables/entity/giant_cluster_loot.json"
 			},
 			"minecraft:behavior.delayed_attack": {
 				"y_max_head_rotation": 0,

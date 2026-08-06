@@ -10,8 +10,8 @@ export type LocName = `${string}|${string}|${string}`;
 export type PrismInfo = {
     "stop": boolean,
     "stop_time": number,
-    "location": Vector3,
-    "center": Vector3,
+    "location": Vector3 | undefined,
+    "center": Vector3 | undefined,
     "state": 0 | 1 | 2; // 0: none, 1: placed(broken), 2: placed(default)
     "raid": {
         "enter": "small_raid" | "medium_raid" | "mega_raid_executor" | "mega_raid_wanderment" | "none",

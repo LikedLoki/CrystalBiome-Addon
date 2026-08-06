@@ -176,7 +176,7 @@ const waveSpawn = (dimension: Dimension, location: Vector3, list: RaidWaveInfo, 
             "y": location.y,
             "z": location.z + r * Math.sin(rand)
         })
-        const A: Entity = dimension.spawnEntity(data, spawnLoc);
+        const A: Entity = dimension.spawnEntity(data as any, spawnLoc);
         A.addTag(tag);
         A.addTag("cb2:crystal_raid_enemy")
     }
@@ -207,7 +207,7 @@ const raidOnPrism = async (dimension: Dimension, block: Block) => {
         return;
     }
 
-    const loc: Vector3 = block.center();
+    const loc: Vector3 = prismInfo.info.center ?? block.center();
     const nearPlayers = dimension.getPlayers({
         "maxDistance": 128,
         "location": loc
@@ -407,7 +407,17 @@ const raidOnPrism = async (dimension: Dimension, block: Block) => {
 
 export const PrismStone: BlockCustomComponent = {
     onPlace({ dimension, block }) {
+        const prism = new PrismInfoAdmin(world);
+        prism.setValue("center", block.center());
+        prism.setValue("location", block.location);
+        prism.apply(world);
         radiationPrism(dimension, block)
+    },
+    onBreak() {
+        const prism = new PrismInfoAdmin(world);
+        prism.setValue("center", undefined);
+        prism.setValue("location", undefined);
+        prism.apply(world);
     },
     onTick({ dimension, block }) {
         radiationPrism(dimension, block);

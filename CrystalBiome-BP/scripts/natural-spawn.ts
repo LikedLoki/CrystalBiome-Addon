@@ -3,16 +3,18 @@ import { crystalSpawnFn, SettingColor } from "./crystal-spawn-fn"
 import { CrystColor } from "./crystal-biome";
 import { guradualClustFragm } from "./crystal_guradual"
 
+type EnemyMap = { [K: string]: { typeId: string, dist: number, limit: number } }
 type SpawnerTypeId = keyof typeof enemyMap;
 type SpawnerEntity = Entity & { "typeId": SpawnerTypeId };
 type CrystalInfo<T extends SpawnerTypeId> = typeof enemyMap[T];
 
 const colorList: CrystColor[] = ["red", "green", "blue", "yellow"]
 
-const enemyMap = {
+const enemyMap: EnemyMap = {
     "cb2:crystal_guard_spawn": { typeId: "cb2:crystal_guard", dist: 80, limit: 3 },
-    "cb2:crystal_wander_spawn": { typeId: "cb2:crystal_wander", dist: 80, limit: 2 }
-} as const;
+    "cb2:crystal_wander_spawn": { typeId: "cb2:crystal_wander", dist: 80, limit: 2 },
+    "cb2:giant_cluster_spawn": { typeId: "cb2:giant_cluster", dist: 256, limit: 1}
+};
 
 const isSpawnerEntity = (entity: Entity): entity is SpawnerEntity => entity.typeId in enemyMap;
 const hasPrism = (dimension: Dimension, location: Vector3): boolean => dimension.getEntities(

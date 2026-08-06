@@ -2,7 +2,7 @@
 	"format_version": "1.21.20",
 	"minecraft:jigsaw": {
 		"description": {
-			"identifier": "cb2:crystal_forts"
+			"identifier": "cb2:crystal_forts_lowland"
 		},
 		"biome_filters": {
 			"any_of": [
@@ -10,17 +10,12 @@
 					"operator": "==",
 					"value": "crystal_lowland",
 					"test": "has_biome_tag"
-				},
-				{
-					"operator": "==",
-					"value": "crystal_forest",
-					"test": "has_biome_tag"
 				}
 			]
 		},
 		"step": "surface_structures",
 		"terrain_adaptation": "beard_thin",
-		"start_pool": "cb2:miniforts_pool",
+		"start_pool": "cb2:miniforts_pool_lowland",
 		"max_depth": 1,
 		"start_height": {
 			"type": "constant",

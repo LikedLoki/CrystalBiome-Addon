@@ -6,12 +6,18 @@ import CrystalExecutor from "./crystal_executor";
 import { PowderAreaCloud } from "./powder_bottle_proj";
 
 
+const fnList = [
+    wandermentBlockTimeLine,
+    CrystalExecutor.main,
+    ClusterFragment.main,
+    WandermentAdmin.run,
+    PowderAreaCloud
+] as const;
+
 system.runInterval(() => {
     const overworld: Dimension = world.getDimension("overworld");
-
-    wandermentBlockTimeLine(overworld);
-    CrystalExecutor.main(overworld);
-    ClusterFragment.main(overworld);
-    WandermentAdmin.run(overworld);
-    PowderAreaCloud(overworld);
+    for (const fn of fnList) {
+        try { fn(overworld) }
+        catch(e) {} 
+    }
 }, 1)
