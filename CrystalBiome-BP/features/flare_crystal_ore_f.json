@@ -5,7 +5,7 @@
 			"identifier": "cb2:flare_crystal_ore_f"
 		},
 		"count": 16,
-		"discard_chance_on_air_exposure": 1,
+		"discard_chance_on_air_exposure": 0.8,
 		"replace_rules": [
 			{
 				"places_block": {

@@ -8,6 +8,12 @@
 			"identifier": "cb2:closed_red_crystal_block"
 		},
 		"components": {
+			"cb2:can_smelt": {
+				"type": "block",
+				"after": "cb2:budding_red_crystal_block",
+				"chance": 0.5,
+				"times": 16
+			},
 			"cb2:crystalstep": "red",
 			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {

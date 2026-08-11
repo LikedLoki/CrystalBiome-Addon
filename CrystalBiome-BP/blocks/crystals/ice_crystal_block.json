@@ -46,6 +46,7 @@
 			"minecraft:friction": 0.4,
 			"minecraft:flammable": false,
 			"minecraft:map_color": "#72D7FF",
+			"minecraft:loot": "loot_tables/blocks/ice_crystal_lt.json",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 6
 			}

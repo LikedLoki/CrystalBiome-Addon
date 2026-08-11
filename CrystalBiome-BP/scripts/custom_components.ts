@@ -36,6 +36,7 @@ import { PrismStone, RestorationPrism } from "./prisms";
 import { resonanceNode } from "./resonance_node";
 import { CrystalPowder } from "./crystal_powder";
 import { CanSmelt } from "./can_smelt";
+import { SynthesisTable } from "./synthesis_table";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
     blockComponentRegistry.registerCustomComponent("cb2:cluster_display", Display);
@@ -81,4 +82,5 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     blockComponentRegistry.registerCustomComponent("cb2:broken_prism", RestorationPrism);
     itemComponentRegistry.registerCustomComponent("cb2:crystal_powder", CrystalPowder);
     blockComponentRegistry.registerCustomComponent("cb2:can_smelt", CanSmelt)
+    blockComponentRegistry.registerCustomComponent("cb2:synthesis_table", SynthesisTable)
 })

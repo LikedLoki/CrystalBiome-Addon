@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.100",
+	"format_version": "1.26.30",
 	"minecraft:item": {
 		"description": {
 			"identifier": "cb2:baked_crystalcap_item",
@@ -9,7 +9,7 @@
 			}
 		},
 		"components": {
-			"minecraft:max_stack_size": 16,
+			"minecraft:max_stack_size": 64,
 			"minecraft:use_modifiers": {
 				"use_duration": 1.6,
 				"movement_modifier": 0.35
@@ -18,7 +18,7 @@
 			"minecraft:food": {
 				"can_always_eat": false,
 				"nutrition": 4,
-				"saturation_modifier": 6
+				"saturation_modifier": 2
 			},
 			"minecraft:icon": "cb2_baked_crystalcap_item"
 		}

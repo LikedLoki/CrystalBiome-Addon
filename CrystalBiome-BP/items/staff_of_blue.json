@@ -27,7 +27,7 @@
 			"minecraft:shooter": {
 				"ammunition": [
 					{
-						"item": "cb2:blue_crystal_gem",
+						"item": "cb2:crystal_powder",
 						"use_offhand": true,
 						"search_inventory": true,
 						"use_in_creative": true

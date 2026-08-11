@@ -5,9 +5,8 @@
             "conditions": [
                 {
                     "condition": "match_tool",
-                    "minecraft:match_tool_filter_all": [
-                        "cb2:yellow_crystal_tool",
-                        "cb2:crystal_pickaxe"
+                    "minecraft:match_tool_filter_any": [
+                        "cb2:yellow_crystal_pickaxe"
                     ]
                 }
             ],

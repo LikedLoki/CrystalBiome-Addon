@@ -185,18 +185,6 @@
 		"cb2_refined_yellow_crystal_sword": {
 			"textures": "textures/items/refined_yellow_crystal_sword"
 		},
-		"cb2_blue_crystal_gem": {
-			"textures": "textures/items/blue_crystal_gem"
-		},
-		"cb2_red_crystal_gem": {
-			"textures": "textures/items/red_crystal_gem"
-		},
-		"cb2_green_crystal_gem": {
-			"textures": "textures/items/green_crystal_gem"
-		},
-		"cb2_yellow_crystal_gem": {
-			"textures": "textures/items/yellow_crystal_gem"
-		},
 		"cb2_staff_of_blue_item": {
 			"textures": "textures/items/staff_of_blue_item"
 		},
@@ -391,6 +379,18 @@
 		},
 		"cb2_yellow_crystal_powder_bottle": {
 			"textures": "textures/items/yellow_crystal_powder_bottle"
+		},
+		"cb2_blue_crystal_gem": {
+			"textures": "textures/items/blue_crystal_gem"
+		},
+		"cb2_red_crystal_gem": {
+			"textures": "textures/items/red_crystal_gem"
+		},
+		"cb2_green_crystal_gem": {
+			"textures": "textures/items/green_crystal_gem"
+		},
+		"cb2_yellow_crystal_gem": {
+			"textures": "textures/items/yellow_crystal_gem"
 		}
 	}
 }

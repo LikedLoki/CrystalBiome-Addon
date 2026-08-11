@@ -31,7 +31,21 @@
 			},
 			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 24
+				"seconds_to_destroy": 1024,
+				"item_specific_speeds": [
+					{
+						"item":{
+							"tags": "cb2:polsihed_pickaxe"
+						},
+						"destroy_speed": 512
+					},
+					{
+						"item":{
+							"tags": "cb2:polsihed_pickaxe"
+						},
+						"destroy_speed": 1024
+					}
+				]
 			},
 			"tag:cb2:orbshard":{},
 			"minecraft:redstone_conductivity": {

@@ -1,10 +1,10 @@
-import { Entity, MolangVariableMap, system, Vector3 } from "@minecraft/server";
-
+import { Dimension, Entity, MolangVariableMap, system, Vector3 } from "@minecraft/server";
 
 export type GuardWonderId = "cb2:crystal_guard" | "cb2:crystal_wander";
 export type GuardWonderEntity = Entity & { "typeId": GuardWonderEntity };
 export type CrystColor = "red" | "green" | "blue" | "yellow";
 export type CrystRGB = { "red": number, "green": number, "blue": number };
+export type CrystRank = "rough" | "polished" | "refined"
 export type VectorDXYZ = { "dx": number, "dy": number, "dz": number };
 export type LocName = `${string}|${string}|${string}`;
 export type PrismInfo = {
@@ -52,3 +52,20 @@ class CrystalBiomeEvent {
     }
 }
 export const crystalBiomeEvent = new CrystalBiomeEvent();
+
+export const translateMap = {
+    JA: {
+        "cb2:rough_blue_crystal_sword": "粗い蒼水晶の剣",
+        "cb2:rough_red_crystal_sword": "粗い紅水晶の剣",
+        "cb2:rough_green_crystal_sword": "粗い翠水晶の剣",
+        "cb2:rough_yellow_crystal_sword": "粗い黄水晶の剣",
+        "cb2:polished_blue_crystal_sword": "磨かれた蒼水晶の剣",
+        "cb2:polished_red_crystal_sword": "磨かれた紅水晶の剣",
+        "cb2:polished_green_crystal_sword": "磨かれた翠水晶の剣",
+        "cb2:polished_yellow_crystal_sword": "磨かれた黄水晶の剣",
+        "cb2:refined_blue_crystal_sword": "研磨された蒼水晶の剣",
+        "cb2:refined_red_crystal_sword": "研磨された紅水晶の剣",
+        "cb2:refined_green_crystal_sword": "研磨された翠水晶の剣",
+        "cb2:refined_yellow_crystal_sword": "研磨された黄水晶の剣"
+    }
+} as const;

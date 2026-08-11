@@ -5,7 +5,7 @@
 			"is_experimental": false,
 			"is_spawnable": true,
 			"is_summonable": true,
-			"identifier": "cb2:crystal_guard_spawn"
+			"identifier": "cb2:giant_cluster_spawn"
 		},
 		"components": {},
 		"events": {}

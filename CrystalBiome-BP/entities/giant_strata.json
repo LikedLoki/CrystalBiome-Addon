@@ -27,12 +27,6 @@
 			"minecraft:attack": {
 				"damage": 1
 			},
-			"minecraft:attack_cooldown": {
-				"attack_cooldown_time": [
-					1000,
-					1000
-				]
-			},
 			"minecraft:behavior.delayed_attack": {
 				"priority": 0,
 				"y_max_head_rotation": 0,
@@ -72,59 +66,17 @@
 			},
 			"minecraft:behavior.nearest_attackable_target": {
 				"priority": 2,
-				"within_radius": 32,
+				"within_radius": 64,
 				"reselect_targets": true,
 				"entity_types": [
 					{
 						"filters": {
-							"all_of": [
-								{
-									"operator": "!=",
-									"test": "is_family",
-									"subject": "other",
-									"value": "crystal"
-								},
-								{
-									"operator": "!=",
-									"test": "is_family",
-									"subject": "other",
-									"value": "creeper"
-								},
-								{
-									"operator": "!=",
-									"test": "is_family",
-									"subject": "other",
-									"value": "armor_stand"
-								}
-							],
-							"any_of": [
-								{
-									"operator": "!=",
-									"test": "is_family",
-									"subject": "other",
-									"value": "crystal_guard"
-								}
-							]
+							"test": "has_tag",
+							"operator": "==",
+							"subject": "other",
+							"value": "cb2:target_for_giant"
 						},
-						"max_dist": 32
-					},
-					{
-						"filters": {
-							"all_of": [
-								{
-									"test": "is_family",
-									"subject": "other",
-									"value": "baby_turtle"
-								},
-								{
-									"test": "in_water",
-									"subject": "other",
-									"operator": "!=",
-									"value": true
-								}
-							]
-						},
-						"max_dist": 32
+						"max_dist": 64
 					}
 				],
 				"must_see": true,
@@ -154,6 +106,7 @@
 			"minecraft:nameable": {},
 			"minecraft:type_family": {
 				"family": [
+					"cb2:crystal_giant_f",
 					"crystal",
 					"crystal_guard",
 					"mob",

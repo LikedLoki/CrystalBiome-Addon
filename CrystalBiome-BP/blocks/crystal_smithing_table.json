@@ -1,0 +1,112 @@
+{
+	"format_version": "1.21.110",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "items"
+			},
+			"traits": {
+				"minecraft:placement_direction": {
+					"enabled_states": [
+						"minecraft:cardinal_direction"
+					]
+				}
+			},
+			"identifier": "cb2:crystal_smithing_table"
+		},
+		"components": {
+			"cb2:polishing": {},
+			"minecraft:collision_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					12,
+					16
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					12,
+					16
+				]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			},
+			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1.2
+			},
+			"minecraft:destruction_particles": {
+				"texture": "cb2_crystal_spotlight_side"
+			},
+			"minecraft:geometry": "geometry.crystal_smithing_table",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystal_smithing_table",
+					"render_method": "alpha_test"
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							-90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							90,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							180,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

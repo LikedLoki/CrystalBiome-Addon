@@ -26,7 +26,7 @@ const getCost = (typeId: AllowedId): ItemRequired[] => {
     const rank = fmt[0] as Rank["now"];
     const color = fmt[1] as CrystColor;
     const inlineColor = color === "blue" ? "" : color + "_";
-    if (rank === "rough") return [itmReq(`cb2:${inlineColor}crystal_block`, 8), itmReq(`cb2:${inlineColor}crystal_shard`, 12), itmReq(`cb2:${inlineColor}crystal_powder`, 16),];
+    if (rank === "rough") return [itmReq(`cb2:${color}_crystal_gem`, 8), itmReq(`cb2:${inlineColor}crystal_block`, 16)];
     else return [itmReq(`cb2:${inlineColor}crystal_block`, 16), itmReq("cb2:rare_crystal_shard", 16), itmReq("cb2:rare_crystal_block", 24)]
 }
 const allowedList = [

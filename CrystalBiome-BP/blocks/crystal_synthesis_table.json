@@ -12,10 +12,10 @@
 					]
 				}
 			},
-			"identifier": "cb2:crystal_enctable"
+			"identifier": "cb2:crystal_synthesis_table"
 		},
 		"components": {
-			"cb2:polishing": {},
+			"cb2:synthesis_table": {},
 			"minecraft:collision_box": {
 				"origin": [
 					-8,
@@ -50,10 +50,10 @@
 			"minecraft:destruction_particles": {
 				"texture": "cb2_crystal_spotlight_side"
 			},
-			"minecraft:geometry": "geometry.crystal_polishing_table",
+			"minecraft:geometry": "geometry.crystal_synthesis_table",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "cb2_crystal_enctable",
+					"texture": "cb2_crystal_synthesis_table",
 					"render_method": "alpha_test"
 				}
 			}

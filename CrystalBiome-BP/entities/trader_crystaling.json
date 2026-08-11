@@ -8,8 +8,29 @@
 			"is_experimental": false
 		},
 		"components": {
-			"minecraft:leashable": {
-				"can_be_stolen": true
+			"minecraft:pushable_by_block": {},
+			"minecraft:pushable_by_entity": {},
+			"minecraft:physics": {},
+			"minecraft:scale": {
+				"value": 0.9
+			},
+			"minecraft:rideable": {
+				"controlling_seat": 0,
+				"crouching_skip_interact": true,
+				"family_types": [
+					"cb2:crystal_trader_f"
+				],
+				"seats":{
+					"position": [
+						0,
+						1.4,
+						0
+					]
+				},
+				"interact_text": "",
+				"pull_in_entities": false,
+				"rider_can_interact": false,
+				"seat_count": 1
 			}
 		}
 	}

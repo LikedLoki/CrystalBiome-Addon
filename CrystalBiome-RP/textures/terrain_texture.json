@@ -460,8 +460,8 @@
 		"cb2_rare_crystal_portal": {
 			"textures": "textures/blocks/rare_crystal_portal"
 		},
-		"cb2_crystal_enctable": {
-			"textures": "textures/blocks/crystal_enctable"
+		"cb2_crystal_smithing_table": {
+			"textures": "textures/blocks/crystal_smithing_table"
 		},
 		"cb2_crystal_furnace": {
 			"textures": "textures/blocks/crystal_furnace_front"
@@ -726,6 +726,9 @@
 		},
 		"cb2_polished_ice_crystal_block": {
 			"textures": "textures/blocks/polished_ice_crystal_block"
+		},
+		"cb2_crystal_synthesis_table": {
+			"textures": "textures/blocks/crystal_synthesis_table"
 		}
 	}
 }

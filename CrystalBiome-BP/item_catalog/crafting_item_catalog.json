@@ -103,14 +103,14 @@
         "groups": [
           {
             "group_identifier": {
-              "icon": "cb2:blue_crystal_gem",
-              "name": "cb2:cbgem"
+              "icon": "cb2:crystal_powder_bottle",
+              "name": "cb2:cbpwdrbttl"
             },
             "items": [
-              "cb2:blue_crystal_gem",
-              "cb2:red_crystal_gem",
-              "cb2:green_crystal_gem",
-              "cb2:yellow_crystal_gem"
+              "cb2:crystal_powder_bottle",
+              "cb2:red_crystal_powder_bottle",
+              "cb2:green_crystal_powder_bottle",
+              "cb2:yellow_crystal_powder_bottle"
             ]
           }
         ]

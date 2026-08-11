@@ -1,27 +1,74 @@
 {
 	"pools": [
-        {
-            "rolls": 1,
-            "conditions": [
-                {
-                    "condition": "match_tool",
-                    "minecraft:match_tool_filter_all": [
-                        "cb2:yellow_crystal_tool",
-                        "cb2:crystal_pickaxe"
-                    ]
-                }
-            ],
-            "entries": [
-                {
-                    "type": "item",
-                    "name": "cb2:lively_crystal_shard",
-                    "weight": 1
-                },
-                {
-                    "type": "empty",
-                    "weight": 3
-                }
-            ]
-        }
+		{
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"minecraft:match_tool_filter_none": [
+						"minecraft:is_axe",
+						"cb2:yellow_crystal_pickaxe"
+					]
+				}
+			],
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "cb2:crystal_shard",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 2,
+								"max": 4
+							}
+						}
+					]
+				}
+			]
+		}, 
+		{
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"minecraft:match_tool_filter_any": [
+						"minecraft:is_axe"
+					]
+				}
+			],
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "cb2:crystal_powder",
+					"functions": [
+						{
+							"function": "set_count",
+							"count": {
+								"min": 2,
+								"max": 4
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"conditions": [
+				{
+					"condition": "match_tool",
+					"minecraft:match_tool_filter_any": [
+						"cb2:yellow_crystal_pickaxe"
+					]
+				}
+			],
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "cb2:closed_crystal_block"
+				}
+			]
+		}
 	]
 }

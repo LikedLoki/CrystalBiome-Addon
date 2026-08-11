@@ -36,6 +36,7 @@
 			"minecraft:nameable": {},
 			"minecraft:type_family": {
 				"family": [
+					"cb2:crystal_trader_f",
 					"crystal",
 					"crystal_trader",
 					"mob",
@@ -83,6 +84,12 @@
 				"priority": 7
 			}
 		},
-		"events": {}
+		"events": {
+			"minecraft:entity_spawned": {
+				"queue_command": {
+					"command": "ride @s summon_ride cb2:trader_crystaling"
+				}
+			}
+		}
 	}
 }

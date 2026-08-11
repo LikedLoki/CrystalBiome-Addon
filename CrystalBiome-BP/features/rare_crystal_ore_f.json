@@ -4,6 +4,7 @@
 		"description": {
 			"identifier": "cb2:rare_crystal_ore_f"
 		},
+		"discard_chance_on_air_exposure": 0.5,
 		"count": 8,
 		"replace_rules": [
 			{

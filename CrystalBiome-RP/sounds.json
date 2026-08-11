@@ -74,6 +74,20 @@
 					"death": "crystal_guard_death"
 				}
 			},
+			"cb2:giant_strata": {
+				"pitch": [
+					0.5,
+					0.75
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "crystal_guard_death"
+				}
+			},
 			"cb2:crystal_minion": {
 				"pitch": [
 					1,

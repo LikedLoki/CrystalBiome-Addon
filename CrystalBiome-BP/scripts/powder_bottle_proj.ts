@@ -84,6 +84,7 @@ const configMap = {
 export const PowderAreaCloud = (dimension: Dimension) => {
     const powderAreaClouds: PowderAreaCloud[] = getAreaCloud(dimension);
     for (const pac of powderAreaClouds) {
+        try {
         const color = pac.getDynamicProperty("cb2:color") as CrystColor;
         const times: number = +(pac.getDynamicProperty("cb2:times") || 0);
         const config = configMap[color];
@@ -96,5 +97,9 @@ export const PowderAreaCloud = (dimension: Dimension) => {
             continue;
         }
         pac.remove();
+    }
+        catch(_) {
+            continue;
+        }
     }
 }

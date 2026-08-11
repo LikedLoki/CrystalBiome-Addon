@@ -33,8 +33,13 @@ export const ProgressIceCrystal: BlockCustomComponent = {
         const item: ItemStack | undefined = container?.getItem(player.selectedSlotIndex);
         if (!container || !item || item.typeId !== "cb2:ice_crystal_block") return;
 
-        const newItem: ItemStack | undefined = item.amount <= 0 ? undefined : new ItemStack("cb2:ice_crystal_block", item.amount - 1);
-        container.setItem(player.selectedSlotIndex, newItem);
+        if (item.amount - 1 === 0) {
+            container.setItem(player.selectedSlotIndex);
+        } else {
+            item.amount--;
+            container.setItem(player.selectedSlotIndex, item);
+        }
+        
         const isState: IceState = block.permutation.getState("cb2:ice_state" as any) === 0 ? "I" : "II";
         progIceFnMap[isState](dimension, block);
     }

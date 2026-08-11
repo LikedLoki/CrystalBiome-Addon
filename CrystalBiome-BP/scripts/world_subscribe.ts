@@ -6,6 +6,7 @@ import { SlayedClusterFragment, SlyaedExecutor, SlyaedWanderment } from "./cryst
 import { PrismInfo } from "./crystal-biome";
 import { onBreak } from "./box_in_chest";
 import { PowderBottoleProj } from "./powder_bottle_proj";
+import { CrystalGemDrop, ToolSkillLevel } from "./tool_skill_level";
 
 world.afterEvents.projectileHitBlock.subscribe((event) => {
     PowderBottoleProj(event);
@@ -16,18 +17,33 @@ world.afterEvents.projectileHitEntity.subscribe((event) => {
 world.beforeEvents.playerBreakBlock.subscribe((event) => {
     if (event.block.hasTag("cb2:box_in_chest")) onBreak(event);
 })
-world.afterEvents.playerBreakBlock.subscribe(({ dimension, block }) => {
+world.afterEvents.playerBreakBlock.subscribe(event => {
+    const { dimension, block } = event;
     wallNearby(dimension, block);
     furnaceCancel(dimension, block);
     ClusterBudBreak(dimension, block)
+    ToolSkillLevel.tools(event)
+    CrystalGemDrop.tools(event)
 })
-world.afterEvents.playerPlaceBlock.subscribe(({ dimension, block }) => {
-    wallNearby(dimension, block);
+world.afterEvents.playerPlaceBlock.subscribe((event) => {
+    wallNearby(event.dimension, event.block);
 })
-world.afterEvents.entityDie.subscribe(({ deadEntity }) => {
+world.afterEvents.entityHitEntity.subscribe((event) => {
+    const { damagingEntity } = event
+    if (damagingEntity.getComponent("minecraft:type_family")?.hasTypeFamily("crystal")) return;
+    if (damagingEntity.dimension.getEntities({ families: ["cb2:crystal_giant_f"], maxDistance: 64, location: damagingEntity.location }).length === 0)
+        return;
+    damagingEntity.addTag("cb2:target_for_giant")
+})
+world.afterEvents.entityHurt.subscribe(event => {
+    ToolSkillLevel.sword(event)
+})
+world.afterEvents.entityDie.subscribe(event => {
+    const { deadEntity } = event
     SlayedClusterFragment(world, deadEntity)
     SlyaedExecutor(world, deadEntity)
     SlyaedWanderment(world, deadEntity)
+    CrystalGemDrop.sword(event)
 })
 
 
