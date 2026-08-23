@@ -1,4 +1,4 @@
-import { Block, BlockCustomComponent, ItemStack, Vector3 } from "@minecraft/server";
+import { Block, BlockCustomComponent, Dimension, ItemStack, Vector3 } from "@minecraft/server";
 import { buildLocName, sleep } from "./other";
 import { Color, crystalBiomeEvent, particleColor } from "./crystal-biome";
 
@@ -15,13 +15,14 @@ const list: Map<string, ComponentInfo> = new Map();
 
 const signal = (locI: Vector3, locII: Vector3) => locI.x === locII.x && locI.y === locII.y + 1 && locI.z === locII.z
 
-crystalBiomeEvent.subscribe("furnace_lit", (event: Vector3) => {
+crystalBiomeEvent.subscribe("furnace_lit", (event: { location: Vector3, dimension: Dimension }) => {
     list.forEach(async ({ block, param, chance }) => {
         if (!block || !param || chance === undefined) return;
-        if (!signal(block.location, event)) return;
+        if (!signal(block.location, event.location)) return;
+        console.log(chance)
         list.set(buildLocName(block.location), { block: undefined, param: undefined, chance: undefined });
         for (let i = 0; i < param.times; i++) {
-            const below = block.dimension.getBlock(event);
+            const below = block.dimension.getBlock(event.location);
             if (below?.typeId !== "cb2:crystal_furnace" || !below.permutation.getState("cb2:lit" as any)) {
                 list.set(buildLocName(block.location), { block: block, param: param, chance: chance });
                 return;
@@ -51,6 +52,7 @@ crystalBiomeEvent.subscribe("furnace_lit", (event: Vector3) => {
 
 export const CanSmelt: BlockCustomComponent = {
     onPlace({ block }, { params }) {
+        console.log("d")
         const param = params as Params
         list.set(buildLocName(block.location), { block: block, param: param, chance: param.chance ?? 1 })
     },

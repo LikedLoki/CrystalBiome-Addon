@@ -51,9 +51,12 @@ const crystalToolsList = [
 const isCrystalTools = (item: ItemStack): item is CrystalTools => crystalToolsList.includes(item.typeId as CrystalToolsTypeId)
 
 const divisorMap = {
-    "rough": 800,
-    "polished": 1600,
-    "refined": 2400
+    // 粗い
+    "rough": 400,
+    // 磨かれた
+    "polished": 800,
+    // 研磨された
+    "refined": 1600
 } as const;
 
 export const ToolSkillLevel = {
@@ -111,7 +114,7 @@ export const CrystalGemDrop = {
         const divisor = divisorMap[swordRank] / 2;
         const swordSkill = +(item.getDynamicProperty("cb2:crystal_tools_skill") || 0);
         const percentage = swordSkill / divisor
-        const dropAmount = Math.floor(percentage) + (Math.random() < (percentage / divisor % 1) ? 1 : 0)
+        const dropAmount = Math.floor(percentage) + (Math.random() < percentage ? 1 : 0)
         if (dropAmount <= 0) return;
         deadEntity.dimension.spawnItem(new ItemStack(`cb2:${swordColor}_crystal_gem`, dropAmount), player.location);
     },
@@ -127,7 +130,8 @@ export const CrystalGemDrop = {
         const divisor = divisorMap[toolsRank];
         const toolsSkill = +(item.getDynamicProperty("cb2:crystal_tools_skill") || 0);
         const percentage = toolsSkill / divisor
-        const dropAmount = Math.floor(percentage) + (Math.random() < (percentage / divisor % 1) ? 1 : 0)
+        const dropAmount = Math.floor(percentage) + (Math.random() < percentage ? 1 : 0)
+        console.log(percentage, dropAmount, (percentage / divisor % 1))
         if (dropAmount <= 0) return;
         block.dimension.spawnItem(new ItemStack(`cb2:${toolsColor}_crystal_gem`, dropAmount), block.location);
     }

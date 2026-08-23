@@ -1,0 +1,92 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"group": "minecraft:itemGroup.name.log",
+				"category": "nature"
+			},
+			"identifier": "cb2:stripped_crystaloak_log",
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:block_face"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:material_instances": {
+				"up": {
+					"texture": "cb2_stripped_crystaloak_log_top",
+					"render_method": "opaque",
+					"ambient_occlusion": true,
+					"face_dimming": false
+				},
+				"down": {
+					"texture": "cb2_stripped_crystaloak_log_top",
+					"render_method": "opaque",
+					"ambient_occlusion": true,
+					"face_dimming": false
+				},
+				"*": {
+					"texture": "cb2_stripped_crystaloak_log_side",
+					"render_method": "opaque",
+					"ambient_occlusion": true,
+					"face_dimming": false
+				}
+			},
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": true,
+			"minecraft:map_color": "#DDDCD5",
+			"minecraft:light_emission": 0,
+			"minecraft:light_dampening": 15,
+			"tag:minecraft:is_axe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 3
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'up' || q.block_state('minecraft:block_face') == 'down'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							0
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'east' || q.block_state('minecraft:block_face') == 'west'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							0,
+							0,
+							90
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('minecraft:block_face') == 'north' || q.block_state('minecraft:block_face') == 'south'",
+				"components": {
+					"minecraft:transformation": {
+						"rotation": [
+							90,
+							0,
+							0
+						]
+					}
+				}
+			}
+		]
+	}
+}

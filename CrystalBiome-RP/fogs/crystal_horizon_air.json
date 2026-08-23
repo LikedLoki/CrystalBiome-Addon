@@ -1,0 +1,16 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:fog_settings": {
+        "description": {
+            "identifier": "cb2:crystal_horizon_air"
+        },
+        "distance": {
+            "air": {
+                "fog_start": 8,
+                "fog_end": 256,
+                "render_distance_type": "fixed",
+                "fog_color": "#ffffff"
+            }
+        }
+    }
+}

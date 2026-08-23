@@ -95,7 +95,7 @@ class Raycast {
             const block = dimension.getBlock(this.location);
             const check = this.#blockCheck(block?.typeId);
 
-            if (check === "stop") break;
+            if (check === "stop" || !block) break;
             else if (check === "left" || check === "right" || check === "up" || check === "down") {
                 const { x, y, z } = block!.center();
 
@@ -170,8 +170,11 @@ class Raycast {
                 downRay.forward(dimension);
                 break;
             } else if (check === "energy") {
-                block?.setPermutation(block.permutation.withState("cb2:bool_I" as any, true));
-                block?.setPermutation(block.permutation.withState("cb2:energy" as any, 4));
+                block.setPermutation(block.permutation.withState("cb2:bool_I" as any, true));
+                block.setPermutation(block.permutation.withState("cb2:energy" as any, 4));
+                const rne = dimension.getEntities({ type: "cb2:resonance_node_entity", location: block.center(), maxDistance: 1 });
+                console.log(JSON.stringify(rne))
+                if (rne.length === 0) dimension.spawnEntity("cb2:resonance_node_entity" as any, block.center())
                 break;
             }
 

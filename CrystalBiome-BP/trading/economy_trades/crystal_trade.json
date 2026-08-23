@@ -1,0 +1,500 @@
+{
+	"tiers": [
+		{
+			"total_exp_required": 0,
+			"groups": [
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": -1,
+							"trader_exp": 2,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:blue_crystal_gem",
+									"quantity": {
+										"min": 2,
+										"max": 6
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": -1,
+							"trader_exp": 2,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:red_crystal_gem",
+									"quantity": {
+										"min": 4,
+										"max": 8
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": -1,
+							"trader_exp": 2,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:green_crystal_gem",
+									"quantity": {
+										"min": 4,
+										"max": 8
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"max_uses": -1,
+							"trader_exp": 2,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:yellow_crystal_gem",
+									"quantity": {
+										"min": 4,
+										"max": 8
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": 1
+								}
+							]
+						}
+					]
+				},
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": -1,
+							"trader_exp": 1,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 1,
+										"max": 2
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:crystal_shard",
+									"quantity": {
+										"min": 8,
+										"max": 24
+									}
+								}
+							]
+						},
+						{
+							"max_uses": -1,
+							"trader_exp": 1,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 1,
+										"max": 2
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:red_crystal_shard",
+									"quantity": {
+										"min": 8,
+										"max": 24
+									}
+								}
+							]
+						},
+						{
+							"max_uses": -1,
+							"trader_exp": 1,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 1,
+										"max": 2
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:green_crystal_shard",
+									"quantity": {
+										"min": 8,
+										"max": 24
+									}
+								}
+							]
+						},
+						{
+							"max_uses": -1,
+							"trader_exp": 1,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 1,
+										"max": 2
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:yellow_crystal_shard",
+									"quantity": {
+										"min": 8,
+										"max": 24
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"total_exp_required": 8,
+			"groups": [
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"trader_exp": 4,
+							"max_uses": -1,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:crystalcap_item",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				},
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"trader_exp": 4,
+							"max_uses": -1,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 1,
+										"max": 2
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:blue_amber_sugar",
+									"quantity": {
+										"min": 4,
+										"max": 12
+									}
+								}
+							]
+						},
+						{
+							"trader_exp": 4,
+							"max_uses": -1,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 1,
+										"max": 2
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:red_amber_sugar",
+									"quantity": {
+										"min": 4,
+										"max": 12
+									}
+								}
+							]
+						},
+						{
+							"trader_exp": 4,
+							"max_uses": -1,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 1,
+										"max": 2
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:green_amber_sugar",
+									"quantity": {
+										"min": 4,
+										"max": 12
+									}
+								}
+							]
+						},
+						{
+							"trader_exp": 4,
+							"max_uses": -1,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 1,
+										"max": 2
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:yellow_amber_sugar",
+									"quantity": {
+										"min": 4,
+										"max": 12
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"total_exp_required": 32,
+			"groups": [
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"trader_exp": 8,
+							"max_uses": -1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": 2
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:saline_crystal_powder",
+									"quantity": {
+										"min": 2,
+										"max": 8
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"trader_exp": 8,
+							"max_uses": -1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": 3
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:ice_crystal_block",
+									"quantity": {
+										"min": 3,
+										"max": 9
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"total_exp_required": 128,
+			"groups": [
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": -1,
+							"trader_exp": 16,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 4,
+										"max": 12
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:rough_blue_crystal_pickaxe",
+									"quantity": 1,
+									"functions": [
+										{
+											"function": "set_lore",
+											"lore": ["(*‾◡◝*)"]
+										},
+										{
+											"function": "set_name",
+											"name": "商人のツルハシ"
+										},
+										{
+											"function": "specific_enchants",
+											"enchants": {
+												"id": "unbreaking",
+												"level": 1
+											}
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"num_to_select": 1,
+					"trades": [
+						{
+							"max_uses": -1,
+							"trader_exp": 16,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 4,
+										"max": 12
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:crystal_powder_bottle",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": -1,
+							"trader_exp": 16,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 4,
+										"max": 12
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:red_crystal_powder_bottle",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": -1,
+							"trader_exp": 16,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 4,
+										"max": 12
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:green_crystal_powder_bottle",
+									"quantity": 8
+								}
+							]
+						},
+						{
+							"max_uses": -1,
+							"trader_exp": 16,
+							"weight": 1,
+							"wants": [
+								{
+									"item": "cb2:rare_crystal_gem",
+									"quantity": {
+										"min": 4,
+										"max": 12
+									}
+								}
+							],
+							"gives": [
+								{
+									"item": "cb2:yellow_crystal_powder_bottle",
+									"quantity": 8
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

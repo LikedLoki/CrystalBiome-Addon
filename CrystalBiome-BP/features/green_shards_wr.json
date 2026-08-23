@@ -1,0 +1,26 @@
+{
+	"format_version": "1.13.0",
+	"minecraft:weighted_random_feature": {
+		"description": {
+			"identifier": "cb2:green_shards_wr"
+		},
+		"features": [
+			[
+				"cb2:b_green_shard_f",
+				1
+			],
+			[
+				"cb2:l_green_shard_f",
+				1
+			],
+			[
+				"cb2:m_green_shard_f",
+				1
+			],
+			[
+				"cb2:s_green_shard_f",
+				1
+			]
+		]
+	}
+}

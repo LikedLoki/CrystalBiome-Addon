@@ -9,7 +9,7 @@ const offsetMap: VectorXZ[] = [
 export const Spawner: BlockCustomComponent = {
     onPlace({ block, dimension }) {
         const { x, y, z } = block.center();
-        block.setPermutation(block.permutation.withState("cb2:count" as any, 4));
+        block.setPermutation(block.permutation.withState("cb2:count" as any, 6));
         dimension.spawnEntity("cb2:cbspawner_block" as any, { x: x, y: y - 0.5, z: z });
     },
     onBreak({ block, dimension }) {
@@ -57,12 +57,13 @@ export const Spawner: BlockCustomComponent = {
             }).length;
             if (spawnCount <= 0 && guardAmount > 0) return;
             else if (spawnCount <= 0 && guardAmount <= 0) {
-                dimension.setBlockType(block.location, "minecraft:air");
+                const { x, y, z } = block.location;
+                dimension.runCommand(`setblock ${x} ${y} ${z} air destroy`);
                 dimension.spawnParticle("cb2:orbshard_break_particle", block.center());
                 dimension.playSound("crystal.break", block.center(), { pitch: 0.8 });
                 return;
             }
-            if (guardAmount >= 2) return;
+            if (guardAmount >= 3) return;
             const lowerBlocks: Block[] | [] = getBlocks(offsetMap, 0, block.location, dimension);
             const upperBlocks: Block[] | [] | undefined = lowerBlocks.length === 0 ? getBlocks(offsetMap, -1, block.location, dimension) : undefined;
             if (lowerBlocks.length === 0 && (upperBlocks?.length === 0 || !upperBlocks)) return;

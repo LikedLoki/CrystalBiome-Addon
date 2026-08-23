@@ -36,15 +36,15 @@
 			]
 		],
 		"age": {
-			"range_min": 1,
-			"range_max": 24
+			"range_min": 4,
+			"range_max": 16
 		},
 		"growth_direction": "down",
 		"height_distribution": [
 			[
 				{
-					"range_min": 1,
-					"range_max": 24
+					"range_min": 4,
+					"range_max": 16
 				},
 				1
 			]

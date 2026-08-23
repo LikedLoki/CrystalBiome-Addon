@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.130",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -9,32 +9,17 @@
 				"cb2:frame": [
 					0, 1, 2
 				],
-				"cb2:enemy_type": [
-					0, 1
-				],
-				"cb2:rot":[
-					0, 1, 2, 3
-				],
-				"cb2:timer_a": {
-					"values": {
-						"min": 0,
-						"max": 15
-					}
-				},
-				"cb2:timer_b": {
-					"values": {
-						"min": 0,
-						"max": 15
-					}
-				}
+				"cb2:boss_type": [
+					"executor", "wanderment"
+				]
 			},
 			"identifier": "cb2:crystal_heart_frame"
 		},
 		"components": {
-			"cb2:crystal_heartframe": {},
-			"minecraft:tick": {
-				"interval_range": [1, 1]
+			"minecraft:block_entity": {
+				"dynamic_properties": true
 			},
+			"cb2:crystal_heartframe": {},
 			"minecraft:destructible_by_mining": false,
 			"minecraft:redstone_conductivity": {
 				"redstone_conductor": true,
@@ -68,6 +53,9 @@
 			{
 				"condition": "query.block_state('cb2:frame')",
 				"components": {
+					"minecraft:tick": {
+				"interval_range": [1, 1]
+			},
 					"minecraft:geometry": "minecraft:geometry.full_block",
 					"minecraft:material_instances": {
 						"*": {

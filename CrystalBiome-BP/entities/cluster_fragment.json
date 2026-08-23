@@ -15,7 +15,7 @@
 		},
 		"components": {
 			"minecraft:loot": {
-				"table": "loot_tables/crystal_heart_loot.json"
+				"table": "loot_tables/entity/cluster_fragment_lt.json"
 			},
 			"minecraft:boss": {
 				"hud_range": 55,

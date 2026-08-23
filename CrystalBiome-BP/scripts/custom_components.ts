@@ -37,6 +37,8 @@ import { resonanceNode } from "./resonance_node";
 import { CrystalPowder } from "./crystal_powder";
 import { CanSmelt } from "./can_smelt";
 import { SynthesisTable } from "./synthesis_table";
+import { CrystalDropDefault } from "./crystal_drop_default";
+import { Portal } from "./crystal_portal";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
     blockComponentRegistry.registerCustomComponent("cb2:cluster_display", Display);
@@ -83,4 +85,7 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     itemComponentRegistry.registerCustomComponent("cb2:crystal_powder", CrystalPowder);
     blockComponentRegistry.registerCustomComponent("cb2:can_smelt", CanSmelt)
     blockComponentRegistry.registerCustomComponent("cb2:synthesis_table", SynthesisTable)
+    blockComponentRegistry.registerCustomComponent("cb2:crystal_drop_default", CrystalDropDefault)
+    blockComponentRegistry.registerCustomComponent("cb2:first&second_portal", Portal.first_second)
+    blockComponentRegistry.registerCustomComponent("cb2:third_portal", Portal.third)
 })

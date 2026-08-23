@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.80",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -13,7 +13,6 @@
 				"*": {
 					"texture": "cb2_crystaloak_planks",
 					"render_method": "opaque",
-					"ambient_occlusion": true,
 					"face_dimming": false
 				}
 			},
@@ -23,7 +22,9 @@
 			"minecraft:map_color": "#FFFEF6",
 			"minecraft:light_emission": 0,
 			"minecraft:light_dampening": 15,
-			"tag:minecraft:is_axe_item_destructible": {},
+			"minecraft:tags": [
+				"minecraft:is_axe_item_destructible"
+			],
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2
 			},

@@ -10,13 +10,16 @@
 			},
 			"minecraft:surface_builder": {
 				"builder": {
-					"type": "minecraft:overworld",
-					"sea_floor_depth": 7,
-					"sea_floor_material": "cb2:saline_crystal_block",
+					"type": "minecraft:capped",
+					"ceiling_materials": [
+						"cb2:deep_crystal_block"
+					],
+					"floor_materials": [
+						"cb2:crystal_block"
+					],
 					"foundation_material": "cb2:deep_crystal_block",
-					"mid_material": "cb2:deep_crystal_block",
-					"top_material": "cb2:crystal_block",
-					"sea_material": "minecraft:water"
+					"sea_material": "water",
+					"beach_material": "cb2:crystal_block"
 				}
 			},
 			"minecraft:climate": {},
@@ -29,11 +32,32 @@
 			"minecraft:replace_biomes": {
 				"replacements": [
 					{
-						"amount": 0.2,
+						"amount": 0.4,
 						"dimension": "minecraft:overworld",
-						"noise_frequency_scale": 0.2,
+						"noise_frequency_scale": 0.1,
 						"targets": [
-							"minecraft:plains"
+							"minecraft:plains",
+							"minecraft:sunflower_plains",
+							"minecraft:forest",
+							"minecraft:flower_forest",
+							"minecraft:birch_forest",
+							"minecraft:mangrove_swamp",
+							"minecraft:jungle",
+							"minecraft:bamboo_jungle",
+							"minecraft:desert",
+							"minecraft:savanna",
+							"minecraft:savanna_plateau",
+							"minecraft:taiga",
+							"minecraft:meadow",
+							"minecraft:cherry_grove",
+							"minecraft:grove",
+							"minecraft:snowy_slopes",
+							"minecraft:jagged_peaks",
+							"minecraft:frozen_peaks",
+							"minecraft:stony_peaks",
+							"minecraft:river",
+							"minecraft:frozen_river",
+							"minecraft:beach"
 						]
 					}
 				]

@@ -1,0 +1,17 @@
+{
+	"format_version": "1.21.100",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:shine_reverberation",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+			"minecraft:rarity": "epic",
+			"minecraft:glint": true,
+			"minecraft:allow_off_hand": true,
+			"minecraft:icon": "cb2_shine_reverberation"
+		}
+	}
+}

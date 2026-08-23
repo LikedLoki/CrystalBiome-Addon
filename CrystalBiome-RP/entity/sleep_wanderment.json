@@ -1,0 +1,20 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:sleep_wanderment",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/crystal_wanderment"
+			},
+			"geometry": {
+				"default": "geometry.sleep_crystal_wanderment"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
+}

@@ -17,6 +17,11 @@
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},
+			"cb2:can_smelt": {
+				"type": "block",
+				"after": "cb2:clear_rare_crystal_block",
+				"times": 8
+			},
 			"minecraft:loot": "loot_tables/rare_crystal_loot.json",
 			"minecraft:tags": [
 				"cb2:crystal",

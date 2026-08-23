@@ -11,13 +11,12 @@
 					1,
 					2
 				],
-				"cb2:count": [
-					0,
-					1,
-					2,
-					3,
-					4
-				]
+				"cb2:count": {
+					"values": {
+						"min": 0,
+						"max": 6
+					}
+				}
 			},
 			"identifier": "cb2:crystal_spawner"
 		},
@@ -60,6 +59,7 @@
 			"minecraft:friction": 0.4,
 			"minecraft:flammable": false,
 			"minecraft:map_color": "#72D7FF",
+			"minecraft:loot": "loot_tables/blocks/crystal_spawner_lt.json",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 6
 			}

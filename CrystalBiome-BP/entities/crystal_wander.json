@@ -145,7 +145,7 @@
 						}
 					},
 					{
-						"max_dist": 24,
+						"max_dist": 16,
 						"filters": {
 							"all_of": [
 								{

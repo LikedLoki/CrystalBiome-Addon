@@ -93,7 +93,6 @@ class DoorAdmin {
         if (!this.#ensureAbove()) return false;
         const { x, y, z } = this.down.location;
         this.dim.setBlockType({ x: x, y: y + 1, z: z }, `cb2:${this.param.name}_door_up`);
-        console.log(this.side.typeId === this.down.typeId)
         if (this.side.typeId === this.down.typeId) this.reverse = 1;
         else this.reverse = 0;
         this.#applyState("facing");

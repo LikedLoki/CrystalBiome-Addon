@@ -21,8 +21,8 @@ const isSpawnerEntity = (entity: Entity): entity is SpawnerEntity => entity.type
 const hasPrism = (dimension: Dimension, location: Vector3): boolean => dimension.getEntities(
     {
         "location": location,
-        "maxDistance": 128,
-        "type": "cb2:prismstone_entity"
+        "maxDistance": 16,
+        "type": "cb2:resonance_node_entity"
     }
 ).length > 0;
 

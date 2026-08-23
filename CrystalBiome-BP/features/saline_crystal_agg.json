@@ -7,6 +7,7 @@
 		"early_out": "first_failure",
 		"features": [
 			"cb2:saline_crystal_s",
+			"cb2:closed_saline_crystal_s",
 			"cb2:saline_crystal_cluster_s"
 		]
 	}

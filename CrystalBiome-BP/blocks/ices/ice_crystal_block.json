@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.130",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -14,21 +14,30 @@
 			},
 			"minecraft:material_instances": {
 				"*": {
-					"render_method": "blend",
 					"texture": "cb2_ice_crystal_block",
-					"face_dimming": false,
-					"ambient_occlusion": false
+					"render_method": "blend",
+					"face_dimming": false
 				}
 			},
-			"tag:minecraft:is_pickaxe_item_destructible": {},
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 1.2
+			"cb2:can_smelt": {
+				"type": "block",
+				"after": "cb2:progress_ice_crystal_block",
+				"times": 16
 			},
-			"tag:cb2:crystal": {},
-			"tag:cb2:rawcrystal": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 2.4
+			},
+			"minecraft:tags": [
+				"cb2:crystal",
+				"cb2:rawcrystal",
+				"minecraft:is_pickaxe_item_destructible"
+			],
 			"minecraft:redstone_conductivity": {
 				"redstone_conductor": true,
-				"allows_wire_to_step_down": true
+				"allows_wire_to_step_down": false
+			},
+			"minecraft:movable": {
+				"movement_type": "push_pull"
 			},
 			"minecraft:collision_box": true,
 			"minecraft:selection_box": true,
@@ -39,7 +48,7 @@
 			"minecraft:map_color": "#72D7FF",
 			"minecraft:loot": "loot_tables/blocks/ice_crystal_lt.json",
 			"minecraft:destructible_by_explosion": {
-				"explosion_resistance": 1
+				"explosion_resistance": 6
 			}
 		}
 	}

@@ -10,9 +10,10 @@
 		"component_groups": {},
 		"components": {
 			"minecraft:economy_trade_table": {
+				"show_trade_screen": true,
 				"new_screen": true,
 				"display_name": "水晶商人",
-				"table": "trading/crystal_trade.json"
+				"table": "trading/economy_trades/crystal_trade.json"
 			},
 			"minecraft:collision_box": {
 				"width": 0.6,
@@ -24,9 +25,6 @@
 			},
 			"minecraft:movement": {
 				"value": 0.7
-			},
-			"minecraft:experience_reward": {
-				"on_death": "query.last_hit_by_player?10+(query.equipment_count*math.random(2,6)):0"
 			},
 			"minecraft:physics": {},
 			"minecraft:pushable": {

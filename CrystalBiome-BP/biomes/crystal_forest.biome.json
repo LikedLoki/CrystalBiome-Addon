@@ -34,18 +34,32 @@
 			"minecraft:replace_biomes": {
 				"replacements": [
 					{
-						"amount": 0.2,
+						"amount": 0.4,
 						"dimension": "minecraft:overworld",
 						"noise_frequency_scale": 0.1,
 						"targets": [
 							"minecraft:plains",
+							"minecraft:sunflower_plains",
 							"minecraft:forest",
+							"minecraft:flower_forest",
 							"minecraft:birch_forest",
+							"minecraft:mangrove_swamp",
+							"minecraft:jungle",
+							"minecraft:bamboo_jungle",
 							"minecraft:desert",
 							"minecraft:savanna",
+							"minecraft:savanna_plateau",
 							"minecraft:taiga",
-							"minecraft:jungle",
-							"minecraft:ice_plains"
+							"minecraft:meadow",
+							"minecraft:cherry_grove",
+							"minecraft:grove",
+							"minecraft:snowy_slopes",
+							"minecraft:jagged_peaks",
+							"minecraft:frozen_peaks",
+							"minecraft:stony_peaks",
+							"minecraft:river",
+							"minecraft:frozen_river",
+							"minecraft:beach"
 						]
 					}
 				]

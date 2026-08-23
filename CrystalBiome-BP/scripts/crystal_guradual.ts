@@ -1,4 +1,4 @@
-import { Entity, system, World, world } from "@minecraft/server";
+import { Entity, ItemStack, system, Vector2, Vector3, World, world } from "@minecraft/server";
 import { sleep } from "./other";
 import { PrismInfo } from "./crystal-biome";
 import { PrismInfoAdmin } from "./prism-info-fn";
@@ -34,6 +34,17 @@ export const SlayedClusterFragment = (world: World, entity: Entity) => {
 
 export const SlyaedExecutor = (world: World, entity: Entity) => {
     if (entity.typeId !== "cb2:crystal_executor") return;
+
+    const homeLoc = entity.getDynamicProperty("cb2:homeLoc") as Vector3 | undefined;
+    if (!homeLoc) return;
+    const { dimension } = entity;
+    const bossType = dimension.getBlock(homeLoc)?.permutation.getState("cb2:boss_type" as any) as "executor" | "wanderment" | undefined;
+    if (!bossType) return;
+    dimension.setBlockType(homeLoc, "minecraft:air");
+    dimension.spawnItem(new ItemStack(bossType === "executor" ? "cb2:executor_reverberation" : "cb2:wanderment_reverberation"), homeLoc);
+    dimension.playSound("item.trident.thunder", homeLoc, { volume: 1, pitch: 1.2 });
+    dimension.spawnParticle("cb2:orbshard_bigbreak_particle", homeLoc);
+
     const currentGuard = +(world.getDynamicProperty("cb2:crystal_guradual_guard") || 0)
     if (currentGuard > 0) return;
     const prismAdmin = new PrismInfoAdmin(world);
@@ -46,6 +57,17 @@ export const SlyaedExecutor = (world: World, entity: Entity) => {
 
 export const SlyaedWanderment = (world: World, entity: Entity) => {
     if (entity.typeId !== "cb2:crystal_wanderment") return;
+
+    const homeLoc = entity.getDynamicProperty("cb2:homeLoc") as Vector3 | undefined;
+    if (!homeLoc) return;
+    const { dimension } = entity;
+    const bossType = dimension.getBlock(homeLoc)?.permutation.getState("cb2:boss_type" as any) as "executor" | "wanderment" | undefined;
+    if (!bossType) return;
+    dimension.setBlockType(homeLoc, "minecraft:air");
+    dimension.spawnItem(new ItemStack(bossType === "executor" ? "cb2:executor_reverberation" : "cb2:wanderment_reverberation"), homeLoc);
+    dimension.playSound("item.trident.thunder", homeLoc, { volume: 1, pitch: 1.2 });
+    dimension.spawnParticle("cb2:orbshard_bigbreak_particle", homeLoc);
+
     const currentWander = +(world.getDynamicProperty("cb2:crystal_guradual_wander") || 0)
     if (currentWander > 0) return;
     world.setDynamicProperty("cb2:crystal_guradual_wander", 1);

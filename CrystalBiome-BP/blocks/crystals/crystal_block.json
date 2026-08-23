@@ -8,12 +8,20 @@
 			"identifier": "cb2:crystal_block"
 		},
 		"components": {
+			"cb2:crystal_drop_default": {
+				"typeId": "cb2:crystal_shard",
+				"quantity": {
+					"min": 2,
+					"max": 4
+				}
+			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "cb2_crystal_block"
 				}
 			},
+			
 			"cb2:can_smelt": {
 				"type": "block",
 				"after": "cb2:clear_crystal_block",

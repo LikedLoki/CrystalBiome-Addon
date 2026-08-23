@@ -92,7 +92,8 @@
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "cb2_green_crystal_block",
-					"render_method": "opaque"
+					"render_method": "opaque",
+					"face_dimming": false
 				}
 			},
 			"minecraft:item_visual": {
@@ -100,7 +101,8 @@
 				"material_instances": {
 					"*": {
 						"texture": "cb2_green_crystal_block",
-						"render_method": "opaque"
+						"render_method": "opaque",
+					"face_dimming": false
 					}
 				}
 			}

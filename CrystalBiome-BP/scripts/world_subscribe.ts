@@ -1,4 +1,4 @@
-import { EntityDamageCause, system, Vector3, world } from "@minecraft/server";
+import { EntityDamageCause, Player, system, Vector3, world } from "@minecraft/server";
 import { furnaceCancel } from "./crystal_furnace_cancel";
 import { wallNearby } from "./wall_other";
 import { ClusterBudBreak } from "./cluster_bud_break";
@@ -31,7 +31,7 @@ world.afterEvents.playerPlaceBlock.subscribe((event) => {
 world.afterEvents.entityHitEntity.subscribe((event) => {
     const { damagingEntity } = event
     if (damagingEntity.getComponent("minecraft:type_family")?.hasTypeFamily("crystal")) return;
-    if (damagingEntity.dimension.getEntities({ families: ["cb2:crystal_giant_f"], maxDistance: 64, location: damagingEntity.location }).length === 0)
+    if (damagingEntity.dimension.getEntities({ families: ["cb2:crystal_giant_f"], maxDistance: 16, location: damagingEntity.location }).length === 0)
         return;
     damagingEntity.addTag("cb2:target_for_giant")
 })
@@ -44,6 +44,9 @@ world.afterEvents.entityDie.subscribe(event => {
     SlyaedExecutor(world, deadEntity)
     SlyaedWanderment(world, deadEntity)
     CrystalGemDrop.sword(event)
+    if (deadEntity instanceof Player) {
+        deadEntity.removeTag("cb2:target_for_giant")
+    }
 })
 
 

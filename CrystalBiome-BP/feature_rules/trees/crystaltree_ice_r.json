@@ -13,6 +13,11 @@
 						"test": "has_biome_tag",
 						"value": "crystal_lowland",
 						"operator": "=="
+					},
+					{
+						"test": "has_biome_tag",
+						"value": "crystal_forest",
+						"operator": "=="
 					}
 				]
 			}

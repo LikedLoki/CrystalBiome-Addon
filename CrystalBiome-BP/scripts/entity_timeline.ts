@@ -13,7 +13,7 @@ const tagCheck = (dimension: Dimension) => {
     }
     c = 0;
         for (const tfg of dimension.getEntities({ tags: ["cb2:target_for_giant"] })) {
-            if (dimension.getEntities({ families: ["crystal_giant"], maxDistance: 64, location: tfg.location }).length === 0)
+            if (dimension.getEntities({ families: ["crystal_giant"], maxDistance: 32, location: tfg.location }).length === 0)
                 tfg.removeTag("cb2:target_for_giant")
         }
     }

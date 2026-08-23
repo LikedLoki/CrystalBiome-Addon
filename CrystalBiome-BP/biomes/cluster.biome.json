@@ -35,15 +35,27 @@
 						"noise_frequency_scale": 12,
 						"targets": [
 							"minecraft:plains",
+							"minecraft:sunflower_plains",
+							"minecraft:forest",
 							"minecraft:flower_forest",
-							"minecraft:taiga",
 							"minecraft:birch_forest",
-							"minecraft:birch_forest_hills",
-							"minecraft:birch_forest_hills_mutated",
-							"minecraft:birch_forest_mutated",
+							"minecraft:mangrove_swamp",
 							"minecraft:jungle",
+							"minecraft:bamboo_jungle",
+							"minecraft:desert",
 							"minecraft:savanna",
-							"minecraft:forest"
+							"minecraft:savanna_plateau",
+							"minecraft:taiga",
+							"minecraft:meadow",
+							"minecraft:cherry_grove",
+							"minecraft:grove",
+							"minecraft:snowy_slopes",
+							"minecraft:jagged_peaks",
+							"minecraft:frozen_peaks",
+							"minecraft:stony_peaks",
+							"minecraft:river",
+							"minecraft:frozen_river",
+							"minecraft:beach"
 						]
 					}
 				]

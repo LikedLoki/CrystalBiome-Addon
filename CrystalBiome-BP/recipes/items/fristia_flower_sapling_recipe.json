@@ -1,0 +1,21 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shapeless": {
+		"description": {
+			"identifier": "cb2:fristia_flower_sapling_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"ingredients": [
+			{
+				"item": "cb2:fristia_flower_item",
+				"count": 1
+			}
+		],
+		"result": {
+			"item": "cb2:fristia_flower_sapling",
+			"count": 2
+		}
+	}
+}

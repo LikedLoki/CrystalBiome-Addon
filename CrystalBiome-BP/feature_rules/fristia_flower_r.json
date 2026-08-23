@@ -2,8 +2,8 @@
 	"format_version": "1.13.0",
 	"minecraft:feature_rules": {
 		"description": {
-			"identifier": "cb2:ice_crystal_r",
-			"places_feature": "cb2:ice_crystal_s"
+			"identifier": "cb2:fristia_flower_r",
+			"places_feature": "cb2:fristia_flower_f"
 		},
 		"conditions": {
 			"placement_pass": "surface_pass",
@@ -11,7 +11,12 @@
 				"any_of": [
 					{
 						"test": "has_biome_tag",
-						"value": "crystal",
+						"value": "crystal_lowland",
+						"operator": "=="
+					},
+					{
+						"test": "has_biome_tag",
+						"value": "crystal_forest",
 						"operator": "=="
 					}
 				]
@@ -19,12 +24,12 @@
 		},
 		"distribution": {
 			"scatter_chance": {
-				"denominator": 6,
+				"denominator": 4,
 				"numerator": 1
 			},
-			"iterations": 1,
+			"iterations": 8,
 			"x": {
-				"distribution": "uniform",
+				"distribution": "gaussian",
 				"extent": [
 					0,
 					15
@@ -32,7 +37,7 @@
 			},
 			"y": "query.heightmap(variable.worldx, variable.worldz)",
 			"z": {
-				"distribution": "uniform",
+				"distribution": "gaussian",
 				"extent": [
 					0,
 					15

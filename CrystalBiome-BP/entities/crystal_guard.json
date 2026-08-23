@@ -253,7 +253,7 @@
 						}
 					},
 					{
-						"max_dist": 24,
+						"max_dist": 16,
 						"filters": {
 							"all_of": [
 								{
@@ -294,8 +294,24 @@
 			"minecraft:equipment": {
 				"slot_drop_chance": [
 					{
-						"drop_chance": 0.05,
+						"drop_chance": 0,
 						"slot": "slot.weapon.mainhand"
+					},
+					{
+						"drop_chance": 0,
+						"slot": "slot.armor.head"
+					},
+					{
+						"drop_chance": 0,
+						"slot": "slot.armor.chest"
+					},
+					{
+						"drop_chance": 0,
+						"slot": "slot.armor.legs"
+					},
+					{
+						"drop_chance": 0,
+						"slot": "slot.armor.feet"
 					}
 				],
 				"table": "loot_tables/crystal_guard_weapon.json"

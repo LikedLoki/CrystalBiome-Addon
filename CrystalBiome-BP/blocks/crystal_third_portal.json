@@ -1,0 +1,46 @@
+{
+	"format_version": "1.26.30",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature"
+			},
+            "states": {
+                "cb2:portal": [
+                    "close", "first_in", "in", "out", "mayout"
+                ]
+            },
+			"identifier": "cb2:crystal_third_portal"
+		},
+		"components": {
+			"cb2:third_portal": {},
+            "minecraft:block_entity": {
+				"dynamic_properties": true
+			},
+			"minecraft:destructible_by_mining": true,
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystal_third_portal",
+					"render_method": "blend",
+					"face_dimming": false
+				}
+			}
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('cb2:portal') == 'close'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "cb2_crystal_third_portal_close",
+							"render_method": "blend",
+							"face_dimming": false
+						}
+					}
+				}
+			}
+		]
+	}
+}

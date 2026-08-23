@@ -70,7 +70,7 @@
 						"block": {
 							"tags": "query.any_tag( 'cb2:orbshard' )"
 						},
-						"speed": 8
+						"speed": 640
 					}
 				]
 			},

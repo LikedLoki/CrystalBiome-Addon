@@ -9,3 +9,4 @@ import "./world_subscribe.js"
 import "./custom_components.js";
 import "./other.js";
 import "./giant_attacks.js"
+import "./crystal_horizon.js"

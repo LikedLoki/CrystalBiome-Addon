@@ -8,6 +8,13 @@
 			"identifier": "cb2:red_crystal_block"
 		},
 		"components": {
+			"cb2:crystal_drop_default": {
+				"typeId": "cb2:red_crystal_shard",
+				"quantity": {
+					"min": 2,
+					"max": 4
+				}
+			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
@@ -15,6 +22,11 @@
 				}
 			},
 			"cb2:crystalstep": "red",
+			"cb2:can_smelt": {
+				"type": "block",
+				"after": "cb2:clear_red_crystal_block",
+				"times": 8
+			},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},

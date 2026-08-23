@@ -188,16 +188,22 @@
 			"textures": "textures/blocks/crystal_test"
 		},
 		"cb2_crystaloak_planks": {
-			"textures": "textures/blocks/shineoak_planks"
+			"textures": "textures/blocks/crystaloak_planks"
 		},
 		"cb2_crystaloak_leaves": {
 			"textures": "textures/blocks/shineoak_leaves"
 		},
 		"cb2_crystaloak_log_side": {
-			"textures": "textures/blocks/shineoak_log"
+			"textures": "textures/blocks/crystaloak_log"
 		},
 		"cb2_crystaloak_log_top": {
-			"textures": "textures/blocks/shineoak_log_top"
+			"textures": "textures/blocks/crystaloak_log_top"
+		},
+		"cb2_stripped_crystaloak_log_side": {
+			"textures": "textures/blocks/stripped_crystaloak_log"
+		},
+		"cb2_stripped_crystaloak_log_top": {
+			"textures": "textures/blocks/stripped_crystaloak_log_top"
 		},
 		"cb2_boss_frame": {
 			"textures": "textures/blocks/boss_frame"
@@ -729,6 +735,21 @@
 		},
 		"cb2_crystal_synthesis_table": {
 			"textures": "textures/blocks/crystal_synthesis_table"
+		},
+		"cb2_crystal_first_portal": {
+			"textures": "textures/blocks/crystal_first_portal"
+		},
+		"cb2_crystal_second_portal": {
+			"textures": "textures/blocks/crystal_second_portal"
+		},
+		"cb2_crystal_second_portal_close": {
+			"textures": "textures/blocks/crystal_second_portal_close"
+		},
+		"cb2_crystal_third_portal": {
+			"textures": "textures/blocks/crystal_third_portal"
+		},
+		"cb2_crystal_third_portal_close": {
+			"textures": "textures/blocks/crystal_third_portal_close"
 		}
 	}
 }

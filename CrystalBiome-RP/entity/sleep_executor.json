@@ -1,0 +1,20 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:sleep_executor",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/crystal_execut"
+			},
+			"geometry": {
+				"default": "geometry.sleep_crystal_executor"
+			},
+			"render_controllers": [
+				"controller.render.default"
+			]
+		}
+	}
+}

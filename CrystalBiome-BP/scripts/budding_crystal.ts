@@ -75,9 +75,12 @@ const mainOrigin = (dimension: Dimension, block: Block, params: CrystColor): voi
     const allowSpace: NearbyState[] = nearbyBlocks.filter(dataI => allowList.includes(dataI.block.typeId));
     if (allowSpace.length === 0) return;
 
-    const selectVector: NearbyState = allowSpace[Math.random() * allowSpace.length | 0];
-    const type: CrystalType = isCrystType(selectVector.block.typeId);
-    conditionalBranch[type](dimension, selectVector, params);
+    for (let i = 0; i < 2; i++) {
+        if (allowSpace.length === 0) return
+        const selectVector: NearbyState = allowSpace.splice(Math.random() * allowSpace.length | 0, 1)[0];
+        const type: CrystalType = isCrystType(selectVector.block.typeId);
+        conditionalBranch[type](dimension, selectVector, params);
+    }
 }
 
 export const BuddingCrystal: BlockCustomComponent = {

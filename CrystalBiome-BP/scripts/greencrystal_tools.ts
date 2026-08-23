@@ -1,33 +1,40 @@
 import { Block, BlockPermutation, Dimension, Entity, EntityApplyDamageOptions, EntityDamageCause, ItemCustomComponent, MolangVariableMap, system, Vector3 } from "@minecraft/server";
-const offset: Vector3[] = [
+const chainOffset: Vector3[] = [
     { x: 1, y: 0, z: 0 }, { x: -1, y: 0, z: 0 }, { x: 0, y: 1, z: 0 }, { x: 0, y: -1, z: 0 }, { x: 0, y: 0, z: 1 }, { x: 0, y: 0, z: -1 }
 ]
+
+const getNearSomeBlock = (dimension: Dimension, location: Vector3, typeId: string): Block[] | undefined => {
+    const blockList: Block[] = []
+    const { x, y, z } = location;
+    for (const { x: dx, y: dy, z: dz } of chainOffset) {
+        const fetchedBlock = dimension.getBlock({ x: x + dx, y: y + dy, z: z + dz });
+        if (!fetchedBlock || fetchedBlock.typeId !== typeId) continue;
+        blockList.push(fetchedBlock)
+    }
+    return blockList.length === 0 ? undefined : blockList
+}
+
+const chainBreak = (dimension: Dimension, location: Vector3, typeId: string, currentCount: number, maxCount: number) => {
+    // 最大回数まで連鎖したら切り返し。
+    if (currentCount >= maxCount) return;
+
+    // 破壊されたブロックと同じIDのブロックを隣接面から取得し、無ければ切り返し。
+    const blockList: Block[] | undefined = getNearSomeBlock(dimension, location, typeId);
+    if (!blockList) return;
+
+    // 取得したブロックの中から無作為に一つ選択。
+    const selected = blockList[Math.floor(Math.random() * blockList.length)];
+    const { x, y, z } = selected
+    
+    dimension.runCommand(`setblock ${x} ${y} ${z} air destroy`)
+    chainBreak(dimension, selected.location, selected.typeId, currentCount+1, maxCount)
+}
+
 export const GCPick: ItemCustomComponent = {
-    onMineBlock({ block, minedBlockPermutation }, data) {
-        const params = data.params as { chance: number, chain: number };
-        if (Math.random() > params.chance) return;
-        const dimension: Dimension = block.dimension;
-        const mined: BlockPermutation = minedBlockPermutation;
-        const minedID: string = mined.type.id;
-        const box: Vector3[] = [];
-        const { x, y, z }: Vector3 = block.location;
-        let flag: boolean = false;
-        for (const o of offset) {
-            const hmm: Block | undefined = dimension.getBlock({ x: x + o.x, y: y + o.y, z: z + o.z });
-            if (!hmm || hmm.typeId !== minedID) return;
-            box.push({ x: x + o.x, y: y + o.y, z: z + o.z });
-            flag = true;
-        };
-        for (let i: number = 0; i < params.chain; i++) {
-            const select: Vector3 = box[Math.floor(Math.random() * box.length)];
-            if (!select) return;
-            dimension.runCommand(`setblock ${select.x} ${select.y} ${select.z} air destroy`);
-            const vars: MolangVariableMap = new MolangVariableMap();
-            vars.setColorRGB("variable.color", { red: 0.2, green: 1, blue: 0.75 });
-            dimension.spawnParticle("cb2:crystal_particle", block.center(), vars)
-            dimension.spawnParticle("cb2:crystal_particle", { x: select.x + 0.5, y: select.y + 0.5, z: select.z + 0.5 }, vars);
-            box.splice(box.indexOf(select), 1);
-        }
+    onMineBlock({ block, minedBlockPermutation }, { params }) {
+        const param = params as number
+        const { dimension, location } = block;
+        chainBreak(dimension, location, minedBlockPermutation.type.id, 0, param)
     }
 };
 

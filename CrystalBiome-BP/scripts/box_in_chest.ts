@@ -13,7 +13,7 @@ export type BoxChestInfo =
         state: "none"
     }
     | {
-        state: "exist",
+        state: "exist",enct
         value: {
             localize: string,
             typeId: WhiteListId,
@@ -46,6 +46,14 @@ const whiteList = {
     "cb2:red_crystal_block": 64,
     "cb2:green_crystal_block": 64,
     "cb2:yellow_crystal_block": 64,
+    "cb2:polished_crystal_block": 64,
+    "cb2:polished_red_crystal_block": 64,
+    "cb2:polished_green_crystal_block": 64,
+    "cb2:polished_yellow_crystal_block": 64,
+    "cb2:refined_crystal_block": 64,
+    "cb2:refined_red_crystal_block": 64,
+    "cb2:refined_green_crystal_block": 64,
+    "cb2:refined_yellow_crystal_block": 64,
     "cb2:crystalcap_item": 64,
     "cb2:rough_blue_crystal_sword": 1,
     "cb2:rough_red_crystal_sword": 1,
@@ -58,7 +66,31 @@ const whiteList = {
     "cb2:rough_blue_crystal_axe": 1,
     "cb2:rough_red_crystal_axe": 1,
     "cb2:rough_green_crystal_axe": 1,
-    "cb2:rough_yellow_crystal_axe": 1
+    "cb2:rough_yellow_crystal_axe": 1,
+    "cb2:polished_blue_crystal_sword": 1,
+    "cb2:polished_red_crystal_sword": 1,
+    "cb2:polished_green_crystal_sword": 1,
+    "cb2:polished_yellow_crystal_sword": 1,
+    "cb2:polished_blue_crystal_pickaxe": 1,
+    "cb2:polished_red_crystal_pickaxe": 1,
+    "cb2:polished_green_crystal_pickaxe": 1,
+    "cb2:polished_yellow_crystal_pickaxe": 1,
+    "cb2:polished_blue_crystal_axe": 1,
+    "cb2:polished_red_crystal_axe": 1,
+    "cb2:polished_green_crystal_axe": 1,
+    "cb2:polished_yellow_crystal_axe": 1,
+    "cb2:refined_blue_crystal_sword": 1,
+    "cb2:refined_red_crystal_sword": 1,
+    "cb2:refined_green_crystal_sword": 1,
+    "cb2:refined_yellow_crystal_sword": 1,
+    "cb2:refined_blue_crystal_pickaxe": 1,
+    "cb2:refined_red_crystal_pickaxe": 1,
+    "cb2:refined_green_crystal_pickaxe": 1,
+    "cb2:refined_yellow_crystal_pickaxe": 1,
+    "cb2:refined_blue_crystal_axe": 1,
+    "cb2:refined_red_crystal_axe": 1,
+    "cb2:refined_green_crystal_axe": 1,
+    "cb2:refined_yellow_crystal_axe": 1
 } as const;
 
 /**

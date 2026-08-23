@@ -112,8 +112,9 @@ const syncEnchantments = (info: ExistBoxChestInfo, item: ItemStack): boolean => 
  * 引数 itemの修練度をinfoと同期させる関数
  */
 const syncSkill = (info: ExistBoxChestInfo, item: ItemStack): boolean => {
+    console.log(info.value.skill)
     if (info.value.skill === null) return false;
-    item.setDynamicProperty("cb2:crystal_sword_skill", info.value.skill)
+    item.setDynamicProperty("cb2:crystal_tools_skill", info.value.skill)
     item.setLore([`§r§7| 修練度 -> ${info.value.skill}`])
     return true
 }
@@ -407,6 +408,11 @@ export const SynthesisTable: BlockCustomComponent = {
             const result = refinedAxeRepair(boxChestValues, "yellow", rfycaRepair[1][0][1])
             if (!result) return;
             dimension.spawnItem(result, block.center());
+        } else {
+            return
         }
+        dimension.playSound("crystaling_polished", block.center());
+        dimension.spawnParticle("cb2:crystalenctable_use", block.center());
+        
     }
 }

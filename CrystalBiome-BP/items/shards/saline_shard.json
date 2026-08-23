@@ -24,8 +24,8 @@
 			"minecraft:use_animation": "eat",
 			"minecraft:food": {
 				"can_always_eat": false,
-				"nutrition": 1,
-				"saturation_modifier": 2
+				"nutrition": 2,
+				"saturation_modifier": 1
 			},
 			"minecraft:icon": "cb2_saline_shard"
 		}

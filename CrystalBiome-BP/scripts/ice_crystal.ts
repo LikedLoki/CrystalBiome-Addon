@@ -16,11 +16,11 @@ const progIceSuccess = (dimension: Dimension, block: Block, isFinal: boolean): v
 
 const progIceFnMap = {
     "I": (dimension: Dimension, block: Block): void => {
-        if (Math.random() < 0.8) progIceSuccess(dimension, block, false);
+        if (Math.random() < 0.6) progIceSuccess(dimension, block, false);
         else progIceFailed(dimension, block, 0);
     },
     "II": (dimension: Dimension, block: Block): void => {
-        if (Math.random() < 0.6) progIceSuccess(dimension, block, true);
+        if (Math.random() < 0.4) progIceSuccess(dimension, block, true);
         else progIceFailed(dimension, block, 1);
     }
 } as const;

@@ -32,6 +32,10 @@ const energyConsume = (block: Block) => {
         block.setPermutation(block.permutation
             .withState("cb2:bool_I" as any, false)
             .withState("cb2:energy" as any, 0))
+        const rnes = block.dimension.getEntities({ type: "cb2:resonance_node_entity", location: block.center(), maxDistance: 1 })
+        if (rnes.length >= 1) {
+            for (const rne of rnes) rne.remove()
+        } 
     } else {
         block.setPermutation(block.permutation.withState("cb2:energy" as any, nextEnergy))
     }
@@ -80,10 +84,16 @@ const fnMap = {
 
 export const resonanceNode: BlockCustomComponent = {
     "onTick": ({ dimension, block }) => {
+        energyConsume(block);
         const above: Block | undefined = block.above();
         if (!above || !(above.typeId in typeMap)) return;
         const type: Pattern = typeMap[above.typeId];
         fnMap[type](dimension, above, block);
-        energyConsume(block);
+    },
+    "onBreak": ({ dimension, block }) => {
+        const rnes = block.dimension.getEntities({ type: "cb2:resonance_node_entity", location: block.center(), maxDistance: 1 })
+        if (rnes.length >= 1) {
+            for (const rne of rnes) rne.remove()
+        } 
     }
 }

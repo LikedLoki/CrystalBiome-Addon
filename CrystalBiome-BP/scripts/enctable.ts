@@ -84,15 +84,19 @@ const translateMap = {
     "cb2:crystal_block": "蒼水晶の原石",
     "cb2:crystal_shard": "蒼水晶の欠片",
     "cb2:crystal_powder": "蒼水晶の粉末",
+    "cb2:blue_crystal_gem": "蒼水晶の宝珠",
     "cb2:red_crystal_block": "紅水晶の原石",
     "cb2:red_crystal_shard": "紅水晶の欠片",
     "cb2:red_crystal_powder": "紅水晶の粉末",
+    "cb2:red_crystal_gem": "紅水晶の宝珠",
     "cb2:green_crystal_block": "翠水晶の原石",
     "cb2:green_crystal_shard": "翠水晶の欠片",
     "cb2:green_crystal_powder": "翠水晶の粉末",
+    "cb2:green_crystal_gem": "翠水晶の宝珠",
     "cb2:yellow_crystal_block": "黄水晶の原石",
     "cb2:yellow_crystal_shard": "黄水晶の欠片",
-    "cb2:yellow_crystal_powder": "黄水晶の粉末"
+    "cb2:yellow_crystal_powder": "黄水晶の粉末",
+    "cb2:yellow_crystal_gem": "黄水晶の宝珠"
 } as const;
 const rankMap = {
     "rough": "polished",
@@ -137,6 +141,9 @@ class ItemAdmin {
     }
     get enchants(): Enchantment[] {
         return this.#item.getComponent("minecraft:enchantable")?.getEnchantments() ?? [];
+    }
+    get skill(): number {
+        return +(this.#item.getDynamicProperty("cb2:crystal_tools_skill") || 0)
     }
 }
 
@@ -214,6 +221,8 @@ export const CPolishing: BlockCustomComponent = {
                 if (!newDur) return;
                 newDur.damage += itemAdmin.durDamage;
                 newItem.getComponent("enchantable")?.addEnchantments(itemAdmin.enchants);
+                newItem.setDynamicProperty("cb2:crystal_tools_skill", itemAdmin.skill)
+                newItem.setLore([`§r§7| 修練度 -> ${itemAdmin.skill}`])
                 container.setItem(player.selectedSlotIndex, newItem);
                 dimension.playSound("crystaling_polished", block.center());
                 dimension.spawnParticle("cb2:crystalenctable_use", block.center());

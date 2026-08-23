@@ -1,0 +1,31 @@
+{
+	"format_version": "1.12",
+	"minecraft:recipe_shaped": {
+		"description": {
+			"identifier": "cb2:crystal_synthesis_table_recipe"
+		},
+		"tags": [
+			"crystal_worktable"
+		],
+		"key": {
+			"a": {
+				"item": "cb2:crystal_bricks"
+			},
+			"b": {
+				"item": "cb2:flare_crystal_shard"
+			},
+			"c": {
+				"item": "cb2:flare_crystal_block"
+			}
+		},
+		"pattern": [
+			" c ",
+			"bab",
+			"aaa"
+		],
+		"result": {
+			"item": "cb2:crystal_synthesis_table",
+			"count": 1
+		}
+	}
+}

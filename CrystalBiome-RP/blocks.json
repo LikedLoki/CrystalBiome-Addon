@@ -730,5 +730,11 @@
     },
     "cb2:budding_saline_crystal_block": {
         "sound": "amethyst_block"
+    },
+    "cb2:fristia_flower": {
+        "sound": "grass"
+    },
+    "cb2:grown_fristia_flower": {
+        "sound": "grass"
     }
 }

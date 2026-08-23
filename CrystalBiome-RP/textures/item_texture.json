@@ -391,6 +391,18 @@
 		},
 		"cb2_yellow_crystal_gem": {
 			"textures": "textures/items/yellow_crystal_gem"
+		},
+		"cb2_rare_crystal_gem": {
+			"textures": "textures/items/rare_crystal_gem"
+		},
+		"cb2_fristia_flower": {
+			"textures": "textures/blocks/fristia_flower_2"
+		},
+		"cb2_fristia_flower_sapling": {
+			"textures": "textures/blocks/fristia_flower_0"
+		},
+		"cb2_shine_reverberation": {
+			"textures": "textures/items/shine_reverberation"
 		}
 	}
 }
