@@ -142,15 +142,6 @@ const orbspawnerSummonOffset = [
     { dx: 4, dz: 4 }, { dx: -4, dz: 4 }, { dx: 4, dz: -4 }, { dx: -4, dz: -4 }
 ] as const;
 export const crystalKingPhase1 = (dimension: Dimension, tick: number) => {
-    if (tick % 20 === 0) {
-        const hpEntity = dimension.getEntities({ type: "cb2:crystal_king_health" })[0];
-        const defeatCondition = hpEntity.getComponent("minecraft:health")?.currentValue === 1;
-        if (defeatCondition) {
-            world.setDynamicProperty("cb2:ch_tick", 0)
-            world.setDynamicProperty("cb2:ch_chapter", 2)
-            return
-        }
-    }
     if (tick % 60 === 0) {
         const crystalKingStand = crystKingStand(dimension)
         particleColor.setColorRGB("variable.color", Color.blue);

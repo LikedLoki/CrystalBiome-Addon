@@ -9,8 +9,7 @@ const offsetList = [
 
 const thirdItemMap = {
     "cb2:executor_reverberation": "king",
-    "cb2:wanderment_reverberation": "miracle",
-    "cb2:shine_reverberation": "king&miracle"
+    "cb2:wanderment_reverberation": "miracle"
 } as const;
 
 
@@ -120,7 +119,7 @@ export const Portal: Record<string, BlockCustomComponent> = {
             if (state === "close") {
                 const container = player.getComponent("minecraft:inventory")?.container;
                 const item = container?.getItem(player.selectedSlotIndex);
-                if (!container || item?.typeId !== "cb2:executor_reverberation" && item?.typeId !== "cb2:wanderment_reverberation" && item?.typeId !== "cb2:shine_reverberation") return;
+                if (!container || item?.typeId !== "cb2:executor_reverberation" && item?.typeId !== "cb2:wanderment_reverberation") return;
 
                 world.setDynamicProperty("cb2:ch_boss_type", thirdItemMap[item.typeId]);
                 block.setPermutation(block.permutation.withState("cb2:portal" as any, "first_in"))
@@ -150,7 +149,7 @@ export const Portal: Record<string, BlockCustomComponent> = {
                     player.runCommand("hud @a[r=6] reset all");
                     player.fogSettings.push("cb2:crystal_horizon_air", "cb2:cha");
 
-                    const bossType = world.getDynamicProperty("cb2:ch_boss_type") as "king" | "miracle" | "king&miracle";
+                    const bossType = world.getDynamicProperty("cb2:ch_boss_type") as "king" | "miracle";
                     CrystHrznAdmin(crystalHorizon, 16, bossType === "king" ? "cb2:clear_crystal_block": bossType === "miracle" ? "cb2:clear_red_crystal_block" : "rand");
                     crystalHorizon.runCommand(`structure load third_portal_base ${x - 2} ${y - 1} ${z - 2}`);
 

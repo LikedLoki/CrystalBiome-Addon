@@ -396,6 +396,13 @@ const kingChapter1 = async (dimension: Dimension, tick: number, stop: boolean) =
             player.camera.clear();
         }
     } else if (tick >= 350) {
+        const hpEntity = dimension.getEntities({ type: "cb2:crystal_king_health" })[0];
+        const defeatCondition = hpEntity.getComponent("minecraft:health")?.currentValue === 1;
+        if (defeatCondition) {
+            world.setDynamicProperty("cb2:ch_tick", 0)
+            world.setDynamicProperty("cb2:ch_chapter", 2)
+            return
+        }
         crystalKingPhase1(dimension, tick)
     }
     if (!stop) world.setDynamicProperty("cb2:ch_tick", tick + 1);
@@ -511,29 +518,6 @@ const kingChapter3 = (dimension: Dimension, tick: number, stop: boolean) => {
     } else if (tick === 40) {
         animate(crystKingStand(), "animation.crystal_king.to_barrier");
     } else if (tick === 80) {
-        const volumeI = new BlockVolume(
-            { x: 21, y: 160, z: -54 },
-            { x: 21, y: -9, z: -12 }
-        );
-
-        const volumeII = new BlockVolume(
-            { x: 21, y: 160, z: -54 },
-            { x: -21, y: -9, z: -54 }
-        );
-
-        const volumeIII = new BlockVolume(
-            { x: -21, y: 160, z: -12 },
-            { x: 21, y: -9, z: -12 }
-        );
-
-        const volumeIV = new BlockVolume(
-            { x: -21, y: 160, z: -12 },
-            { x: -21, y: -9, z: -54 }
-        );
-        dimension.fillBlocks(volumeI, "cb2:fieldbarrier")
-        dimension.fillBlocks(volumeII, "cb2:fieldbarrier")
-        dimension.fillBlocks(volumeIII, "cb2:fieldbarrier")
-        dimension.fillBlocks(volumeIV, "cb2:fieldbarrier")
         crystKingStand().teleport(centerLoc(0, 41, -33));
         for (const player of players()) {
             player.camera.setCamera("minecraft:free", { "location": centerLoc(2, 42, -31), "facingLocation": centerLoc(0, 42, -33), "easeOptions": { "easeType": EasingType.OutSine, "easeTime": 0.5 } })
@@ -572,6 +556,7 @@ const kingChapter3 = (dimension: Dimension, tick: number, stop: boolean) => {
             player.camera.addShake({ "intensity": 0.1, "duration": 8, "type": CameraShakeType.Positional })
         }
     } else if (tick === 170) {
+        landSpike(dimension, centerLoc(0, 0, -33), 32, ["cb2:crystaloak_leaves_np", "minecraft: air"])
         for (const player of players()) {
             player.camera.setCamera("minecraft:free", { "location": centerLoc(20, 50, 22), "facingLocation": centerLoc(0, 27, -33), "easeOptions": { "easeType": EasingType.OutSine, "easeTime": 3 } })
         }
@@ -718,7 +703,8 @@ export const chainSpike = async (
         if (currentGen > maxGenerations || radius < 1 || height < 2) return;
 
         // 1. 現在のトゲを生成
-        await growSpike(dimension, location, direction, radius, height, blocks);
+        const select = blocks[Math.random() * blocks.length | 0];
+        await growSpike(dimension, location, direction, radius, height, select);
 
         // 世代上限に達している場合は子トゲを生やさない
         if (currentGen >= maxGenerations) return;
@@ -810,7 +796,7 @@ const miracleChapter1 = async (dimension: Dimension, tick: number, stop: boolean
         dimension.spawnParticle("cb2:crystal_king_spawn_particle", targetLoc);
         dimension.spawnEntity<"cb2:crystal_miracle_stand">("cb2:crystal_miracle_stand", targetLoc);
     } else if (tick === 120) {
-        landSpike(dimension, centerLoc(0, 0, -24), 16);
+        landSpike(dimension, centerLoc(0, 0, -24), 24, ["cb2:clear_red_crystal_block", "minecraft:air"]);
         for (const player of players()) {
             player.teleport(centerLoc(0, 0, -12))
             player.setRotation({ x: 45, y: 0 })
@@ -903,10 +889,10 @@ const miracleChapter2 = (dimension: Dimension, tick: number, stop: boolean) => {
             { x: 0, y: 0, z: -20 },
             { x: 0, y: 1, z: 0 },
             6,
-            32,
+            40,
             9,
             0.5,
-            ["cb2:red_clear_crystal_block"]
+            ["cb2:crystaloak_leaves", "cb2:crystaloak_planks", "cb2:crystaloak_log"]
         );
         const miracle = crystMiracleStand();
         dimension.spawnParticle("cb2:crystal_king_tp_particle", miracle.location);
@@ -941,7 +927,7 @@ const miracleChapter2 = (dimension: Dimension, tick: number, stop: boolean) => {
     } else if (tick === 131) {
         if (!stop) tickStop();
         const arrivalPlayer = players().find(({ location: { y } }) => {
-            return y > 32;
+            return y > 40;
         })
         if (!arrivalPlayer) return;
         world.setDynamicProperty("cb2:ch_tick", 0)
@@ -1017,72 +1003,6 @@ const miracleChapterEnd = (dimension: Dimension, tick: number, stop: boolean) =>
     world.setDynamicProperty("cb2:ch_chapter", -1);
     world.setDynamicProperty("cb2:ch_tick", 0);
 }
-
-const kmChapter1 = (dimension: Dimension, tick: number, stop: boolean) => {
-    if (tick === 10) {
-        world.tickingAreaManager.createTickingArea(`cb2:a`, {
-            dimension: dimension,
-            from: { x: 64, y: 64, z: 64 },
-            to: { x: -64, y: -16, z: -64 }
-        })
-        for (const player of players()) {
-            player.camera.fade({ "fadeTime": { "fadeInTime": 0.5, "holdTime": 0.5, "fadeOutTime": 0.5 } });
-        }
-    } else if (tick === 25) {
-        for (const player of players()) {
-            player.camera.setCamera("minecraft:free", { "location": centerLoc(0, 2, -1), "facingLocation": centerLoc(0, 2, -2) });
-            player.teleport(centerLoc(0, 1, 1));
-        }
-    } else if (tick === 40) {
-        for (const player of players()) {
-            player.camera.setCamera("minecraft:free", { "location": centerLoc(0, 2, -18), "facingLocation": centerLoc(0, 1, -24), "easeOptions": { "easeTime": 3, "easeType": EasingType.InOutSine } });
-        }
-    } else if (tick === 100) {
-        dimension.spawnParticle("cb2:crystal_king_spawn_particle", { x: 4.5, y: 0, z: -24.5 });
-        dimension.spawnEntity<"cb2:crystal_king_health">("cb2:crystal_king_health", { x: 4.5, y: 0, z: -24.5 });
-        const crystalKingStand = dimension.spawnEntity<"cb2:crystal_king_stand">("cb2:crystal_king_stand", { x: 4.5, y: 0, z: -24.5 });
-        animate(crystalKingStand, "animation.crystal_king.idle", 1024);
-        for (const player of players()) {
-            player.camera.setCamera("minecraft:free", { "location": centerLoc(0, 2, -18), "facingLocation": centerLoc(4, 1, -24), "easeOptions": { "easeTime": 1, "easeType": EasingType.OutSine } });
-        }
-    } else if (tick === 120) {
-        dimension.spawnParticle("cb2:crystal_king_spawn_particle", { x: -3.5, y: 0, z: -24.5 });
-        dimension.spawnEntity<"cb2:crystal_miracle_stand">("cb2:crystal_miracle_stand", { x: -3.5, y: 0, z: -24.5 });
-        for (const player of players()) {
-            player.camera.setCamera("minecraft:free", { "location": centerLoc(0, 2, -18), "facingLocation": centerLoc(-4, 1, -24), "easeOptions": { "easeTime": 1, "easeType": EasingType.OutSine } });
-        }
-    } else if (tick === 140) {
-        for (const player of players()) {
-            player.camera.setCamera("minecraft:free", { "location": centerLoc(0, 1, -9), "facingLocation": centerLoc(0, 2, -18), "easeOptions": { "easeTime": 3, "easeType": EasingType.InOutSine } });
-        }
-    } else if (tick === 200) {
-        const outLocation: Vector3 = { x: 4.5, y: 8, z: -32.5 };
-        const crystalKingStand = crystKingStand();
-        dimension.spawnParticle("cb2:crystal_king_tp_particle", crystalKingStand.location);
-        dimension.spawnParticle("cb2:crystal_king_tp_particle", outLocation);
-        crystalKingStand.remove();
-        dimension.spawnEntity<"cb2:crystal_king_stand">("cb2:crystal_king_stand", outLocation).addTag("facing");
-        animate(crystKingStand(), "animation.crystal_king.to_fly", 1024);
-        landSpike(dimension, centerLoc(0, 0, -24), 16, ["cb2:clear_red_crystal_block", "cb2:clear_crystal_block"]);
-        for (const player of players()) {
-            player.teleport(centerLoc(0, 0, -12))
-            player.setRotation({ x: 45, y: 180 })
-            player.camera.addShake({ "intensity": 1, "duration": 0.8, "type": CameraShakeType.Positional })
-            player.playSound("mob.endermen.portal");
-            for (let i = 0; i < 4; i++) {
-                (async () => {
-                    await sleep(Math.random() * 4)
-                    player.playSound("cbspawner_spawn")
-                })()
-            }
-        }
-    } else if (tick === 260) {
-        for (const player of players()) {
-            player.camera.fade({ "fadeTime": { "fadeInTime": 0.5, "holdTime": 1, "fadeOutTime": 0.5 } });
-        }
-    }
-    if (!stop) world.setDynamicProperty("cb2:ch_tick", tick + 1);
-}
 let dimension!: Dimension
 system.run(() => {
     dimension = world.getDimension("cb2:crystal_horizon");
@@ -1120,10 +1040,7 @@ system.runInterval(() => {
         else if (chapter === 2) miracleChapter2(dimension, tick, stop);
         else if (chapter === 3) miracleChapter3(dimension, tick, stop);
         else if (chapter === 4) miracleChapterEnd(dimension, tick, stop);
-    } else if (bossType === "king&miracle") {
-        if (chapter === 1) kmChapter1(dimension, tick, stop);
-    }
-    else return;
+    } else return;
 }, 1)
 
 export const playderDieInHorizon = ({ deadEntity }: EntityDieAfterEvent) => {

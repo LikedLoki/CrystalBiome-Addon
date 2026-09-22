@@ -1,0 +1,41 @@
+{
+	"format_version": "1.21.80",
+	"minecraft:block": {
+		"description": {
+			"menu_category": {
+				"category": "nature",
+				"group": "minecraft:itemGroup.name.leaves"
+			},
+			"identifier": "cb2:crystaloak_leaves_np"
+		},
+		"components": {
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:light_emission": 4,
+			"minecraft:light_dampening": 0,
+			"minecraft:material_instances": {
+				"*": {
+					"face_dimming": false,
+					"ambient_occlusion": true,
+					"texture": "cb2_crystaloak_leaves",
+					"render_method": "blend"
+				}
+			},
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": true,
+			"minecraft:map_color": "#FFFEF6",
+			"tag:minecraft:is_hoe_item_destructible": {},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.2,
+				"item_specific_speeds": [
+					{
+						"item": "shears",
+						"destroy_speed": 0.02
+					}
+				]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0.2
+			}
+		}
+	}
+}

@@ -75,9 +75,10 @@ const fnMap = {
         const a: string = block.typeId.replace("cb2:", "").split("_")[1]
         const color: string = `cb2:color_${a === "crystal" ? "blue" : a}`;
         const prop = block.getComponent("minecraft:dynamic_properties");
+        const times = prop?.get("cb2:times") ?? 0;
         const n = 8;
-        if (prop?.get("cb2:times") ?? 0 >= n) {
-
+        if (times < n) {
+            prop?.set()
         }
         const A: Entity = dimension.spawnEntity(`cb2:powder_bottle_${color}_proj`, { x: x + dx, y: y, z: z + dz });
         A.applyImpulse({ x: dx, y: dy, z: dz });
