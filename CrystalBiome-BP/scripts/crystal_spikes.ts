@@ -18,6 +18,12 @@ const spikeConfig: configMap = {
         "playsound": "break.amethyst_block",
         "particle": "cb2:spike_particle",
         "tick": 10
+    },
+    "cb2:crystal_spike_orb": {
+        "damage": 6,
+        "playsound": "break.amethyst_block",
+        "particle": "cb2:spike_particle",
+        "tick": 10
     }
 };
 async function removeSpike(setting: configValue, entity: Entity) {
@@ -34,7 +40,7 @@ world.afterEvents.entitySpawn.subscribe(async ({ entity }) => {
     const enemy: Entity | undefined = entity.dimension.getEntities({
         closest: 1,
         location: entity.location,
-        maxDistance: 1.5,
+        maxDistance: 1,
         excludeFamilies: ["crystal"]
     })[0];
     if (enemy) enemy.applyDamage(setting.damage, { cause: EntityDamageCause.entityAttack, damagingEntity: entity });

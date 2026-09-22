@@ -6,9 +6,6 @@
 		},
 		"components": {
 			"minecraft:map_color": "#FFFEF6",
-			"minecraft:custom_components": [
-				"cb2:sapling_grow"
-			],
 			"minecraft:placement_filter": {
 				"conditions": [
 					{

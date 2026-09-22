@@ -10,11 +10,12 @@
 			},
 			"identifier": "cb2:clear_yellow_crystal_block",
 			"menu_category": {
-				"category": "construction"
+				"category": "nature"
 			}
 		},
 		"components": {
 			"tag:cb2:crystal": {},
+			"tag:cb2:rawcrystal": {},
 			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1.2

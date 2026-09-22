@@ -14,7 +14,7 @@
 		},
 		"pattern": [
 			"aaa",
-			"aaa"
+			"aa"
 		],
 		"result": {
 			"item": "cb2:green_crystal_trapdoor",

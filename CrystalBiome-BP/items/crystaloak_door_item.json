@@ -4,8 +4,8 @@
 		"description": {
 			"identifier": "cb2:crystaloak_door_item",
 			"menu_category": {
-				"category": "construction",
-				"group": "itemGroup.name.door"
+				"category": "construction"
+				 
 			}
 		},
 		"components": {

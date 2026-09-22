@@ -14,7 +14,7 @@
 					"crystal_worktable"
 				],
 				"grid_size": 3,
-				"table_name": "クラフト"
+				"table_name": "cb2:crystal_worktable.craft"
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:map_color": "#2CDDF0",

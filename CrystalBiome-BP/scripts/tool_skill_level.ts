@@ -52,11 +52,11 @@ const isCrystalTools = (item: ItemStack): item is CrystalTools => crystalToolsLi
 
 const divisorMap = {
     // 粗い
-    "rough": 400,
+    "rough": 600,
     // 磨かれた
-    "polished": 800,
+    "polished": 1200,
     // 研磨された
-    "refined": 1600
+    "refined": 2400
 } as const;
 
 export const ToolSkillLevel = {
@@ -131,7 +131,6 @@ export const CrystalGemDrop = {
         const toolsSkill = +(item.getDynamicProperty("cb2:crystal_tools_skill") || 0);
         const percentage = toolsSkill / divisor
         const dropAmount = Math.floor(percentage) + (Math.random() < percentage ? 1 : 0)
-        console.log(percentage, dropAmount, (percentage / divisor % 1))
         if (dropAmount <= 0) return;
         block.dimension.spawnItem(new ItemStack(`cb2:${toolsColor}_crystal_gem`, dropAmount), block.location);
     }

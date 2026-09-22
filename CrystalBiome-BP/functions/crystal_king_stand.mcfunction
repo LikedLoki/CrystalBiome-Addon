@@ -1,0 +1,1 @@
+execute as @e[type=cb2:crystal_king_stand,tag=facing] at @s run tp @s ~~~ facing @p

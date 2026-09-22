@@ -29,8 +29,6 @@ export const Portal: Record<string, BlockCustomComponent> = {
             // このブロックはfirstかsecondか
             const isFirstPortal: boolean = block.typeId.split("_")[1] === "first"
 
-            console.log(state)
-
             // ブロックがsecondで、未起動なら起動を試みる。無理なら切り返し。
             if (!isFirstPortal && state === "close") {
                 const container = player.getComponent("minecraft:inventory")?.container;
@@ -118,7 +116,7 @@ export const Portal: Record<string, BlockCustomComponent> = {
             // ステートを取得し、不正なら切り返し。
             const state = block.permutation.getState("cb2:portal" as any) as unknown;
             if (state !== "close" && state !== "first_in" && state !== "in" && state !== "out" && state !== "mayout") return;
-            
+
             if (state === "close") {
                 const container = player.getComponent("minecraft:inventory")?.container;
                 const item = container?.getItem(player.selectedSlotIndex);
@@ -133,6 +131,7 @@ export const Portal: Record<string, BlockCustomComponent> = {
             const crystalHorizon = world.getDimension("cb2:crystal_horizon");
             const overworld = world.getDimension("minecraft:overworld")
             if (state === "first_in") {
+                player.setSpawnPoint({ "dimension": crystalHorizon, "x": 0, "y": 1, "z": 0 })
                 block.setPermutation(block.permutation.withState("cb2:portal" as any, "in"))
                 // 演出
                 dimension.playSound("crystal.break", player.location);
@@ -140,14 +139,8 @@ export const Portal: Record<string, BlockCustomComponent> = {
                 player.runCommand("inputpermission set @a[r=6] movement disabled");
                 player.runCommand("inputpermission set @a[r=6] camera disabled");
                 player.runCommand("hud @a[r=6] hide all");
-
-                world.tickingAreaManager.createTickingArea(`cb2:a`, {
-                dimension: crystalHorizon,
-                from: { x: 16, y: 16, z: 16 },
-                to: { x: -16, y: -16, z: -16 }
-            })
-            const location: Vector3 = { x: 0, y: 0, z: 0 };
-            const { x, y, z } = location;
+                const location: Vector3 = { x: 0, y: 0, z: 0 };
+                const { x, y, z } = location;
                 system.runTimeout(() => {
                     world.setTimeOfDay(TimeOfDay.Day)
                     prop.set("cb2:out", location);
@@ -157,11 +150,11 @@ export const Portal: Record<string, BlockCustomComponent> = {
                     player.runCommand("hud @a[r=6] reset all");
                     player.fogSettings.push("cb2:crystal_horizon_air", "cb2:cha");
 
-                    
-                    CrystHrznAdmin(crystalHorizon, 16);
-                    crystalHorizon.runCommand(`structure load third_portal_base ${x-2} ${y-1} ${z-2}`);
+                    const bossType = world.getDynamicProperty("cb2:ch_boss_type") as "king" | "miracle" | "king&miracle";
+                    CrystHrznAdmin(crystalHorizon, 16, bossType === "king" ? "cb2:clear_crystal_block": bossType === "miracle" ? "cb2:clear_red_crystal_block" : "rand");
+                    crystalHorizon.runCommand(`structure load third_portal_base ${x - 2} ${y - 1} ${z - 2}`);
 
-                    const outPortalLoc: Vector3 = { x: x, y: y+2, z: z };
+                    const outPortalLoc: Vector3 = { x: x, y: y + 2, z: z };
                     crystalHorizon.setBlockType(outPortalLoc, "cb2:crystal_third_portal");
                     const outPortal = crystalHorizon.getBlock(outPortalLoc)
                     if (!outPortal) return;
@@ -170,7 +163,11 @@ export const Portal: Record<string, BlockCustomComponent> = {
                     world.tickingAreaManager.removeTickingArea("cb2:a")
                 }, 81)
             } else if (state === "mayout") {
-                world.setDynamicProperty("cb2:ch_stop", true);
+                world.setDynamicProperty("cb2:ch_chapter", 0);
+                world.setDynamicProperty("cb2:ch_tick", 0);
+                world.setDynamicProperty("cb2:ch_stop", false);
+                block.setPermutation(block.permutation.withState("cb2:portal" as any, "broken"))
+                dimension.playSound("crystal.break", block.location)
             } else if (state === "in") {
                 player.fogSettings.push("cb2:crystal_horizon_air", "cb2:cha");
                 dimension.playSound("mob.endermen.portal", player.location);

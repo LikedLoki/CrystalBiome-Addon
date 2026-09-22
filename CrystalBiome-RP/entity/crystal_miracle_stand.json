@@ -1,0 +1,39 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "cb2:crystal_miracle_stand",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/crystal_miracle"
+			},
+			"geometry": {
+				"default": "geometry.crystal_miracle"
+			},
+			"animations": {
+				"look_at_target": "animation.humanoid.look_at_target.default",
+				"look_at_target_default": "animation.humanoid.look_at_target.default",
+				"look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+				"look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+				"idle": "animation.crystal_miracle.idle",
+				"angry": "animation.crystal_wander.angry",
+				"baseco": "controller.animation.crystal_wander.base"
+			},
+			"scripts": {
+				"animate": [
+					"look_at_target",
+					"look_at_target_default",
+					"baseco"
+				]
+			},
+			"render_controllers": [
+				"controller.render.default"
+			],
+			"spawn_egg": {
+				"texture": "cb2_crystal_wander_spawn_egg"
+			}
+		}
+	}
+}

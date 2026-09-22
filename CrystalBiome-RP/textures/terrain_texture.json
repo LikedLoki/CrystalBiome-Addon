@@ -403,30 +403,6 @@
 		"cb2_minion_block_container": {
 			"textures": "textures/blocks/minion_block_container"
 		},
-		"cb2_minion_blue_block": {
-			"textures": "textures/blocks/minion_blue_block"
-		},
-		"cb2_minion_red_block": {
-			"textures": "textures/blocks/minion_red_block"
-		},
-		"cb2_minion_green_block": {
-			"textures": "textures/blocks/minion_green_block"
-		},
-		"cb2_minion_yellow_block": {
-			"textures": "textures/blocks/minion_yellow_block"
-		},
-		"cb2_minion_break_blue_block": {
-			"textures": "textures/blocks/minion_break_blue_block"
-		},
-		"cb2_minion_break_red_block": {
-			"textures": "textures/blocks/minion_break_red_block"
-		},
-		"cb2_minion_break_green_block": {
-			"textures": "textures/blocks/minion_break_green_block"
-		},
-		"cb2_minion_break_yellow_block": {
-			"textures": "textures/blocks/minion_break_yellow_block"
-		},
 		"cb2_flare_crystal_block": {
 			"textures": "textures/blocks/flare_crystal_block"
 		},
@@ -750,6 +726,15 @@
 		},
 		"cb2_crystal_third_portal_close": {
 			"textures": "textures/blocks/crystal_third_portal_close"
+		},
+		"cb2_crystal_third_portal_broken": {
+			"textures": "textures/blocks/crystal_third_portal_broken"
+		},
+		"cb2_fieldbarrier": {
+			"textures": "textures/blocks/fieldbarrier"
+		},
+		"cb2_green_crystal_light": {
+			"textures": "textures/blocks/green_crystal_light"
 		}
 	}
 }

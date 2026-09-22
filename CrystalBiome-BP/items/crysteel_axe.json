@@ -4,13 +4,12 @@
 		"description": {
 			"identifier": "cb2:crysteel_axe",
 			"menu_category": {
-				"category": "equipment",
-				"group": "minecraft:itemGroup.name.axe"
+				"category": "none"
 			}
 		},
 		"components": {
 			"minecraft:custom_components": [
-				"cb2:itemdamage_mine"
+				"cb2:item_mine_damage"
 			],
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,

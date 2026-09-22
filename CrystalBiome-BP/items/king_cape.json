@@ -4,8 +4,8 @@
 		"description": {
 			"identifier": "cb2:king_cape",
 			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.chestplate"
+				"category": "equipment"
+				 
 			}
 		},
 		"components": {

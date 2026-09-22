@@ -8,9 +8,7 @@
 			}
 		},
 		"components": {
-			"fristia:minedamage":{
-				"damage": 1
-			},
+			"cb2:item_mine_damage": 1,
 			"cb2:gc_sword":{
 				"chance": 1,
 				"chain": 2,

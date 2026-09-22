@@ -4,8 +4,8 @@
 		"description": {
 			"identifier": "cb2:rough_blue_crystal_chestplate",
 			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.chestplate"
+				"category": "equipment"
+				 
 			}
 		},
 		"components": {

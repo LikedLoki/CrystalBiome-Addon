@@ -12,7 +12,7 @@
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -21,7 +21,7 @@
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -30,7 +30,7 @@
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -39,7 +39,7 @@
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -48,7 +48,7 @@
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -57,7 +57,7 @@
 					"processors": "cb2:ruins_constr"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

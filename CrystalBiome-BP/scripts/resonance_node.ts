@@ -73,8 +73,13 @@ const fnMap = {
         const { dx, dy, dz } = direct;
         const { x, y, z } = block.center();
         const a: string = block.typeId.replace("cb2:", "").split("_")[1]
-        const color: string = `cb2:color_${a === "crystal" ? "blue" : a}`
-        const A: Entity = dimension.spawnEntity("cb2:crystalshard_proj", { x: x + dx, y: y, z: z + dz }, {"spawnEvent": color});
+        const color: string = `cb2:color_${a === "crystal" ? "blue" : a}`;
+        const prop = block.getComponent("minecraft:dynamic_properties");
+        const n = 8;
+        if (prop?.get("cb2:times") ?? 0 >= n) {
+
+        }
+        const A: Entity = dimension.spawnEntity(`cb2:powder_bottle_${color}_proj`, { x: x + dx, y: y, z: z + dz });
         A.applyImpulse({ x: dx, y: dy, z: dz });
     },
     "knock": (dimension: Dimension, block: Block) => {
@@ -85,6 +90,17 @@ const fnMap = {
 export const resonanceNode: BlockCustomComponent = {
     "onTick": ({ dimension, block }) => {
         energyConsume(block);
+        if (dimension.getPlayers({ "location": block.location, "maxDistance": 8 }).length) {
+            for (let i = 0; i < 360; i++) {
+            if (i % 4 !== 0) continue;
+            const rad = Math.PI / 180 * i;
+            const r = 24;
+            const x = block.location.x + Math.cos(rad) * r;
+            const z = block.location.z + Math.sin(rad) * r;
+            try { dimension.spawnParticle("cb2:crysdia_up_particle", { x, y: block.location.y, z }); }
+            catch (_) {}
+        }
+        }
         const above: Block | undefined = block.above();
         if (!above || !(above.typeId in typeMap)) return;
         const type: Pattern = typeMap[above.typeId];

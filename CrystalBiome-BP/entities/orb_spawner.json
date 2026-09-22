@@ -1,0 +1,24 @@
+{
+    "format_version": "1.20.80",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "cb2:orb_spawner",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "components": {
+            "minecraft:scale": {
+                "value": 2
+            },
+            "minecraft:physics": {},
+            "minecraft:push_through": {
+                "value": 1
+            },
+            "minecraft:knockback_resistance": {
+                "value": 1,
+                "max": 1
+            }
+        }
+    }
+}

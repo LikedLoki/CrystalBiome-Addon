@@ -11,12 +11,7 @@
 				"any_of": [
 					{
 						"test": "has_biome_tag",
-						"value": "crystal_lowland",
-						"operator": "=="
-					},
-					{
-						"test": "has_biome_tag",
-						"value": "crystal_forest",
+						"value": "desolate_crystal",
 						"operator": "=="
 					}
 				]

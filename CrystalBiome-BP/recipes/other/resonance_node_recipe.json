@@ -16,9 +16,7 @@
             }
         },
         "pattern": [
-            " a ",
-            "aba",
-            " a "
+            "aba"
         ],
         "result": {
             "item": "cb2:resonance_node_block",

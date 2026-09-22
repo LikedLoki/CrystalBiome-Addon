@@ -8,9 +8,6 @@
 			"identifier": "cb2:mystery_bookshelf"
 		},
 		"components": {
-			"minecraft:custom_components": [
-				"cb2:mystery_bookshelf_break"
-			],
 			"minecraft:loot": "loot_tables/blocks/mystery_bookshelf_loot.json",
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {

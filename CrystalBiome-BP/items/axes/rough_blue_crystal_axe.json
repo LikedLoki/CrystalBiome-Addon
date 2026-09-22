@@ -4,14 +4,11 @@
 		"description": {
 			"identifier": "cb2:rough_blue_crystal_axe",
 			"menu_category": {
-				"category": "equipment",
-				"group": "minecraft:itemGroup.name.axe"
+				"category": "equipment"  
 			}
 		},
 		"components": {
-			"fristia:minedamage":{
-				"damage": 1
-			},
+			"cb2:item_mine_damage": 1,
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:durability": {

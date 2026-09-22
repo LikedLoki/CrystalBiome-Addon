@@ -11,7 +11,7 @@
 					"location": "ruins_road5b"
 				},
 				"weight": 10,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -19,7 +19,7 @@
 					"location": "ruins_roadcorner"
 				},
 				"weight": 10,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -27,7 +27,7 @@
 					"location": "ruins_road4rot"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

@@ -11,8 +11,7 @@
 					"location": "cb2:cbplain_fort1",
 					"processors": "cb2:ruins_constr"
 				},
-				"weight": 1,
-				"projection": "terrain_matching"
+				"weight": 1
 			},
 			{
 				"element": {
@@ -20,8 +19,7 @@
 					"location": "cb2:cbplain_fort2",
 					"processors": "cb2:ruins_constr"
 				},
-				"weight": 1,
-				"projection": "terrain_matching"
+				"weight": 1
 			},
 			{
 				"element": {
@@ -29,8 +27,7 @@
 					"location": "cb2:cbplain_fort3",
 					"processors": "cb2:ruins_constr"
 				},
-				"weight": 1,
-				"projection": "terrain_matching"
+				"weight": 1
 			},
 			{
 				"element": {
@@ -38,8 +35,7 @@
 					"location": "cb2:cbplain_fort4",
 					"processors": "cb2:ruins_constr"
 				},
-				"weight": 1,
-				"projection": "terrain_matching"
+				"weight": 1
 			},
 			{
 				"element": {
@@ -47,8 +43,7 @@
 					"location": "cb2:cbplain_fort5",
 					"processors": "cb2:ruins_constr"
 				},
-				"weight": 1,
-				"projection": "terrain_matching"
+				"weight": 1
 			},
 			{
 				"element": {
@@ -56,8 +51,7 @@
 					"location": "cb2:cbplain_fort6",
 					"processors": "cb2:ruins_constr"
 				},
-				"weight": 1,
-				"projection": "terrain_matching"
+				"weight": 1
 			}
 		]
 	}

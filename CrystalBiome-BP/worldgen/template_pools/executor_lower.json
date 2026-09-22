@@ -12,7 +12,7 @@
 					"location": "executor_fort_down"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

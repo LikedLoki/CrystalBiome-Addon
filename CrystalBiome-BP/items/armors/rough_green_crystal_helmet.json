@@ -4,8 +4,8 @@
 		"description": {
 			"identifier": "cb2:rough_green_crystal_helmet",
 			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.helmet"
+				"category": "equipment"
+				 
 			}
 		},
 		"components": {

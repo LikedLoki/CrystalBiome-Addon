@@ -17,6 +17,9 @@
             "identifier": "cb2:resonance_node_block"
         },
         "components": {
+            "minecraft:tags": [
+                "cb2:crystal"
+            ],
             "minecraft:destructible_by_mining": {
                 "seconds_to_destroy": 8
             },

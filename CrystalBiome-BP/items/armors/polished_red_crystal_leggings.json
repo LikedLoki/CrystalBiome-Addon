@@ -4,8 +4,8 @@
 		"description": {
 			"identifier": "cb2:polished_red_crystal_leggings",
 			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.leggings"
+				"category": "equipment"
+				 
 			}
 		},
 		"components": {

@@ -19,7 +19,6 @@ crystalBiomeEvent.subscribe("furnace_lit", (event: { location: Vector3, dimensio
     list.forEach(async ({ block, param, chance }) => {
         if (!block || !param || chance === undefined) return;
         if (!signal(block.location, event.location)) return;
-        console.log(chance)
         list.set(buildLocName(block.location), { block: undefined, param: undefined, chance: undefined });
         for (let i = 0; i < param.times; i++) {
             const below = block.dimension.getBlock(event.location);
@@ -52,7 +51,6 @@ crystalBiomeEvent.subscribe("furnace_lit", (event: { location: Vector3, dimensio
 
 export const CanSmelt: BlockCustomComponent = {
     onPlace({ block }, { params }) {
-        console.log("d")
         const param = params as Params
         list.set(buildLocName(block.location), { block: block, param: param, chance: param.chance ?? 1 })
     },

@@ -13,7 +13,7 @@ export type BoxChestInfo =
         state: "none"
     }
     | {
-        state: "exist",enct
+        state: "exist",
         value: {
             localize: string,
             typeId: WhiteListId,
@@ -67,6 +67,10 @@ const whiteList = {
     "cb2:rough_red_crystal_axe": 1,
     "cb2:rough_green_crystal_axe": 1,
     "cb2:rough_yellow_crystal_axe": 1,
+    "cb2:rough_green_crystal_helmet": 1,
+    "cb2:rough_blue_crystal_chestplate": 1,
+    "cb2:rough_red_crystal_leggings": 1,
+    "cb2:rough_yellow_crystal_boots": 1,
     "cb2:polished_blue_crystal_sword": 1,
     "cb2:polished_red_crystal_sword": 1,
     "cb2:polished_green_crystal_sword": 1,
@@ -79,6 +83,10 @@ const whiteList = {
     "cb2:polished_red_crystal_axe": 1,
     "cb2:polished_green_crystal_axe": 1,
     "cb2:polished_yellow_crystal_axe": 1,
+    "cb2:polished_green_crystal_helmet": 1,
+    "cb2:polished_blue_crystal_chestplate": 1,
+    "cb2:polished_red_crystal_leggings": 1,
+    "cb2:polished_yellow_crystal_boots": 1,
     "cb2:refined_blue_crystal_sword": 1,
     "cb2:refined_red_crystal_sword": 1,
     "cb2:refined_green_crystal_sword": 1,
@@ -90,7 +98,11 @@ const whiteList = {
     "cb2:refined_blue_crystal_axe": 1,
     "cb2:refined_red_crystal_axe": 1,
     "cb2:refined_green_crystal_axe": 1,
-    "cb2:refined_yellow_crystal_axe": 1
+    "cb2:refined_yellow_crystal_axe": 1,
+    "cb2:refined_green_crystal_helmet": 1,
+    "cb2:refined_blue_crystal_chestplate": 1,
+    "cb2:refined_red_crystal_leggings": 1,
+    "cb2:refined_yellow_crystal_boots": 1,
 } as const;
 
 /**
@@ -261,8 +273,10 @@ export const onBreak = ({ dimension, block }: PlayerBreakBlockBeforeEvent) => {
             dimension.spawnItem(dropItem, block.center())
         }
         if (info.state === "exist-f" && info.smelted.typeId && info.smelted.quantity) {
-            const dropItem = new ItemStack(info.value.typeId, info.value.quantity);
+            if (info.value.quantity) {
+                const dropItem = new ItemStack(info.value.typeId, info.value.quantity);
             dimension.spawnItem(dropItem, block.center())
+            }
             dimension.spawnItem(new ItemStack(info.smelted.typeId, info.smelted.quantity), block.center())
         }
     })

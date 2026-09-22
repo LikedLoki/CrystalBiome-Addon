@@ -2,7 +2,6 @@
 	"format_version": "1.21.80",
 	"minecraft:entity": {
 		"description": {
-			"properties": {},
 			"identifier": "cb2:chestentity",
 			"is_spawnable": false,
 			"is_summonable": true,

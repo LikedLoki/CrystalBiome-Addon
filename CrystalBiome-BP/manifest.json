@@ -47,14 +47,6 @@
 			]
 		},
 		{
-			"uuid": "e8fb7511-9e81-4b9d-935f-67e1ae20bcb6",
-			"version": [
-				1,
-				0,
-				0
-			]
-		},
-		{
 			"module_name": "@minecraft/server",
 			"version": "beta"
 		},

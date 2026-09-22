@@ -34,7 +34,10 @@ const configMap = {
         particle: "cb2:powder_area_cloud_blue_particle",
         fn: (dimension: Dimension, location: Vector3, source: Entity) => {
             const entities = dimension.getEntities({ location, maxDistance: 4, excludeTypes: ["cb2:powder_area_cloud"] });
-            for (const entity of entities) entity.applyDamage(2, { cause: EntityDamageCause.magic });
+            for (const entity of entities) {
+                if (entity.hasTag("cb2:powder_bottle_ex")) continue;
+                entity.applyDamage(2, { cause: EntityDamageCause.magic });
+            }
         }
     },
     "red": {
@@ -42,7 +45,10 @@ const configMap = {
         particle: "cb2:powder_area_cloud_red_particle",
         fn: (dimension: Dimension, location: Vector3, source: Entity) => {
             const entities = dimension.getEntities({ location, maxDistance: 4, excludeTypes: ["cb2:powder_area_cloud"] });
-            for (const entity of entities) entity.applyDamage(8, { damagingEntity: source, cause: EntityDamageCause.magic });
+            for (const entity of entities) {
+                if (entity.hasTag("cb2:powder_bottle_ex")) continue;
+                entity.applyDamage(8, { damagingEntity: source, cause: EntityDamageCause.magic });
+            }
         }
     },
     "green": {
@@ -51,6 +57,7 @@ const configMap = {
         fn: (dimension: Dimension, location: Vector3, source: Entity) => {
             const entities = dimension.getEntities({ location, maxDistance: 6, excludeTypes: ["cb2:powder_area_cloud"] });
             for (const entity of entities) {
+                if (entity.hasTag("cb2:powder_bottle_ex")) continue;
                 const entityPos = entity.location;
                 const dx = entityPos.x - location.x;
                 const dy = entityPos.y - location.y;
@@ -75,6 +82,7 @@ const configMap = {
         fn: (dimension: Dimension, location: Vector3, source: Entity) => {
             const entities = dimension.getEntities({ location, maxDistance: 6, excludeTypes: ["cb2:powder_area_cloud"] });
             for (const entity of entities) {
+                if (entity.hasTag("cb2:powder_bottle_ex")) continue;
                 entity.applyImpulse({ x: 0, y: 0.2, z: 0 });
             }
         }

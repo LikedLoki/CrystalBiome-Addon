@@ -9,7 +9,8 @@
 			"num_clusters": 1,
 			"may_replace": [
 				"cb2:crystal_block",
-				"cb2:green_crystal_block"
+				"cb2:green_crystal_block",
+				"cb2:deep_crystal_block"
 			]
 		},
 		"may_grow_on": [
@@ -26,7 +27,10 @@
 			"cb2:red_crystal_cluster",
 			"cb2:green_crystal_cluster",
 			"cb2:blue_crystal_cluster",
-			"cb2:yellow_crystal_cluster"
+			"cb2:yellow_crystal_cluster",
+			"cb2:crystalcap",
+			"cb2:fristia_flower",
+				"cb2:deep_crystal_block"
 		],
 		"may_grow_through": [
 			"cb2:crystal_block",

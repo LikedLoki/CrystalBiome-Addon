@@ -1,6 +1,6 @@
 import { Dimension, Entity, EntitySpawnAfterEvent, Vector3, world, MolangVariableMap } from "@minecraft/server";
 import { crystalSpawnFn, SettingColor } from "./crystal-spawn-fn"
-import { CrystColor } from "./crystal-biome";
+import { Color, CrystColor, CrystRGB } from "./crystal-biome";
 import { guradualClustFragm } from "./crystal_guradual"
 
 type EnemyMap = { [K: string]: { typeId: string, dist: number, limit: number } }
@@ -11,8 +11,8 @@ type CrystalInfo<T extends SpawnerTypeId> = typeof enemyMap[T];
 const colorList: CrystColor[] = ["red", "green", "blue", "yellow"]
 
 const enemyMap: EnemyMap = {
-    "cb2:crystal_guard_spawn": { typeId: "cb2:crystal_guard", dist: 80, limit: 3 },
-    "cb2:crystal_wander_spawn": { typeId: "cb2:crystal_wander", dist: 80, limit: 3 },
+    "cb2:crystal_guard_spawn": { typeId: "cb2:crystal_guard", dist: 80, limit: 2 },
+    "cb2:crystal_wander_spawn": { typeId: "cb2:crystal_wander", dist: 80, limit: 2 },
     "cb2:giant_cluster_spawn": { typeId: "cb2:giant_cluster", dist: 256, limit: 1},
     "cb2:giant_strata_spawn": { typeId: "cb2:giant_strata", dist: 256, limit: 1}
 };
@@ -21,7 +21,7 @@ const isSpawnerEntity = (entity: Entity): entity is SpawnerEntity => entity.type
 const hasPrism = (dimension: Dimension, location: Vector3): boolean => dimension.getEntities(
     {
         "location": location,
-        "maxDistance": 16,
+        "maxDistance": 32,
         "type": "cb2:resonance_node_entity"
     }
 ).length > 0;
@@ -39,7 +39,7 @@ const mainEnd = (entity: Entity): void => entity.remove();
 
 const ifCondPass = (entity: SpawnerEntity, option: CrystalInfo<SpawnerTypeId>): void => {
     const { dimension, location }: SpawnerEntity = entity;
-    const selectColor: SettingColor = colorList[Math.random() * 4 | 0];
+    const selectColor = Color[["blue", "red", "green", "yellow"][Math.random() * 4 | 0]];
     crystalSpawnFn(dimension, option.typeId, location, selectColor);
     mainEnd(entity)
 }

@@ -58,9 +58,6 @@
     "cb2:polished_green_crystal_slab": {
         "sound": "amethyst_block"
     },
-    "cb2:ground_rare_crystal_block": {
-        "sound": "amethyst_block"
-    },
     "cb2:crystal_bricks_slab": {
         "sound": "amethyst_block"
     },
@@ -193,12 +190,6 @@
     "cb2:yellow_crystal_pillar": {
         "sound": "amethyst_block"
     },
-    "cb2:crysten_crop": {
-        "sound": "stone"
-    },
-    "cb2:crysnate": {
-        "sound": "grass"
-    },
     "cb2:fertile_crystal_block": {
         "sound": "amethyst_block"
     },
@@ -232,9 +223,6 @@
     "cb2:saline_crystal_block": {
         "sound": "amethyst_block"
     },
-    "cb2:saline_shard_block": {
-        "sound": "amethyst_block"
-    },
     "cb2:boss_frame": {
         "sound": "stone"
     },
@@ -248,18 +236,6 @@
         "sound": "amethyst_block"
     },
     "cb2:polished_yellow_crystal_stairs": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_crystal_stairs": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_red_crystal_stairs": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_green_crystal_stairs": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_yellow_crystal_stairs": {
         "sound": "amethyst_block"
     },
     "cb2:crystal_stairs": {
@@ -285,12 +261,6 @@
     },
     "cb2:yellow_crystal_bricks_stairs": {
         "sound": "amethyst_block"
-    },
-    "cb2:blue_extend_pillar": {
-        "sound": "stone"
-    },
-    "cb2:spawn_sleepking": {
-        "sound": "stone"
     },
     "cb2:crystal_wall": {
         "sound": "amethyst_block"
@@ -319,49 +289,13 @@
     "cb2:polished_crystal_wall": {
         "sound": "amethyst_block"
     },
-    "cb2:ground_crystal_wall": {
-        "sound": "amethyst_block"
-    },
     "cb2:polished_red_crystal_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_red_crystal_wall": {
         "sound": "amethyst_block"
     },
     "cb2:polished_green_crystal_wall": {
         "sound": "amethyst_block"
     },
-    "cb2:ground_green_crystal_wall": {
-        "sound": "amethyst_block"
-    },
     "cb2:polished_yellow_crystal_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_yellow_crystal_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:polished_crystal_bricks_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_crystal_bricks_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:polished_red_crystal_bricks_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_red_crystal_bricks_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:polished_green_crystal_bricks_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_green_crystal_bricks_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:polished_yellow_crystal_bricks_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_yellow_crystal_bricks_wall": {
         "sound": "amethyst_block"
     },
     "cb2:dev_blue_cluster": {
@@ -433,18 +367,6 @@
     "cb2:minion_block_container": {
         "sound": "amethyst_block"
     },
-    "cb2:minion_blue_block": {
-        "sound": "amethyst_block"
-    },
-    "cb2:minion_red_block": {
-        "sound": "amethyst_block"
-    },
-    "cb2:minion_green_block": {
-        "sound": "amethyst_block"
-    },
-    "cb2:minion_yellow_block": {
-        "sound": "amethyst_block"
-    },
     "cb2:clear_crystal_block": {
         "sound": "amethyst_block"
     },
@@ -496,12 +418,6 @@
     "cb2:crystaloak_trapdoor": {
         "sound": "wood"
     },
-    "cb2:testblock": {
-        "sound": "stone"
-    },
-    "cb2:crystal_panel": {
-        "sound": "amethyst_block"
-    },
     "cb2:rare_crystal_slab": {
         "sound": "amethyst_block"
     },
@@ -526,7 +442,7 @@
     "cb2:rare_crystal_bricks": {
         "sound": "amethyst_block"
     },
-    "cb2:rare_crystal_brick_slab": {
+    "cb2:rare_crystal_bricks_slab": {
         "sound": "amethyst_block"
     },
     "cb2:rare_crystal_bricks_stairs": {
@@ -545,18 +461,6 @@
         "sound": "amethyst_block"
     },
     "cb2:cracked_rare_crystal_bricks_wall": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_rare_crystal_blocks": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_rare_crystal_slab": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_rare_crystal_stairs": {
-        "sound": "amethyst_block"
-    },
-    "cb2:ground_rare_crystal_wall": {
         "sound": "amethyst_block"
     },
     "cb2:rare_crystal_pillar": {
@@ -584,9 +488,6 @@
         "sound": "amethyst_block"
     },
     "cb2:rare_crystal_lantern": {
-        "sound": "amethyst_block"
-    },
-    "cb2:blue_crystal_chest": {
         "sound": "amethyst_block"
     },
     "cb2:red_crystal_chest": {
@@ -635,9 +536,6 @@
         "sound": "amethyst_block"
     },
     "cb2:rare_crystal_portal": {
-        "sound": "stone"
-    },
-    "cb2:crystal_enctable": {
         "sound": "stone"
     },
     "cb2:crystal_furnace": {

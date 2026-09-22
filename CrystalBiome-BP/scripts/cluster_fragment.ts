@@ -84,7 +84,6 @@ const barrierAndSummon = (dimension: Dimension, clustfragm: ClusterFragment): vo
     }
     if (currFrame === 0) {
         clustfragm.setDynamicProperty("cb2:phase_state", "LFS");
-        console.log("dddd")
         return;
     }
     for (let i = 0; i < currFrame; i++)

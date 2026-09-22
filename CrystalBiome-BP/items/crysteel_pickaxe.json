@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "cb2:crysteel_pickaxe",
 			"menu_category": {
-				"category": "equipment"
+				"category": "none"
 			}
 		},
 		"components": {

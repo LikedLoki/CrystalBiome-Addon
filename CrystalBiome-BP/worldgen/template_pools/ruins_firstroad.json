@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.20",
+	"format_version": "1.26.30",
 	"minecraft:template_pool": {
 		"description": {
 			"identifier": "cb2:ruins_firstroad"
@@ -10,8 +10,7 @@
 					"element_type": "minecraft:single_pool_element",
 					"location": "ruins_road5b"
 				},
-				"weight": 1,
-				"projection": "terrain_matching"
+				"weight": 1
 			}
 		]
 	}

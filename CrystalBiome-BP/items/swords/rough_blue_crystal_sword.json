@@ -8,9 +8,7 @@
 			}
 		},
 		"components": {
-			"fristia:minedamage":{
-				"damage": 1
-			},
+			"cb2:item_mine_damage": 1,
 			"minecraft:max_stack_size": 1,
 			"minecraft:hand_equipped": true,
 			"minecraft:can_destroy_in_creative": false,

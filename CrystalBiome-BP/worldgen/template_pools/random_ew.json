@@ -11,7 +11,7 @@
 					"location": "test"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

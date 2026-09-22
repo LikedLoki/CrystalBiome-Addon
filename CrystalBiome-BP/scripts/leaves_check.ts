@@ -26,7 +26,6 @@ class LeavesAdmin {
 export const CrystaloakLeaves: BlockCustomComponent = {
     onRandomTick({ dimension, block }): void {
         const newPerm: number = LeavesAdmin.nearbyMaxLevel(dimension, block);
-        console.log(newPerm)
         if (newPerm > 0) block.setPermutation(block.permutation.withState("cb2:connect_level" as any, newPerm - 1));
         else {
             dimension.setBlockType(block.location, "minecraft:air");

@@ -11,7 +11,7 @@
 					"location": "orbshard_towerfort"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

@@ -40,9 +40,6 @@
 					1
 				]
 			},
-			"minecraft:custom_components": [
-				"cb2:redstone"
-			],
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 1
 			}
@@ -53,10 +50,6 @@
 				"components": {
 					"minecraft:light_emission": 15,
 					"minecraft:light_dampening": 15,
-					"minecraft:custom_components": [
-						"cb2:redstone",
-						"cb2:light_particle"
-					],
 					"minecraft:tick": {
 						"interval_range": [
 							1,

@@ -16,9 +16,7 @@ export const crystalLocate: ItemCustomComponent = {
         mainhand.setItem(undefined);
         const prismAdmin = new PrismInfoAdmin(world);
         const place = Math.random() < 0.5 ? "cb2:crystal" : "cb2:crystal_forest";
-        console.log(place);
         const locate: Vector3 | undefined = dimension.calculateClosestBiomeFromSeed(source.location, place)
-        console.log(JSON.stringify(locate))
         if (!locate) return;
         source.runCommand("camera @s fade time 0.1 4 0.1");
         source.runCommand("inputpermission set @a[r=6] movement disabled");

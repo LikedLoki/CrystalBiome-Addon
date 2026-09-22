@@ -4,8 +4,8 @@
 		"description": {
 			"identifier": "cb2:crysteel_boots",
 			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.boots"
+				"category": "none"
+				 
 			}
 		},
 		"components": {

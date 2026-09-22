@@ -78,11 +78,11 @@ const facingOffset = {
 /**
  * 引数 itemの耐久値をinfoと同期させる関数
  */
-const syncDurability = (info: ExistBoxChestInfo, item: ItemStack, n: number): boolean => {
+const syncDurability = (info: ExistBoxChestInfo, item: ItemStack, heal: number, n: number): boolean => {
     if (info.value.durDmg === null) return false;
     const dur = item.getComponent("minecraft:durability");
     if (!dur) return false
-    const healDur = dur.maxDurability / 8 * n
+    const healDur = dur.maxDurability / heal * n
     const newDamage = info.value.durDmg - healDur;
     if (newDamage < 0) dur.damage = 0;
     else if (newDamage > dur.maxDurability) dur.damage = dur.maxDurability
@@ -112,7 +112,6 @@ const syncEnchantments = (info: ExistBoxChestInfo, item: ItemStack): boolean => 
  * 引数 itemの修練度をinfoと同期させる関数
  */
 const syncSkill = (info: ExistBoxChestInfo, item: ItemStack): boolean => {
-    console.log(info.value.skill)
     if (info.value.skill === null) return false;
     item.setDynamicProperty("cb2:crystal_tools_skill", info.value.skill)
     item.setLore([`§r§7| 修練度 -> ${info.value.skill}`])
@@ -122,45 +121,39 @@ const syncSkill = (info: ExistBoxChestInfo, item: ItemStack): boolean => {
 /**
  * 粗い水晶の剣を修理するための関数
 */
-const crystalToolRepair = (infos: ExistBoxChestInfo[], rank: CrystRank, color: CrystColor, tool: "sword" | "pickaxe" | "axe", n: number): ItemStack | undefined => {
+const crystalToolRepair = (infos: ExistBoxChestInfo[], rank: CrystRank, color: CrystColor, tool: string, heal: number, n: number): ItemStack | undefined => {
     // 結果のアイテムを準備
     const result = new ItemStack(`cb2:${rank}_${color}_crystal_${tool}`, 1)
     const [first, second] = infos;
     const inTool = first.value.typeId === `cb2:${rank}_${color}_crystal_${tool}` ? first : second;
 
-    // 同期を行い失敗したら切り返し
-    const tries = [
-        syncDurability(inTool, result, n),
+    // 同期
+        syncDurability(inTool, result, heal, n),
         syncEnchantments(inTool, result),
         syncSkill(inTool, result)
-    ]
-    if (tries.includes(false)) {
-        world.sendMessage("重大なエラー!!\n普通に遊んでいてこのエラーが出たなら作者に報告した方が良いかも。")
-        return;
-    }
     return result
 }
 
 const roughSwordRepair = (infos: ExistBoxChestInfo[], color: CrystColor, n: number): ItemStack | undefined => 
-    crystalToolRepair(infos, "rough", color, "sword", n);
+    crystalToolRepair(infos, "rough", color, "sword", 4, n);
 const roughPickAxeRepair = (infos: ExistBoxChestInfo[], color: CrystColor, n: number): ItemStack | undefined => 
-    crystalToolRepair(infos, "rough", color, "pickaxe", n);
+    crystalToolRepair(infos, "rough", color, "pickaxe",  4, n);
 const roughAxeRepair = (infos: ExistBoxChestInfo[], color: CrystColor, n: number): ItemStack | undefined => 
-    crystalToolRepair(infos, "rough", color, "axe", n);
+    crystalToolRepair(infos, "rough", color, "axe",  4, n);
 
 const polishedSwordRepair = (infos: ExistBoxChestInfo[], color: CrystColor, n: number): ItemStack | undefined => 
-    crystalToolRepair(infos, "polished", color, "sword", n);
+    crystalToolRepair(infos, "polished", color, "sword",  8, n);
 const polishedPickAxeRepair = (infos: ExistBoxChestInfo[], color: CrystColor, n: number): ItemStack | undefined => 
-    crystalToolRepair(infos, "polished", color, "pickaxe", n);
+    crystalToolRepair(infos, "polished", color, "pickaxe", 8, n);
 const polishedAxeRepair = (infos: ExistBoxChestInfo[], color: CrystColor, n: number): ItemStack | undefined => 
-    crystalToolRepair(infos, "polished", color, "axe", n);
+    crystalToolRepair(infos, "polished", color, "axe", 8, n);
 
 const refinedSwordRepair = (infos: ExistBoxChestInfo[], color: CrystColor, n: number): ItemStack | undefined => 
-    crystalToolRepair(infos, "refined", color, "sword", n);
+    crystalToolRepair(infos, "refined", color, "sword", 12, n);
 const refinedPickAxeRepair = (infos: ExistBoxChestInfo[], color: CrystColor, n: number): ItemStack | undefined => 
-    crystalToolRepair(infos, "refined", color, "pickaxe", n);
+    crystalToolRepair(infos, "refined", color, "pickaxe", 12, n);
 const refinedAxeRepair = (infos: ExistBoxChestInfo[], color: CrystColor, n: number): ItemStack | undefined => 
-    crystalToolRepair(infos, "refined", color, "axe", n);
+    crystalToolRepair(infos, "refined", color, "axe", 12, n);
 
 export const SynthesisTable: BlockCustomComponent = {
     onPlayerInteract({ dimension, block, player }) {
@@ -191,20 +184,25 @@ export const SynthesisTable: BlockCustomComponent = {
 
         // レシピ定義
         // r: rough, b: blue, c: crystal, s: sword
-        const rbcsRepair = admin.recipe([["cb2:rough_blue_crystal_sword", 1], ["cb2:crystal_block", 1, 8]]);
-        const rrcsRepair = admin.recipe([["cb2:rough_red_crystal_sword", 1], ["cb2:red_crystal_block", 1, 8]]);
-        const rgcsRepair = admin.recipe([["cb2:rough_green_crystal_sword", 1], ["cb2:green_crystal_block", 1, 8]]);
-        const rycsRepair = admin.recipe([["cb2:rough_yellow_crystal_sword", 1], ["cb2:yellow_crystal_block", 1, 8]]);
+        const rbcsRepair = admin.recipe([["cb2:rough_blue_crystal_sword", 1], ["cb2:crystal_block", 1, 4]]);
+        const rrcsRepair = admin.recipe([["cb2:rough_red_crystal_sword", 1], ["cb2:red_crystal_block", 1, 4]]);
+        const rgcsRepair = admin.recipe([["cb2:rough_green_crystal_sword", 1], ["cb2:green_crystal_block", 1, 4]]);
+        const rycsRepair = admin.recipe([["cb2:rough_yellow_crystal_sword", 1], ["cb2:yellow_crystal_block", 1, 4]]);
         // r: rough, b: blue, c: crystal, p: pickaxe
-        const rbcpRepair = admin.recipe([["cb2:rough_blue_crystal_pickaxe", 1], ["cb2:crystal_block", 1, 8]]);
-        const rrcpRepair = admin.recipe([["cb2:rough_red_crystal_pickaxe", 1], ["cb2:red_crystal_block", 1, 8]]);
-        const rgcpRepair = admin.recipe([["cb2:rough_green_crystal_pickaxe", 1], ["cb2:green_crystal_block", 1, 8]]);
-        const rycpRepair = admin.recipe([["cb2:rough_yellow_crystal_pickaxe", 1], ["cb2:yellow_crystal_block", 1, 8]]);
+        const rbcpRepair = admin.recipe([["cb2:rough_blue_crystal_pickaxe", 1], ["cb2:crystal_block", 1, 4]]);
+        const rrcpRepair = admin.recipe([["cb2:rough_red_crystal_pickaxe", 1], ["cb2:red_crystal_block", 1, 4]]);
+        const rgcpRepair = admin.recipe([["cb2:rough_green_crystal_pickaxe", 1], ["cb2:green_crystal_block", 1, 4]]);
+        const rycpRepair = admin.recipe([["cb2:rough_yellow_crystal_pickaxe", 1], ["cb2:yellow_crystal_block", 1, 4]]);
         // r: rough, b: blue, c: crystal, a: axe
-        const rbcaRepair = admin.recipe([["cb2:rough_blue_crystal_axe", 1], ["cb2:crystal_block", 1, 8]]);
-        const rrcaRepair = admin.recipe([["cb2:rough_red_crystal_axe", 1], ["cb2:red_crystal_block", 1, 8]]);
-        const rgcaRepair = admin.recipe([["cb2:rough_green_crystal_axe", 1], ["cb2:green_crystal_block", 1, 8]]);
-        const rycaRepair = admin.recipe([["cb2:rough_yellow_crystal_axe", 1], ["cb2:yellow_crystal_block", 1, 8]]);
+        const rbcaRepair = admin.recipe([["cb2:rough_blue_crystal_axe", 1], ["cb2:crystal_block", 1, 4]]);
+        const rrcaRepair = admin.recipe([["cb2:rough_red_crystal_axe", 1], ["cb2:red_crystal_block", 1, 4]]);
+        const rgcaRepair = admin.recipe([["cb2:rough_green_crystal_axe", 1], ["cb2:green_crystal_block", 1, 4]]);
+        const rycaRepair = admin.recipe([["cb2:rough_yellow_crystal_axe", 1], ["cb2:yellow_crystal_block", 1, 4]]);
+        // r: rough, a: armor h: helmet
+        const rahRepair = admin.recipe([["cb2:rough_green_crystal_helmet", 1], ["cb2:green_crystal_block", 1, 4]])
+        const racRepair = admin.recipe([["cb2:rough_blue_crystal_chestplate", 1], ["cb2:crystal_block", 1, 4]])
+        const ralRepair = admin.recipe([["cb2:rough_red_crystal_leggings", 1], ["cb2:red_crystal_block", 1, 4]])
+        const rabRepair = admin.recipe([["cb2:rough_yellow_crystal_boots", 1], ["cb2:yellow_crystal_block", 1, 4]])
         
         // p: polished, b: blue, c: crystal, s: sword
         const pbcsRepair = admin.recipe([["cb2:polished_blue_crystal_sword", 1], ["cb2:polished_crystal_block", 1, 8]]);
@@ -221,22 +219,32 @@ export const SynthesisTable: BlockCustomComponent = {
         const prcaRepair = admin.recipe([["cb2:polished_red_crystal_axe", 1], ["cb2:polished_red_crystal_block", 1, 8]]);
         const pgcaRepair = admin.recipe([["cb2:polished_green_crystal_axe", 1], ["cb2:polished_green_crystal_block", 1, 8]]);
         const pycaRepair = admin.recipe([["cb2:polished_yellow_crystal_axe", 1], ["cb2:polished_yellow_crystal_block", 1, 8]]);
+        // r: polished, a: armor h: helmet
+        const pahRepair = admin.recipe([["cb2:polished_green_crystal_helmet", 1], ["cb2:polished_green_crystal_block", 1, 8]])
+        const pacRepair = admin.recipe([["cb2:polished_blue_crystal_chestplate", 1], ["cb2:polished_crystal_block", 1, 8]])
+        const palRepair = admin.recipe([["cb2:polished_red_crystal_leggings", 1], ["cb2:polished_red_crystal_block", 1, 8]])
+        const pabRepair = admin.recipe([["cb2:polsihed_yellow_crystal_boots", 1], ["cb2:polished_yellow_crystal_block", 1, 8]])
 
         // rf: refined, b: blue, c: crystal, s: sword
-        const rfbcsRepair = admin.recipe([["cb2:refined_blue_crystal_sword", 1], ["cb2:refined_crystal_block", 1, 8]]);
-        const rfrcsRepair = admin.recipe([["cb2:refined_red_crystal_sword", 1], ["cb2:refined_red_crystal_block", 1, 8]]);
-        const rfgcsRepair = admin.recipe([["cb2:refined_green_crystal_sword", 1], ["cb2:refined_green_crystal_block", 1, 8]]);
-        const rfycsRepair = admin.recipe([["cb2:refined_yellow_crystal_sword", 1], ["cb2:refined_yellow_crystal_block", 1, 8]]);
+        const rfbcsRepair = admin.recipe([["cb2:refined_blue_crystal_sword", 1], ["cb2:refined_crystal_block", 1, 12]]);
+        const rfrcsRepair = admin.recipe([["cb2:refined_red_crystal_sword", 1], ["cb2:refined_red_crystal_block", 1, 12]]);
+        const rfgcsRepair = admin.recipe([["cb2:refined_green_crystal_sword", 1], ["cb2:refined_green_crystal_block", 1, 12]]);
+        const rfycsRepair = admin.recipe([["cb2:refined_yellow_crystal_sword", 1], ["cb2:refined_yellow_crystal_block", 1, 12]]);
         // rf: refined, b: blue, c: crystal, p: pickaxe
-        const rfbcpRepair = admin.recipe([["cb2:refined_blue_crystal_pickaxe", 1], ["cb2:refined_crystal_block", 1, 8]]);
-        const rfrcpRepair = admin.recipe([["cb2:refined_red_crystal_pickaxe", 1], ["cb2:refined_red_crystal_block", 1, 8]]);
-        const rfgcpRepair = admin.recipe([["cb2:refined_green_crystal_pickaxe", 1], ["cb2:refined_green_crystal_block", 1, 8]]);
-        const rfycpRepair = admin.recipe([["cb2:refined_yellow_crystal_pickaxe", 1], ["cb2:refined_yellow_crystal_block", 1, 8]]);
+        const rfbcpRepair = admin.recipe([["cb2:refined_blue_crystal_pickaxe", 1], ["cb2:refined_crystal_block", 1, 12]]);
+        const rfrcpRepair = admin.recipe([["cb2:refined_red_crystal_pickaxe", 1], ["cb2:refined_red_crystal_block", 1, 12]]);
+        const rfgcpRepair = admin.recipe([["cb2:refined_green_crystal_pickaxe", 1], ["cb2:refined_green_crystal_block", 1, 12]]);
+        const rfycpRepair = admin.recipe([["cb2:refined_yellow_crystal_pickaxe", 1], ["cb2:refined_yellow_crystal_block", 1, 12]]);
         // rf: refined, b: blue, c: crystal, a: axe
-        const rfbcaRepair = admin.recipe([["cb2:refined_blue_crystal_axe", 1], ["cb2:refined_crystal_block", 1, 8]]);
-        const rfrcaRepair = admin.recipe([["cb2:refined_red_crystal_axe", 1], ["cb2:refined_red_crystal_block", 1, 8]]);
-        const rfgcaRepair = admin.recipe([["cb2:refined_green_crystal_axe", 1], ["cb2:refined_green_crystal_block", 1, 8]]);
-        const rfycaRepair = admin.recipe([["cb2:refined_yellow_crystal_axe", 1], ["cb2:refined_yellow_crystal_block", 1, 8]]);
+        const rfbcaRepair = admin.recipe([["cb2:refined_blue_crystal_axe", 1], ["cb2:refined_crystal_block", 1, 12]]);
+        const rfrcaRepair = admin.recipe([["cb2:refined_red_crystal_axe", 1], ["cb2:refined_red_crystal_block", 1, 12]]);
+        const rfgcaRepair = admin.recipe([["cb2:refined_green_crystal_axe", 1], ["cb2:refined_green_crystal_block", 1, 12]]);
+        const rfycaRepair = admin.recipe([["cb2:refined_yellow_crystal_axe", 1], ["cb2:refined_yellow_crystal_block", 1, 12]]);
+        // rf: refined, a: armor h: helmet
+        const rfahRepair = admin.recipe([["cb2:refined_green_crystal_helmet", 1], ["cb2:refined_green_crystal_block", 1, 12]])
+        const rfacRepair = admin.recipe([["cb2:refined_blue_crystal_chestplate", 1], ["cb2:refined_crystal_block", 1, 12]])
+        const rfalRepair = admin.recipe([["cb2:refined_red_crystal_leggings", 1], ["cb2:refined_red_crystal_block", 1, 12]])
+        const rfabRepair = admin.recipe([["cb2:refined_yellow_crystal_boots", 1], ["cb2:refined_yellow_crystal_block", 1, 12]])
 
         // 判定
         // 粗い水晶の剣
@@ -292,6 +300,25 @@ export const SynthesisTable: BlockCustomComponent = {
             dimension.spawnItem(result, block.center());
         } else if (rycaRepair) {
             const result = roughAxeRepair(boxChestValues, "yellow", rycaRepair[1][0][1])
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        }
+
+        // 粗い水晶の防具
+        else if (rahRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "green", "helmet", 4, rahRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else if (racRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "blue", "chestplate", 4, racRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else if (ralRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "red", "leggings", 4, ralRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else if (rabRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "yellow", "boots", 4, rabRepair[1][0][1]);
             if (!result) return;
             dimension.spawnItem(result, block.center());
         }
@@ -353,6 +380,25 @@ export const SynthesisTable: BlockCustomComponent = {
             dimension.spawnItem(result, block.center());
         }
 
+        // 磨かれた水晶の防具
+        else if (pahRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "green", "helmet", 4, pahRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else if (pacRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "blue", "chestplate", 4, pacRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else if (palRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "red", "leggings", 4, palRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else if (pabRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "yellow", "boots", 4, pabRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        }
+
         // 研磨された水晶の剣
         else if (rfbcsRepair) {
             const result = refinedSwordRepair(boxChestValues, "blue", rfbcsRepair[1][0][1])
@@ -408,9 +454,27 @@ export const SynthesisTable: BlockCustomComponent = {
             const result = refinedAxeRepair(boxChestValues, "yellow", rfycaRepair[1][0][1])
             if (!result) return;
             dimension.spawnItem(result, block.center());
-        } else {
-            return
         }
+
+        // 磨かれた水晶の防具
+        else if (rfahRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "green", "helmet", 4, rfahRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else if (rfacRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "blue", "chestplate", 4, rfacRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else if (rfalRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "red", "leggings", 4, rfalRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else if (rfabRepair) {
+            const result = crystalToolRepair(boxChestValues, "rough", "yellow", "boots", 4, rfabRepair[1][0][1]);
+            if (!result) return;
+            dimension.spawnItem(result, block.center());
+        } else return
+
         dimension.playSound("crystaling_polished", block.center());
         dimension.spawnParticle("cb2:crystalenctable_use", block.center());
         

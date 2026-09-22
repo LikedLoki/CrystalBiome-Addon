@@ -7,7 +7,7 @@
 			},
             "states": {
                 "cb2:portal": [
-                    "close", "first_in", "in", "out", "mayout"
+                    "close", "first_in", "in", "out", "mayout", "broken"
                 ]
             },
 			"identifier": "cb2:crystal_third_portal"
@@ -30,7 +30,7 @@
 		},
 		"permutations": [
 			{
-				"condition": "q.block_state('cb2:portal') == 'close'",
+				"condition": "q.block_state('cb2:portal') == 'close' || q.block_state('cb2:portal') == 'broken'",
 				"components": {
 					"minecraft:material_instances": {
 						"*": {

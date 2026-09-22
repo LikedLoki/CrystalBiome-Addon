@@ -1,0 +1,28 @@
+{
+    "format_version": "1.26.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "cb2:orb_spawner",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/orb_spawner"
+            },
+            "animations": {
+                "basic": "animation.orb_spawner.idle"
+            },
+            "scripts": {
+                "animate": [
+                    "basic"
+                ]
+            },
+            "geometry": {
+                "default": "geometry.orb_spawner"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

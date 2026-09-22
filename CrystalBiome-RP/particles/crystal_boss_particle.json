@@ -29,7 +29,6 @@
 			"minecraft:particle_initial_speed": 64,
 			"minecraft:particle_motion_dynamic": {
 				"linear_drag_coefficient": 4,
-				"rotation_acceleration": "part",
 				"rotation_drag_coefficient": 1
 			},
 			"minecraft:particle_appearance_billboard": {

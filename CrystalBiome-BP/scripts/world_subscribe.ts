@@ -7,6 +7,9 @@ import { PrismInfo } from "./crystal-biome";
 import { onBreak } from "./box_in_chest";
 import { PowderBottoleProj } from "./powder_bottle_proj";
 import { CrystalGemDrop, ToolSkillLevel } from "./tool_skill_level";
+import { orbspawnerDie } from "./crystal_horizon";
+import { orbSpawnerBreak, orbSpawnerFall } from "./orb_spawner";
+import { crystalKingHealthInterlocking } from "./crystal_king";
 
 world.afterEvents.projectileHitBlock.subscribe((event) => {
     PowderBottoleProj(event);
@@ -37,16 +40,22 @@ world.afterEvents.entityHitEntity.subscribe((event) => {
 })
 world.afterEvents.entityHurt.subscribe(event => {
     ToolSkillLevel.sword(event)
+    //crystalKingHealthInterlocking(event);
 })
 world.afterEvents.entityDie.subscribe(event => {
     const { deadEntity } = event
     SlayedClusterFragment(world, deadEntity)
     SlyaedExecutor(world, deadEntity)
     SlyaedWanderment(world, deadEntity)
+    orbspawnerDie(event);
     CrystalGemDrop.sword(event)
     if (deadEntity instanceof Player) {
         deadEntity.removeTag("cb2:target_for_giant")
     }
+})
+
+world.beforeEvents.entityHurt.subscribe(event => {
+    orbSpawnerFall(event);
 })
 
 

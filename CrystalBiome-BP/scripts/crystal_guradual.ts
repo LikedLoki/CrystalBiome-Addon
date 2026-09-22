@@ -1,4 +1,4 @@
-import { Entity, ItemStack, system, Vector2, Vector3, World, world } from "@minecraft/server";
+import { Entity, EntityDieAfterEvent, ItemStack, system, Vector2, Vector3, World, world } from "@minecraft/server";
 import { sleep } from "./other";
 import { PrismInfo } from "./crystal-biome";
 import { PrismInfoAdmin } from "./prism-info-fn";
@@ -91,4 +91,13 @@ const wandermentMessage = async (world: World) => {
     world.sendMessage(`§o... ...`);
     await sleep(40);
     world.sendMessage(`§o... ... ...`);
+}
+
+export const slayedCrystalKing = (event: EntityDieAfterEvent) => {
+    const { deadEntity } = event;
+    const { dimension } = deadEntity;
+    if (deadEntity.typeId !== "cb2:crystal_king") return;
+    dimension.playSound("item.trident.thunder", deadEntity.location, { volume: 1, pitch: 1.2 });
+    dimension.spawnParticle("cb2:orbshard_bigbreak_particle", deadEntity.location);
+    world.setDynamicProperty("cb2:crystal_guradual_guard", 2);
 }

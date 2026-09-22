@@ -17,7 +17,7 @@
 			"minecraft:use_animation": "eat",
 			"minecraft:food": {
 				"can_always_eat": false,
-				"nutrition": 4,
+				"nutrition": 5,
 				"saturation_modifier": 2
 			},
 			"minecraft:icon": "cb2_baked_crystalcap_item"

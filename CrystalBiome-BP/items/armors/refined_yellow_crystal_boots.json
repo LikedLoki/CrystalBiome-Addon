@@ -4,8 +4,8 @@
 		"description": {
 			"identifier": "cb2:refined_yellow_crystal_boots",
 			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.boots"
+				"category": "equipment"
+				 
 			}
 		},
 		"components": {

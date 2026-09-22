@@ -88,6 +88,13 @@
 						"cb2:range_mode"
 					]
 				}
+			},
+			"cb2:can_despawn": {
+				"add": {
+					"component_groups": [
+						"cb2:despawn"
+					]
+				}
 			}
 		},
 		"description": {
@@ -97,6 +104,17 @@
 			"is_experimental": false
 		},
 		"component_groups": {
+			"cb2:despawn": {
+				"minecraft:despawn": {
+					"despawn_from_chance": true,
+					"despawn_from_distance": {},
+					"despawn_from_inactivity": true,
+					"despawn_from_simulation_edge": true,
+					"min_range_inactivity_timer": 30,
+					"min_range_random_chance": 800,
+					"remove_child_entities": false
+				}
+			},
 			"cb2:range_mode": {
 				"minecraft:environment_sensor": {
 					"triggers": [
@@ -358,15 +376,6 @@
 						"damage_per_tick": 4
 					}
 				]
-			},
-			"minecraft:despawn": {
-				"despawn_from_chance": true,
-				"despawn_from_distance": {},
-				"despawn_from_inactivity": true,
-				"despawn_from_simulation_edge": true,
-				"min_range_inactivity_timer": 30,
-				"min_range_random_chance": 800,
-				"remove_child_entities": false
 			},
 			"minecraft:breathable": {
 				"total_supply": 15,

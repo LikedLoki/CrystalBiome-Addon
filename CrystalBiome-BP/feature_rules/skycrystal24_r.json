@@ -23,21 +23,9 @@
 				"numerator": 1
 			},
 			"iterations": 1,
-			"x": {
-				"distribution": "uniform",
-				"extent": [
-					0,
-					0
-				]
-			},
+			"x": 0,
 			"y": "query.heightmap(variable.worldx, variable.worldz) + 24",
-			"z": {
-				"distribution": "uniform",
-				"extent": [
-					0,
-					0
-				]
-			}
+			"z": 0
 		}
 	}
 }

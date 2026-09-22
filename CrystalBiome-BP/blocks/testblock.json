@@ -5,13 +5,6 @@
 			"identifier": "cb2:testblock"
 		},
 		"components": {
-			"fristia:runCommand_block": {
-				"onBreak":{
-					"run": [
-						"summon zombie"
-					]
-				}
-			}
 		}
 	}
 }

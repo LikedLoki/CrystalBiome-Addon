@@ -29,8 +29,8 @@
 			},
 			"minecraft:behavior.delayed_attack": {
 				"priority": 0,
-				"y_max_head_rotation": 0,
-				"x_max_rotation": 0,
+				"y_max_head_rotation": 0.1,
+				"x_max_rotation": 0.1,
 				"track_target": true,
 				"require_complete_path": false,
 				"random_stop_interval": 0,
@@ -142,10 +142,6 @@
 				"suffocate_time": 0,
 				"breathes_air": true,
 				"breathes_water": true
-			},
-			"minecraft:behavior.move_towards_restriction": {
-				"priority": 5,
-				"speed_multiplier": 0.4
 			},
 			"minecraft:behavior.look_at_player": {
 				"priority": 7,

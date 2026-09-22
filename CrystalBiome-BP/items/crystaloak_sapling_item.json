@@ -4,8 +4,8 @@
 		"description": {
 			"identifier": "cb2:crystaloak_sapling_item",
 			"menu_category": {
-				"category": "nature",
-				"group": "itemGroup.name.sapling"
+				"category": "nature"
+				 
 			}
 		},
 		"components": {

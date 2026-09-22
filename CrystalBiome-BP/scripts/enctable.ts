@@ -26,8 +26,8 @@ const getCost = (typeId: AllowedId): ItemRequired[] => {
     const rank = fmt[0] as Rank["now"];
     const color = fmt[1] as CrystColor;
     const inlineColor = color === "blue" ? "" : color + "_";
-    if (rank === "rough") return [itmReq(`cb2:${color}_crystal_gem`, 8), itmReq(`cb2:${inlineColor}crystal_block`, 16)];
-    else return [itmReq(`cb2:${inlineColor}crystal_block`, 16), itmReq("cb2:rare_crystal_shard", 16), itmReq("cb2:rare_crystal_block", 24)]
+    if (rank === "rough") return [itmReq(`cb2:${color}_crystal_gem`, 8), itmReq(`cb2:${inlineColor}crystal_shard`, 8)];
+    else return [itmReq(`cb2:${color}_crystal_gem`, 16), itmReq(`cb2:${inlineColor}crystal_shard`, 12), itmReq(`cb2:${inlineColor}crystal_powder`, 12), itmReq("cb2:fristia_flower_item", 8)]
 }
 const allowedList = [
   "cb2:rough_red_crystal_sword",
@@ -96,7 +96,8 @@ const translateMap = {
     "cb2:yellow_crystal_block": "黄水晶の原石",
     "cb2:yellow_crystal_shard": "黄水晶の欠片",
     "cb2:yellow_crystal_powder": "黄水晶の粉末",
-    "cb2:yellow_crystal_gem": "黄水晶の宝珠"
+    "cb2:yellow_crystal_gem": "黄水晶の宝珠",
+    "cb2:fristia_flower_item": "晶斑花"
 } as const;
 const rankMap = {
     "rough": "polished",
@@ -130,7 +131,7 @@ class ItemAdmin {
     get costText(): string {
         let result = "";
         for (const { typeId, amount } of this.#cost)
-            result += (translateMap[typeId as keyof typeof translateMap] + "×" + amount + "\n");
+            result += (translateMap[typeId as keyof typeof translateMap] + " * " + amount + "\n");
         return result;
     }
     get nextRankId(): string {

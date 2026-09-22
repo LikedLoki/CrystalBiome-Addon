@@ -367,12 +367,6 @@
 						0,
 						0
 					],
-					"target_blocks": [
-						"cb2:minion_break_blue_block",
-						"cb2:minion_break_red_block",
-						"cb2:minion_break_green_block",
-						"cb2:minion_break_yellow_block"
-					],
 					"on_stay_completed": {
 						"event": "cb2:placed_block"
 					}
@@ -453,10 +447,6 @@
 				"suffocate_time": 0,
 				"breathes_air": true,
 				"breathes_water": true
-			},
-			"minecraft:behavior.move_towards_restriction": {
-				"priority": 5,
-				"speed_multiplier": 0.4
 			},
 			"minecraft:behavior.look_at_player": {
 				"priority": 7,
@@ -556,20 +546,7 @@
 					"component_groups": [
 						"cb2:place_block"
 					]
-				},
-				"queue_command": {
-					"command": [
-						"execute if block ~~~ cb2:minion_break_blue_block run playsound random.pop @a ~~~",
-						"execute if block ~~~ cb2:minion_break_red_block run playsound random.pop @a ~~~",
-						"execute if block ~~~ cb2:minion_break_green_block run playsound random.pop @a ~~~",
-						"execute if block ~~~ cb2:minion_break_yellow_block run playsound random.pop @a ~~~",
-						"fill ~~~ ~~~ cb2:minion_blue_block replace cb2:minion_break_blue_block",
-						"fill ~~~ ~~~ cb2:minion_red_block replace cb2:minion_break_red_block",
-						"fill ~~~ ~~~ cb2:minion_green_block replace cb2:minion_break_green_block",
-						"fill ~~~ ~~~ cb2:minion_yellow_block replace cb2:minion_break_yellow_block"
-					]
-				}
-			},
+				}			},
 			"cb2:blue_trigger": {
 				"trigger": "cb2:scaleup0",
 				"add": {

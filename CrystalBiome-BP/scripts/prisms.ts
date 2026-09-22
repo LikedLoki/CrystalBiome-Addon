@@ -173,7 +173,6 @@ class Raycast {
                 block.setPermutation(block.permutation.withState("cb2:bool_I" as any, true));
                 block.setPermutation(block.permutation.withState("cb2:energy" as any, 4));
                 const rne = dimension.getEntities({ type: "cb2:resonance_node_entity", location: block.center(), maxDistance: 1 });
-                console.log(JSON.stringify(rne))
                 if (rne.length === 0) dimension.spawnEntity("cb2:resonance_node_entity" as any, block.center())
                 break;
             }

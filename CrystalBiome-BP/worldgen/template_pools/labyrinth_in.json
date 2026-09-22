@@ -11,7 +11,7 @@
 					"location": "cblaby_in_cluster1"
 				},
 				"weight": 12,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -19,7 +19,7 @@
 					"location": "cblaby_in_cluster2"
 				},
 				"weight": 12,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -27,7 +27,7 @@
 					"location": "cblaby_in_books"
 				},
 				"weight": 12,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -35,7 +35,7 @@
 					"location": "cblaby_in_clear"
 				},
 				"weight": 12,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -43,7 +43,7 @@
 					"location": "cblaby_in_ling"
 				},
 				"weight": 12,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -51,7 +51,7 @@
 					"location": "cblaby_in_pillars"
 				},
 				"weight": 12,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -59,7 +59,7 @@
 					"location": "cblaby_in_staff"
 				},
 				"weight": 12,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -67,7 +67,7 @@
 					"location": "cblaby_in_tree"
 				},
 				"weight": 12,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

@@ -42,10 +42,6 @@
 				]
 			},
 			"minecraft:movement.basic": {},
-			"minecraft:behavior.move_towards_restriction": {
-				"priority": 5,
-				"speed_multiplier": 0.2
-			},
 			"minecraft:navigation.walk": {
 				"is_amphibious": true,
 				"can_pass_doors": true,

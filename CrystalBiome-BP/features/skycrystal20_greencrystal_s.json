@@ -7,10 +7,7 @@
 		"iterations": 64,
 		"project_input_to_floor": true,
 		"coordinate_eval_order": "xyz",
-		"scatter_chance": {
-			"denominator": 1,
-			"numerator": 1
-		},
+		"scatter_chance": 1,
 		"x": {
 			"distribution": "uniform",
 			"extent": [

@@ -1,6 +1,6 @@
 import { Block, BlockCustomComponent, Dimension, system, Vector3, Entity, MolangVariableMap, VectorXZ, BlockComponentOnPlaceEvent, BlockComponentTickEvent, BlockComponentBlockBreakEvent } from "@minecraft/server";
 import { crystalSpawnFn, SettingColor } from "./crystal-spawn-fn";
-import { CrystColor, GuardWonderId } from "./crystal-biome";
+import { CrystColor, GuardWonderId, Color } from "./crystal-biome";
 
 type OrbShardTypeId = "cb2:orbshard";
 type OrbShardEntity = Entity & { "typeId": OrbShardTypeId };
@@ -63,7 +63,7 @@ const getAirLayer = (dimension: Dimension, { x, y, z }: Vector3, layer: Layer): 
 const ifConditionPass = (dimension: Dimension, block: Block, airList: Vector3[]): void => {
     const selectLoc: Vector3 = airList[Math.random() * airList.length | 0];
     const selectEntity: GuardWonderId = entityList[Math.random() * 2 | 0];
-    const selectColor: CrystColor = colorList[Math.random() * 4 | 0];
+    const selectColor = Color[["blue", "red", "green", "yellow"][Math.random() * 4 | 0]];
     const { x, y, z }: Vector3 = block.location;
     crystalSpawnFn(dimension, selectEntity, selectLoc, selectColor, true).addTag(`cb2:orbshard_${x}=${y}=${z}`);
 };

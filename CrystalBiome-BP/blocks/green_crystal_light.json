@@ -1,0 +1,120 @@
+{
+	"format_version": "1.26.30",
+	"minecraft:block": {
+		"description": {
+            "traits": {
+                "minecraft:placement_position": {
+                    "enabled_states": [
+                        "minecraft:block_face"
+                    ]
+                }
+            },
+			"menu_category": {
+				"category": "nature"
+			},
+			"identifier": "cb2:green_crystal_light"
+		},
+		"components": {
+			"cb2:crystal_drop_default": {
+				"typeId": "cb2:green_crystal_shard",
+				"quantity": {
+					"min": 2,
+					"max": 4
+				}
+			},
+			"minecraft:geometry": "geometry.crystal_light",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_green_crystal_light",
+					"render_method": "opaque",
+					"face_dimming": false
+				}
+			},
+			"minecraft:tags": [
+				"cb2:crystal",
+				"cb2:rawcrystal",
+				"minecraft:is_pickaxe_item_destructible"
+			],
+			"minecraft:redstone_conductivity": {
+				"redstone_conductor": true,
+				"allows_wire_to_step_down": false
+			},
+			"minecraft:movable": {
+				"movement_type": "push_pull"
+			},
+			"minecraft:collision_box": false,
+			"minecraft:selection_box": {
+                "origin": [
+                    -4,
+                    0,
+                    -4
+                ],
+                "size": [
+                    8,
+                    8,
+                    8
+                ]
+            },
+			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 12,
+			"minecraft:friction": 0.4,
+			"minecraft:flammable": false,
+			"minecraft:map_color": "#72D7FF",
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 6
+			}
+		},
+        "permutations": [
+            {
+                "condition": "q.block_state('minecraft:block_face') == 'down'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            180, 0, 0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:block_face') == 'south'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            90, 0, 0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:block_face') == 'north'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            -90, 0, 0
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:block_face') == 'east'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0, 0, -90
+                        ]
+                    }
+                }
+            },
+            {
+                "condition": "q.block_state('minecraft:block_face') == 'west'",
+                "components": {
+                    "minecraft:transformation": {
+                        "rotation": [
+                            0, 0, 90
+                        ]
+                    }
+                }
+            }
+        ]
+	}
+}

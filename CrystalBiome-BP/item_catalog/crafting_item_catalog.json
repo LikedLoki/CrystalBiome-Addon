@@ -507,27 +507,6 @@
         "groups": [
           {
             "group_identifier": {
-              "icon": "cb2:minion_blue_block",
-              "name": "cb2:cbminion"
-            },
-            "items": [
-              "cb2:minion_blue_block",
-              "cb2:minion_red_block",
-              "cb2:minion_green_block",
-              "cb2:minion_yellow_block",
-              "cb2:minion_break_blue_block",
-              "cb2:minion_break_red_block",
-              "cb2:minion_break_green_block",
-              "cb2:minion_break_yellow_block"
-            ]
-          }
-        ]
-      },
-      {
-        "category_name": "construction",
-        "groups": [
-          {
-            "group_identifier": {
               "icon": "cb2:blue_crystal_statue",
               "name": "cb2:cbstatue"
             },

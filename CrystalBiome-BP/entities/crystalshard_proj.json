@@ -167,7 +167,7 @@
 					"lightning": false,
 					"liquid_inertia": 0.6,
 					"multiple_targets": true,
-					"offset": [],
+					"offset": [0, 0, 0],
 					"on_hit": {
 						"remove_on_hit": {},
 						"impact_damage": {

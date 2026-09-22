@@ -11,7 +11,7 @@
 					"location": "ruins_center"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

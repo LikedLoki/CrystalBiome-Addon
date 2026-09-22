@@ -1,4 +1,4 @@
-import { Dimension, Entity, MolangVariableMap, system, Vector3 } from "@minecraft/server";
+import { Dimension, Entity, MolangVariableMap, system, Vector3, World } from "@minecraft/server";
 
 export type GuardWonderId = "cb2:crystal_guard" | "cb2:crystal_wander";
 export type GuardWonderEntity = Entity & { "typeId": GuardWonderEntity };
@@ -69,3 +69,28 @@ export const translateMap = {
         "cb2:refined_yellow_crystal_sword": "研磨された黄水晶の剣"
     }
 } as const;
+
+export class WorldPropertiesAdmin {
+    #world: World;
+    #targetId: string
+    constructor(world: World, targetId: string) {
+        this.#world = world;
+        this.#targetId = targetId
+    }
+    getValue(parse?: boolean) {
+        return parse ? JSON.parse(this.#world.getDynamicProperty(this.#targetId) as string) : this.#world.getDynamicProperty(this.#targetId);
+    }
+    setValue(value: any) {
+        const type = typeof value;
+        const necessaryJSON: boolean = type !== "string"
+            && type !== "number"
+            && type !== "boolean"
+            && !(type === "object" && value.x !== undefined && value.y !== undefined && value.z !== undefined);
+
+        if (necessaryJSON) {
+            this.#world.setDynamicProperty(this.#targetId, JSON.stringify(value));
+        } else {
+            this.#world.setDynamicProperty(this.#targetId, value);
+        }
+    }
+}

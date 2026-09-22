@@ -48,6 +48,7 @@
 			},
 			"minecraft:type_family": {
 				"family": [
+					"crystal",
 					"cb2:resonace_node_f"
 				]
 			}

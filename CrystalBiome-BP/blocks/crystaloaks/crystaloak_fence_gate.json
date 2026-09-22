@@ -62,11 +62,6 @@
 					}
 				}
 			},
-			"minecraft:custom_components": [
-				"cb2:fence_gate_toggle",
-				"cb2:fencegate_place",
-				"cb2:fencegate_destroy"
-			],
 			"minecraft:geometry": "geometry.fence_gate",
 			"minecraft:material_instances": {
 				"*": {

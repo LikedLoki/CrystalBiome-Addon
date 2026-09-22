@@ -1,24 +1,7 @@
 {
 	"entity_sounds": {
-		"defaults": {
-			"events": {
-				"test": "record.otherside"
-			},
-			"pitch": [
-				0.75,
-				1
-			],
-			"volume": [
-				1.5,
-				1
-			]
-		},
+		"defaults": {},
 		"entities": {
-			"cb2:music": {
-				"events": {
-					"musicc": "record.otherside"
-				}
-			},
 			"cb2:crystal_spike": {
 				"events": {
 					"attack": "crystal_golem_hurt"
@@ -33,6 +16,20 @@
 				]
 			},
 			"cb2:crystal_king": {
+				"pitch": [
+					0.5,
+					0.75
+				],
+				"volume": [
+					1.5,
+					1
+				],
+				"events": {
+					"hurt": "crystal_guard_hurt",
+					"death": "crystal_guard_death"
+				}
+			},
+			"cb2:crystal_miracle": {
 				"pitch": [
 					0.5,
 					0.75

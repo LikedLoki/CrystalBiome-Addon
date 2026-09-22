@@ -11,7 +11,7 @@
 					"location": "cblabyrinth_home"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

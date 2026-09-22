@@ -4,7 +4,7 @@
 		"description": {
 			"identifier": "cb2:staff_of_green",
 			"menu_category": {
-				"category": "equipment"
+				"category": "none"
 			}
 		},
 		"components": {
@@ -23,6 +23,9 @@
 			"minecraft:projectile": {
 				"minimum_critical_power": 1.25,
 				"projectile_entity": "cb2:crystalshard_proj"
+			},
+			"minecraft:use_modifiers": {
+				"use_duration": 0
 			},
 			"minecraft:shooter": {
 				"ammunition": [

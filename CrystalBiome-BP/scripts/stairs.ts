@@ -10,8 +10,8 @@ type RelativeBlockList = {
     "rightBlock": Block
 };
 type StairsState = {
-        "vertical": Vertical,
-        "facing": BlockFacing
+    "vertical": Vertical,
+    "facing": BlockFacing
 };
 type NearBlockState = {
     [K in RelatFacing]: StairsState | undefined
@@ -44,10 +44,10 @@ const relatMap = {
     }
 } as const;
 const rotMap = {
-    "east": { dx : -1, dz: 0 },
-    "west": { dx : 1, dz: 0 },
-    "south": { dx : 0, dz: -1 },
-    "north": { dx : 0, dz: 1 }
+    "east": { dx: -1, dz: 0 },
+    "west": { dx: 1, dz: 0 },
+    "south": { dx: 0, dz: -1 },
+    "north": { dx: 0, dz: 1 }
 } as const;
 
 const getNearBlock = (dimension: Dimension, { x, y, z }: Vector3, blockFacing: BlockFacing): RelativeBlockList | undefined => {
@@ -76,7 +76,7 @@ const getNearState = (nearBlock: RelativeBlockList): NearBlockState => {
         const vertical = block.permutation.getState("minecraft:vertical_half") as Vertical;
         const facing = block.permutation.getState("minecraft:cardinal_direction") as BlockFacing;
         tempList.push({ "vertical": vertical, "facing": facing });
-    } 
+    }
     return {
         "front": tempList[0],
         "back": tempList[1],
@@ -86,45 +86,49 @@ const getNearState = (nearBlock: RelativeBlockList): NearBlockState => {
 }
 
 const updateStairs = (dimension: Dimension, block: Block) => {
-    const facing = block.permutation.getState("minecraft:cardinal_direction");
-    const vertical = block.permutation.getState("minecraft:vertical_half");
-    if ((facing !== "east" && facing !== "west" && facing !== "south" && facing !== "north") || (vertical !== "top" && vertical !== "bottom" )) return;
+    try {
+        const facing = block.permutation.getState("minecraft:cardinal_direction");
+        const vertical = block.permutation.getState("minecraft:vertical_half");
+        if ((facing !== "east" && facing !== "west" && facing !== "south" && facing !== "north") || (vertical !== "top" && vertical !== "bottom")) return;
 
-    const selfRelatMap = relatMap[facing];
-    const nearBlock: RelativeBlockList | undefined = getNearBlock(dimension, block.location, facing);
-    if (!nearBlock) return;
+        const selfRelatMap = relatMap[facing];
+        const nearBlock: RelativeBlockList | undefined = getNearBlock(dimension, block.location, facing);
+        if (!nearBlock) return;
 
-    const nearState: NearBlockState = getNearState(nearBlock); 
-    const { front, back } = nearState;
-    const connect = { "front": 0, "back": 0 };
+        const nearState: NearBlockState = getNearState(nearBlock);
+        const { front, back } = nearState;
+        const connect = { "front": 0, "back": 0 };
 
-    if (vertical === front?.vertical) {
-        if (selfRelatMap.left === front.facing) connect.front = 2;
-        else if (selfRelatMap.right === front.facing) connect.front = 1;
-    }
-    if (vertical === back?.vertical) {
-        if (selfRelatMap.left === back.facing) connect.back = 2;
-        else if (selfRelatMap.right === back.facing) connect.back = 1;
-    }
-    if (connect.front !== 0 && connect.back !== 0) {
-        connect.back = 0;
-    }
+        if (vertical === front?.vertical) {
+            if (selfRelatMap.left === front.facing) connect.front = 2;
+            else if (selfRelatMap.right === front.facing) connect.front = 1;
+        }
+        if (vertical === back?.vertical) {
+            if (selfRelatMap.left === back.facing) connect.back = 2;
+            else if (selfRelatMap.right === back.facing) connect.back = 1;
+        }
+        if (connect.front !== 0 && connect.back !== 0) {
+            connect.back = 0;
+        }
 
-    const currPerm = block.permutation;
-    const newPerm = currPerm
-        .withState("cb2:connect_front" as any, connect.front)
-        .withState("cb2:connect_back" as any, connect.back);
-    if (currPerm.matches(newPerm.type.id, newPerm.getAllStates())) return;
-    block.setPermutation(newPerm);
+        const currPerm = block.permutation;
+        const newPerm = currPerm
+            .withState("cb2:connect_front" as any, connect.front)
+            .withState("cb2:connect_back" as any, connect.back);
+        if (currPerm.matches(newPerm.type.id, newPerm.getAllStates())) return;
+        block.setPermutation(newPerm);
+    } catch (_) { }
     updateNearby(dimension, block);
 }
 const updateNearby = (dimension: Dimension, block: Block) => {
-    const { x, y, z } = block.location;
-    for (const { dx, dz } of Object.values(rotMap)) {
-        const getBlock: Block | undefined = dimension.getBlock({ "x": x + dx, "y": y, "z": z + dz });
-        if (!getBlock?.hasTag("cb2:stairs")) continue;
-        updateStairs(dimension, getBlock);
-    }
+    try {
+        const { x, y, z } = block.location;
+        for (const { dx, dz } of Object.values(rotMap)) {
+            const getBlock: Block | undefined = dimension.getBlock({ "x": x + dx, "y": y, "z": z + dz });
+            if (!getBlock?.hasTag("cb2:stairs")) continue;
+            updateStairs(dimension, getBlock);
+        }
+    } catch (_) { }
 }
 
 export const Stairs: BlockCustomComponent = {

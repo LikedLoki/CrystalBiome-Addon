@@ -4,8 +4,8 @@
 		"description": {
 			"identifier": "cb2:crysteel_helmet",
 			"menu_category": {
-				"category": "equipment",
-				"group": "itemGroup.name.helmet"
+				"category": "none"
+				 
 			}
 		},
 		"components": {

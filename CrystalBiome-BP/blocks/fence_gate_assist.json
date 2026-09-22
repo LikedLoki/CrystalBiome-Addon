@@ -29,9 +29,6 @@
 					"render_method": "blend"
 				}
 			},
-			"minecraft:custom_components": [
-				"cb2:fencegate_assist"
-			],
 			"minecraft:collision_box": {
 				"origin": [
 					-8,

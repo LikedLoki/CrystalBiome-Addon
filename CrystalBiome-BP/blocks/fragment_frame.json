@@ -76,18 +76,7 @@
 		],
 		"components": {
 			"minecraft:loot": "loot_tables/empty.json",
-			"fristia:onInteract": {
-				"runCommand": {
-					"run": [
-						"execute if block ~~~ cb2:fragment_frame [\"cb2:summon\"=1] run fristia:break",
-						"execute if entity @s[hasItem={item=cb2:crystal_heart_shard,quantity=0,location=slot.weapon.mainhand}] run fristia:break",
-						"clear @s cb2:crystal_heart_shard 0 1",
-						"playsound block.end_portal_frame.fill @a ~~~ 1 1.2",
-						"particle cb2:crystal_particle_pop ~~~",
-						"setblock ~~~ cb2:fragment_frame [\"cb2:summon\"=1]"
-					]
-				}
-			},
+			"cb2:fragment_frame": {},
 			"minecraft:destructible_by_explosion": false,
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 999999999999

@@ -1,0 +1,33 @@
+{
+    "format_version": "1.26.0",
+    "minecraft:entity": {
+        "description": {
+            "is_spawnable": false,
+            "is_experimental": false,
+            "is_summonable": true,
+            "identifier": "cb2:crystal_king_health"
+        },
+        "components": {
+            "minecraft:boss": {
+        "hud_range": 640,
+        "name": "§oクリスタルキング"
+      },
+      "minecraft:health": {
+        "value": 361,
+        "max": 361
+      },
+            "minecraft:collision_box": {
+                "height": 0.1,
+                "width": 0.1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "suffocation",
+                        "deals_damage": "no"
+                    }
+                ]
+            }
+        }
+    }
+}

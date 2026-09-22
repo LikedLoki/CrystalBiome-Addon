@@ -11,7 +11,7 @@
 					"location": "bluet"
 				},
 				"weight": 1,
-				"projection": "terrain_matching"
+				 
 			},
 			{
 				"element": {
@@ -19,7 +19,7 @@
 					"location": "redt_sn"
 				},
 				"weight": 7,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

@@ -11,7 +11,7 @@
 					"location": "cblabyrinth_aisle"
 				},
 				"weight": 12,
-				"projection": "terrain_matching"
+				 
 			}
 		]
 	}

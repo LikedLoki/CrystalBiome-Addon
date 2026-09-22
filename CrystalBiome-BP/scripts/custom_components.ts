@@ -39,6 +39,8 @@ import { CanSmelt } from "./can_smelt";
 import { SynthesisTable } from "./synthesis_table";
 import { CrystalDropDefault } from "./crystal_drop_default";
 import { Portal } from "./crystal_portal";
+import { FragmentFrame } from "./fragment_frame";
+import { StatuePose } from "./crystal_statue_pose";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
     blockComponentRegistry.registerCustomComponent("cb2:cluster_display", Display);
@@ -58,7 +60,7 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     blockComponentRegistry.registerCustomComponent("cb2:fristia_sideflower", FristiaSideFlower);
     itemComponentRegistry.registerCustomComponent("cb2:gc_pick", GCPick);
     itemComponentRegistry.registerCustomComponent("cb2:gc_sword", GCsword);
-    itemComponentRegistry.registerCustomComponent("cb2:itemdamage_mine", MineDamage);
+    itemComponentRegistry.registerCustomComponent("cb2:item_mine_damage", MineDamage);
     blockComponentRegistry.registerCustomComponent("cb2:setblock", setBlock);
     blockComponentRegistry.registerCustomComponent("cb2:crystaloak_leaves", CrystaloakLeaves);
     blockComponentRegistry.registerCustomComponent("cb2:crystaloak_particle", CrystalOak);
@@ -88,4 +90,6 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     blockComponentRegistry.registerCustomComponent("cb2:crystal_drop_default", CrystalDropDefault)
     blockComponentRegistry.registerCustomComponent("cb2:first&second_portal", Portal.first_second)
     blockComponentRegistry.registerCustomComponent("cb2:third_portal", Portal.third)
+    blockComponentRegistry.registerCustomComponent("cb2:fragment_frame", FragmentFrame)
+    blockComponentRegistry.registerCustomComponent("cb2:crystal_statue_pose", StatuePose)
 })

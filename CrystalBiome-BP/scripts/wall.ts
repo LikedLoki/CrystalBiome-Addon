@@ -19,7 +19,8 @@ interface VectorDXYZ extends VectorDXZ {
 };
 
 const exclusiveList: string[] = [
-    "minecraft:air"
+    "minecraft:air",
+    "cb2:crystalcap"
 ];
 const regex: RegExp = /slab$|stairs$|fence$|door$|trapdoor$|sign$|cluster$|bud$|skull$|head$|chest$|carpet$|flower$/;
 function isConnectable(typeId: string): boolean {
@@ -46,6 +47,7 @@ export class WallAdmin {
             const { dx, dz }: VectorDXZ = offsetXZ[dataI];
             const sideBlock: Block | undefined = dimension.getBlock({ x: x + dx, y: y, z: z + dz });
             if (!sideBlock || !isConnectable(sideBlock?.typeId)) continue;
+            console.log(!isConnectable(sideBlock?.typeId))
             if (dx === 1) selfConnect.east = true;
             if (dx === -1) selfConnect.west = true;
             if (dz === 1) selfConnect.south = true;

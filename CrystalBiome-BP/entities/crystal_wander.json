@@ -58,9 +58,27 @@
 						"cb2:crystal_wander_yellow"
 					]
 				}
+			},
+			"cb2:can_despawn": {
+				"add": {
+					"component_groups": [
+						"cb2:despawn"
+					]
+				}
 			}
 		},
 		"component_groups": {
+			"cb2:despawn": {
+				"minecraft:despawn": {
+					"despawn_from_chance": true,
+					"despawn_from_distance": {},
+					"despawn_from_inactivity": true,
+					"despawn_from_simulation_edge": true,
+					"min_range_inactivity_timer": 30,
+					"min_range_random_chance": 800,
+					"remove_child_entities": false
+				}
+			},
 			"cb2:crystal_wander_blue": {
 				"minecraft:loot": {
 					"table": "loot_tables/entity/blue_crystal_wander_loot.json"
