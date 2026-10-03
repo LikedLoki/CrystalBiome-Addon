@@ -1,0 +1,16 @@
+{
+	"format_version": "1.26.30",
+	"minecraft:item": {
+		"description": {
+			"identifier": "cb2:lang_set_paper",
+			"menu_category": {
+				"category": "nature"
+			}
+		},
+		"components": {
+            "cb2:set_lang": {},
+			"minecraft:glint": true,
+			"minecraft:icon": "cb2_lang_set_paper"
+		}
+	}
+}

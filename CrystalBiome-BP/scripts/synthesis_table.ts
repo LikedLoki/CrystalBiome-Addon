@@ -382,19 +382,19 @@ export const SynthesisTable: BlockCustomComponent = {
 
         // 磨かれた水晶の防具
         else if (pahRepair) {
-            const result = crystalToolRepair(boxChestValues, "rough", "green", "helmet", 4, pahRepair[1][0][1]);
+            const result = crystalToolRepair(boxChestValues, "polished", "green", "helmet", 4, pahRepair[1][0][1]);
             if (!result) return;
             dimension.spawnItem(result, block.center());
         } else if (pacRepair) {
-            const result = crystalToolRepair(boxChestValues, "rough", "blue", "chestplate", 4, pacRepair[1][0][1]);
+            const result = crystalToolRepair(boxChestValues, "polished", "blue", "chestplate", 4, pacRepair[1][0][1]);
             if (!result) return;
             dimension.spawnItem(result, block.center());
         } else if (palRepair) {
-            const result = crystalToolRepair(boxChestValues, "rough", "red", "leggings", 4, palRepair[1][0][1]);
+            const result = crystalToolRepair(boxChestValues, "polished", "red", "leggings", 4, palRepair[1][0][1]);
             if (!result) return;
             dimension.spawnItem(result, block.center());
         } else if (pabRepair) {
-            const result = crystalToolRepair(boxChestValues, "rough", "yellow", "boots", 4, pabRepair[1][0][1]);
+            const result = crystalToolRepair(boxChestValues, "polished", "yellow", "boots", 4, pabRepair[1][0][1]);
             if (!result) return;
             dimension.spawnItem(result, block.center());
         }
@@ -458,19 +458,19 @@ export const SynthesisTable: BlockCustomComponent = {
 
         // 磨かれた水晶の防具
         else if (rfahRepair) {
-            const result = crystalToolRepair(boxChestValues, "rough", "green", "helmet", 4, rfahRepair[1][0][1]);
+            const result = crystalToolRepair(boxChestValues, "refined", "green", "helmet", 4, rfahRepair[1][0][1]);
             if (!result) return;
             dimension.spawnItem(result, block.center());
         } else if (rfacRepair) {
-            const result = crystalToolRepair(boxChestValues, "rough", "blue", "chestplate", 4, rfacRepair[1][0][1]);
+            const result = crystalToolRepair(boxChestValues, "refined", "blue", "chestplate", 4, rfacRepair[1][0][1]);
             if (!result) return;
             dimension.spawnItem(result, block.center());
         } else if (rfalRepair) {
-            const result = crystalToolRepair(boxChestValues, "rough", "red", "leggings", 4, rfalRepair[1][0][1]);
+            const result = crystalToolRepair(boxChestValues, "refined", "red", "leggings", 4, rfalRepair[1][0][1]);
             if (!result) return;
             dimension.spawnItem(result, block.center());
         } else if (rfabRepair) {
-            const result = crystalToolRepair(boxChestValues, "rough", "yellow", "boots", 4, rfabRepair[1][0][1]);
+            const result = crystalToolRepair(boxChestValues, "refined", "yellow", "boots", 4, rfabRepair[1][0][1]);
             if (!result) return;
             dimension.spawnItem(result, block.center());
         } else return

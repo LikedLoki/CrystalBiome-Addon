@@ -249,7 +249,7 @@ export const CrystalHorizonResetFn = async (color: string) => {
         const { x: fx, y: fy, z: fz } = volumeI.from;
         await sleep(1);
         const volume = new BlockVolume({ x: fx, y: fy + one - (160 / n), z: fz }, { x: tx, y: ty + one, z: tz });
-        dimension.fillBlocks(volume, "minecraft:air", { "blockFilter": { "includeTypes": ["cb2:fieldbarrier"] } })
+        dimension.fillBlocks(volume, "minecraft:air")
         const centerLocation: Vector3 = { x: (fx + tx) / 2, y: (fy + ty) / 2, z: (fz + tz) / 2 };
         dimension.spawnParticle("cb2:crystaloak_planks_particle", centerLocation);
     }

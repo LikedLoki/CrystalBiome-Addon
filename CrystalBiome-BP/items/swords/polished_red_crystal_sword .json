@@ -16,7 +16,7 @@
 				"max_durability": 320
 			},
 			"minecraft:icon": "cb2_polished_red_crystal_sword",
-			"minecraft:damage": 6,
+			"minecraft:damage": 7,
 			"minecraft:enchantable": {
 				"value": 14,
 				"slot": "sword"

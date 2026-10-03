@@ -35,8 +35,7 @@ system.runInterval(() => {
     const dimensions: Dimension[] = [world.getDimension("overworld"), world.getDimension("nether"), world.getDimension("the_end"), world.getDimension("cb2:crystal_horizon")]
     for (const fn of fnList) {
         for (const dimension of dimensions) {
-            try { fn(dimension) }
-        catch(e) {} 
+            fn(dimension)
         }
     }
 }, 1)

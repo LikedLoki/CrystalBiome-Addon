@@ -8,6 +8,10 @@
 			"identifier": "cb2:closed_green_crystal_block"
 		},
 		"components": {
+			"minecraft:tick": {
+				"interval_range": [20, 40]
+			},
+			"cb2:closed_crystal": "green",
 			"cb2:can_smelt": {
 				"type": "block",
 				"after": "cb2:budding_green_crystal_block",

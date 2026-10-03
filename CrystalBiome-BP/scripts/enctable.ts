@@ -1,6 +1,7 @@
 import { system, BlockCustomComponent, Player, ItemStack, Container, EntityInventoryComponent, world, ItemEnchantableComponent, Enchantment, ItemDurabilityComponent } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import { CrystColor } from "./crystal-biome";
+import { getPlayerLanguage } from "./lang";
 
 type AllowedId = typeof allowedList[number];
 type AllowedItem = ItemStack & { typeId: AllowedId };
@@ -30,38 +31,38 @@ const getCost = (typeId: AllowedId): ItemRequired[] => {
     else return [itmReq(`cb2:${color}_crystal_gem`, 16), itmReq(`cb2:${inlineColor}crystal_shard`, 12), itmReq(`cb2:${inlineColor}crystal_powder`, 12), itmReq("cb2:fristia_flower_item", 8)]
 }
 const allowedList = [
-  "cb2:rough_red_crystal_sword",
-  "cb2:rough_green_crystal_sword",
-  "cb2:rough_blue_crystal_sword",
-  "cb2:rough_yellow_crystal_sword",
-  "cb2:polished_red_crystal_sword",
-  "cb2:polished_green_crystal_sword",
-  "cb2:polished_blue_crystal_sword",
-  "cb2:polished_yellow_crystal_sword",
-  "cb2:rough_red_crystal_pickaxe",
-  "cb2:rough_green_crystal_pickaxe",
-  "cb2:rough_blue_crystal_pickaxe",
-  "cb2:rough_yellow_crystal_pickaxe",
-  "cb2:polished_red_crystal_pickaxe",
-  "cb2:polished_green_crystal_pickaxe",
-  "cb2:polished_blue_crystal_pickaxe",
-  "cb2:polished_yellow_crystal_pickaxe",
-  "cb2:rough_red_crystal_axe",
-  "cb2:rough_green_crystal_axe",
-  "cb2:rough_blue_crystal_axe",
-  "cb2:rough_yellow_crystal_axe",
-  "cb2:polished_red_crystal_axe",
-  "cb2:polished_green_crystal_axe",
-  "cb2:polished_blue_crystal_axe",
-  "cb2:polished_yellow_crystal_axe",
-  "cb2:rough_green_crystal_helmet",
-  "cb2:rough_blue_crystal_chestplate",
-  "cb2:rough_red_crystal_leggings",
-  "cb2:rough_yellow_crystal_boots",
-  "cb2:polished_green_crystal_helmet",
-  "cb2:polished_blue_crystal_chestplate",
-  "cb2:polished_red_crystal_leggings",
-  "cb2:polished_yellow_crystal_boots"
+    "cb2:rough_red_crystal_sword",
+    "cb2:rough_green_crystal_sword",
+    "cb2:rough_blue_crystal_sword",
+    "cb2:rough_yellow_crystal_sword",
+    "cb2:polished_red_crystal_sword",
+    "cb2:polished_green_crystal_sword",
+    "cb2:polished_blue_crystal_sword",
+    "cb2:polished_yellow_crystal_sword",
+    "cb2:rough_red_crystal_pickaxe",
+    "cb2:rough_green_crystal_pickaxe",
+    "cb2:rough_blue_crystal_pickaxe",
+    "cb2:rough_yellow_crystal_pickaxe",
+    "cb2:polished_red_crystal_pickaxe",
+    "cb2:polished_green_crystal_pickaxe",
+    "cb2:polished_blue_crystal_pickaxe",
+    "cb2:polished_yellow_crystal_pickaxe",
+    "cb2:rough_red_crystal_axe",
+    "cb2:rough_green_crystal_axe",
+    "cb2:rough_blue_crystal_axe",
+    "cb2:rough_yellow_crystal_axe",
+    "cb2:polished_red_crystal_axe",
+    "cb2:polished_green_crystal_axe",
+    "cb2:polished_blue_crystal_axe",
+    "cb2:polished_yellow_crystal_axe",
+    "cb2:rough_green_crystal_helmet",
+    "cb2:rough_blue_crystal_chestplate",
+    "cb2:rough_red_crystal_leggings",
+    "cb2:rough_yellow_crystal_boots",
+    "cb2:polished_green_crystal_helmet",
+    "cb2:polished_blue_crystal_chestplate",
+    "cb2:polished_red_crystal_leggings",
+    "cb2:polished_yellow_crystal_boots"
 ] as const;
 const parseMap = {
     rough: "粗い",
@@ -81,23 +82,44 @@ const parseMap = {
     boots: "ブーツ"
 } as const;
 const translateMap = {
-    "cb2:crystal_block": "蒼水晶の原石",
-    "cb2:crystal_shard": "蒼水晶の欠片",
-    "cb2:crystal_powder": "蒼水晶の粉末",
-    "cb2:blue_crystal_gem": "蒼水晶の宝珠",
-    "cb2:red_crystal_block": "紅水晶の原石",
-    "cb2:red_crystal_shard": "紅水晶の欠片",
-    "cb2:red_crystal_powder": "紅水晶の粉末",
-    "cb2:red_crystal_gem": "紅水晶の宝珠",
-    "cb2:green_crystal_block": "翠水晶の原石",
-    "cb2:green_crystal_shard": "翠水晶の欠片",
-    "cb2:green_crystal_powder": "翠水晶の粉末",
-    "cb2:green_crystal_gem": "翠水晶の宝珠",
-    "cb2:yellow_crystal_block": "黄水晶の原石",
-    "cb2:yellow_crystal_shard": "黄水晶の欠片",
-    "cb2:yellow_crystal_powder": "黄水晶の粉末",
-    "cb2:yellow_crystal_gem": "黄水晶の宝珠",
-    "cb2:fristia_flower_item": "晶斑花"
+    "japanese": {
+        "cb2:crystal_block": "蒼水晶の原石",
+        "cb2:crystal_shard": "蒼水晶の欠片",
+        "cb2:crystal_powder": "蒼水晶の粉末",
+        "cb2:blue_crystal_gem": "蒼水晶の宝珠",
+        "cb2:red_crystal_block": "紅水晶の原石",
+        "cb2:red_crystal_shard": "紅水晶の欠片",
+        "cb2:red_crystal_powder": "紅水晶の粉末",
+        "cb2:red_crystal_gem": "紅水晶の宝珠",
+        "cb2:green_crystal_block": "翠水晶の原石",
+        "cb2:green_crystal_shard": "翠水晶の欠片",
+        "cb2:green_crystal_powder": "翠水晶の粉末",
+        "cb2:green_crystal_gem": "翠水晶の宝珠",
+        "cb2:yellow_crystal_block": "黄水晶の原石",
+        "cb2:yellow_crystal_shard": "黄水晶の欠片",
+        "cb2:yellow_crystal_powder": "黄水晶の粉末",
+        "cb2:yellow_crystal_gem": "黄水晶の宝珠",
+        "cb2:fristia_flower_item": "晶斑花"
+    },
+    "english": {
+        "cb2:crystal_block": "Block of Blue Crystal",
+        "cb2:crystal_shard": "Blue Crystal Shard",
+        "cb2:crystal_powder": "Blue Crystal Powder",
+        "cb2:blue_crystal_gem": "Blue Crystal Gem",
+        "cb2:red_crystal_block": "Block of Red Crystal",
+        "cb2:red_crystal_shard": "Red Crystal Shard",
+        "cb2:red_crystal_powder": "Red Crystal Powder",
+        "cb2:red_crystal_gem": "Red Crystal Gem",
+        "cb2:green_crystal_block": "Block of Green Crystal",
+        "cb2:green_crystal_shard": "Green Crystal Shard",
+        "cb2:green_crystal_powder": "Green Crystal Powder",
+        "cb2:green_crystal_gem": "Green Crystal Gem",
+        "cb2:yellow_crystal_block": "Block of Yellow Crystal",
+        "cb2:yellow_crystal_shard": "Yellow Crystal Shard",
+        "cb2:yellow_crystal_powder": "Yellow Crystal Powder",
+        "cb2:yellow_crystal_gem": "Yellow Crystal Gem",
+        "cb2:fristia_flower_item": "Fristia Flower"
+    }
 } as const;
 const rankMap = {
     "rough": "polished",
@@ -128,10 +150,10 @@ class ItemAdmin {
     get cost() {
         return this.#cost;
     }
-    get costText(): string {
+    costText(player: Player): string {
         let result = "";
         for (const { typeId, amount } of this.#cost)
-            result += (translateMap[typeId as keyof typeof translateMap] + " * " + amount + "\n");
+            result += (translateMap[getPlayerLanguage(player)][typeId as keyof typeof translateMap] + " * " + amount + "\n");
         return result;
     }
     get nextRankId(): string {
@@ -198,7 +220,7 @@ export const CPolishing: BlockCustomComponent = {
         bodyText += `${itemAdmin.name ?? itemAdmin.typeId} \n`;
         bodyText += "----------------------------------\n\n"
         bodyText += `§l必要な物§r: \n`
-        bodyText += itemAdmin.costText;
+        bodyText += itemAdmin.costText(player);
 
         const form = new ActionFormData();
         form.title("cb2:enc_table");

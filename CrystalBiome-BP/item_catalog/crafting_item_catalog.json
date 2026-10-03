@@ -23,7 +23,7 @@
               "cb2:rough_yellow_crystal_sword",
               "cb2:polished_yellow_crystal_sword",
               "cb2:refined_yellow_crystal_sword",
-              "cb2:crysteel_sword"
+              "cb2:power_stick"
             ]
           }
         ]
@@ -66,8 +66,7 @@
               "cb2:refined_green_crystal_pickaxe",
               "cb2:rough_yellow_crystal_pickaxe",
               "cb2:polished_yellow_crystal_pickaxe",
-              "cb2:refined_yellow_crystal_pickaxe",
-              "cb2:crysteel_pickaxe"
+              "cb2:refined_yellow_crystal_pickaxe"
             ]
           }
         ]
@@ -92,8 +91,7 @@
               "cb2:refined_green_crystal_axe",
               "cb2:rough_yellow_crystal_axe",
               "cb2:polished_yellow_crystal_axe",
-              "cb2:refined_yellow_crystal_axe",
-              "cb2:crysteel_axe"
+              "cb2:refined_yellow_crystal_axe"
             ]
           }
         ]
@@ -124,10 +122,18 @@
               "name": "cb2:cbarmor"
             },
             "items": [
-              "cb2:crysteel_helmet",
-              "cb2:crysteel_chestplate",
-              "cb2:crysteel_leggings",
-              "cb2:crysteel_boots"
+              "cb2:rough_green_crystal_helmet",
+              "cb2:rough_blue_crystal_chestplate",
+              "cb2:rough_red_crystal_leggings",
+              "cb2:rough_yellow_crystal_boots",
+              "cb2:polished_green_crystal_helmet",
+              "cb2:polished_blue_crystal_chestplate",
+              "cb2:polished_red_crystal_leggings",
+              "cb2:polished_yellow_crystal_boots",
+              "cb2:refined_green_crystal_helmet",
+              "cb2:refined_blue_crystal_chestplate",
+              "cb2:refined_red_crystal_leggings",
+              "cb2:refined_yellow_crystal_boots"
             ]
           }
         ]
@@ -167,6 +173,7 @@
               "cb2:deep_crystal_block",
               "cb2:rare_crystal_block",
               "cb2:fertile_crystal_block",
+              "cb2:hardent_deep_crystal_block",
               "cb2:rgb_crystal_block"
             ]
           }
@@ -300,24 +307,6 @@
               "cb2:green_crystal_powder",
               "cb2:yellow_crystal_powder",
               "cb2:saline_crystal_powder"
-            ]
-          }
-        ]
-      },
-      {
-        "category_name": "nature",
-        "groups": [
-          {
-            "group_identifier": {
-              "icon": "cb2:lively_crystal_shard",
-              "name": "cb2:cblivelyshard"
-            },
-            "items": [
-              "cb2:lively_crystal_shard",
-              "cb2:lively_red_crystal_shard",
-              "cb2:lively_green_crystal_shard",
-              "cb2:lively_yellow_crystal_shard",
-              "cb2:lively_saline_crystal_shard"
             ]
           }
         ]
@@ -533,6 +522,189 @@
               "cb2:refined_green_crystal_panel",
               "cb2:refined_yellow_crystal_panel",
               "cb2:refined_rare_crystal_panel"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:prismstone",
+              "name": "cb2:cbprisms"
+            },
+            "items": [
+              "cb2:broken_prismstone",
+              "cb2:prismstone",
+              "cb2:resonance_node_block",
+              "cb2:reflection_left_block",
+              "cb2:reflection_right_block",
+              "cb2:reflection_up_block",
+              "cb2:reflection_down_block"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "nature",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:ice_crystal_block",
+              "name": "cb2:cbices"
+            },
+            "items": [
+              "cb2:ice_crystal_block",
+              "cb2:progress_ice_crystal_block",
+              "cb2:compressed_ice_crystal_block"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:crystal_box",
+              "name": "cb2:cbboxes"
+            },
+            "items": [
+              "cb2:crystal_box",
+              "cb2:red_crystal_box",
+              "cb2:green_crystal_box",
+              "cb2:yellow_crystal_box"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:crystal_box_in_chest",
+              "name": "cb2:cbboxesinch"
+            },
+            "items": [
+              "cb2:crystal_box_in_chest",
+              "cb2:red_crystal_box_in_chest",
+              "cb2:green_crystal_box_in_chest",
+              "cb2:yellow_crystal_box_in_chest"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:executor_reverberation",
+              "name": "cb2:cbreverberation"
+            },
+            "items": [
+              "cb2:executor_reverberation",
+              "cb2:wanderment_reverberation"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:crystal_first_portal",
+              "name": "cb2:cbportal"
+            },
+            "items": [
+              "cb2:crystal_first_portal",
+              "cb2:crystal_second_portal",
+              "cb2:crystal_third_portal"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:blue_crystal_gem",
+              "name": "cb2:cbgem"
+            },
+            "items": [
+              "cb2:blue_crystal_gem",
+              "cb2:red_crystal_gem",
+              "cb2:green_crystal_gem",
+              "cb2:yellow_crystal_gem",
+              "cb2:rare_crystal_gem"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:crystal_worktable",
+              "name": "cb2:cbfunctional"
+            },
+            "items": [
+              "cb2:crystal_worktable",
+              "cb2:crystal_furnace",
+              "cb2:crystal_smithing_table",
+              "cb2:crystal_synthesis_table"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:crystal_door_item",
+              "name": "cb2:cbdoors"
+            },
+            "items": [
+              "cb2:crystal_door_item",
+              "cb2:red_crystal_door_item",
+              "cb2:green_crystal_door_item",
+              "cb2:yellow_crystal_door_item",
+              "cb2:rare_crystal_door_item",
+              "cb2:crystaloak_door_item"
+            ]
+          }
+        ]
+      },
+      {
+        "category_name": "items",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:power_stick",
+              "name": "cb2:cbwip"
+            },
+            "items": [
+              "cb2:rare_crystal_plate",
+              "cb2:crystal_bread",
+              "cb2:rare_crystal_box",
+              "cb2:crysteel_material",
+              "cb2:crysteel_ingot",
+              "cb2:crystal_spotlight",
+              "cb2:crystal_light",
+              "cb2:minion_block_container",
+              "cb2:crysteel_sword",
+              "cb2:crysteel_pickaxe",
+              "cb2:crysteel_axe",
+              "cb2:ice_crystal_bricks",
+              "cb2:polished_ice_crystal_block",
+              "cb2:mystery_bookshelf",
+              "cb2:testblock"
             ]
           }
         ]

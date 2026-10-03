@@ -39,6 +39,7 @@
 				]
 			},
 			"cb2:crystalcap_grow": {},
+			"cb2:on_crystalcap": {},
 			"minecraft:selection_box": {
 				"origin": [
 					-5,

@@ -730,9 +730,6 @@
 		"cb2_crystal_third_portal_broken": {
 			"textures": "textures/blocks/crystal_third_portal_broken"
 		},
-		"cb2_fieldbarrier": {
-			"textures": "textures/blocks/fieldbarrier"
-		},
 		"cb2_green_crystal_light": {
 			"textures": "textures/blocks/green_crystal_light"
 		}

@@ -41,6 +41,9 @@ import { CrystalDropDefault } from "./crystal_drop_default";
 import { Portal } from "./crystal_portal";
 import { FragmentFrame } from "./fragment_frame";
 import { StatuePose } from "./crystal_statue_pose";
+import { SelectLanguage } from "./lang";
+import { OnCrystalcap } from "./on_crystalcap";
+import { ClosedCrystal } from "./closed_crysal";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
     blockComponentRegistry.registerCustomComponent("cb2:cluster_display", Display);
@@ -92,4 +95,7 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     blockComponentRegistry.registerCustomComponent("cb2:third_portal", Portal.third)
     blockComponentRegistry.registerCustomComponent("cb2:fragment_frame", FragmentFrame)
     blockComponentRegistry.registerCustomComponent("cb2:crystal_statue_pose", StatuePose)
+    itemComponentRegistry.registerCustomComponent("cb2:set_lang", SelectLanguage);
+    blockComponentRegistry.registerCustomComponent("cb2:on_crystalcap", OnCrystalcap);
+    blockComponentRegistry.registerCustomComponent("cb2:closed_crystal", ClosedCrystal);
 })

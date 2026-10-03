@@ -1,5 +1,5 @@
 import { Block, Dimension, Entity, MolangVariableMap, system, Vector3, VectorXZ } from "@minecraft/server";
-import { sleep, summonCircle, summonLine, summonLineOption, CrystalSpawn } from "./other";
+import { sleep } from "./other";
 
 interface BossInfo {
     "timeout": number,
@@ -9,10 +9,8 @@ interface BossInfo {
 };
 
 export class WandermentAdmin {
-    static #dimension: Dimension;;
-    static #randomLeng: number[] = [80, 120, 160];
     static run(dimension: Dimension) {
-        this.#dimension = dimension;
+        const randomLeng: number[] = [80, 120, 160];
         const wanderments: Entity[] | [] = dimension.getEntities({ "type": "cb2:crystal_wanderment" });
         for (let dataI = 0, lengI = wanderments.length; dataI < lengI; dataI++) {
             const wanderment: Entity = wanderments[dataI];
@@ -32,18 +30,20 @@ export class WandermentAdmin {
                 dimension.spawnParticle("cb2:crystal_particle", selectPos, vars);
                 wanderment.addEffect("speed", 10, { amplifier: 0 });
             }
-            if (bossInfo.timeout === 0) bossInfo.timeout = halfHealth ? this.#randomLeng[Math.random() * 3 | 0] / 2 : this.#randomLeng[Math.random() * 3 | 0];
+            if (bossInfo.timeout === 0) bossInfo.timeout = halfHealth ? randomLeng[Math.random() * 3 | 0] / 2 : randomLeng[Math.random() * 3 | 0];
             bossInfo.currTick++;
             if (bossInfo.currTick < bossInfo.timeout) {
                 wanderment.setDynamicProperty("cb2:boss_info", JSON.stringify(bossInfo));
                 continue;
             };
-            this.#summonBlock(wanderment, bossInfo, halfHealth);
+            summonBlock(dimension, wanderment, bossInfo, halfHealth);
+            
             bossInfo.wait = true;
             wanderment.setDynamicProperty("cb2:boss_info", JSON.stringify(bossInfo));
         }
     }
-    static async #summonBlock(wanderment: Entity, bossInfo: BossInfo, half: boolean) {
+}
+const summonBlock = async (dimension: Dimension, wanderment: Entity, bossInfo: BossInfo, half: boolean) => {
         if (bossInfo.wait && bossInfo.waitTick <= 80) {
             bossInfo.waitTick++;
             wanderment.setDynamicProperty("cb2:boss_info", JSON.stringify(bossInfo));
@@ -64,10 +64,10 @@ export class WandermentAdmin {
             };
             const vars: MolangVariableMap = new MolangVariableMap();
             vars.setColorRGB("variable.color", { red: 1, green: 1, blue: 1 });
-            const wandermentBlock: Entity = this.#dimension.spawnEntity("cb2:wanderment_block", randomLocation);
-            this.#dimension.playSound("cbspawner_detect", randomLocation);
-            this.#dimension.spawnParticle("cb2:cbspawn_particle", randomLocation, vars);
-            if (Math.random() < 0.75 || this.#dimension.getEntities({ location: randomLocation, maxDistance: 64, type: "cb2:crystal_wander" }).length >= 8) wandermentBlock.addTag("cb2:pillar");
+            const wandermentBlock: Entity = dimension.spawnEntity("cb2:wanderment_block", randomLocation);
+            dimension.playSound("cbspawner_detect", randomLocation);
+            dimension.spawnParticle("cb2:cbspawn_particle", randomLocation, vars);
+            if (Math.random() < 0.75 || dimension.getEntities({ location: randomLocation, maxDistance: 64, type: "cb2:crystal_wander" }).length >= 8) wandermentBlock.addTag("cb2:pillar");
             else wandermentBlock.addTag("cb2:summon");
             wandermentBlock.setDynamicProperty("cb2:timer", (half ? [20, 40, 80] : [40, 80, 160])[Math.random() * 3 | 0]);
         }
@@ -76,4 +76,3 @@ export class WandermentAdmin {
         bossInfo.currTick = 0;
         wanderment.setDynamicProperty("cb2:boss_info", JSON.stringify(bossInfo));
     }
-}

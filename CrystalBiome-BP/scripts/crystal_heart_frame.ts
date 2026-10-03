@@ -22,6 +22,7 @@ export const HeartFrame: BlockCustomComponent = {
             "location": block.center()
         })[0];
         if (!boss) return;
+        console.log("s")
 
         const { x, z } = block.center();
         const { x: dx, z: dz } = boss.location;

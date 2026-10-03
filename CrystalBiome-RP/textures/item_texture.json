@@ -284,8 +284,8 @@
 		"cb2_crystal_apple": {
 			"textures": "textures/items/crystal_apple"
 		},
-		"cb2_crystal_locator": {
-			"textures": "textures/items/crystal_locater"
+		"cb2_crystal_compass": {
+			"textures": "textures/items/crystal_compass"
 		},
 		"cb2_blue_crystal_chestplate": {
 			"textures": "textures/items/rough_blue_crystal_chestplate"
@@ -328,21 +328,6 @@
 		},
 		"cb2_wanderment_reverberation": {
 			"textures": "textures/items/wanderment_reverberation"
-		},
-		"cb2_lively_crystal_shard": {
-			"textures": "textures/items/lively_crystal_shard"
-		},
-		"cb2_lively_red_crystal_shard": {
-			"textures": "textures/items/lively_red_crystal_shard"
-		},
-		"cb2_lively_green_crystal_shard": {
-			"textures": "textures/items/lively_green_crystal_shard"
-		},
-		"cb2_lively_yellow_crystal_shard": {
-			"textures": "textures/items/lively_yellow_crystal_shard"
-		},
-		"cb2_lively_saline_crystal_shard": {
-			"textures": "textures/items/lively_saline_shard"
 		},
 		"cb2_knowledge_crystal": {
 			"textures": "textures/items/knowledge_crystal"
@@ -403,6 +388,9 @@
 		},
 		"cb2_shine_reverberation": {
 			"textures": "textures/items/shine_reverberation"
+		},
+		"cb2_lang_set_paper": {
+			"textures": "textures/items/lang_set_paper"
 		}
 	}
 }

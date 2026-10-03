@@ -10,7 +10,12 @@ import { CrystalGemDrop, ToolSkillLevel } from "./tool_skill_level";
 import { orbspawnerDie } from "./crystal_horizon";
 import { orbSpawnerBreak, orbSpawnerFall } from "./orb_spawner";
 import { crystalKingHealthInterlocking } from "./crystal_king";
+import { giveSetLang } from "./lang";
 
+world.afterEvents.playerSpawn.subscribe(event => {
+    console.log("v")
+    giveSetLang(event);
+})
 world.afterEvents.projectileHitBlock.subscribe((event) => {
     PowderBottoleProj(event);
 });

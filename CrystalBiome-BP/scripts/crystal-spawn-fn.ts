@@ -1,5 +1,5 @@
 import { Dimension, Entity, MolangVariableMap, Vector3 } from "@minecraft/server";
-import { Color, CrystColor, CrystRGB } from "./crystal-biome"
+import { Color, CrystColor, CrystRGB, particleColor } from "./crystal-biome"
 
 export type SettingColor = CrystColor | CrystRGB;
 
@@ -8,7 +8,6 @@ const invertedColorMap = new Map<CrystRGB, CrystColor>(
 );
 
 export const crystalSpawnFn = (dimension: Dimension, typeId: string, location: Vector3, color: typeof Color[keyof typeof Color], entityColor: boolean = true, despawn: boolean = true): Entity => {
-    const particleColor: MolangVariableMap = new MolangVariableMap();
     particleColor.setColorRGB("variable.color", color);
 
     if (typeId === "cb2:crystal_guard" || typeId === "cb2:crystal_wander") {
