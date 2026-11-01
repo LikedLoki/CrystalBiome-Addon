@@ -2,7 +2,7 @@
 	"format_version": 2,
 	"header": {
 		"name": "CrystalBiome-Addon-RP",
-		"description": "水晶地帯を追加",
+		"description": "水晶のバイオームと、それに関連するものを追加。",
 		"min_engine_version": [
 			1,
 			21,
@@ -24,23 +24,6 @@
 				0,
 				0
 			]
-		}
-	],
-	"subpacks": [
-		{
-			"folder_name": "wayaku",
-			"name": "和訳表記",
-			"memory_tier": 1
-		},
-		{
-			"folder_name": "katakana",
-			"name": "カタカナ表記",
-			"memory_tier": 1
-		},
-		{
-			"folder_name": "normal",
-			"name": "§l通常表記",
-			"memory_tier": 1
 		}
 	],
 	"dependencies": [

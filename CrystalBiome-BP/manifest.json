@@ -2,7 +2,7 @@
 	"format_version": 2,
 	"header": {
 		"name": "CrystalBiome-Addon-BP",
-		"description": "水晶バイオームを追加",
+		"description": "水晶のバイオームと、それに関連するものを追加。",
 		"min_engine_version": [
 			1,
 			21,
