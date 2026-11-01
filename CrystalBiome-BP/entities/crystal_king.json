@@ -39,14 +39,18 @@
         ]
       },
       "minecraft:loot": {
-        "table": "loot_tables/crystal_king_drop.json"
+        "table": "loot_tables/entity/crystal_king_loot.json"
       },
       "minecraft:equipment": {
         "table": "loot_tables/crystal_king_weapon.json",
         "slot_drop_chance": [
           {
-            "slot": "slot.armor.head",
-            "drop_chance": 100
+            "slot": "slot.weapon.mainhand",
+            "drop_chance": 0
+          },
+          {
+            "slot": "slot.armor.chest",
+            "drop_chance": 0
           }
         ]
       },

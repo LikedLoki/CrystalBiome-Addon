@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.80",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -15,26 +15,31 @@
 			}
 		},
 		"components": {
-			"tag:cb2:crystal": {},
 			"minecraft:material_instances": {
 				"down": {
 					"texture": "cb2_green_crystal_pillar_top",
-					"render_method": "opaque"
+					"render_method": "opaque",
+					"face_dimming": false
 				},
 				"up": {
 					"texture": "cb2_green_crystal_pillar_top",
-					"render_method": "opaque"
+					"render_method": "opaque",
+					"face_dimming": false
 				},
 				"*": {
 					"texture": "cb2_green_crystal_pillar_side",
-					"render_method": "opaque"
+					"render_method": "opaque",
+					"face_dimming": false
 				}
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",
-			"minecraft:light_emission": 12,
+			"minecraft:light_emission": 8,
 			"minecraft:light_dampening": 15,
 			"minecraft:map_color": "#A2FFA5",
-			"tag:minecraft:is_pickaxe_item_destructible": {},
+			"minecraft:tags": [
+				"cb2:crystal",
+				"minecraft:is_pickaxe_item_destructible"
+			],
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},

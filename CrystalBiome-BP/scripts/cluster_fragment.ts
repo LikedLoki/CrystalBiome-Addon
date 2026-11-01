@@ -1,7 +1,7 @@
 import { world, system, Dimension, Entity, Block, RawText, Player, ItemStack, World, Vector3 } from "@minecraft/server";
 import { crystalSpawnFn, SettingColor } from "./crystal-spawn-fn";
 import { sleep } from "./other";
-import { VectorDXYZ } from "./crystal-biome";
+import { Color, VectorDXYZ } from "./crystal-biome";
 
 type SleepClusterFragment = Entity & { "typeId": "cb2:sleep_cluster_fragment" };
 type ClusterFragment = Entity & { "typeId": "cb2:cluster_fragment" };
@@ -12,7 +12,7 @@ world.afterEvents.entityDie.subscribe(({ deadEntity }) => {
     const dimension: Dimension = deadEntity.dimension;
     const loc: Vector3 = deadEntity.location;
     dimension.playSound("item.trident.thunder", loc, { volume: 1, pitch: 1.2 });
-    dimension.spawnParticle("cb2:orbshard_bigbreak_particle", {x: loc.x, y: loc.y + 2, z: loc.z});
+    dimension.spawnParticle("cb2:orbshard_bigbreak_particle", { x: loc.x, y: loc.y + 2, z: loc.z });
 });
 
 
@@ -78,7 +78,11 @@ const barrierAndSummon = (dimension: Dimension, clustfragm: ClusterFragment): vo
     let currFrame: number = 0;
     for (const dataI of offset) {
         const { dx, dy, dz } = dataI;
-        const getBlock: Block | undefined = dimension.getBlock({ "x": clustfragm.location.x + dx, "y": clustfragm.location.y + dy, "z": clustfragm.location.z + dz });
+        let getBlock: Block | undefined;
+        try {
+            getBlock = dimension.getBlock({ "x": clustfragm.location.x + dx, "y": clustfragm.location.y + dy, "z": clustfragm.location.z + dz });
+        } catch (_) { }
+        if (!getBlock) currFrame = -1;
         if (getBlock?.typeId === "cb2:fragment_frame")
             currFrame++;
     }
@@ -99,7 +103,8 @@ const lastFerceSummon = (dimension: Dimension, clustfragm: ClusterFragment): voi
     if (hasGuard) return;
     const select: VectorDXYZ = spawnOffset[Math.floor(Math.random() * spawnOffset.length)];
     const spawnId: string = ["cb2:crystal_guard", "cb2:crystal_wander"][Math.floor(Math.random() * 2)];
-    crystalSpawnFn(dimension, spawnId, { x: loc.x + select.dx, y: loc.y + select.dy, z: loc.z + select.dz }, ["red", "green", "blue", "yellow"][Math.random() * 4 | 0] as SettingColor).addTag(`cb2:fragment_guard_${loc.x}_${loc.y}_${loc.z}`);
+    try { crystalSpawnFn(dimension, spawnId, { x: loc.x + select.dx, y: loc.y + select.dy, z: loc.z + select.dz }, Color[["red", "green", "blue", "yellow"][Math.random() * 4 | 0] as SettingColor]).addTag(`cb2:fragment_guard_${loc.x}_${loc.y}_${loc.z}`); }
+    catch(_) {}
 };
 
 const phase = {

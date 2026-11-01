@@ -5,17 +5,11 @@
             "identifier": "cb2:crystaldesolate_air"
         },
         "distance": {
-            "weather": {
-                "render_distance_type": "render",
-                "fog_end": 1,
-                "fog_start": 0.65,
-                "fog_color": "#637C68"
-            },
             "air": {
-                "render_distance_type": "render",
-                "fog_end": 1,
-                "fog_start": 0.65,
-                "fog_color": "#756B8D"
+                "fog_start": 32,
+                "fog_end": 256,
+                "render_distance_type": "fixed",
+                "fog_color": "#7efff4"
             }
         }
     }

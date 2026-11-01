@@ -1,5 +1,6 @@
 import { Block, Dimension, Entity, MolangVariableMap, system, Vector3 } from "@minecraft/server";
 import { sleep } from "./other";
+import { particleColor } from "./crystal-biome";
 
 type CrystalExecutor = Entity & { "typeId": "cb2:crystal_executor", };
 type PropertyType = string | number | boolean | Vector3 | undefined;
@@ -127,6 +128,12 @@ const main = (dimension: Dimension): void => {
         if (!hasEnemyNearby(executor.dimension, executor.location)) continue;
 
         const isHalfHealth: boolean = (executor.getComponent("minecraft:health")?.currentValue ?? 0) < 100;
+        if (isHalfHealth) {
+            const { x, y, z }: Vector3 = executor.location;
+            particleColor.setColorRGB("variable.color", Math.random() < 0.5 ? { red: 1, green: 1, blue: 1 } : { red: 0, green: 0, blue: 0 });
+                const selectPos: Vector3 = { x: Math.random() * 4 - 2 + x, y: Math.random() + y, z: Math.random() * 4 - 2 + z };
+                dimension.spawnParticle("cb2:crystal_particle", selectPos, particleColor);
+        }
 
         const { timeout, clock }: GetTimePropReturn = getTimeProperty(executor);
         setProperty(executor, "cb2:executor_timeout", timeout);

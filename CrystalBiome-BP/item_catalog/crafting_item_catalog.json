@@ -682,6 +682,25 @@
         ]
       },
       {
+      "category_name": "construction",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "cb2:crystaloak_planks",
+              "name": "cb2:cbcrystaloak"
+            },
+            "items": [
+              "cb2:crystaloak_leaves",
+              "cb2:crystaloak_log",
+              "cb2:stripped_crystaloak_log",
+              "cb2:crystaloak_planks",
+              "cb2:crystaloak_sapling_item",
+              "cb2:crystal_apple"
+            ]
+          }
+        ]
+      },
+      {
         "category_name": "items",
         "groups": [
           {
@@ -704,6 +723,10 @@
               "cb2:ice_crystal_bricks",
               "cb2:polished_ice_crystal_block",
               "cb2:mystery_bookshelf",
+              "cb2:crystal_compass",
+              "cb2:knowledge_shard",
+              "cb2:knowledge_crystal",
+              "cb2:shine_reverberation",
               "cb2:testblock"
             ]
           }

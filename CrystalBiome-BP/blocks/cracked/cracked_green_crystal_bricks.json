@@ -13,7 +13,9 @@
 			"minecraft:light_emission": 2,
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "cb2_cracked_green_crystal_bricks"
+					"texture": "cb2_cracked_green_crystal_bricks",
+					"render_method": "opaque",
+					"face_dimming": false
 				}
 			},
 			"minecraft:geometry": "minecraft:geometry.full_block",

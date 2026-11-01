@@ -3,7 +3,7 @@
 	"minecraft:entity": {
 		"description": {
 			"is_experimental": false,
-			"is_spawnable": true,
+			"is_spawnable": false,
 			"is_summonable": true,
 			"identifier": "cb2:crystal_wander_spawn"
 		},

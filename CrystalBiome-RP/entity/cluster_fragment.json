@@ -25,7 +25,7 @@
 				"controller.render.default"
 			],
 			"spawn_egg": {
-				"texture": "cb2_crystal_guard_spawn_egg"
+				"texture": "cb2_cluster_fragment_spawn_egg"
 			},
 			"enable_attachables": true
 		}

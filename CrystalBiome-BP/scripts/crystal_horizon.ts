@@ -389,7 +389,7 @@ const kingChapter1 = async (dimension: Dimension, tick: number, stop: boolean) =
     } else if (tick === 330) {
         for (const player of players()) {
             player.camera.setCamera("minecraft:free", { "location": centerLoc(0, 18, -28), "facingLocation": centerLoc(0, 1, -12) });
-            player.camera.setCamera("minecraft:free", { "location": centerLoc(0, 1, -13), "facingLocation": centerLoc(0, 1, -12), "easeOptions": { "easeTime": 1 } });
+            player.camera.setCamera("minecraft:free", { "location": centerLoc(0, 1, -13), "facingLocation": centerLoc(0, 1, -12), "easeOptions": { "easeTime": 1, "easeType": EasingType.InSine } });
         }
     } else if (tick === 350) {
         for (const player of players()) {

@@ -6,6 +6,7 @@ import CrystalExecutor from "./crystal_executor";
 import { PowderAreaCloud } from "./powder_bottle_proj";
 import { orbSpawnerTimeline } from "./orb_spawner";
 import { crystalKingTimeLine } from "./crystal_king";
+import { miracleStick } from "./miracle_s_stick";
 
 let c = 0;
 const tagCheck = (dimension: Dimension) => {
@@ -28,7 +29,8 @@ const fnList = [
     PowderAreaCloud,
     tagCheck,
     orbSpawnerTimeline,
-    crystalKingTimeLine
+    crystalKingTimeLine,
+    miracleStick
 ] as const;
 
 system.runInterval(() => {

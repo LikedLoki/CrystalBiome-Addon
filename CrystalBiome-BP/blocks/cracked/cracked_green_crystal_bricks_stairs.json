@@ -51,7 +51,7 @@
 				"seconds_to_destroy": 2.4
 			},
 			"minecraft:light_dampening": 0,
-			"minecraft:light_emission": 0,
+			"minecraft:light_emission": 2,
 			"minecraft:redstone_conductivity": {
 				"allows_wire_to_step_down": true,
 				"redstone_conductor": false
@@ -91,7 +91,8 @@
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "cb2_cracked_green_crystal_bricks",
-					"render_method": "opaque"
+					"render_method": "opaque",
+					"face_dimming": false
 				}
 			},
 			"minecraft:item_visual": {
@@ -99,7 +100,8 @@
 				"material_instances": {
 					"*": {
 						"texture": "cb2_cracked_green_crystal_bricks",
-						"render_method": "opaque"
+						"render_method": "opaque",
+					"face_dimming": false
 					}
 				}
 			}

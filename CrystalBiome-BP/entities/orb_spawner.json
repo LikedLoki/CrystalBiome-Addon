@@ -3,7 +3,7 @@
     "minecraft:entity": {
         "description": {
             "identifier": "cb2:orb_spawner",
-            "is_spawnable": true,
+            "is_spawnable": false,
             "is_summonable": true,
             "is_experimental": false
         },

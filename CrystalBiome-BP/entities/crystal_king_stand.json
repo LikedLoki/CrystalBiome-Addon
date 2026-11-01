@@ -3,14 +3,11 @@
   "minecraft:entity": {
     "description": {
       "identifier": "cb2:crystal_king_stand",
-      "is_spawnable": true,
+      "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false
     },
     "components": {
-      "minecraft:loot": {
-        "table": "loot_tables/crystal_king_drop.json"
-      },
       "minecraft:knockback_resistance": {
         "value": 0.25
       },
@@ -19,8 +16,8 @@
         "height": 1.9
       },
       "minecraft:health": {
-        "max": 250,
-        "value": 250
+        "max": 500,
+        "value": 500
       },
       "minecraft:movement": {
         "value": 0.7
@@ -29,13 +26,7 @@
         "on_death": "query.last_hit_by_player?5+(math.random(5,10)):0"
       },
       "minecraft:equipment": {
-        "table": "loot_tables/crystal_king_weapon.json",
-        "slot_drop_chance": [
-          {
-            "slot": "slot.armor.head",
-            "drop_chance": 100
-          }
-        ]
+        "table": "loot_tables/crystal_king_weapon.json"
       },
       "minecraft:behavior.equip_item": {},
       "minecraft:equip_item": {},

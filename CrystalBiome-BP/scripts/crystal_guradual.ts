@@ -52,7 +52,6 @@ export const SlyaedExecutor = (world: World, entity: Entity) => {
     prismAdmin.apply(world);
     world.setDynamicProperty("cb2:crystal_guradual_guard", 1);
     guradualGuard = +(world.getDynamicProperty("cb2:crystal_guradual_guard") || 0);
-    executorMessage(world);
 };
 
 export const SlyaedWanderment = (world: World, entity: Entity) => {
@@ -72,7 +71,6 @@ export const SlyaedWanderment = (world: World, entity: Entity) => {
     if (currentWander > 0) return;
     world.setDynamicProperty("cb2:crystal_guradual_wander", 1);
     guradualWander = +(world.getDynamicProperty("cb2:crystal_guradual_wander") || 0)
-    wandermentMessage(world);
 };
 
 const executorMessage = async (world: World) => {
@@ -100,4 +98,12 @@ export const slayedCrystalKing = (event: EntityDieAfterEvent) => {
     dimension.playSound("item.trident.thunder", deadEntity.location, { volume: 1, pitch: 1.2 });
     dimension.spawnParticle("cb2:orbshard_bigbreak_particle", deadEntity.location);
     world.setDynamicProperty("cb2:crystal_guradual_guard", 2);
+}
+export const slayedCrystalMiracle = (event: EntityDieAfterEvent) => {
+    const { deadEntity } = event;
+    const { dimension } = deadEntity;
+    if (deadEntity.typeId !== "cb2:crystal_miracle") return;
+    dimension.playSound("item.trident.thunder", deadEntity.location, { volume: 1, pitch: 1.2 });
+    dimension.spawnParticle("cb2:orbshard_bigbreak_particle", deadEntity.location);
+    world.setDynamicProperty("cb2:crystal_guradual_wander", 2);
 }

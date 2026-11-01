@@ -6,7 +6,6 @@ const offsetMap: VectorXZ[] = [
     { x: -1, z: 1 }, { x: 1, z: -1 }, { x: 0, z: 1 }, { x: 1, z: 0 }, { x: -1, z: 0 }, { x: 0, z: -1 }, { x: -1, z: -1 }, { x: 1, z: 1 }
 ]
 
-const percent = (value: number, sum: number) => Math.floor((value / sum) * 100) || 0
 export const crystalLocate: ItemCustomComponent = {
     onUse({ source }) {
         const { dimension } = source;

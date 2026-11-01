@@ -19,8 +19,7 @@ export const FragmentFrame: BlockCustomComponent = {
 
         const container = player.getComponent("minecraft:inventory")?.container;
         const item = container?.getItem(player.selectedSlotIndex);
-        if (!container || !item) return;
-
+        if (!container || !item || item.typeId !== "cb2:crystal_heart_shard") return;
 
         if (item.amount - 1 <= 0) {
             container.setItem(player.selectedSlotIndex);
@@ -28,10 +27,9 @@ export const FragmentFrame: BlockCustomComponent = {
             item.amount--;
             container.setItem(player.selectedSlotIndex, item);
         }
-        const { location } = player;
-        dimension.playSound("block.end_portal_frame", location);
+        dimension.playSound("block.end_portal_frame.fill", block.center());
         particleColor.setColorRGB("variable.color", Color.blue);
-        dimension.spawnParticle("cb2:crystal_particle_pop", location, particleColor);
+        dimension.spawnParticle("cb2:crystal_particle_pop", block.center(), particleColor);
         block.setPermutation(block.permutation.withState("cb2:summon" as any, 1));
     }
 }

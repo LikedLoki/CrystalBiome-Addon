@@ -3,13 +3,13 @@
   "minecraft:entity": {
     "description": {
       "identifier": "cb2:crystal_miracle_stand",
-      "is_spawnable": true,
+      "is_spawnable": false,
       "is_summonable": true,
       "is_experimental": false
     },
     "components": {
       "minecraft:loot": {
-        "table": "loot_tables/crystal_king_drop.json"
+        "table": "loot_tables/crystal_orb_loot.json"
       },
       "minecraft:knockback_resistance": {
         "value": 0.25

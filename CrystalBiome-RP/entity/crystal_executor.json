@@ -57,7 +57,7 @@
 				"controller.render.default"
 			],
 			"spawn_egg": {
-				"texture": "cb2_crystal_wander_spawn_egg"
+				"texture": "cb2_crystal_executor_spawn_egg"
 			}
 		}
 	}

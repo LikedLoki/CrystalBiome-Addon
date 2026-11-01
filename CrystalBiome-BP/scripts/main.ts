@@ -10,3 +10,4 @@ import "./custom_components.js";
 import "./other.js";
 import "./giant_attacks.js"
 import "./crystal_horizon.js"
+import "./fence_other.js"

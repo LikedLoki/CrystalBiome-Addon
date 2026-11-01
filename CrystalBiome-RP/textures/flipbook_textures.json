@@ -76,5 +76,11 @@
         "blend_frames": true,
         "ticks_per_frame": 20,
         "flipbook_texture": "textures/blocks/crystal_third_portal"
+    },
+    {
+        "atlas_tile": "cb2_crystal_orb",
+        "blend_frames": true,
+        "ticks_per_frame": 20,
+        "flipbook_texture": "textures/blocks/crystal_orb"
     }
 ]

@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.80",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"menu_category": {
@@ -11,17 +11,21 @@
 			"minecraft:geometry": "minecraft:geometry.full_block",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "cb2_framed_green_crystal_block"
+					"texture": "cb2_framed_green_crystal_block",
+					"render_method": "opaque",
+					"face_dimming": false
 				}
 			},
-			"tag:cb2:crystal": {},
+			"minecraft:tags": [
+				"cb2:crystal",
+				"minecraft:is_pickaxe_item_destructible"
+			],
 			"minecraft:light_emission": 0,
 			"minecraft:light_dampening": 15,
 			"minecraft:map_color": "#8BDEFF",
 			"minecraft:destructible_by_explosion": {
 				"explosion_resistance": 6
 			},
-			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {
 				"seconds_to_destroy": 2.4
 			},

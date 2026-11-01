@@ -4,7 +4,7 @@
         "description": {
             "runtime_identifier": "snowball",
             "identifier": "cb2:powder_bottle_blue_proj",
-            "is_spawnable": true,
+            "is_spawnable": false,
             "is_summonable": true,
             "is_experimental": false
         },

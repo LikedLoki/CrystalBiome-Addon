@@ -58,7 +58,7 @@
 				"controller.render.giant_cluster"
 			],
 			"spawn_egg": {
-				"texture": "cb2_giant_cluster_spawn_egg"
+				"texture": "cb2_giant_strata_spawn_egg"
 			},
 			"enable_attachables": true
 		}

@@ -15,7 +15,7 @@
 				"max_durability": 80
 			},
 			"minecraft:icon": "cb2_red_crystal_axe",
-			"minecraft:damage": 3,
+			"minecraft:damage": 5,
 			"minecraft:enchantable": {
 				"value": 14,
 				"slot": "axe"

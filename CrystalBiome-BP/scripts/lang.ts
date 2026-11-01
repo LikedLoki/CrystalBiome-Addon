@@ -8,8 +8,8 @@ export const giveSetLang = ({ initialSpawn, player }: PlayerSpawnAfterEvent) => 
     dimension.spawnItem(new ItemStack("cb2:lang_set_paper"), player.location);
 }
 
-type Language = keyof typeof systemMessageMap
-type LanguageList = Language[];
+export type Languages = keyof typeof systemMessageMap
+type LanguageList = Languages[];
 
 const language = new ObservableNumber(0, { clientWritable: true })
 const systemMessageMap = {
@@ -17,6 +17,8 @@ const systemMessageMap = {
     "english": "Setting to English."
 } as const;
 const langList = Object.keys(systemMessageMap) as unknown as LanguageList;
+
+const isLanguage = (text: string): text is Languages => langList.includes(text as any);
 
 export const SelectLanguage: ItemCustomComponent = {
     onUse({ source, itemStack }) {
@@ -52,13 +54,13 @@ export const SelectLanguage: ItemCustomComponent = {
     }
 }
 
-export const getWorldLanguage = (): string => {
+export const getWorldLanguage = (): Languages => {
     const fetched = world.getDynamicProperty("cb2:world_language");
-    if (typeof fetched !== "string") return "english";
+    if (typeof fetched !== "string" || !isLanguage(fetched)) return "english";
     return fetched;
 }
-export const getPlayerLanguage = (player: Player): string => {
+export const getPlayerLanguage = (player: Player): Languages => {
     const fetched = player.getDynamicProperty("cb2:player_language");
-    if (typeof fetched !== "string") return "english";
+    if (typeof fetched !== "string" || !isLanguage(fetched)) return "english";
     return fetched;
 }

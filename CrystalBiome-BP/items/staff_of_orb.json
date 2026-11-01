@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.110",
+	"format_version": "1.26.30",
 	"minecraft:item": {
 		"description": {
 			"identifier": "cb2:staff_of_orb",
@@ -12,6 +12,7 @@
 				"category": "orb",
 				"duration": 2
 			},
+			"cb2:staff_of_orb": {},
 			"minecraft:rarity": "epic",
 			"minecraft:hand_equipped": true,
 			"minecraft:icon": "cb2_crystal_wand",
@@ -22,8 +23,9 @@
 				"slot": "elytra",
 				"value": 14
 			},
+			"minecraft:max_stack_size": 1,
 			"minecraft:durability": {
-				"max_durability": 100
+				"max_durability": 8192
 			}
 		}
 	}

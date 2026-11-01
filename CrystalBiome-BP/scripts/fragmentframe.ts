@@ -1,5 +1,6 @@
 import { Block, BlockCustomComponent, Dimension, EnchantmentTypeUnknownIdError, Entity, EntityDamageCause, MolangVariableMap, system, Vector3, VectorXZ } from "@minecraft/server";
 import { crystalSpawnFn, SettingColor } from "./crystal-spawn-fn";
+import { Color } from "./crystal-biome";
 
 function lerp(start: number, end: number, t: number) {
     return start + (end - start) * t;
@@ -47,7 +48,7 @@ export const Barrier: BlockCustomComponent = {
         const select: VectorXZ = offset[Math.floor(Math.random() * offset.length)];
         const spawnId: string = ["cb2:crystal_guard", "cb2:crystal_wander"][Math.floor(Math.random() * 2)];
         const selectColor = ["red", "green", "blue", "yellow"][Math.random() * 4 | 0] as SettingColor;
-        crystalSpawnFn(dimension, spawnId, { x: loc.x + select.x, y: loc.y, z: loc.z + select.z }, selectColor).addTag(`cb2:barrier_guard_${loc.x}_${loc.y}_${loc.z}`);
+        crystalSpawnFn(dimension, spawnId, { x: loc.x + select.x, y: loc.y, z: loc.z + select.z }, Color[selectColor]).addTag(`cb2:barrier_guard_${loc.x}_${loc.y}_${loc.z}`);
     },
     onBreak({ block, dimension }) {
         particle(block, dimension, "cb2:cluster_fragment");

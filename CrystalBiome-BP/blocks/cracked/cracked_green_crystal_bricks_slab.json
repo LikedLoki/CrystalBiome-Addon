@@ -20,7 +20,8 @@
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "cb2_cracked_green_crystal_bricks",
-					"render_method": "opaque"
+					"render_method": "opaque",
+					"face_dimming": false
 				}
 			},
 			"minecraft:geometry": {
@@ -31,6 +32,7 @@
 				}
 			},
 			"minecraft:light_dampening": 0,
+			"minecraft:light_emission": 2,
 			"minecraft:map_color": "#72D7FF",
 			"tag:minecraft:is_pickaxe_item_destructible": {},
 			"minecraft:destructible_by_mining": {

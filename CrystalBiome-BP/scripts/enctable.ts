@@ -1,10 +1,11 @@
 import { system, BlockCustomComponent, Player, ItemStack, Container, EntityInventoryComponent, world, ItemEnchantableComponent, Enchantment, ItemDurabilityComponent } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import { CrystColor } from "./crystal-biome";
-import { getPlayerLanguage } from "./lang";
+import { getPlayerLanguage, Languages } from "./lang";
 
 type AllowedId = typeof allowedList[number];
 type AllowedItem = ItemStack & { typeId: AllowedId };
+type IngredientItems = keyof typeof translateMap["japanese"]
 type FirstToken = "rough" | "polished" | "refined";
 type SecondToken = "red" | "green" | "blue" | "yellow";
 type ThirdToken = "crystal";
@@ -13,22 +14,27 @@ type ArmorToken = ["green", "crystal", "helmet"] | ["blue", "crystal", "chestpla
 type IdTuple = [FirstToken, SecondToken, ThirdToken, FourthToken] | [FirstToken, ...ArmorToken];
 type IdString = `cb2:${FirstToken}_${SecondToken}_${ThirdToken}_${FourthToken}` | `cb2:${FirstToken}_${"green_crystal_helmet" | "blue_crystal_chestplate" | "red_crystal_leggings" | "yellow_crystal_boots"}`;
 type ItemRequired = {
-    typeId: string,
+    typeId: IngredientItems,
     amount: number
 };
 type Rank = {
     now: "rough" | "polished" | "refined",
     next: "rough" | "polished" | "refined" | "none",
 }
-const itmReq = (typeId: string, amount: number): ItemRequired => ({ typeId: typeId, amount: amount });
+const itmReq = (typeId: IngredientItems, amount: number): ItemRequired => ({ typeId: typeId, amount: amount });
 
 const getCost = (typeId: AllowedId): ItemRequired[] => {
     const fmt: string[] = typeId.replace("cb2:", "").split("_");
     const rank = fmt[0] as Rank["now"];
     const color = fmt[1] as CrystColor;
     const inlineColor = color === "blue" ? "" : color + "_";
-    if (rank === "rough") return [itmReq(`cb2:${color}_crystal_gem`, 8), itmReq(`cb2:${inlineColor}crystal_shard`, 8)];
-    else return [itmReq(`cb2:${color}_crystal_gem`, 16), itmReq(`cb2:${inlineColor}crystal_shard`, 12), itmReq(`cb2:${inlineColor}crystal_powder`, 12), itmReq("cb2:fristia_flower_item", 8)]
+    if (rank === "rough") {
+        const newTypeId = `cb2:${inlineColor}crystal_powder` as IngredientItems;
+        return [itmReq(`cb2:${color}_crystal_gem`, 4), itmReq(newTypeId, 8)];
+    } else {
+         const newTypeId_2 = `cb2:${inlineColor}crystal_powder` as IngredientItems;
+        return [itmReq(`cb2:${color}_crystal_gem`, 8), itmReq(newTypeId_2, 16), itmReq("cb2:fristia_flower_item", 8)]
+    }
 }
 const allowedList = [
     "cb2:rough_red_crystal_sword",
@@ -150,10 +156,10 @@ class ItemAdmin {
     get cost() {
         return this.#cost;
     }
-    costText(player: Player): string {
+    costText(player: Player, lang: Languages): string {
         let result = "";
         for (const { typeId, amount } of this.#cost)
-            result += (translateMap[getPlayerLanguage(player)][typeId as keyof typeof translateMap] + " * " + amount + "\n");
+            result += (translateMap[lang][typeId] + " * " + amount + "\n");
         return result;
     }
     get nextRankId(): string {
@@ -210,33 +216,44 @@ export const CPolishing: BlockCustomComponent = {
     onPlayerInteract({ dimension, player, block }) {
         if (!player) return;
 
+        const lang = getPlayerLanguage(player)
+
         const container: Container | undefined = player.getComponent("minecraft:inventory")?.container;
         const item: ItemStack | undefined = container?.getItem(player.selectedSlotIndex);
         if (!container || !item || !isAllowed(item)) return;
 
         const itemAdmin = new ItemAdmin(item);
 
-        let bodyText = "";
+        let bodyText = "\n";
         bodyText += `${itemAdmin.name ?? itemAdmin.typeId} \n`;
         bodyText += "----------------------------------\n\n"
-        bodyText += `§l必要な物§r: \n`
-        bodyText += itemAdmin.costText(player);
+        if (lang === "japanese") {
+            bodyText += `§l必要な物§r: \n`
+        } else {
+            bodyText += `§lRequired things§r: \n`
+        }
+        bodyText += itemAdmin.costText(player, lang);
 
         const form = new ActionFormData();
         form.title("cb2:enc_table");
-        form.button("研磨", itemAdmin.iconPath);
+        const buttonName = lang === "japanese" ? "研磨" : "Refine"
+        form.button(buttonName, itemAdmin.iconPath);
         form.body(bodyText);
         form.show(player).then(res => {
             if (res.canceled) return;
             if (res.selection === 0) {
                 const selectItem: ItemStack | undefined = container.getItem(player.selectedSlotIndex);
                 if (!selectItem || selectItem.typeId !== itemAdmin.typeId) {
-                    player.sendMessage("エラー!!!")
+                    player.sendMessage("エラー!!! ERROR!!!")
                     return;
                 }
                 const onClear: boolean = clearItem(itemAdmin.cost, container);
                 if (!onClear) {
-                    player.sendMessage("§7アイテムが足りません");
+                    if (lang === "japanese") {
+                        player.sendMessage("§7何らかのアイテムが足りません");
+                    } else {
+                        player.sendMessage("§7Some kind of item isn't enough");
+                    }
                     return;
                 };
                 const newItem: ItemStack = new ItemStack(itemAdmin.nextRankId, 1);
@@ -244,8 +261,9 @@ export const CPolishing: BlockCustomComponent = {
                 if (!newDur) return;
                 newDur.damage += itemAdmin.durDamage;
                 newItem.getComponent("enchantable")?.addEnchantments(itemAdmin.enchants);
-                newItem.setDynamicProperty("cb2:crystal_tools_skill", itemAdmin.skill)
-                newItem.setLore([`§r§7| 修練度 -> ${itemAdmin.skill}`])
+                newItem.setDynamicProperty("cb2:crystal_tools_skill", itemAdmin.skill);
+                const loreName = lang === "japanese" ? "修練度" : "Skill-level"
+                newItem.setLore([`§r§7| ${loreName} -> ${itemAdmin.skill}`]);
                 container.setItem(player.selectedSlotIndex, newItem);
                 dimension.playSound("crystaling_polished", block.center());
                 dimension.spawnParticle("cb2:crystalenctable_use", block.center());

@@ -7,11 +7,16 @@
                     "type": "item",
                     "name": "cb2:crystal_heart",
                     "quality": 1
-                },
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
                 {
                     "type": "item",
                     "name": "cb2:crystal_heart_shard",
-                    "quality": 2
+                    "quality": 1
                 }
             ]
         }

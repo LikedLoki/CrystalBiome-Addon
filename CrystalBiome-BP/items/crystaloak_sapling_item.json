@@ -1,5 +1,5 @@
 {
-	"format_version": "1.20.80",
+	"format_version": "1.26.30",
 	"minecraft:item": {
 		"description": {
 			"identifier": "cb2:crystaloak_sapling_item",

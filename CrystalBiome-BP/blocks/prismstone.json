@@ -15,7 +15,6 @@
 					40, 40
 				]
 			},
-			"cb2:placeEntity": ["cb2:prismstone_entity"],
 			"cb2:prism_stone": {},
 						"minecraft:block_entity": {
 				"dynamic_properties": true

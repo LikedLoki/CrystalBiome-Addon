@@ -1,0 +1,22 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "cb2:crystal_orb"
+				}
+			]
+		},
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "cb2:crystal_crown"
+                }
+            ]
+        }
+	]
+}

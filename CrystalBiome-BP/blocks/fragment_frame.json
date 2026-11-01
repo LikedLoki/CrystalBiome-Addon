@@ -60,8 +60,22 @@
 					"tag:cb2:orbshard": {},
 					"tag:minecraft:is_pickaxe_item_destructible": {},
 					"minecraft:destructible_by_mining": {
-						"seconds_to_destroy": 12
+				"seconds_to_destroy": 1024,
+				"item_specific_speeds": [
+					{
+						"item":{
+							"tags": "cb2:polsihed_pickaxe"
+						},
+						"destroy_speed": 512
 					},
+					{
+						"item":{
+							"tags": "cb2:refined_pickaxe"
+						},
+						"destroy_speed": 1024
+					}
+				]
+			},
 					"minecraft:tick": {
 						"interval_range": [
 							60,
@@ -78,9 +92,7 @@
 			"minecraft:loot": "loot_tables/empty.json",
 			"cb2:fragment_frame": {},
 			"minecraft:destructible_by_explosion": false,
-			"minecraft:destructible_by_mining": {
-				"seconds_to_destroy": 999999999999
-			},
+			"minecraft:destructible_by_mining": false,
 			"minecraft:geometry": "minecraft:geometry.cross",
 			"minecraft:material_instances": {
 				"*": {

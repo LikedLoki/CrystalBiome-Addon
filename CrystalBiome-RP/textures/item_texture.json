@@ -391,6 +391,31 @@
 		},
 		"cb2_lang_set_paper": {
 			"textures": "textures/items/lang_set_paper"
+		},
+		"cb2_crystal_stick": {
+			"textures": "textures/items/crystal_stick_item"
+		},
+		"cb2_giant_strata_spawn_egg": {
+			"textures": "textures/items/giant_strata_spawn_egg"
+		},
+		"cb2_crystal_executor_spawn_egg": {
+			"textures": "textures/items/crystal_executor_spawn_egg"
+		},
+		"cb2_crystal_wanderment_spawn_egg": {
+			"textures": "textures/items/crystal_wanderment_spawn_egg"
+		},
+		"cb2_crystal_miracle_spawn_egg": {
+			"textures": "textures/items/crystal_miracle_spawn_egg"
+		},
+		"cb2_crystaling_spawn_egg": {
+			"textures": "textures/items/crystaling_spawn_egg"
+		},
+		"cb2_trader_crystaling_spawn_egg": {
+			"textures": "textures/items/trader_crystaling_spawn_egg"
+		},
+		"cb2_cluster_fragment_spawn_egg": {
+			"textures": "textures/items/cluster_fragment_spawn_egg"
 		}
+
 	}
 }

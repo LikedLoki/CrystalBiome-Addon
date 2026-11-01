@@ -24,7 +24,7 @@
 			"minecraft:icon": "cb2_polished_red_crystal_leggings",
 			"minecraft:wearable": {
 				"slot": "slot.armor.legs",
-				"protection": 5
+				"protection": 4
 			},
 			"minecraft:repairable": {
 				"repair_items": [

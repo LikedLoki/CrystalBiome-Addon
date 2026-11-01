@@ -1,4 +1,5 @@
 import { Block, BlockPermutation, Dimension, Entity, EntityApplyDamageOptions, EntityDamageCause, ItemCustomComponent, MolangVariableMap, system, Vector3 } from "@minecraft/server";
+import { Color, particleColor } from "./crystal-biome";
 const chainOffset: Vector3[] = [
     { x: 1, y: 0, z: 0 }, { x: -1, y: 0, z: 0 }, { x: 0, y: 1, z: 0 }, { x: 0, y: -1, z: 0 }, { x: 0, y: 0, z: 1 }, { x: 0, y: 0, z: -1 }
 ]
@@ -26,6 +27,8 @@ const chainBreak = (dimension: Dimension, location: Vector3, typeId: string, cur
     const selected = blockList[Math.floor(Math.random() * blockList.length)];
     const { x, y, z } = selected
     
+    particleColor.setColorRGB("variable.color", Color.green);
+    dimension.spawnParticle("cb2:crystal_particle", { x: x + 0.5, y: y + 0.5, z: z + 0.5 }, particleColor);
     dimension.runCommand(`setblock ${x} ${y} ${z} air destroy`)
     chainBreak(dimension, selected.location, selected.typeId, currentCount+1, maxCount)
 }

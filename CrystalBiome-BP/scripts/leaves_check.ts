@@ -29,7 +29,8 @@ export const CrystaloakLeaves: BlockCustomComponent = {
         if (newPerm > 0) block.setPermutation(block.permutation.withState("cb2:connect_level" as any, newPerm - 1));
         else {
             dimension.setBlockType(block.location, "minecraft:air");
-            const dropItem: ItemStack | undefined = Math.random() < 0.05 ? new ItemStack("cb2:crystal_sapling_item", 1) : undefined;
+            const selected = Math.random() < 0.5 ? new ItemStack("cb2:crystaloak_sapling_item", 1) : new ItemStack("cb2:crystal_apple", 1);
+            const dropItem: ItemStack | undefined = Math.random() < 0.1 ? selected : undefined;
             if (!dropItem) return;
             dimension.spawnItem(dropItem, block.location);
         }

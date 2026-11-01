@@ -65,7 +65,7 @@ export const Portal: Record<string, BlockCustomComponent> = {
 
                 // 演出
                 dimension.playSound("crystal.break", player.location);
-                player.runCommand("camera @s fade time 0.1 4 0.1");
+                player.runCommand("camera @a[r=6] fade time 0.1 4 0.1");
                 player.runCommand("inputpermission set @a[r=6] movement disabled");
                 player.runCommand("inputpermission set @a[r=6] camera disabled");
                 player.runCommand("hud @a[r=6] hide all");
@@ -134,7 +134,7 @@ export const Portal: Record<string, BlockCustomComponent> = {
                 block.setPermutation(block.permutation.withState("cb2:portal" as any, "in"))
                 // 演出
                 dimension.playSound("crystal.break", player.location);
-                player.runCommand("camera @s fade time 0.1 4 0.1");
+                player.runCommand("camera @a[r=6] fade time 0.1 4 0.1");
                 player.runCommand("inputpermission set @a[r=6] movement disabled");
                 player.runCommand("inputpermission set @a[r=6] camera disabled");
                 player.runCommand("hud @a[r=6] hide all");

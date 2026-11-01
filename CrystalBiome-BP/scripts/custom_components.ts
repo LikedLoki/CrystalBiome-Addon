@@ -44,6 +44,9 @@ import { StatuePose } from "./crystal_statue_pose";
 import { SelectLanguage } from "./lang";
 import { OnCrystalcap } from "./on_crystalcap";
 import { ClosedCrystal } from "./closed_crysal";
+import { StaffOfOrb } from "./staff_of_orb";
+import { CrystalOakSapling } from "./crystaloak_sapling";
+import { FenceGate } from "./fence_gate";
 
 system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRegistry }) => {
     blockComponentRegistry.registerCustomComponent("cb2:cluster_display", Display);
@@ -98,4 +101,7 @@ system.beforeEvents.startup.subscribe(({ blockComponentRegistry, itemComponentRe
     itemComponentRegistry.registerCustomComponent("cb2:set_lang", SelectLanguage);
     blockComponentRegistry.registerCustomComponent("cb2:on_crystalcap", OnCrystalcap);
     blockComponentRegistry.registerCustomComponent("cb2:closed_crystal", ClosedCrystal);
+    itemComponentRegistry.registerCustomComponent("cb2:staff_of_orb", StaffOfOrb);
+    blockComponentRegistry.registerCustomComponent("cb2:crystaloak_sapling", CrystalOakSapling);
+    blockComponentRegistry.registerCustomComponent("cb2:crystaloak_fencegate", FenceGate);
 })

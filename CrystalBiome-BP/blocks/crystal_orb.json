@@ -1,11 +1,17 @@
 {
-	"format_version": "1.21.80",
+	"format_version": "1.26.30",
 	"minecraft:block": {
 		"description": {
 			"identifier": "cb2:crystal_orb"
 		},
 		"components": {
-			"tag:cb2:crystal": {}
+			"minecraft:geometry": "minecraft:geometry.full_block",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "cb2_crystal_orb",
+					"face_dimming": false
+				}
+			}
 		}
 	}
 }

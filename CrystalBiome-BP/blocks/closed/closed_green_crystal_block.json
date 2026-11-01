@@ -33,13 +33,14 @@
 			"minecraft:material_instances": {
 				"*": {
 					"texture": "cb2_closed_green_crystal_block",
-					"render_method": "opaque"
+					"render_method": "opaque",
+					"face_dimming": false
 				}
 			},
 			"minecraft:collision_box": true,
 			"minecraft:selection_box": true,
 			"minecraft:light_dampening": 15,
-			"minecraft:light_emission": 0,
+			"minecraft:light_emission": 4,
 			"minecraft:friction": 0.4,
 			"minecraft:flammable": false,
 			"minecraft:loot": "loot_tables/blocks/closed/closed_green_crystal_block_lt.json",

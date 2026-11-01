@@ -31,7 +31,7 @@
 					}
 				]
 			},
-			"minecraft:damage": 3,
+			"minecraft:damage": 5,
 			"minecraft:enchantable": {
 				"value": 14,
 				"slot": "pickaxe"

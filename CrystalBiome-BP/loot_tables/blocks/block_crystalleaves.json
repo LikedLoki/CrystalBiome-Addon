@@ -23,7 +23,11 @@
 			"conditions": [
 				{
 					"condition": "match_tool",
-					"item": "minecraft:shears"
+					"minecraft:match_tool_filter_any": [
+						"cb2:yellow_crystal_sword",
+						"cb2:yellow_crystal_pickaxe",
+						"cb2:yellow_crystal_axe"
+					]
 				}
 			],
 			"rolls": 1,

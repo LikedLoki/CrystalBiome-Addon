@@ -38,7 +38,7 @@
 				"spike_up": "geometry.crystaling_up"
 			},
 			"spawn_egg": {
-				"texture": "cb2_crystal_spawn_egg"
+				"texture": "cb2_crystaling_spawn_egg"
 			},
 			"scripts": {
 				"animate": [

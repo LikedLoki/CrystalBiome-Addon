@@ -2,7 +2,7 @@ import { EntityDamageCause, Player, system, Vector3, world } from "@minecraft/se
 import { furnaceCancel } from "./crystal_furnace_cancel";
 import { wallNearby } from "./wall_other";
 import { ClusterBudBreak } from "./cluster_bud_break";
-import { SlayedClusterFragment, SlyaedExecutor, SlyaedWanderment } from "./crystal_guradual";
+import { SlayedClusterFragment, slayedCrystalKing, slayedCrystalMiracle, SlyaedExecutor, SlyaedWanderment } from "./crystal_guradual";
 import { PrismInfo } from "./crystal-biome";
 import { onBreak } from "./box_in_chest";
 import { PowderBottoleProj } from "./powder_bottle_proj";
@@ -11,9 +11,10 @@ import { orbspawnerDie } from "./crystal_horizon";
 import { orbSpawnerBreak, orbSpawnerFall } from "./orb_spawner";
 import { crystalKingHealthInterlocking } from "./crystal_king";
 import { giveSetLang } from "./lang";
+import { fenceNearby } from "./fence_other";
+import { fenceGateNearby } from "./fence_gate";
 
 world.afterEvents.playerSpawn.subscribe(event => {
-    console.log("v")
     giveSetLang(event);
 })
 world.afterEvents.projectileHitBlock.subscribe((event) => {
@@ -28,6 +29,8 @@ world.beforeEvents.playerBreakBlock.subscribe((event) => {
 world.afterEvents.playerBreakBlock.subscribe(event => {
     const { dimension, block } = event;
     wallNearby(dimension, block);
+    fenceNearby(dimension, block);
+    fenceGateNearby(dimension, block);
     furnaceCancel(dimension, block);
     ClusterBudBreak(dimension, block)
     ToolSkillLevel.tools(event)
@@ -35,6 +38,8 @@ world.afterEvents.playerBreakBlock.subscribe(event => {
 })
 world.afterEvents.playerPlaceBlock.subscribe((event) => {
     wallNearby(event.dimension, event.block);
+    fenceNearby(event.dimension, event.block);
+    fenceGateNearby(event.dimension, event.block);
 })
 world.afterEvents.entityHitEntity.subscribe((event) => {
     const { damagingEntity } = event
@@ -52,6 +57,8 @@ world.afterEvents.entityDie.subscribe(event => {
     SlayedClusterFragment(world, deadEntity)
     SlyaedExecutor(world, deadEntity)
     SlyaedWanderment(world, deadEntity)
+    slayedCrystalKing(event)
+    slayedCrystalMiracle(event)
     orbspawnerDie(event);
     CrystalGemDrop.sword(event)
     if (deadEntity instanceof Player) {

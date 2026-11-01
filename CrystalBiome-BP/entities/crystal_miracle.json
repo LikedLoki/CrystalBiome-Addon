@@ -39,16 +39,7 @@
         ]
       },
       "minecraft:loot": {
-        "table": "loot_tables/crystal_king_drop.json"
-      },
-      "minecraft:equipment": {
-        "table": "loot_tables/crystal_king_weapon.json",
-        "slot_drop_chance": [
-          {
-            "slot": "slot.armor.head",
-            "drop_chance": 100
-          }
-        ]
+        "table": "loot_tables/entity/crystal_miracle_loot.json"
       },
 	  "minecraft:follow_range": {
 		"value": 128,

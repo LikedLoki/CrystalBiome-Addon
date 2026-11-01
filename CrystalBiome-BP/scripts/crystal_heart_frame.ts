@@ -1,13 +1,5 @@
-import { Block, BlockCustomComponent, Container, Dimension, Entity, ItemStack, MolangVariableMap, Player, system, VanillaEntityIdentifier, Vector3, VectorXZ } from "@minecraft/server";
-import { sleep } from "./other.js";
+import { Block, BlockCustomComponent, BlockVolume, Container, Dimension, Entity, ItemStack, MolangVariableMap, Player, system, Vector3, VectorXZ } from "@minecraft/server";
 import { particleColor } from "./crystal-biome.js";
-
-const binaryMap: VectorXZ[] = [
-    { x: 8, z: 0 },
-    { x: -8, z: 0 },
-    { x: 0, z: 8 },
-    { x: 0, z: -8 }
-];
 
 export const HeartFrame: BlockCustomComponent = {
     onPlayerInteract({ block, dimension, player }) {
@@ -22,7 +14,6 @@ export const HeartFrame: BlockCustomComponent = {
             "location": block.center()
         })[0];
         if (!boss) return;
-        console.log("s")
 
         const { x, z } = block.center();
         const { x: dx, z: dz } = boss.location;

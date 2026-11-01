@@ -15,7 +15,9 @@
 			"render_controllers": [
 				"controller.render.chestentity"
 			],
-			"spawn_egg": {}
+			"spawn_egg": {
+				"texture": "cb2_giant_strata_spawn_egg"
+			}
 		}
 	}
 }
